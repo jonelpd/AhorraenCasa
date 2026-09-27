@@ -54,13 +54,16 @@ def main():
     output={"updatedAt":datetime.now(timezone.utc).isoformat(),"marketplace":MARKETPLACE,"products":{}}
 
     asins=[p["asin"] for p in catalog["products"] if p.get("asin")]
+    asin_to_id={p["asin"]:p["id"] for p in catalog["products"] if p.get("asin") and p.get("id")}
     for i in range(0,len(asins),10):
         payload={"itemIds":asins[i:i+10],"itemIdType":"ASIN","marketplace":MARKETPLACE,
                  "partnerTag":PARTNER_TAG,
                  "resources":["itemInfo.title","offersV2.listings.price","offersV2.listings.availability"]}
         data=call("/getItems",payload,access)
         for item in (data.get("itemsResult") or {}).get("items",[]):
-            output["products"][item["asin"]]=normalize(item)
+            key=asin_to_id.get(item.get("asin"), item.get("asin"))
+            if key:
+                output["products"][key]=normalize(item)
         time.sleep(1)
 
     for p in [x for x in catalog["products"] if x.get("keywords")]:
