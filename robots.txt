@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://jonelpd.github.io/AhorraenCasa/sitemap.xml
