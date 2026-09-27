@@ -38,6 +38,7 @@ for page in html_files:
     if re.search(r"https?://(?:www\.)?leroymerlin\.es", text, re.I):
         errors.append(f"{rel}: Leroy Merlin link remains")
     if re.search(r"""(?:href|src)\s*=\s*["']/[^/][^"']*""", text, re.I):
+        errors.append(f"{rel}: root-absolute internal URL may break on GitHub Pages")
     if re.search(r'href=["\']#["\']', text, re.I):
         errors.append(f"{rel}: empty # link remains")
     if len(re.findall(r"<title>", text, re.I)) != 1:
@@ -49,8 +50,6 @@ for page in html_files:
     for am in re.findall(r'(?:href|src)=["\']([^"\']*amazon\.es[^"\']*)["\']', text, re.I):
         if not re.search(r'[?&]tag=jonelpd-21(?:&|$)', am, re.I):
             errors.append(f"{rel}: Amazon link without tag=jonelpd-21 -> {am}")
-
-        errors.append(f"{rel}: root-absolute internal URL may break on GitHub Pages")
     for m in re.finditer(r"""(?:href|src)\s*=\s*["']([^"']+)["']""", text, re.I):
         href=m.group(1).strip()
         if not href or href.startswith(("#","mailto:","tel:","javascript:","data:")):
