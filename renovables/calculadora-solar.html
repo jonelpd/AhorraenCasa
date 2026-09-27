@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Calculadora solar: ahorro y autoconsumo | AhorraEnCasa</title>
+<meta name="description" content="Estima de forma orientativa la producción solar, autoconsumo y ahorro anual de una instalación fotovoltaica.">
+<link rel="canonical" href="https://jonelpd.github.io/AhorraenCasa/renovables/calculadora-solar.html">
+<style>body{margin:0;background:#f7faf8;color:#17221b;font:16px/1.65 system-ui,-apple-system,Segoe UI,Roboto,Arial}.wrap{max-width:900px;margin:auto;padding:0 22px}header{background:#fff;border-bottom:1px solid #dce7df}.nav{min-height:68px;display:flex;justify-content:space-between;align-items:center}.nav a{color:#0f5132;font-weight:800;text-decoration:none}.hero{background:#e9f7ef;padding:48px 0}h1{font-size:clamp(35px,6vw,54px);line-height:1.05}.card{background:#fff;border:1px solid #dce7df;border-radius:18px;padding:25px;margin:22px 0}.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.field label{display:block;font-weight:800;font-size:13px;margin-bottom:5px}.field input{width:100%;box-sizing:border-box;padding:11px;border:1px solid #cfdad2;border-radius:9px;font-size:16px}.result{background:#e9f7ef;border-radius:14px;padding:18px;margin-top:18px}.result strong{font-size:28px;color:#0f5132}.btn{border:0;background:#157347;color:#fff;padding:12px 17px;border-radius:9px;font-weight:800;cursor:pointer}.note{font-size:13px;color:#66756c}a{color:#0f5132;font-weight:800}@media(max-width:650px){.grid{grid-template-columns:1fr}}</style>
+</head><body><header><div class="wrap nav"><a href="../">AhorraEnCasa ⚡</a><a href="./">Renovables</a></div></header>
+<section class="hero"><div class="wrap"><h1>Calculadora solar orientativa</h1><p>Haz una primera estimación de producción y ahorro. No sustituye un estudio profesional de la instalación.</p></div></section>
+<main class="wrap"><div class="card"><h2>Tus datos</h2><div class="grid">
+<div class="field"><label for="kw">Potencia fotovoltaica (kWp)</label><input id="kw" type="number" value="3" min="0" step=".1"></div>
+<div class="field"><label for="sun">Horas solares equivalentes/día</label><input id="sun" type="number" value="4" min="0" step=".1"></div>
+<div class="field"><label for="self">Porcentaje autoconsumido (%)</label><input id="self" type="number" value="60" min="0" max="100"></div>
+<div class="field"><label for="price">Precio energía (€/kWh)</label><input id="price" type="number" value=".20" min="0" step=".01"></div>
+</div><p><button class="btn" onclick="calc()">Calcular</button></p><div class="result" id="out">Introduce tus datos y calcula.</div></div>
+<div class="card"><h2>¿Cómo se calcula?</h2><p>La estimación básica utiliza potencia × horas solares equivalentes × días. Después se aplica el porcentaje de energía autoconsumida y el precio indicado para obtener un ahorro orientativo.</p><p class="note">La producción real depende de ubicación, orientación, inclinación, sombras, temperatura, pérdidas, inversor y características de los módulos. El IDAE señala que la ubicación y la coincidencia entre producción y consumo son factores relevantes. </p></div>
+<p><a href="./">← Volver al Centro Solar</a></p></main>
+<script>
+function calc(){const kw=Math.max(0,parseFloat(document.getElementById("kw").value)||0),sun=Math.max(0,parseFloat(document.getElementById("sun").value)||0),self=Math.min(100,Math.max(0,parseFloat(document.getElementById("self").value)||0))/100,price=Math.max(0,parseFloat(document.getElementById("price").value)||0);const annual=kw*sun*365,auto=annual*self,saving=auto*price;document.getElementById("out").innerHTML="<strong>"+annual.toLocaleString("es-ES",{maximumFractionDigits:0})+" kWh/año</strong><br>Producción estimada<br><br><strong>"+auto.toLocaleString("es-ES",{maximumFractionDigits:0})+" kWh/año</strong><br>Consumo solar directo estimado<br><br><strong>"+saving.toLocaleString("es-ES",{style:"currency",currency:"EUR"})+" / año</strong><br>Ahorro orientativo por energía autoconsumida."}
+calc();
+</script></body></html>
