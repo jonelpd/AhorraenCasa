@@ -83,7 +83,7 @@ if sitemap_path.exists():
     for loc in locs:
         if loc.startswith(base):
             rel=loc[len(base):]
-            sitemap_paths.add((rel+"index.html") if rel.endswith("/") else rel)
+            sitemap_paths.add("index.html" if not rel else ((rel+"index.html") if rel.endswith("/") else rel))
     expected={p.relative_to(ROOT).as_posix() for p in html_files}
     for missing in sorted(expected-sitemap_paths):
         errors.append(f"sitemap.xml: HTML page missing from sitemap -> {missing}")
