@@ -1,20 +1,109 @@
 <!doctype html>
-<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Calculadora solar: ahorro y autoconsumo | AhorraEnCasa</title>
-<meta name="description" content="Estima de forma orientativa la producción solar, autoconsumo y ahorro anual de una instalación fotovoltaica.">
+<html lang="es">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Calculadora solar: ahorro, autoconsumo y amortización | AhorraEnCasa</title>
+<meta name="description" content="Calcula de forma orientativa producción solar, autoconsumo, excedentes, ahorro anual, inversión y plazo simple de recuperación de una instalación fotovoltaica.">
 <link rel="canonical" href="https://jonelpd.github.io/AhorraenCasa/renovables/calculadora-solar.html">
-<style>body{margin:0;background:#f7faf8;color:#17221b;font:16px/1.65 system-ui,-apple-system,Segoe UI,Roboto,Arial}.wrap{max-width:900px;margin:auto;padding:0 22px}header{background:#fff;border-bottom:1px solid #dce7df}.nav{min-height:68px;display:flex;justify-content:space-between;align-items:center}.nav a{color:#0f5132;font-weight:800;text-decoration:none}.hero{background:#e9f7ef;padding:48px 0}h1{font-size:clamp(35px,6vw,54px);line-height:1.05}.card{background:#fff;border:1px solid #dce7df;border-radius:18px;padding:25px;margin:22px 0}.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.field label{display:block;font-weight:800;font-size:13px;margin-bottom:5px}.field input{width:100%;box-sizing:border-box;padding:11px;border:1px solid #cfdad2;border-radius:9px;font-size:16px}.result{background:#e9f7ef;border-radius:14px;padding:18px;margin-top:18px}.result strong{font-size:28px;color:#0f5132}.btn{border:0;background:#157347;color:#fff;padding:12px 17px;border-radius:9px;font-weight:800;cursor:pointer}.note{font-size:13px;color:#66756c}a{color:#0f5132;font-weight:800}@media(max-width:650px){.grid{grid-template-columns:1fr}}</style>
-</head><body><header><div class="wrap nav"><a href="../">AhorraEnCasa ⚡</a><a href="./">Renovables</a></div></header>
-<section class="hero"><div class="wrap"><h1>Calculadora solar orientativa</h1><p>Haz una primera estimación de producción y ahorro. No sustituye un estudio profesional de la instalación.</p></div></section>
-<main class="wrap"><div class="card"><h2>Tus datos</h2><div class="grid">
-<div class="field"><label for="kw">Potencia fotovoltaica (kWp)</label><input id="kw" type="number" value="3" min="0" step=".1"></div>
-<div class="field"><label for="sun">Horas solares equivalentes/día</label><input id="sun" type="number" value="4" min="0" step=".1"></div>
-<div class="field"><label for="self">Porcentaje autoconsumido (%)</label><input id="self" type="number" value="60" min="0" max="100"></div>
-<div class="field"><label for="price">Precio energía (€/kWh)</label><input id="price" type="number" value=".20" min="0" step=".01"></div>
-</div><p><button class="btn" onclick="calc()">Calcular</button></p><div class="result" id="out">Introduce tus datos y calcula.</div></div>
-<div class="card"><h2>¿Cómo se calcula?</h2><p>La estimación básica utiliza potencia × horas solares equivalentes × días. Después se aplica el porcentaje de energía autoconsumida y el precio indicado para obtener un ahorro orientativo.</p><p class="note">La producción real depende de ubicación, orientación, inclinación, sombras, temperatura, pérdidas, inversor y características de los módulos. El IDAE señala que la ubicación y la coincidencia entre producción y consumo son factores relevantes. </p></div>
-<p><a href="./">← Volver al Centro Solar</a></p></main>
+<meta property="og:title" content="Calculadora solar: ahorro y autoconsumo | AhorraEnCasa">
+<meta property="og:description" content="Estima producción, autoconsumo, excedentes, ahorro anual e inversión de una instalación solar.">
+<style>
+body{margin:0;background:#f7faf8;color:#17221b;font:16px/1.65 system-ui,-apple-system,Segoe UI,Roboto,Arial}.wrap{max-width:980px;margin:auto;padding:0 22px}
+header{background:#fff;border-bottom:1px solid #dce7df}.nav{min-height:68px;display:flex;justify-content:space-between;align-items:center;gap:18px}.nav a{color:#0f5132;font-weight:800;text-decoration:none}
+.hero{background:linear-gradient(135deg,#e9f7ef,#fff);padding:48px 0}.hero h1{font-size:clamp(34px,6vw,54px);line-height:1.05;margin:8px 0 14px}.lead{max-width:820px;color:#526057;font-size:18px}
+.card{background:#fff;border:1px solid #dce7df;border-radius:18px;padding:25px;margin:22px 0}.grid{display:grid;grid-template-columns:1fr 1fr;gap:15px}
+.field label{display:block;font-weight:800;font-size:13px;margin-bottom:5px}.field input{width:100%;box-sizing:border-box;padding:11px;border:1px solid #cfdad2;border-radius:9px;font-size:16px}.help{font-size:12px;color:#66756c;margin-top:4px}
+.btn{border:0;background:#157347;color:#fff;padding:12px 18px;border-radius:9px;font-weight:800;cursor:pointer}.btn.secondary{background:#e9f7ef;color:#0f5132}
+.results{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:20px}.metric{background:#f7faf8;border:1px solid #dce7df;border-radius:13px;padding:15px}.metric strong{display:block;font-size:23px;color:#0f5132}.metric small{color:#66756c}
+.scenarios{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.scenario{border:1px solid #dce7df;border-radius:13px;padding:15px}.scenario strong{font-size:21px;color:#0f5132}
+.note{font-size:13px;color:#66756c}.formula{background:#f7faf8;border-radius:12px;padding:16px}
+a{color:#0f5132;font-weight:800}
+@media(max-width:760px){.grid,.results,.scenarios{grid-template-columns:1fr 1fr}}@media(max-width:520px){.grid,.results,.scenarios{grid-template-columns:1fr}}
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Calculadora solar AhorraEnCasa","applicationCategory":"UtilitiesApplication","operatingSystem":"Web","url":"https://jonelpd.github.io/AhorraenCasa/renovables/calculadora-solar.html","description":"Calculadora orientativa de producción, autoconsumo, ahorro e inversión fotovoltaica."}</script>
+</head>
+<body>
+<header><div class="wrap nav"><a href="../">AhorraEnCasa ⚡</a><a href="./">Renovables</a></div></header>
+<section class="hero"><div class="wrap"><h1>Calculadora solar orientativa</h1><p class="lead">Haz una primera estimación de cuánto puede producir una instalación fotovoltaica, cuánto autoconsumes, qué excedente quedaría y cuánto podría representar el ahorro anual frente a la inversión.</p></div></section>
+<main class="wrap">
+<div class="card">
+<h2>1. Datos de tu vivienda</h2>
+<div class="grid">
+<div class="field"><label for="cons">Consumo eléctrico mensual (kWh)</label><input id="cons" type="number" value="300" min="0" step="1"><div class="help">Mira una factura reciente o tu área de cliente.</div></div>
+<div class="field"><label for="price">Precio de la energía (€/kWh)</label><input id="price" type="number" value="0.20" min="0" step="0.01"></div>
+<div class="field"><label for="kw">Potencia fotovoltaica (kWp)</label><input id="kw" type="number" value="3" min="0" step="0.1"></div>
+<div class="field"><label for="sun">Horas solares equivalentes/día</label><input id="sun" type="number" value="4" min="0" step="0.1"><div class="help">Valor simplificado para una primera aproximación.</div></div>
+<div class="field"><label for="self">Autoconsumo directo de la producción (%)</label><input id="self" type="number" value="60" min="0" max="100"><div class="help">Parte de la energía solar que utilizas mientras se genera.</div></div>
+<div class="field"><label for="export">Valor estimado del excedente (€/kWh)</label><input id="export" type="number" value="0.07" min="0" step="0.01"><div class="help">Introduce el valor que te ofrezca tu comercializadora.</div></div>
+</div>
+<h2>2. Inversión</h2>
+<div class="grid">
+<div class="field"><label for="install">Coste de instalación (€)</label><input id="install" type="number" value="6000" min="0" step="100"></div>
+<div class="field"><label for="battery">Capacidad de batería (kWh)</label><input id="battery" type="number" value="0" min="0" step="0.5"><div class="help">Para esta estimación se usa como capacidad adicional, no como estudio horario.</div></div>
+<div class="field"><label for="batteryCost">Coste de batería (€)</label><input id="batteryCost" type="number" value="0" min="0" step="100"></div>
+<div class="field"><label for="degradation">Degradación anual estimada (%)</label><input id="degradation" type="number" value="0.5" min="0" max="10" step="0.1"></div>
+</div>
+<p><button class="btn" onclick="calc()">Calcular estimación</button> <button class="btn secondary" onclick="resetCalc()">Restablecer</button></p>
+<div id="out" class="card" style="margin-bottom:0"></div>
+</div>
+
+<div class="card">
+<h2>¿Qué significa el resultado?</h2>
+<div class="formula"><strong>Producción anual:</strong> kWp × horas solares equivalentes/día × 365.</div>
+<p>La energía autoconsumida se estima aplicando el porcentaje indicado. El resto se considera excedente y se valora con el precio que introduzcas. El ahorro anual combina ambos conceptos y se compara con la inversión para calcular un plazo simple de recuperación.</p>
+<p class="note">La estimación no modela hora a hora la curva de producción y consumo. En una instalación real influyen ubicación, orientación, inclinación, sombras, temperatura, pérdidas, inversor, hábitos de consumo y condiciones del contrato. El IDAE destaca especialmente la ubicación, la orientación, las sombras y la coincidencia entre producción y consumo. citeturn0search0</p>
+</div>
+
+<div class="card">
+<h2>Escenarios a largo plazo</h2>
+<p>Estos valores son escenarios matemáticos, no una promesa de rentabilidad. Se aplica la degradación anual indicada a la producción y se mantiene constante el precio introducido.</p>
+<div id="scenarios" class="scenarios"></div>
+</div>
+
+<div class="card">
+<h2>Antes de tomar una decisión</h2>
+<ul>
+<li>Compara varios presupuestos y revisa qué equipos, instalación, legalización y garantías están incluidos.</li>
+<li>Analiza cuánto consumes durante las horas solares: una mayor coincidencia puede aumentar el ahorro directo.</li>
+<li>Si valoras una batería, compara su coste con el ahorro adicional que realmente puede aportar.</li>
+<li>Comprueba las condiciones de compensación de excedentes de tu comercializadora.</li>
+</ul>
+<p>El IDAE recomienda solicitar varios presupuestos y dispone de guías actualizadas sobre autoconsumo, incluidas guías de 2026 para convertirse en autoconsumidor y para comunidades de propietarios. citeturn0search1</p>
+</div>
+<p><a href="./">← Volver al Centro Solar</a></p>
+</main>
 <script>
-function calc(){const kw=Math.max(0,parseFloat(document.getElementById("kw").value)||0),sun=Math.max(0,parseFloat(document.getElementById("sun").value)||0),self=Math.min(100,Math.max(0,parseFloat(document.getElementById("self").value)||0))/100,price=Math.max(0,parseFloat(document.getElementById("price").value)||0);const annual=kw*sun*365,auto=annual*self,saving=auto*price;document.getElementById("out").innerHTML="<strong>"+annual.toLocaleString("es-ES",{maximumFractionDigits:0})+" kWh/año</strong><br>Producción estimada<br><br><strong>"+auto.toLocaleString("es-ES",{maximumFractionDigits:0})+" kWh/año</strong><br>Consumo solar directo estimado<br><br><strong>"+saving.toLocaleString("es-ES",{style:"currency",currency:"EUR"})+" / año</strong><br>Ahorro orientativo por energía autoconsumida."}
+function n(id){return Math.max(0,parseFloat(document.getElementById(id).value)||0)}
+function euro(v){return v.toLocaleString("es-ES",{style:"currency",currency:"EUR",maximumFractionDigits:0})}
+function num(v){return v.toLocaleString("es-ES",{maximumFractionDigits:0})}
+function calc(){
+ const cons=n("cons"), price=n("price"), kw=n("kw"), sun=n("sun");
+ const self=Math.min(100,n("self"))/100, exportPrice=n("export");
+ const install=n("install"), battery=n("battery"), batteryCost=n("batteryCost"), deg=Math.min(10,n("degradation"))/100;
+ const annualConsumption=cons*12, production=kw*sun*365;
+ const direct=Math.min(production*self,annualConsumption), surplus=Math.max(0,production-direct);
+ const gridSaving=direct*price, surplusValue=surplus*exportPrice;
+ const annualSaving=gridSaving+surplusValue, investment=install+batteryCost;
+ const payback=annualSaving>0?investment/annualSaving:null;
+ const batteryNote=battery>0?("Batería introducida: "+battery.toLocaleString("es-ES",{maximumFractionDigits:1})+" kWh. Su efecto real requiere un cálculo horario; no se suma automáticamente al ahorro para evitar sobreestimarlo."): "Sin batería.";
+ document.getElementById("out").innerHTML='<h2>Resultado</h2><div class="results">'+
+ '<div class="metric"><strong>'+num(production)+' kWh</strong><small>Producción solar/año</small></div>'+
+ '<div class="metric"><strong>'+num(direct)+' kWh</strong><small>Consumo solar directo/año</small></div>'+
+ '<div class="metric"><strong>'+num(surplus)+' kWh</strong><small>Excedente estimado/año</small></div>'+
+ '<div class="metric"><strong>'+euro(gridSaving)+'</strong><small>Ahorro por energía autoconsumida/año</small></div>'+
+ '<div class="metric"><strong>'+euro(surplusValue)+'</strong><small>Valor estimado del excedente/año</small></div>'+
+ '<div class="metric"><strong>'+euro(annualSaving)+'</strong><small>Ahorro económico estimado/año</small></div>'+
+ '<div class="metric"><strong>'+euro(investment)+'</strong><small>Inversión introducida</small></div>'+
+ '<div class="metric"><strong>'+(payback===null?"—":payback.toLocaleString("es-ES",{maximumFractionDigits:1})+" años")+'</strong><small>Recuperación simple</small></div>'+
+ '<div class="metric"><strong>'+num(annualConsumption)+' kWh</strong><small>Consumo anual introducido</small></div></div><p class="note">'+batteryNote+'</p>';
+ const years=[10,20,25];
+ document.getElementById("scenarios").innerHTML=years.map(y=>{
+   let total=0;
+   for(let i=0;i<y;i++){const factor=Math.pow(1-deg,i);const p=production*factor;const d=Math.min(p*self,annualConsumption);const s=Math.max(0,p-d);total+=d*price+s*exportPrice}
+   return '<div class="scenario"><strong>'+y+' años</strong><p>Ahorro acumulado estimado: <b>'+euro(total)+'</b></p><small>Sin descontar mantenimiento, financiación, cambios de precio ni sustituciones.</small></div>'
+ }).join("");
+}
+function resetCalc(){["cons","price","kw","sun","self","export","install","battery","batteryCost","degradation"].forEach((id,i)=>document.getElementById(id).value=["300","0.20","3","4","60","0.07","6000","0","0","0.5"][i]);calc()}
 calc();
-</script></body></html>
+</script>
+</body></html>
