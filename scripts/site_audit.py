@@ -104,7 +104,7 @@ for page in html_files:
     for url in re.findall(r'<link[^>]+hreflang=["\'][^"\']+["\'][^>]+href=["\']([^"\']+)', text, re.I):
         if url.startswith("https://jonelpd.github.io/AhorraenCasa/"):
             target=url.split("https://jonelpd.github.io/AhorraenCasa/",1)[1]
-            target=(target+"index.html") if target.endswith("/") else target
+            target="index.html" if not target else ((target+"index.html") if target.endswith("/") else target)
             if target not in all_paths:
                 errors.append(f"{rel}: hreflang target missing -> {url}")
 
