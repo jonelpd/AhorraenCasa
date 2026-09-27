@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
-<url><loc>https://jonelpd.github.io/AhorraenCasa/</loc></url>
+<url><loc>https://jonelpd.github.io/AhorraenCasa/</loc><xhtml:link rel="alternate" hreflang="es" href="https://jonelpd.github.io/AhorraenCasa/"/><xhtml:link rel="alternate" hreflang="en" href="https://jonelpd.github.io/AhorraenCasa/en/"/><xhtml:link rel="alternate" hreflang="zh-Hans" href="https://jonelpd.github.io/AhorraenCasa/zh/"/><xhtml:link rel="alternate" hreflang="hi" href="https://jonelpd.github.io/AhorraenCasa/hi/"/><xhtml:link rel="alternate" hreflang="x-default" href="https://jonelpd.github.io/AhorraenCasa/"/></url>
 <url>
 <loc>https://jonelpd.github.io/AhorraenCasa/guias/como-medir-consumo-electrodomestico.html</loc>
 <xhtml:link rel="alternate" hreflang="es" href="https://jonelpd.github.io/AhorraenCasa/guias/como-medir-consumo-electrodomestico.html"/>
@@ -141,4 +141,7 @@
 <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://jonelpd.github.io/AhorraenCasa/zh/guides/10-formas-reducir-consumo-electrico.html"/>
 <xhtml:link rel="alternate" hreflang="hi" href="https://jonelpd.github.io/AhorraenCasa/hi/guides/10-formas-reducir-consumo-electrico.html"/>
 </url>
+<url><loc>https://jonelpd.github.io/AhorraenCasa/en/</loc><xhtml:link rel="alternate" hreflang="es" href="https://jonelpd.github.io/AhorraenCasa/"/><xhtml:link rel="alternate" hreflang="en" href="https://jonelpd.github.io/AhorraenCasa/en/"/><xhtml:link rel="alternate" hreflang="zh-Hans" href="https://jonelpd.github.io/AhorraenCasa/zh/"/><xhtml:link rel="alternate" hreflang="hi" href="https://jonelpd.github.io/AhorraenCasa/hi/"/><xhtml:link rel="alternate" hreflang="x-default" href="https://jonelpd.github.io/AhorraenCasa/"/></url>
+<url><loc>https://jonelpd.github.io/AhorraenCasa/zh/</loc><xhtml:link rel="alternate" hreflang="es" href="https://jonelpd.github.io/AhorraenCasa/"/><xhtml:link rel="alternate" hreflang="en" href="https://jonelpd.github.io/AhorraenCasa/en/"/><xhtml:link rel="alternate" hreflang="zh-Hans" href="https://jonelpd.github.io/AhorraenCasa/zh/"/><xhtml:link rel="alternate" hreflang="hi" href="https://jonelpd.github.io/AhorraenCasa/hi/"/><xhtml:link rel="alternate" hreflang="x-default" href="https://jonelpd.github.io/AhorraenCasa/"/></url>
+<url><loc>https://jonelpd.github.io/AhorraenCasa/hi/</loc><xhtml:link rel="alternate" hreflang="es" href="https://jonelpd.github.io/AhorraenCasa/"/><xhtml:link rel="alternate" hreflang="en" href="https://jonelpd.github.io/AhorraenCasa/en/"/><xhtml:link rel="alternate" hreflang="zh-Hans" href="https://jonelpd.github.io/AhorraenCasa/zh/"/><xhtml:link rel="alternate" hreflang="hi" href="https://jonelpd.github.io/AhorraenCasa/hi/"/><xhtml:link rel="alternate" hreflang="x-default" href="https://jonelpd.github.io/AhorraenCasa/"/></url>
 </urlset>
