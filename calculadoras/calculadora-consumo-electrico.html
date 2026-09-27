@@ -125,6 +125,7 @@ document.querySelectorAll("[data-preset]").forEach(btn=>btn.addEventListener("cl
 const p=presets[btn.dataset.preset];fields.forEach(id=>{if(p[id]!==undefined)$(id).value=p[id]});calc();
 }));
 $("reset").addEventListener("click",()=>{Object.assign(presets.reset||{},{});$("power").value=1000;$("hours").value=2;$("days").value=30;$("price").value=.18;$("standby").value=0;$("standbyHours").value=0;$("name").value="";calc()});
+const params=new URLSearchParams(location.search);const preset=params.get("preset");if(preset&&presets[preset]){const p=presets[preset];fields.forEach(id=>{if(p[id]!==undefined)$(id).value=p[id]});}
 calc();
 </script>
 </body>
