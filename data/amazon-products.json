@@ -9,11 +9,11 @@
     {"id":"lexman-medidor-consumo","keywords":"LEXMAN medidor consumo electrico enchufe","searchIndex":"ToolsAndHomeImprovement"},
     {"id":"perel-e305em5-g","keywords":"Perel E305EM5-G","searchIndex":"ToolsAndHomeImprovement"},
     {"id":"medidor-16a-3680w","keywords":"medidor consumo electrico 16A 3680W","searchIndex":"ToolsAndHomeImprovement"},
-    {"id":"philips-led-e27-470","keywords":"Philips LED E27 470 lm","searchIndex":"Lighting"},
-    {"id":"philips-led-e27-806","keywords":"Philips LED E27 806 lm","searchIndex":"Lighting"},
-    {"id":"philips-led-e14-470","keywords":"Philips LED E14 470 lm","searchIndex":"Lighting"},
-    {"id":"philips-led-gu10-345","keywords":"Philips LED GU10 345 lm","searchIndex":"Lighting"},
-    {"id":"philips-led-e27-1521","keywords":"Philips LED E27 1521 lm","searchIndex":"Lighting"},
-    {"id":"smart-led-e27-1055","keywords":"bombilla LED E27 1055 lm inteligente Matter","searchIndex":"Lighting"}
+    {"id":"philips-led-e27-470","keywords":"Philips LED E27 470 lm","searchIndex":"All"},
+    {"id":"philips-led-e27-806","keywords":"Philips LED E27 806 lm","searchIndex":"All"},
+    {"id":"philips-led-e14-470","keywords":"Philips LED E14 470 lm","searchIndex":"All"},
+    {"id":"philips-led-gu10-345","keywords":"Philips LED GU10 345 lm","searchIndex":"All"},
+    {"id":"philips-led-e27-1521","keywords":"Philips LED E27 1521 lm","searchIndex":"All"},
+    {"id":"smart-led-e27-1055","keywords":"bombilla LED E27 1055 lm inteligente Matter","searchIndex":"All"}
   ]
 }
