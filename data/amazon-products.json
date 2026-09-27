@@ -1,0 +1,19 @@
+{
+  "products": [
+    {"id":"tapo-p110","asin":"B0B82ZQZS8"},
+    {"id":"meross-mss315","asin":"B0F4WHXKRP"},
+    {"id":"energeeks-16a","keywords":"ENERGEEKS WiFi 16A medidor consumo","searchIndex":"Electronics"},
+    {"id":"lexman-enki-16a","keywords":"LEXMAN ENKI 16A medidor consumo","searchIndex":"Electronics"},
+    {"id":"shelly-plug-s-mtr-gen3","keywords":"Shelly Plug S MTR Gen3","searchIndex":"Electronics"},
+    {"id":"sonoff-s60","keywords":"SONOFF S60 medidor consumo","searchIndex":"Electronics"},
+    {"id":"lexman-medidor-consumo","keywords":"LEXMAN medidor consumo electrico enchufe","searchIndex":"ToolsAndHomeImprovement"},
+    {"id":"perel-e305em5-g","keywords":"Perel E305EM5-G","searchIndex":"ToolsAndHomeImprovement"},
+    {"id":"medidor-16a-3680w","keywords":"medidor consumo electrico 16A 3680W","searchIndex":"ToolsAndHomeImprovement"},
+    {"id":"philips-led-e27-470","keywords":"Philips LED E27 470 lm","searchIndex":"Lighting"},
+    {"id":"philips-led-e27-806","keywords":"Philips LED E27 806 lm","searchIndex":"Lighting"},
+    {"id":"philips-led-e14-470","keywords":"Philips LED E14 470 lm","searchIndex":"Lighting"},
+    {"id":"philips-led-gu10-345","keywords":"Philips LED GU10 345 lm","searchIndex":"Lighting"},
+    {"id":"philips-led-e27-1521","keywords":"Philips LED E27 1521 lm","searchIndex":"Lighting"},
+    {"id":"smart-led-e27-1055","keywords":"bombilla LED E27 1055 lm inteligente Matter","searchIndex":"Lighting"}
+  ]
+}
