@@ -50,7 +50,7 @@ for page in html_files:
         if target and target not in all_paths:
             errors.append(f"{rel}: broken internal link -> {href} (expected {target})")
 
-    scripts=re.findall(r'<script(?![^>]*type=["\\\']application/ld\\+json["\\\'])(?:\\s[^>]*)?>([\\s\\S]*?)</script>', text, re.I)
+    scripts=re.findall(r'<script(?![^>]*type=["\']application/ld\+json["\'])(?:\s[^>]*)?>([\s\S]*?)</script>', text, re.I)
     for i,script in enumerate(scripts,1):
         if not script.strip():
             continue
