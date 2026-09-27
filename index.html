@@ -20,7 +20,7 @@
 <body>
 <header><div class="wrap nav"><a class="brand" href="#">Ahorra<b>EnCasa</b> ⚡</a><nav>
 <a href="productos/" data-i18n="navProducts">Productos</a><a href="guias/" data-i18n="navGuides">Guías</a><a href="calculadoras/" data-i18n="navCalc">Calculadoras</a><a href="#como" data-i18n="navHow">Cómo ahorrar</a><a href="#faq">FAQ</a>
-<div class="languages" aria-label="Language selector"><button class="lang active" data-lang="es" title="Español" aria-label="Español">🇪🇸</button><button class="lang" data-lang="en" title="English" aria-label="English">🇬🇧</button><button class="lang" data-lang="zh" title="中文" aria-label="中文">🇨🇳</button><button class="lang" data-lang="hi" title="हिन्दी" aria-label="हिन्दी">🇮🇳</button></div>
+<div class="languages" aria-label="Language selector"><a class="lang active"  title="Español" aria-label="Español" href="./">🇪🇸</a><a class="lang"  title="English" aria-label="English" href="en/">🇬🇧</a><a class="lang"  title="中文" aria-label="中文" href="zh/">🇨🇳</a><a class="lang"  title="हिन्दी" aria-label="हिन्दी" href="hi/">🇮🇳</a></div>
 </nav></div></header>
 <main>
 <section class="hero"><div class="wrap heroGrid"><div><span class="eyebrow" data-i18n="eyebrow">Ahorro eléctrico práctico</span><h1 data-i18n="heroTitle">Descubre dónde gastas luz y cómo reducirlo.</h1><p data-i18n="heroText">Calcula el coste de tus aparatos, aprende a medir tu consumo y compara soluciones sencillas antes de comprar.</p><div class="buttons"><a class="btn primary" href="#calculadora" data-i18n="calcBtn">Calcular consumo</a><a class="btn secondary" href="#herramientas" data-i18n="toolsBtn">Calculadoras por aparato</a><a class="btn secondary" href="#productos" data-i18n="productsBtn">Ver productos</a></div></div>
@@ -67,8 +67,6 @@ document.querySelectorAll("[data-i18n]").forEach(el=>{const k=el.dataset.i18n;if
 document.querySelectorAll(".lang").forEach(b=>b.classList.toggle("active",b.dataset.lang===lang));
 localStorage.setItem("ahorraLang",lang); updateGuideLinks(lang); calc();
 }
-const LANG_PATHS=location.pathname.includes("/en/")?{es:"../",en:"./",zh:"../zh/",hi:"../hi/"}:location.pathname.includes("/zh/")?{es:"../",en:"../en/",zh:"./",hi:"../hi/"}:location.pathname.includes("/hi/")?{es:"../",en:"../en/",zh:"../zh/",hi:"./"}:{es:"./",en:"en/",zh:"zh/",hi:"hi/"};
-document.querySelectorAll(".lang").forEach(b=>b.addEventListener("click",()=>{const lang=b.dataset.lang;window.location.href=LANG_PATHS[lang]||"./";}));
 function calc(){const w=+document.getElementById("w").value||0,h=+document.getElementById("h").value||0,p=+document.getElementById("p").value||0;const v=w/1000*h*30*p;const lang=localStorage.getItem("ahorraLang")||"es";document.getElementById("out").textContent=v.toLocaleString(lang==="zh"?"zh-CN":lang==="hi"?"hi-IN":lang,{style:"currency",currency:"EUR",minimumFractionDigits:2})}
 ["w","h","p"].forEach(x=>document.getElementById(x).addEventListener("input",calc));
 setLang(localStorage.getItem("ahorraLang")||"es");
