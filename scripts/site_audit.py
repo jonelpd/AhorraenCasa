@@ -48,7 +48,7 @@ for page in html_files:
     if not re.search(r'<meta[^>]+name=["\']description["\']', text, re.I):
         errors.append(f"{rel}: missing meta description")
     for am in re.findall(r'(?:href|src)=["\']([^"\']*amazon\.es[^"\']*)["\']', text, re.I):
-        if not re.search(r'[?&]tag=jonelpd-21(?:&|$)', am, re.I):
+        if not re.search(r'[?&](?:amp;)?tag=jonelpd-21(?:&|$)', am, re.I):
             errors.append(f"{rel}: Amazon link without tag=jonelpd-21 -> {am}")
     for m in re.finditer(r"""(?:href|src)\s*=\s*["']([^"']+)["']""", text, re.I):
         href=m.group(1).strip()
@@ -84,7 +84,7 @@ if sitemap_path.exists():
         if loc.startswith(base):
             rel=loc[len(base):]
             sitemap_paths.add((rel+"index.html") if rel.endswith("/") else rel)
-    expected={p.as_posix() for p in html_files}
+    expected={p.relative_to(ROOT).as_posix() for p in html_files}
     for missing in sorted(expected-sitemap_paths):
         errors.append(f"sitemap.xml: HTML page missing from sitemap -> {missing}")
     for stale in sorted(sitemap_paths-expected):
@@ -98,7 +98,7 @@ for page in html_files:
     for url in re.findall(r'<link[^>]+rel=["\']canonical["\'][^>]+href=["\']([^"\']+)', text, re.I):
         if url.startswith("https://jonelpd.github.io/AhorraenCasa/"):
             target=url.split("https://jonelpd.github.io/AhorraenCasa/",1)[1]
-            target=(target+"index.html") if target.endswith("/") else target
+            target="index.html" if not target else ((target+"index.html") if target.endswith("/") else target)
             if target not in all_paths:
                 errors.append(f"{rel}: canonical target missing -> {url}")
     for url in re.findall(r'<link[^>]+hreflang=["\'][^"\']+["\'][^>]+href=["\']([^"\']+)', text, re.I):
