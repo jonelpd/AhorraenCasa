@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Calculadora de consumo eléctrico | AhorraEnCasa</title>
+<meta name="description" content="Calcula el consumo y coste de un electrodoméstico por día, mes y año. Incluye modo de espera y presets para frigorífico, aire acondicionado, termo, lavadora, lavavajillas y radiador.">
+<link rel="canonical" href="https://jonelpd.github.io/AhorraenCasa/calculadoras/calculadora-consumo-electrico.html">
+<meta property="og:title" content="Calculadora de consumo eléctrico | AhorraEnCasa">
+<meta property="og:description" content="Calcula kWh y euros de tus electrodomésticos y estima el coste anual.">
+<meta property="og:type" content="website">
+<style>
+:root{--g:#157347;--g2:#0f5132;--p:#e9f7ef;--bg:#f7faf8;--ink:#17221b;--muted:#647168;--line:#dce7df;--white:#fff;--shadow:0 12px 35px #17351f12}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}.wrap{max-width:1100px;margin:auto;padding:0 22px}
+header{background:#fff;border-bottom:1px solid var(--line)}.nav{min-height:68px;display:flex;align-items:center;justify-content:space-between;gap:15px}.brand{font-weight:900;font-size:22px;color:var(--ink);text-decoration:none}.brand b{color:var(--g)}.back{color:var(--g2);font-weight:800;text-decoration:none}
+.hero{padding:52px 0 30px;background:linear-gradient(135deg,#eaf8ef,#fff)}h1{font-size:clamp(36px,6vw,58px);line-height:1.04;margin:12px 0}.lead{font-size:19px;color:var(--muted);max-width:760px}
+.card{background:#fff;border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow);padding:25px}.layout{display:grid;grid-template-columns:1.05fr .95fr;gap:22px;margin:25px 0 50px}
+h2{margin-top:0}.preset{display:flex;flex-wrap:wrap;gap:8px;margin:15px 0 22px}.preset button{border:1px solid var(--line);background:#fff;border-radius:999px;padding:8px 11px;cursor:pointer;font-weight:800;color:var(--g2)}.preset button:hover{background:var(--p)}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.field label{display:block;font-size:13px;font-weight:800;margin-bottom:6px}.field input{width:100%;padding:12px;border:1px solid var(--line);border-radius:9px;font-size:16px}.hint{font-size:12px;color:var(--muted);margin-top:4px}.full{grid-column:1/-1}
+.results{display:grid;grid-template-columns:1fr 1fr;gap:12px}.result{background:var(--p);border-radius:13px;padding:14px}.result span{display:block;color:var(--muted);font-size:13px}.result strong{font-size:23px;color:var(--g2)}
+.highlight{grid-column:1/-1;background:var(--g2);color:#fff;border-radius:15px;padding:18px}.highlight span{display:block;opacity:.82;font-size:13px}.highlight strong{font-size:32px}
+.note{font-size:12px;color:var(--muted);margin-top:18px}.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}.btn{display:inline-block;padding:11px 15px;border-radius:10px;text-decoration:none;font-weight:800;border:1px solid var(--line);background:#fff;color:var(--ink)}.primary{background:var(--g);color:#fff;border-color:var(--g)}
+section{padding:15px 0 55px}.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.mini{padding:20px;background:#fff;border:1px solid var(--line);border-radius:16px}.mini a{color:var(--g2);font-weight:800;text-decoration:none}.formula{background:#14231a;color:#fff;border-radius:16px;padding:20px}.formula code{font-size:16px}
+footer{background:#14231a;color:#dce9df;padding:30px 0}.small{font-size:12px;color:#aebdb3}
+@media(max-width:800px){.layout,.cards{grid-template-columns:1fr}.grid{grid-template-columns:1fr}.full{grid-column:auto}.nav{padding:10px 0}.back{font-size:14px}}
+</style>
+</head>
+<body>
+<header><div class="wrap nav"><a class="brand" href="../">Ahorra<b>EnCasa</b> ⚡</a><a class="back" href="../">← Volver a AhorraEnCasa</a></div></header>
+<main>
+<section class="hero"><div class="wrap">
+<div>🧮 Herramienta gratuita</div>
+<h1>Calculadora de consumo eléctrico</h1>
+<p class="lead">Calcula cuántos kWh consume un aparato y cuánto te puede costar al día, al mes y al año. También puedes añadir el consumo en espera y probar valores habituales por electrodoméstico.</p>
+</div></section>
+
+<div class="wrap layout">
+<div class="card">
+<h2>Introduce los datos</h2>
+<p class="hint">Puedes empezar con un preset y después ajustar los valores a tu caso real.</p>
+<div class="preset">
+<button data-preset="fridge">🧊 Frigorífico</button>
+<button data-preset="ac">❄️ Aire acondicionado</button>
+<button data-preset="water">🚿 Termo eléctrico</button>
+<button data-preset="washer">🧺 Lavadora</button>
+<button data-preset="dishwasher">🍽️ Lavavajillas</button>
+<button data-preset="radiator">🔥 Radiador</button>
+</div>
+<div class="grid">
+<div class="field"><label for="power">Potencia principal (W)</label><input id="power" type="number" min="0" step="1" value="1000"><div class="hint">Mira la etiqueta o ficha técnica del aparato.</div></div>
+<div class="field"><label for="hours">Horas de uso al día</label><input id="hours" type="number" min="0" step="0.1" value="2"></div>
+<div class="field"><label for="days">Días de uso al mes</label><input id="days" type="number" min="0" max="31" step="1" value="30"></div>
+<div class="field"><label for="price">Precio de electricidad (€/kWh)</label><input id="price" type="number" min="0" step="0.001" value="0.18"></div>
+<div class="field"><label for="standby">Consumo en espera (W)</label><input id="standby" type="number" min="0" step="0.1" value="0"></div>
+<div class="field"><label for="standbyHours">Horas/día en espera</label><input id="standbyHours" type="number" min="0" max="24" step="0.5" value="0"></div>
+<div class="field full"><label for="name">Nombre del aparato (opcional)</label><input id="name" type="text" maxlength="60" placeholder="Ej.: Televisor del salón"></div>
+</div>
+<div class="actions"><button class="btn primary" id="reset">Restablecer</button><a class="btn" href="../guias/como-medir-consumo-electrodomestico.html">Cómo medir el consumo real →</a></div>
+<p class="note">La calculadora estima el coste del consumo eléctrico. No representa necesariamente el importe total de una factura, que puede incluir potencia contratada, impuestos, alquileres y otros conceptos.</p>
+</div>
+
+<div class="card">
+<h2>Resultado</h2>
+<div class="results">
+<div class="result"><span>Consumo al día</span><strong id="kwhDay">0 kWh</strong></div>
+<div class="result"><span>Consumo al mes</span><strong id="kwhMonth">0 kWh</strong></div>
+<div class="result"><span>Coste al día</span><strong id="costDay">0 €</strong></div>
+<div class="result"><span>Coste al mes</span><strong id="costMonth">0 €</strong></div>
+<div class="result"><span>Consumo al año</span><strong id="kwhYear">0 kWh</strong></div>
+<div class="result"><span>Coste al año</span><strong id="costYear">0 €</strong></div>
+<div class="result"><span>Coste del modo espera / mes</span><strong id="standbyMonth">0 €</strong></div>
+<div class="result"><span>Coste del modo espera / año</span><strong id="standbyYear">0 €</strong></div>
+<div class="highlight"><span>Coste total estimado, incluyendo espera</span><strong id="totalYear">0 € / año</strong></div>
+</div>
+<p class="note" id="summary">Introduce tus datos para ver el cálculo.</p>
+</div>
+</div>
+
+<section><div class="wrap">
+<h2>Cómo usar esta calculadora</h2>
+<div class="cards">
+<div class="mini"><strong>1. Mide</strong><p>Si puedes, mide el aparato con un medidor de enchufe durante un periodo representativo. Para frigoríficos y climatización, una lectura real suele ser más útil que asumir que funcionan continuamente a su potencia nominal.</p></div>
+<div class="mini"><strong>2. Calcula</strong><p>Introduce la potencia o el consumo medido, las horas de uso y tu precio aproximado por kWh. Después compara el coste mensual y anual.</p></div>
+<div class="mini"><strong>3. Decide</strong><p>Si un aparato representa una parte importante de tu gasto, puedes investigar hábitos de uso, programación, mantenimiento o sustitución.</p></div>
+</div>
+</div></section>
+
+<section><div class="wrap">
+<div class="formula"><h2>Fórmula básica</h2><p>Para una estimación sencilla:</p><code>kWh = (vatios ÷ 1000) × horas de uso</code><p>Después:</p><code>coste = kWh × precio por kWh</code><p>El modo de espera se calcula por separado y se suma al consumo principal.</p></div>
+</div></section>
+</main>
+<footer><div class="wrap"><strong>AhorraEnCasa ⚡</strong><p>Herramientas y guías para entender y reducir el consumo eléctrico.</p><p class="small">Las cifras son estimaciones. El consumo real puede variar según el aparato, su eficiencia, temperatura, configuración y patrón de uso.</p></div></footer>
+<script>
+const presets={
+fridge:{name:"Frigorífico",power:120,hours:24,days:30,price:.18,standby:0,standbyHours:0},
+ac:{name:"Aire acondicionado",power:1200,hours:5,days:30,price:.18,standby:1,standbyHours:19},
+water:{name:"Termo eléctrico",power:1500,hours:3,days:30,price:.18,standby:2,standbyHours:21},
+washer:{name:"Lavadora",power:2000,hours:.75,days:20,price:.18,standby:1,standbyHours:23.25},
+dishwasher:{name:"Lavavajillas",power:1800,hours:1.5,days:20,price:.18,standby:1,standbyHours:22.5},
+radiator:{name:"Radiador eléctrico",power:1500,hours:4,days:30,price:.18,standby:0,standbyHours:0}
+};
+const $=id=>document.getElementById(id);
+const fields=["power","hours","days","price","standby","standbyHours","name"];
+function money(v){return v.toLocaleString("es-ES",{style:"currency",currency:"EUR",minimumFractionDigits:2})}
+function num(id){return Math.max(0,Number($(id).value)||0)}
+function calc(){
+const power=num("power"),hours=num("hours"),days=Math.min(31,num("days")),price=num("price"),standby=num("standby"),standbyHours=Math.min(24,num("standbyHours"));
+const activeDay=power/1000*hours, activeMonth=activeDay*days, activeYear=activeDay*365;
+const stDay=standby/1000*standbyHours, stMonth=stDay*days, stYear=stDay*365;
+const totalMonthCost=(activeMonth+stMonth)*price,totalYearCost=(activeYear+stYear)*price;
+$("kwhDay").textContent=activeDay.toFixed(2)+" kWh";
+$("kwhMonth").textContent=activeMonth.toFixed(2)+" kWh";
+$("costDay").textContent=money(activeDay*price);
+$("costMonth").textContent=money(activeMonth*price);
+$("kwhYear").textContent=activeYear.toFixed(1)+" kWh";
+$("costYear").textContent=money(activeYear*price);
+$("standbyMonth").textContent=money(stMonth*price);
+$("standbyYear").textContent=money(stYear*price);
+$("totalYear").textContent=money(totalYearCost)+" / año";
+const label=$("name").value.trim()||"Este aparato";
+$("summary").textContent=label+" representa aproximadamente "+money(totalMonthCost)+" al mes y "+money(totalYearCost)+" al año con estos supuestos.";
+}
+fields.forEach(id=>$(id).addEventListener("input",calc));
+document.querySelectorAll("[data-preset]").forEach(btn=>btn.addEventListener("click",()=>{
+const p=presets[btn.dataset.preset];fields.forEach(id=>{if(p[id]!==undefined)$(id).value=p[id]});calc();
+}));
+$("reset").addEventListener("click",()=>{Object.assign(presets.reset||{},{});$("power").value=1000;$("hours").value=2;$("days").value=30;$("price").value=.18;$("standby").value=0;$("standbyHours").value=0;$("name").value="";calc()});
+calc();
+</script>
+</body>
+</html>
