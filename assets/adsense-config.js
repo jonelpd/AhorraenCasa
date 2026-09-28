@@ -1,0 +1,1 @@
+window.AHORRA_ADSENSE_CLIENT_ID = "";
