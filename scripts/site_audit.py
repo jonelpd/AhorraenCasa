@@ -61,7 +61,7 @@ for page in html_files:
         except Exception as e: errors.append(f"{rel}: invalid JSON-LD {e}")
     if rel.startswith(("en/","hi/","zh/")):
         visible=re.sub(r"<script[\s\S]*?</script>|<style[\s\S]*?</style>"," ",text,flags=re.I)
-        visible=re.sub(r"https?://[^\s"'<>]+"," ",visible); visible=re.sub(r"\s+"," ",visible)
+        visible=re.sub(r'''https?://[^\\s\"\'<>]+''', ' ', visible); visible=re.sub(r'\\s+', ' ', visible)
         residue=[r"\bpara empezar\b",r"\bpara resolver\b",r"\bpara comprar\b",r"\bCómo\b",r"\bCalcula(?:r)?\b",r"\bconsumo eléctrico\b",r"\bproductos? para\b",r"\bguías? para\b",r"\bVer guía\b",r"\bLeer guía\b",r"\bVer comparativa\b",r"\bAviso legal\b",r"\bPrivacidad\b",r"\bCookies\b",r"\bInformación reciente\b",r"\bAntes de comprar\b",r"\bAhorra electricidad\b"]
         for pat in residue:
             if re.search(pat,visible,re.I): errors.append(f"{rel}: Spanish residue -> {pat}")
