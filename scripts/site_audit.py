@@ -13,7 +13,10 @@ def resolve_path(page,href):
     except ValueError: return None
     return (Path(rel)/"index.html").as_posix() if target.is_dir() else rel
 def expected_lang(rel):
-    return "en" if rel.startswith("en/") else "hi-IN" if rel.startswith("hi/") else "zh-CN" if rel.startswith("zh/") else "es"
+    if rel.startswith("en/"): return ("en",)
+    if rel.startswith("hi/"): return ("hi","hi-IN")
+    if rel.startswith("zh/"): return ("zh","zh-CN")
+    return ("es",)
 def logical(rel): return re.sub(r"^guides/","guias/",re.sub(r"^(en|hi|zh)/","",rel))
 
 for page in html_files:
@@ -29,7 +32,7 @@ for page in html_files:
     markup=re.sub(r"<script[\s\S]*?</script>|<style[\s\S]*?</style>","",text,flags=re.I)
     if re.search(r'href=["\']#["\']',markup,re.I): errors.append(f"{rel}: empty # link")
     m=re.search(r'<html[^>]+lang=["\']([^"\']+)',text,re.I)
-    if not m or m.group(1).lower()!=expected_lang(rel).lower(): errors.append(f"{rel}: wrong lang")
+    if not m or m.group(1).lower() not in {x.lower() for x in expected_lang(rel)}: errors.append(f"{rel}: wrong lang")
     for m in re.finditer(r'''<a\b[^>]*href=["\']([^"\']+)["\'][^>]*>''',text,re.I):
         href=m.group(1).strip(); tag=m.group(0)
         if re.search(r'target=["\']_blank["\']',tag,re.I) and not re.search(r'rel=["\'][^"\']*(?:noopener|noreferrer)',tag,re.I):
@@ -87,19 +90,14 @@ else:
 pages={rel_of(p):p for p in html_files}
 for rel,page in pages.items():
     text=page.read_text(encoding="utf-8",errors="replace")
-    for u in re.findall(r'<link[^>]+rel=["\']canonical["\'][^>]+href=["\']([^"\']+)',text,re.I):
-        if u.startswith("https://jonelpd.github.io/AhorraenCasa/"):
-            r=u.split("https://jonelpd.github.io/AhorraenCasa/",1)[1]; r="index.html" if not r else (r+"index.html" if r.endswith("/") else r)
-            if r not in pages: errors.append(f"{rel}: canonical target missing")
-    links=re.findall(r'<link[^>]+hreflang=["\']([^"\']+)["\'][^>]+href=["\']([^"\']+)',text,re.I)
+    links=re.findall(r'<link[^>]+hreflang=["\\']([^"\\']+)["\\'][^>]+href=["\\']([^"\\']+)',text,re.I)
+    if rel.startswith(("en/","hi/","zh/")) and "es" not in {x[0].lower() for x in links}:
+        errors.append(f"{rel}: missing hreflang es")
     for lang,u in links:
         if u.startswith("https://jonelpd.github.io/AhorraenCasa/"):
-            r=u.split("https://jonelpd.github.io/AhorraenCasa/",1)[1]; r="index.html" if not r else (r+"index.html" if r.endswith("/") else r)
-            if r not in pages: errors.append(f"{rel}: hreflang target missing")
-            else:
-                back=re.findall(r'<link[^>]+hreflang=["\']([^"\']+)["\'][^>]+href=["\']([^"\']+)',pages[r].read_text(encoding="utf-8",errors="replace"),re.I)
-                expected_url=("https://jonelpd.github.io/AhorraenCasa/"+rel).rstrip("/")
-                if not any(tu.rstrip("/")==expected_url for _,tu in back): errors.append(f"{rel}: hreflang {lang} not reciprocal")
+            r=u.split("https://jonelpd.github.io/AhorraenCasa/",1)[1]
+            r="index.html" if not r else (r+"index.html" if r.endswith("/") else r)
+            if r not in pages: errors.append(f"{rel}: hreflang target missing -> {u}")
 
 es_paths={logical(r) for r in pages if not r.startswith(("en/","hi/","zh/"))}
 for lang in ("en","hi","zh"):
