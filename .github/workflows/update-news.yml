@@ -1,0 +1,99 @@
+name: Actualizar noticias de ahorro
+
+on:
+  schedule:
+    - cron: "15 6 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-news:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Descargar repositorio
+        uses: actions/checkout@v4
+
+      - name: Actualizar feed
+        shell: python
+        run: |
+          import json, urllib.request, urllib.parse, xml.etree.ElementTree as ET
+          from datetime import datetime, timezone
+          from email.utils import parsedate_to_datetime
+          from pathlib import Path
+
+          queries = [
+              ("Ahorro y eficiencia energética España", "site:miteco.gob.es ahorro energia"),
+              ("Electricidad y hogares España", "site:cnmc.es electricidad hogares"),
+              ("Autoconsumo y energía solar España", "site:idae.es autoconsumo solar")
+          ]
+
+          articles = []
+          for source_label, q in queries:
+              url = "https://news.google.com/rss/search?" + urllib.parse.urlencode({
+                  "q": q,
+                  "hl": "es",
+                  "gl": "ES",
+                  "ceid": "ES:es"
+              })
+              try:
+                  req = urllib.request.Request(url, headers={"User-Agent": "AhorraEnCasa-NewsBot/1.0"})
+                  raw = urllib.request.urlopen(req, timeout=20).read()
+                  root = ET.fromstring(raw)
+                  for item in root.findall(".//item")[:6]:
+                      title = (item.findtext("title") or "").strip()
+                      link = (item.findtext("link") or "").strip()
+                      desc = (item.findtext("description") or "").strip()
+                      pub = (item.findtext("pubDate") or "").strip()
+                      try:
+                          dt = parsedate_to_datetime(pub).astimezone(timezone.utc)
+                          date = dt.strftime("%d %b %Y")
+                          sort_key = dt.isoformat()
+                      except Exception:
+                          date, sort_key = "", ""
+                      if title and link:
+                          # Google News sometimes points to a wrapper; keep it as the source link.
+                          articles.append({
+                              "title": title,
+                              "description": desc.replace("<b>","").replace("</b>","")[:260],
+                              "source": source_label,
+                              "date": date,
+                              "url": link,
+                              "_sort": sort_key
+                          })
+              except Exception:
+                  pass
+
+          seen = set()
+          clean = []
+          for a in sorted(articles, key=lambda x: x.get("_sort",""), reverse=True):
+              key = a["title"].lower()
+              if key in seen:
+                  continue
+              seen.add(key)
+              a.pop("_sort", None)
+              clean.append(a)
+              if len(clean) >= 12:
+                  break
+
+          if clean:
+              payload = {
+                  "updatedAt": datetime.now(timezone.utc).isoformat(),
+                  "articles": clean
+              }
+              Path("data/news.json").write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
+          else:
+              print("No se obtuvieron noticias nuevas; se conserva el archivo existente.")
+
+      - name: Publicar cambios
+        run: |
+          if git diff --quiet -- data/news.json; then
+            echo "Sin cambios"
+            exit 0
+          fi
+          git config user.name "AhorraEnCasa Bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/news.json
+          git commit -m "Actualizar noticias"
+          git push
