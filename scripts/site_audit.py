@@ -15,7 +15,7 @@ def resolve_path(page,href):
 def expected_lang(rel):
     if rel.startswith("en/"): return ("en",)
     if rel.startswith("hi/"): return ("hi","hi-IN")
-    if rel.startswith("zh/"): return ("zh","zh-CN")
+    if rel.startswith("zh/"): return ("zh","zh-CN","zh-Hans")
     return ("es",)
 def logical(rel): return re.sub(r"^guides/","guias/",re.sub(r"^(en|hi|zh)/","",rel))
 
