@@ -90,7 +90,7 @@ else:
 pages={rel_of(p):p for p in html_files}
 for rel,page in pages.items():
     text=page.read_text(encoding="utf-8",errors="replace")
-    links=re.findall(r'<link[^>]+hreflang=["\\']([^"\\']+)["\\'][^>]+href=["\\']([^"\\']+)',text,re.I)
+    links=re.findall(r"<link[^>]+hreflang=['\"]([^'\"]+)['\"][^>]+href=['\"]([^'\"]+)",text,re.I)
     if rel.startswith(("en/","hi/","zh/")) and "es" not in {x[0].lower() for x in links}:
         errors.append(f"{rel}: missing hreflang es")
     for lang,u in links:
