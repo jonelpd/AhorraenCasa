@@ -39,7 +39,7 @@ for page in html_files:
         errors.append(f"{rel}: Leroy Merlin link remains")
     if re.search(r"""(?:href|src)\s*=\s*["']/[^/][^"']*""", text, re.I):
         errors.append(f"{rel}: root-absolute internal URL may break on GitHub Pages")
-    markup_only=re.sub(r"<script[\\s\\S]*?</script>", "", text, flags=re.I)
+    markup_only=re.sub(r"<script[\s\S]*?</script>", "", text, flags=re.I)
     if re.search(r'href=["\']#["\']', markup_only, re.I):
         errors.append(f"{rel}: empty # link remains")
     if len(re.findall(r"<title>", text, re.I)) != 1:
