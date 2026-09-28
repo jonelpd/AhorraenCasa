@@ -18,7 +18,7 @@ jobs:
       - name: Actualizar feed
         shell: python
         run: |
-          import json, urllib.request, urllib.parse, xml.etree.ElementTree as ET
+          import json, re, urllib.request, urllib.parse, xml.etree.ElementTree as ET
           from datetime import datetime, timezone
           from email.utils import parsedate_to_datetime
           from pathlib import Path
@@ -56,7 +56,7 @@ jobs:
                           # Google News sometimes points to a wrapper; keep it as the source link.
                           articles.append({
                               "title": title,
-                              "description": desc.replace("<b>","").replace("</b>","")[:260],
+                              "description": re.sub(r"<[^>]+>", " ", desc).replace("&nbsp;", " ").strip()[:260],
                               "source": source_label,
                               "date": date,
                               "url": link,
