@@ -1,468 +1,493 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://jonelpd.github.io/AhorraenCasa/calculadoras/aire-acondicionado.html</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://jonelpd.github.io/AhorraenCasa/calculadoras/aire-acondicionado.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://jonelpd.github.io/AhorraenCasa/en/calculadoras/aire-acondicionado.html"/>
-    <xhtml:link rel="alternate" hreflang="hi" href="https://jonelpd.github.io/AhorraenCasa/hi/calculadoras/aire-acondicionado.html"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://jonelpd.github.io/AhorraenCasa/zh/calculadoras/aire-acondicionado.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonelpd.github.io/AhorraenCasa/"/>
-  </url>
-  <url>
-    <loc>https://jonelpd.github.io/AhorraenCasa/calculadoras/calculadora-consumo-electrico.html</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://jonelpd.github.io/AhorraenCasa/calculadoras/calculadora-consumo-electrico.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://jonelpd.github.io/AhorraenCasa/en/calculadoras/calculadora-consumo-electrico.html"/>
-    <xhtml:link rel="alternate" hreflang="hi" href="https://jonelpd.github.io/AhorraenCasa/hi/calculadoras/calculadora-consumo-electrico.html"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://jonelpd.github.io/AhorraenCasa/zh/calculadoras/calculadora-consumo-electrico.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonelpd.github.io/AhorraenCasa/"/>
-  </url>
-  <url>
-    <loc>https://jonelpd.github.io/AhorraenCasa/calculadoras/frigorifico.html</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://jonelpd.github.io/AhorraenCasa/calculadoras/frigorifico.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://jonelpd.github.io/AhorraenCasa/en/calculadoras/frigorifico.html"/>
-    <xhtml:link rel="alternate" hreflang="hi" href="https://jonelpd.github.io/AhorraenCasa/hi/calculadoras/frigorifico.html"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://jonelpd.github.io/AhorraenCasa/zh/calculadoras/frigorifico.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonelpd.github.io/AhorraenCasa/"/>
-  </url>
-  <url>
-    <loc>https://jonelpd.github.io/AhorraenCasa/calculadoras/</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://jonelpd.github.io/AhorraenCasa/calculadoras/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonelpd.github.io/AhorraenCasa/"/>
+    <loc>https://jonelpd.github.io/AhorraEnCasa/calculadoras/aire-acondicionado.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jonelpd.github.io/AhorraEnCasa/calculadoras/aire-acondicionado.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jonelpd.github.io/AhorraEnCasa/en/calculadoras/aire-acondicionado.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://jonelpd.github.io/AhorraEnCasa/hi/calculadoras/aire-acondicionado.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://jonelpd.github.io/AhorraEnCasa/zh/calculadoras/aire-acondicionado.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonelpd.github.io/AhorraEnCasa/calculadoras/aire-acondicionado.html"/>
   </url>
   <url>
-    <loc>https://jonelpd.github.io/AhorraenCasa/calculadoras/lavadora.html</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://jonelpd.github.io/AhorraenCasa/calculadoras/lavadora.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://jonelpd.github.io/AhorraenCasa/en/calculadoras/lavadora.html"/>
-    <xhtml:link rel="alternate" hreflang="hi" href="https://jonelpd.github.io/AhorraenCasa/hi/calculadoras/lavadora.html"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://jonelpd.github.io/AhorraenCasa/zh/calculadoras/lavadora.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonelpd.github.io/AhorraenCasa/"/>
+    <loc>https://jonelpd.github.io/AhorraEnCasa/calculadoras/calculadora-consumo-electrico.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jonelpd.github.io/AhorraEnCasa/calculadoras/calculadora-consumo-electrico.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jonelpd.github.io/AhorraEnCasa/en/calculadoras/calculadora-consumo-electrico.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://jonelpd.github.io/AhorraEnCasa/hi/calculadoras/calculadora-consumo-electrico.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://jonelpd.github.io/AhorraEnCasa/zh/calculadoras/calculadora-consumo-electrico.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonelpd.github.io/AhorraEnCasa/calculadoras/calculadora-consumo-electrico.html"/>
   </url>
   <url>
-    <loc>https://jonelpd.github.io/AhorraenCasa/calculadoras/lavavajillas.html</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://jonelpd.github.io/AhorraenCasa/calculadoras/lavavajillas.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://jonelpd.github.io/AhorraenCasa/en/calculadoras/lavavajillas.html"/>
-    <xhtml:link rel="alternate" hreflang="hi" href="https://jonelpd.github.io/AhorraenCasa/hi/calculadoras/lavavajillas.html"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://jonelpd.github.io/AhorraenCasa/zh/calculadoras/lavavajillas.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonelpd.github.io/AhorraenCasa/"/>
+    <loc>https://jonelpd.github.io/AhorraEnCasa/calculadoras/frigorifico.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jonelpd.github.io/AhorraEnCasa/calculadoras/frigorifico.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jonelpd.github.io/AhorraEnCasa/en/calculadoras/frigorifico.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://jonelpd.github.io/AhorraEnCasa/hi/calculadoras/frigorifico.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://jonelpd.github.io/AhorraEnCasa/zh/calculadoras/frigorifico.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonelpd.github.io/AhorraEnCasa/calculadoras/frigorifico.html"/>
   </url>
   <url>
-    <loc>https://jonelpd.github.io/AhorraenCasa/calculadoras/radiador-electrico.html</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://jonelpd.github.io/AhorraenCasa/calculadoras/radiador-electrico.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://jonelpd.github.io/AhorraenCasa/en/calculadoras/radiador-electrico.html"/>
-    <xhtml:link rel="alternate" hreflang="hi" href="https://jonelpd.github.io/AhorraenCasa/hi/calculadoras/radiador-electrico.html"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://jonelpd.github.io/AhorraenCasa/zh/calculadoras/radiador-electrico.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonelpd.github.io/AhorraenCasa/"/>
+    <loc>https://jonelpd.github.io/AhorraEnCasa/calculadoras/</loc>
   </url>
   <url>
-    <loc>https://jonelpd.github.io/AhorraenCasa/calculadoras/termo-electrico.html</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://jonelpd.github.io/AhorraenCasa/calculadoras/termo-electrico.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://jonelpd.github.io/AhorraenCasa/en/calculadoras/termo-electrico.html"/>
-    <xhtml:link rel="alternate" hreflang="hi" href="https://jonelpd.github.io/AhorraenCasa/hi/calculadoras/termo-electrico.html"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://jonelpd.github.io/AhorraenCasa/zh/calculadoras/termo-electrico.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonelpd.github.io/AhorraenCasa/"/>
+    <loc>https://jonelpd.github.io/AhorraEnCasa/calculadoras/lavadora.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jonelpd.github.io/AhorraEnCasa/calculadoras/lavadora.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jonelpd.github.io/AhorraEnCasa/en/calculadoras/lavadora.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://jonelpd.github.io/AhorraEnCasa/hi/calculadoras/lavadora.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://jonelpd.github.io/AhorraEnCasa/zh/calculadoras/lavadora.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonelpd.github.io/AhorraEnCasa/calculadoras/lavadora.html"/>
   </url>
   <url>
-    <loc>https://jonelpd.github.io/AhorraenCasa/en/calculadoras/aire-acondicionado.html</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://jonelpd.github.io/AhorraenCasa/calculadoras/aire-acondicionado.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://jonelpd.github.io/AhorraenCasa/en/calculadoras/aire-acondicionado.html"/>
-    <xhtml:link rel="alternate" hreflang="hi" href="https://jonelpd.github.io/AhorraenCasa/hi/calculadoras/aire-acondicionado.html"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://jonelpd.github.io/AhorraenCasa/zh/calculadoras/aire-acondicionado.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonelpd.github.io/AhorraenCasa/"/>
+    <loc>https://jonelpd.github.io/AhorraEnCasa/calculadoras/lavavajillas.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jonelpd.github.io/AhorraEnCasa/calculadoras/lavavajillas.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jonelpd.github.io/AhorraEnCasa/en/calculadoras/lavavajillas.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://jonelpd.github.io/AhorraEnCasa/hi/calculadoras/lavavajillas.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://jonelpd.github.io/AhorraEnCasa/zh/calculadoras/lavavajillas.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonelpd.github.io/AhorraEnCasa/calculadoras/lavavajillas.html"/>
   </url>
   <url>
-    <loc>https://jonelpd.github.io/AhorraenCasa/en/calculadoras/calculadora-consumo-electrico.html</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://jonelpd.github.io/AhorraenCasa/calculadoras/calculadora-consumo-electrico.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://jonelpd.github.io/AhorraenCasa/en/calculadoras/calculadora-consumo-electrico.html"/>
-    <xhtml:link rel="alternate" hreflang="hi" href="https://jonelpd.github.io/AhorraenCasa/hi/calculadoras/calculadora-consumo-electrico.html"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://jonelpd.github.io/AhorraenCasa/zh/calculadoras/calculadora-consumo-electrico.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonelpd.github.io/AhorraenCasa/"/>
+    <loc>https://jonelpd.github.io/AhorraEnCasa/calculadoras/radiador-electrico.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jonelpd.github.io/AhorraEnCasa/calculadoras/radiador-electrico.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jonelpd.github.io/AhorraEnCasa/en/calculadoras/radiador-electrico.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://jonelpd.github.io/AhorraEnCasa/hi/calculadoras/radiador-electrico.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://jonelpd.github.io/AhorraEnCasa/zh/calculadoras/radiador-electrico.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonelpd.github.io/AhorraEnCasa/calculadoras/radiador-electrico.html"/>
   </url>
   <url>
-    <loc>https://jonelpd.github.io/AhorraenCasa/en/calculadoras/frigorifico.html</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://jonelpd.github.io/AhorraenCasa/calculadoras/frigorifico.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://jonelpd.github.io/AhorraenCasa/en/calculadoras/frigorifico.html"/>
-    <xhtml:link rel="alternate" hreflang="hi" href="https://jonelpd.github.io/AhorraenCasa/hi/calculadoras/frigorifico.html"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://jonelpd.github.io/AhorraenCasa/zh/calculadoras/frigorifico.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonelpd.github.io/AhorraenCasa/"/>
+    <loc>https://jonelpd.github.io/AhorraEnCasa/calculadoras/termo-electrico.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jonelpd.github.io/AhorraEnCasa/calculadoras/termo-electrico.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jonelpd.github.io/AhorraEnCasa/en/calculadoras/termo-electrico.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://jonelpd.github.io/AhorraEnCasa/hi/calculadoras/termo-electrico.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://jonelpd.github.io/AhorraEnCasa/zh/calculadoras/termo-electrico.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonelpd.github.io/AhorraEnCasa/calculadoras/termo-electrico.html"/>
   </url>
   <url>
-    <loc>https://jonelpd.github.io/AhorraenCasa/en/calculadoras/lavadora.html</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://jonelpd.github.io/AhorraenCasa/calculadoras/lavadora.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://jonelpd.github.io/AhorraenCasa/en/calculadoras/lavadora.html"/>
-    <xhtml:link rel="alternate" hreflang="hi" href="https://jonelpd.github.io/AhorraenCasa/hi/calculadoras/lavadora.html"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://jonelpd.github.io/AhorraenCasa/zh/calculadoras/lavadora.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonelpd.github.io/AhorraenCasa/"/>
+    <loc>https://jonelpd.github.io/AhorraEnCasa/en/calculadoras/aire-acondicionado.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jonelpd.github.io/AhorraEnCasa/calculadoras/aire-acondicionado.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jonelpd.github.io/AhorraEnCasa/en/calculadoras/aire-acondicionado.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://jonelpd.github.io/AhorraEnCasa/hi/calculadoras/aire-acondicionado.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://jonelpd.github.io/AhorraEnCasa/zh/calculadoras/aire-acondicionado.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonelpd.github.io/AhorraEnCasa/calculadoras/aire-acondicionado.html"/>
   </url>
   <url>
-    <loc>https://jonelpd.github.io/AhorraenCasa/en/calculadoras/lavavajillas.html</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://jonelpd.github.io/AhorraenCasa/calculadoras/lavavajillas.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://jonelpd.github.io/AhorraenCasa/en/calculadoras/lavavajillas.html"/>
-    <xhtml:link rel="alternate" hreflang="hi" href="https://jonelpd.github.io/AhorraenCasa/hi/calculadoras/lavavajillas.html"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://jonelpd.github.io/AhorraenCasa/zh/calculadoras/lavavajillas.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonelpd.github.io/AhorraenCasa/"/>
+    <loc>https://jonelpd.github.io/AhorraEnCasa/en/calculadoras/calculadora-consumo-electrico.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jonelpd.github.io/AhorraEnCasa/calculadoras/calculadora-consumo-electrico.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jonelpd.github.io/AhorraEnCasa/en/calculadoras/calculadora-consumo-electrico.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://jonelpd.github.io/AhorraEnCasa/hi/calculadoras/calculadora-consumo-electrico.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://jonelpd.github.io/AhorraEnCasa/zh/calculadoras/calculadora-consumo-electrico.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonelpd.github.io/AhorraEnCasa/calculadoras/calculadora-consumo-electrico.html"/>
   </url>
   <url>
-    <loc>https://jonelpd.github.io/AhorraenCasa/en/calculadoras/radiador-electrico.html</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://jonelpd.github.io/AhorraenCasa/calculadoras/radiador-electrico.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://jonelpd.github.io/AhorraenCasa/en/calculadoras/radiador-electrico.html"/>
-    <xhtml:link rel="alternate" hreflang="hi" href="https://jonelpd.github.io/AhorraenCasa/hi/calculadoras/radiador-electrico.html"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://jonelpd.github.io/AhorraenCasa/zh/calculadoras/radiador-electrico.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonelpd.github.io/AhorraenCasa/"/>
+    <loc>https://jonelpd.github.io/AhorraEnCasa/en/calculadoras/frigorifico.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jonelpd.github.io/AhorraEnCasa/calculadoras/frigorifico.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jonelpd.github.io/AhorraEnCasa/en/calculadoras/frigorifico.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://jonelpd.github.io/AhorraEnCasa/hi/calculadoras/frigorifico.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://jonelpd.github.io/AhorraEnCasa/zh/calculadoras/frigorifico.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonelpd.github.io/AhorraEnCasa/calculadoras/frigorifico.html"/>
   </url>
   <url>
-    <loc>https://jonelpd.github.io/AhorraenCasa/en/calculadoras/termo-electrico.html</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://jonelpd.github.io/AhorraenCasa/calculadoras/termo-electrico.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://jonelpd.github.io/AhorraenCasa/en/calculadoras/termo-electrico.html"/>
-    <xhtml:link rel="alternate" hreflang="hi" href="https://jonelpd.github.io/AhorraenCasa/hi/calculadoras/termo-electrico.html"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://jonelpd.github.io/AhorraenCasa/zh/calculadoras/termo-electrico.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonelpd.github.io/AhorraenCasa/"/>
+    <loc>https://jonelpd.github.io/AhorraEnCasa/en/calculadoras/lavadora.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jonelpd.github.io/AhorraEnCasa/calculadoras/lavadora.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jonelpd.github.io/AhorraEnCasa/en/calculadoras/lavadora.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://jonelpd.github.io/AhorraEnCasa/hi/calculadoras/lavadora.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://jonelpd.github.io/AhorraEnCasa/zh/calculadoras/lavadora.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonelpd.github.io/AhorraEnCasa/calculadoras/lavadora.html"/>
   </url>
   <url>
-    <loc>https://jonelpd.github.io/AhorraenCasa/en/guides/10-formas-reducir-consumo-electrico.html</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://jonelpd.github.io/AhorraenCasa/guias/10-formas-reducir-consumo-electrico.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://jonelpd.github.io/AhorraenCasa/en/guides/10-formas-reducir-consumo-electrico.html"/>
-    <xhtml:link rel="alternate" hreflang="hi" href="https://jonelpd.github.io/AhorraenCasa/hi/guides/10-formas-reducir-consumo-electrico.html"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://jonelpd.github.io/AhorraenCasa/zh/guides/10-formas-reducir-consumo-electrico.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonelpd.github.io/AhorraenCasa/"/>
+    <loc>https://jonelpd.github.io/AhorraEnCasa/en/calculadoras/lavavajillas.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jonelpd.github.io/AhorraEnCasa/calculadoras/lavavajillas.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jonelpd.github.io/AhorraEnCasa/en/calculadoras/lavavajillas.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://jonelpd.github.io/AhorraEnCasa/hi/calculadoras/lavavajillas.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://jonelpd.github.io/AhorraEnCasa/zh/calculadoras/lavavajillas.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonelpd.github.io/AhorraEnCasa/calculadoras/lavavajillas.html"/>
   </url>
   <url>
-    <loc>https://jonelpd.github.io/AhorraenCasa/en/guides/como-elegir-bombilla-led.html</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://jonelpd.github.io/AhorraenCasa/guias/como-elegir-bombilla-led.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://jonelpd.github.io/AhorraenCasa/en/guides/como-elegir-bombilla-led.html"/>
-    <xhtml:link rel="alternate" hreflang="hi" href="https://jonelpd.github.io/AhorraenCasa/hi/guides/como-elegir-bombilla-led.html"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://jonelpd.github.io/AhorraenCasa/zh/guides/como-elegir-bombilla-led.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonelpd.github.io/AhorraenCasa/"/>
+    <loc>https://jonelpd.github.io/AhorraEnCasa/en/calculadoras/radiador-electrico.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jonelpd.github.io/AhorraEnCasa/calculadoras/radiador-electrico.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jonelpd.github.io/AhorraEnCasa/en/calculadoras/radiador-electrico.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://jonelpd.github.io/AhorraEnCasa/hi/calculadoras/radiador-electrico.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://jonelpd.github.io/AhorraEnCasa/zh/calculadoras/radiador-electrico.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonelpd.github.io/AhorraEnCasa/calculadoras/radiador-electrico.html"/>
   </url>
   <url>
-    <loc>https://jonelpd.github.io/AhorraenCasa/en/guides/como-medir-consumo-electrodomestico.html</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://jonelpd.github.io/AhorraenCasa/guias/como-medir-consumo-electrodomestico.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://jonelpd.github.io/AhorraenCasa/en/guides/como-medir-consumo-electrodomestico.html"/>
-    <xhtml:link rel="alternate" hreflang="hi" href="https://jonelpd.github.io/AhorraenCasa/hi/guides/como-medir-consumo-electrodomestico.html"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://jonelpd.github.io/AhorraenCasa/zh/guides/como-medir-consumo-electrodomestico.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonelpd.github.io/AhorraenCasa/"/>
+    <loc>https://jonelpd.github.io/AhorraEnCasa/en/calculadoras/termo-electrico.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jonelpd.github.io/AhorraEnCasa/calculadoras/termo-electrico.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jonelpd.github.io/AhorraEnCasa/en/calculadoras/termo-electrico.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://jonelpd.github.io/AhorraEnCasa/hi/calculadoras/termo-electrico.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://jonelpd.github.io/AhorraEnCasa/zh/calculadoras/termo-electrico.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonelpd.github.io/AhorraEnCasa/calculadoras/termo-electrico.html"/>
   </url>
   <url>
-    <loc>https://jonelpd.github.io/AhorraenCasa/en/guides/cuanto-cuesta-dejar-un-aparato-encendido.html</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://jonelpd.github.io/AhorraenCasa/guias/cuanto-cuesta-dejar-un-aparato-encendido.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://jonelpd.github.io/AhorraenCasa/en/guides/cuanto-cuesta-dejar-un-aparato-encendido.html"/>
-    <xhtml:link rel="alternate" hreflang="hi" href="https://jonelpd.github.io/AhorraenCasa/hi/guides/cuanto-cuesta-dejar-un-aparato-encendido.html"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://jonelpd.github.io/AhorraenCasa/zh/guides/cuanto-cuesta-dejar-un-aparato-encendido.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonelpd.github.io/AhorraenCasa/"/>
+    <loc>https://jonelpd.github.io/AhorraEnCasa/en/guides/10-formas-reducir-consumo-electrico.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jonelpd.github.io/AhorraEnCasa/guias/10-formas-reducir-consumo-electrico.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jonelpd.github.io/AhorraEnCasa/en/guides/10-formas-reducir-consumo-electrico.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://jonelpd.github.io/AhorraEnCasa/hi/guides/10-formas-reducir-consumo-electrico.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://jonelpd.github.io/AhorraEnCasa/zh/guides/10-formas-reducir-consumo-electrico.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonelpd.github.io/AhorraEnCasa/guias/10-formas-reducir-consumo-electrico.html"/>
   </url>
   <url>
-    <loc>https://jonelpd.github.io/AhorraenCasa/en/guides/enchufe-inteligente-merece-la-pena.html</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://jonelpd.github.io/AhorraenCasa/guias/enchufe-inteligente-merece-la-pena.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://jonelpd.github.io/AhorraenCasa/en/guides/enchufe-inteligente-merece-la-pena.html"/>
-    <xhtml:link rel="alternate" hreflang="hi" href="https://jonelpd.github.io/AhorraenCasa/hi/guides/enchufe-inteligente-merece-la-pena.html"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://jonelpd.github.io/AhorraenCasa/zh/guides/enchufe-inteligente-merece-la-pena.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonelpd.github.io/AhorraenCasa/"/>
+    <loc>https://jonelpd.github.io/AhorraEnCasa/en/guides/como-elegir-bombilla-led.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jonelpd.github.io/AhorraEnCasa/guias/como-elegir-bombilla-led.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jonelpd.github.io/AhorraEnCasa/en/guides/como-elegir-bombilla-led.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://jonelpd.github.io/AhorraEnCasa/hi/guides/como-elegir-bombilla-led.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://jonelpd.github.io/AhorraEnCasa/zh/guides/como-elegir-bombilla-led.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonelpd.github.io/AhorraEnCasa/guias/como-elegir-bombilla-led.html"/>
   </url>
   <url>
-    <loc>https://jonelpd.github.io/AhorraenCasa/en/</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://jonelpd.github.io/AhorraenCasa/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://jonelpd.github.io/AhorraenCasa/en/"/>
-    <xhtml:link rel="alternate" hreflang="hi" href="https://jonelpd.github.io/AhorraenCasa/hi/"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://jonelpd.github.io/AhorraenCasa/zh/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonelpd.github.io/AhorraenCasa/"/>
+    <loc>https://jonelpd.github.io/AhorraEnCasa/en/guides/como-medir-consumo-electrodomestico.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jonelpd.github.io/AhorraEnCasa/guias/como-medir-consumo-electrodomestico.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jonelpd.github.io/AhorraEnCasa/en/guides/como-medir-consumo-electrodomestico.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://jonelpd.github.io/AhorraEnCasa/hi/guides/como-medir-consumo-electrodomestico.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://jonelpd.github.io/AhorraEnCasa/zh/guides/como-medir-consumo-electrodomestico.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonelpd.github.io/AhorraEnCasa/guias/como-medir-consumo-electrodomestico.html"/>
   </url>
   <url>
-    <loc>https://jonelpd.github.io/AhorraenCasa/guias/10-formas-reducir-consumo-electrico.html</loc>
+    <loc>https://jonelpd.github.io/AhorraEnCasa/en/guides/cuanto-cuesta-dejar-un-aparato-encendido.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jonelpd.github.io/AhorraEnCasa/guias/cuanto-cuesta-dejar-un-aparato-encendido.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jonelpd.github.io/AhorraEnCasa/en/guides/cuanto-cuesta-dejar-un-aparato-encendido.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://jonelpd.github.io/AhorraEnCasa/hi/guides/cuanto-cuesta-dejar-un-aparato-encendido.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://jonelpd.github.io/AhorraEnCasa/zh/guides/cuanto-cuesta-dejar-un-aparato-encendido.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonelpd.github.io/AhorraEnCasa/guias/cuanto-cuesta-dejar-un-aparato-encendido.html"/>
   </url>
   <url>
-    <loc>https://jonelpd.github.io/AhorraenCasa/guias/como-ahorrar-electricidad-en-casa.html</loc>
+    <loc>https://jonelpd.github.io/AhorraEnCasa/en/guides/enchufe-inteligente-merece-la-pena.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jonelpd.github.io/AhorraEnCasa/guias/enchufe-inteligente-merece-la-pena.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jonelpd.github.io/AhorraEnCasa/en/guides/enchufe-inteligente-merece-la-pena.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://jonelpd.github.io/AhorraEnCasa/hi/guides/enchufe-inteligente-merece-la-pena.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://jonelpd.github.io/AhorraEnCasa/zh/guides/enchufe-inteligente-merece-la-pena.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonelpd.github.io/AhorraEnCasa/guias/enchufe-inteligente-merece-la-pena.html"/>
   </url>
   <url>
-    <loc>https://jonelpd.github.io/AhorraenCasa/guias/como-elegir-bombilla-led.html</loc>
+    <loc>https://jonelpd.github.io/AhorraEnCasa/en/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jonelpd.github.io/AhorraEnCasa/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jonelpd.github.io/AhorraEnCasa/en/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://jonelpd.github.io/AhorraEnCasa/hi/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://jonelpd.github.io/AhorraEnCasa/zh/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonelpd.github.io/AhorraEnCasa/"/>
   </url>
   <url>
-    <loc>https://jonelpd.github.io/AhorraenCasa/guias/como-medir-consumo-electrodomestico.html</loc>
+    <loc>https://jonelpd.github.io/AhorraEnCasa/en/renovables/calculadora-solar.html</loc>
   </url>
   <url>
-    <loc>https://jonelpd.github.io/AhorraenCasa/guias/como-saber-que-aparato-gasta-mas-luz.html</loc>
+    <loc>https://jonelpd.github.io/AhorraEnCasa/en/renovables/guias/como-saber-si-merece-la-pena-instalar-placas-solares.html</loc>
   </url>
   <url>
-    <loc>https://jonelpd.github.io/AhorraenCasa/guias/cuanto-consume-un-frigorifico.html</loc>
+    <loc>https://jonelpd.github.io/AhorraEnCasa/en/renovables/</loc>
   </url>
   <url>
-    <loc>https://jonelpd.github.io/AhorraenCasa/guias/cuanto-consume-un-lavavajillas.html</loc>
+    <loc>https://jonelpd.github.io/AhorraEnCasa/guias/10-formas-reducir-consumo-electrico.html</loc>
   </url>
   <url>
-    <loc>https://jonelpd.github.io/AhorraenCasa/guias/cuanto-consume-un-termo-electrico.html</loc>
+    <loc>https://jonelpd.github.io/AhorraEnCasa/guias/como-ahorrar-electricidad-en-casa.html</loc>
   </url>
   <url>
-    <loc>https://jonelpd.github.io/AhorraenCasa/guias/cuanto-consume-una-lavadora.html</loc>
+    <loc>https://jonelpd.github.io/AhorraEnCasa/guias/como-elegir-bombilla-led.html</loc>
   </url>
   <url>
-    <loc>https://jonelpd.github.io/AhorraenCasa/guias/cuanto-cuesta-dejar-un-aparato-encendido.html</loc>
+    <loc>https://jonelpd.github.io/AhorraEnCasa/guias/como-medir-consumo-electrodomestico.html</loc>
   </url>
   <url>
-    <loc>https://jonelpd.github.io/AhorraenCasa/guias/cuanto-gasta-un-aire-acondicionado.html</loc>
+    <loc>https://jonelpd.github.io/AhorraEnCasa/guias/como-saber-que-aparato-gasta-mas-luz.html</loc>
   </url>
   <url>
-    <loc>https://jonelpd.github.io/AhorraenCasa/guias/cuanto-gasta-un-radiador-electrico.html</loc>
+    <loc>https://jonelpd.github.io/AhorraEnCasa/guias/cuanto-consume-un-frigorifico.html</loc>
   </url>
   <url>
-    <loc>https://jonelpd.github.io/AhorraenCasa/guias/enchufe-inteligente-merece-la-pena.html</loc>
+    <loc>https://jonelpd.github.io/AhorraEnCasa/guias/cuanto-consume-un-lavavajillas.html</loc>
   </url>
   <url>
-    <loc>https://jonelpd.github.io/AhorraenCasa/guias/</loc>
+    <loc>https://jonelpd.github.io/AhorraEnCasa/guias/cuanto-consume-un-termo-electrico.html</loc>
   </url>
   <url>
-    <loc>https://jonelpd.github.io/AhorraenCasa/guias/potencia-contratada-como-bajarla.html</loc>
+    <loc>https://jonelpd.github.io/AhorraEnCasa/guias/cuanto-consume-una-lavadora.html</loc>
   </url>
   <url>
-    <loc>https://jonelpd.github.io/AhorraenCasa/guias/que-electrodomesticos-consumen-mas.html</loc>
+    <loc>https://jonelpd.github.io/AhorraEnCasa/guias/cuanto-cuesta-dejar-un-aparato-encendido.html</loc>
   </url>
   <url>
-    <loc>https://jonelpd.github.io/AhorraenCasa/hi/calculadoras/aire-acondicionado.html</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://jonelpd.github.io/AhorraenCasa/calculadoras/aire-acondicionado.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://jonelpd.github.io/AhorraenCasa/en/calculadoras/aire-acondicionado.html"/>
-    <xhtml:link rel="alternate" hreflang="hi" href="https://jonelpd.github.io/AhorraenCasa/hi/calculadoras/aire-acondicionado.html"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://jonelpd.github.io/AhorraenCasa/zh/calculadoras/aire-acondicionado.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonelpd.github.io/AhorraenCasa/"/>
+    <loc>https://jonelpd.github.io/AhorraEnCasa/guias/cuanto-gasta-un-aire-acondicionado.html</loc>
   </url>
   <url>
-    <loc>https://jonelpd.github.io/AhorraenCasa/hi/calculadoras/calculadora-consumo-electrico.html</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://jonelpd.github.io/AhorraenCasa/calculadoras/calculadora-consumo-electrico.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://jonelpd.github.io/AhorraenCasa/en/calculadoras/calculadora-consumo-electrico.html"/>
-    <xhtml:link rel="alternate" hreflang="hi" href="https://jonelpd.github.io/AhorraenCasa/hi/calculadoras/calculadora-consumo-electrico.html"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://jonelpd.github.io/AhorraenCasa/zh/calculadoras/calculadora-consumo-electrico.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonelpd.github.io/AhorraenCasa/"/>
+    <loc>https://jonelpd.github.io/AhorraEnCasa/guias/cuanto-gasta-un-radiador-electrico.html</loc>
   </url>
   <url>
-    <loc>https://jonelpd.github.io/AhorraenCasa/hi/calculadoras/frigorifico.html</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://jonelpd.github.io/AhorraenCasa/calculadoras/frigorifico.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://jonelpd.github.io/AhorraenCasa/en/calculadoras/frigorifico.html"/>
-    <xhtml:link rel="alternate" hreflang="hi" href="https://jonelpd.github.io/AhorraenCasa/hi/calculadoras/frigorifico.html"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://jonelpd.github.io/AhorraenCasa/zh/calculadoras/frigorifico.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonelpd.github.io/AhorraenCasa/"/>
+    <loc>https://jonelpd.github.io/AhorraEnCasa/guias/enchufe-inteligente-merece-la-pena.html</loc>
   </url>
   <url>
-    <loc>https://jonelpd.github.io/AhorraenCasa/hi/calculadoras/lavadora.html</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://jonelpd.github.io/AhorraenCasa/calculadoras/lavadora.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://jonelpd.github.io/AhorraenCasa/en/calculadoras/lavadora.html"/>
-    <xhtml:link rel="alternate" hreflang="hi" href="https://jonelpd.github.io/AhorraenCasa/hi/calculadoras/lavadora.html"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://jonelpd.github.io/AhorraenCasa/zh/calculadoras/lavadora.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonelpd.github.io/AhorraenCasa/"/>
+    <loc>https://jonelpd.github.io/AhorraEnCasa/guias/</loc>
   </url>
   <url>
-    <loc>https://jonelpd.github.io/AhorraenCasa/hi/calculadoras/lavavajillas.html</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://jonelpd.github.io/AhorraenCasa/calculadoras/lavavajillas.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://jonelpd.github.io/AhorraenCasa/en/calculadoras/lavavajillas.html"/>
-    <xhtml:link rel="alternate" hreflang="hi" href="https://jonelpd.github.io/AhorraenCasa/hi/calculadoras/lavavajillas.html"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://jonelpd.github.io/AhorraenCasa/zh/calculadoras/lavavajillas.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonelpd.github.io/AhorraenCasa/"/>
+    <loc>https://jonelpd.github.io/AhorraEnCasa/guias/potencia-contratada-como-bajarla.html</loc>
   </url>
   <url>
-    <loc>https://jonelpd.github.io/AhorraenCasa/hi/calculadoras/radiador-electrico.html</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://jonelpd.github.io/AhorraenCasa/calculadoras/radiador-electrico.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://jonelpd.github.io/AhorraenCasa/en/calculadoras/radiador-electrico.html"/>
-    <xhtml:link rel="alternate" hreflang="hi" href="https://jonelpd.github.io/AhorraenCasa/hi/calculadoras/radiador-electrico.html"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://jonelpd.github.io/AhorraenCasa/zh/calculadoras/radiador-electrico.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonelpd.github.io/AhorraenCasa/"/>
+    <loc>https://jonelpd.github.io/AhorraEnCasa/guias/que-electrodomesticos-consumen-mas.html</loc>
   </url>
   <url>
-    <loc>https://jonelpd.github.io/AhorraenCasa/hi/calculadoras/termo-electrico.html</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://jonelpd.github.io/AhorraenCasa/calculadoras/termo-electrico.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://jonelpd.github.io/AhorraenCasa/en/calculadoras/termo-electrico.html"/>
-    <xhtml:link rel="alternate" hreflang="hi" href="https://jonelpd.github.io/AhorraenCasa/hi/calculadoras/termo-electrico.html"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://jonelpd.github.io/AhorraenCasa/zh/calculadoras/termo-electrico.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonelpd.github.io/AhorraenCasa/"/>
+    <loc>https://jonelpd.github.io/AhorraEnCasa/hi/calculadoras/aire-acondicionado.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jonelpd.github.io/AhorraEnCasa/calculadoras/aire-acondicionado.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jonelpd.github.io/AhorraEnCasa/en/calculadoras/aire-acondicionado.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://jonelpd.github.io/AhorraEnCasa/hi/calculadoras/aire-acondicionado.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://jonelpd.github.io/AhorraEnCasa/zh/calculadoras/aire-acondicionado.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonelpd.github.io/AhorraEnCasa/calculadoras/aire-acondicionado.html"/>
   </url>
   <url>
-    <loc>https://jonelpd.github.io/AhorraenCasa/hi/guides/10-formas-reducir-consumo-electrico.html</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://jonelpd.github.io/AhorraenCasa/guias/10-formas-reducir-consumo-electrico.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://jonelpd.github.io/AhorraenCasa/en/guides/10-formas-reducir-consumo-electrico.html"/>
-    <xhtml:link rel="alternate" hreflang="hi" href="https://jonelpd.github.io/AhorraenCasa/hi/guides/10-formas-reducir-consumo-electrico.html"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://jonelpd.github.io/AhorraenCasa/zh/guides/10-formas-reducir-consumo-electrico.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonelpd.github.io/AhorraenCasa/"/>
+    <loc>https://jonelpd.github.io/AhorraEnCasa/hi/calculadoras/calculadora-consumo-electrico.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jonelpd.github.io/AhorraEnCasa/calculadoras/calculadora-consumo-electrico.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jonelpd.github.io/AhorraEnCasa/en/calculadoras/calculadora-consumo-electrico.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://jonelpd.github.io/AhorraEnCasa/hi/calculadoras/calculadora-consumo-electrico.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://jonelpd.github.io/AhorraEnCasa/zh/calculadoras/calculadora-consumo-electrico.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonelpd.github.io/AhorraEnCasa/calculadoras/calculadora-consumo-electrico.html"/>
   </url>
   <url>
-    <loc>https://jonelpd.github.io/AhorraenCasa/hi/guides/como-elegir-bombilla-led.html</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://jonelpd.github.io/AhorraenCasa/guias/como-elegir-bombilla-led.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://jonelpd.github.io/AhorraenCasa/en/guides/como-elegir-bombilla-led.html"/>
-    <xhtml:link rel="alternate" hreflang="hi" href="https://jonelpd.github.io/AhorraenCasa/hi/guides/como-elegir-bombilla-led.html"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://jonelpd.github.io/AhorraenCasa/zh/guides/como-elegir-bombilla-led.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonelpd.github.io/AhorraenCasa/"/>
+    <loc>https://jonelpd.github.io/AhorraEnCasa/hi/calculadoras/frigorifico.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jonelpd.github.io/AhorraEnCasa/calculadoras/frigorifico.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jonelpd.github.io/AhorraEnCasa/en/calculadoras/frigorifico.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://jonelpd.github.io/AhorraEnCasa/hi/calculadoras/frigorifico.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://jonelpd.github.io/AhorraEnCasa/zh/calculadoras/frigorifico.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonelpd.github.io/AhorraEnCasa/calculadoras/frigorifico.html"/>
   </url>
   <url>
-    <loc>https://jonelpd.github.io/AhorraenCasa/hi/guides/como-medir-consumo-electrodomestico.html</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://jonelpd.github.io/AhorraenCasa/guias/como-medir-consumo-electrodomestico.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://jonelpd.github.io/AhorraenCasa/en/guides/como-medir-consumo-electrodomestico.html"/>
-    <xhtml:link rel="alternate" hreflang="hi" href="https://jonelpd.github.io/AhorraenCasa/hi/guides/como-medir-consumo-electrodomestico.html"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://jonelpd.github.io/AhorraenCasa/zh/guides/como-medir-consumo-electrodomestico.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonelpd.github.io/AhorraenCasa/"/>
+    <loc>https://jonelpd.github.io/AhorraEnCasa/hi/calculadoras/lavadora.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jonelpd.github.io/AhorraEnCasa/calculadoras/lavadora.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jonelpd.github.io/AhorraEnCasa/en/calculadoras/lavadora.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://jonelpd.github.io/AhorraEnCasa/hi/calculadoras/lavadora.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://jonelpd.github.io/AhorraEnCasa/zh/calculadoras/lavadora.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonelpd.github.io/AhorraEnCasa/calculadoras/lavadora.html"/>
   </url>
   <url>
-    <loc>https://jonelpd.github.io/AhorraenCasa/hi/guides/cuanto-cuesta-dejar-un-aparato-encendido.html</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://jonelpd.github.io/AhorraenCasa/guias/cuanto-cuesta-dejar-un-aparato-encendido.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://jonelpd.github.io/AhorraenCasa/en/guides/cuanto-cuesta-dejar-un-aparato-encendido.html"/>
-    <xhtml:link rel="alternate" hreflang="hi" href="https://jonelpd.github.io/AhorraenCasa/hi/guides/cuanto-cuesta-dejar-un-aparato-encendido.html"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://jonelpd.github.io/AhorraenCasa/zh/guides/cuanto-cuesta-dejar-un-aparato-encendido.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonelpd.github.io/AhorraenCasa/"/>
+    <loc>https://jonelpd.github.io/AhorraEnCasa/hi/calculadoras/lavavajillas.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jonelpd.github.io/AhorraEnCasa/calculadoras/lavavajillas.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jonelpd.github.io/AhorraEnCasa/en/calculadoras/lavavajillas.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://jonelpd.github.io/AhorraEnCasa/hi/calculadoras/lavavajillas.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://jonelpd.github.io/AhorraEnCasa/zh/calculadoras/lavavajillas.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonelpd.github.io/AhorraEnCasa/calculadoras/lavavajillas.html"/>
   </url>
   <url>
-    <loc>https://jonelpd.github.io/AhorraenCasa/hi/guides/enchufe-inteligente-merece-la-pena.html</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://jonelpd.github.io/AhorraenCasa/guias/enchufe-inteligente-merece-la-pena.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://jonelpd.github.io/AhorraenCasa/en/guides/enchufe-inteligente-merece-la-pena.html"/>
-    <xhtml:link rel="alternate" hreflang="hi" href="https://jonelpd.github.io/AhorraenCasa/hi/guides/enchufe-inteligente-merece-la-pena.html"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://jonelpd.github.io/AhorraenCasa/zh/guides/enchufe-inteligente-merece-la-pena.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonelpd.github.io/AhorraenCasa/"/>
+    <loc>https://jonelpd.github.io/AhorraEnCasa/hi/calculadoras/radiador-electrico.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jonelpd.github.io/AhorraEnCasa/calculadoras/radiador-electrico.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jonelpd.github.io/AhorraEnCasa/en/calculadoras/radiador-electrico.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://jonelpd.github.io/AhorraEnCasa/hi/calculadoras/radiador-electrico.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://jonelpd.github.io/AhorraEnCasa/zh/calculadoras/radiador-electrico.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonelpd.github.io/AhorraEnCasa/calculadoras/radiador-electrico.html"/>
   </url>
   <url>
-    <loc>https://jonelpd.github.io/AhorraenCasa/hi/</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://jonelpd.github.io/AhorraenCasa/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://jonelpd.github.io/AhorraenCasa/en/"/>
-    <xhtml:link rel="alternate" hreflang="hi" href="https://jonelpd.github.io/AhorraenCasa/hi/"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://jonelpd.github.io/AhorraenCasa/zh/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonelpd.github.io/AhorraenCasa/"/>
+    <loc>https://jonelpd.github.io/AhorraEnCasa/hi/calculadoras/termo-electrico.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jonelpd.github.io/AhorraEnCasa/calculadoras/termo-electrico.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jonelpd.github.io/AhorraEnCasa/en/calculadoras/termo-electrico.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://jonelpd.github.io/AhorraEnCasa/hi/calculadoras/termo-electrico.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://jonelpd.github.io/AhorraEnCasa/zh/calculadoras/termo-electrico.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonelpd.github.io/AhorraEnCasa/calculadoras/termo-electrico.html"/>
   </url>
   <url>
-    <loc>https://jonelpd.github.io/AhorraenCasa/</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://jonelpd.github.io/AhorraenCasa/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://jonelpd.github.io/AhorraenCasa/en/"/>
-    <xhtml:link rel="alternate" hreflang="hi" href="https://jonelpd.github.io/AhorraenCasa/hi/"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://jonelpd.github.io/AhorraenCasa/zh/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonelpd.github.io/AhorraenCasa/"/>
+    <loc>https://jonelpd.github.io/AhorraEnCasa/hi/guides/10-formas-reducir-consumo-electrico.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jonelpd.github.io/AhorraEnCasa/guias/10-formas-reducir-consumo-electrico.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jonelpd.github.io/AhorraEnCasa/en/guides/10-formas-reducir-consumo-electrico.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://jonelpd.github.io/AhorraEnCasa/hi/guides/10-formas-reducir-consumo-electrico.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://jonelpd.github.io/AhorraEnCasa/zh/guides/10-formas-reducir-consumo-electrico.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonelpd.github.io/AhorraEnCasa/guias/10-formas-reducir-consumo-electrico.html"/>
   </url>
   <url>
-    <loc>https://jonelpd.github.io/AhorraenCasa/productos/bombillas-led-comparativa.html</loc>
+    <loc>https://jonelpd.github.io/AhorraEnCasa/hi/guides/como-elegir-bombilla-led.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jonelpd.github.io/AhorraEnCasa/guias/como-elegir-bombilla-led.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jonelpd.github.io/AhorraEnCasa/en/guides/como-elegir-bombilla-led.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://jonelpd.github.io/AhorraEnCasa/hi/guides/como-elegir-bombilla-led.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://jonelpd.github.io/AhorraEnCasa/zh/guides/como-elegir-bombilla-led.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonelpd.github.io/AhorraEnCasa/guias/como-elegir-bombilla-led.html"/>
   </url>
   <url>
-    <loc>https://jonelpd.github.io/AhorraenCasa/productos/como-elegir-medidor-consumo-electrico.html</loc>
+    <loc>https://jonelpd.github.io/AhorraEnCasa/hi/guides/como-medir-consumo-electrodomestico.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jonelpd.github.io/AhorraEnCasa/guias/como-medir-consumo-electrodomestico.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jonelpd.github.io/AhorraEnCasa/en/guides/como-medir-consumo-electrodomestico.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://jonelpd.github.io/AhorraEnCasa/hi/guides/como-medir-consumo-electrodomestico.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://jonelpd.github.io/AhorraEnCasa/zh/guides/como-medir-consumo-electrodomestico.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonelpd.github.io/AhorraEnCasa/guias/como-medir-consumo-electrodomestico.html"/>
   </url>
   <url>
-    <loc>https://jonelpd.github.io/AhorraenCasa/productos/comparativa-enchufes-inteligentes-medidor.html</loc>
+    <loc>https://jonelpd.github.io/AhorraEnCasa/hi/guides/cuanto-cuesta-dejar-un-aparato-encendido.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jonelpd.github.io/AhorraEnCasa/guias/cuanto-cuesta-dejar-un-aparato-encendido.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jonelpd.github.io/AhorraEnCasa/en/guides/cuanto-cuesta-dejar-un-aparato-encendido.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://jonelpd.github.io/AhorraEnCasa/hi/guides/cuanto-cuesta-dejar-un-aparato-encendido.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://jonelpd.github.io/AhorraEnCasa/zh/guides/cuanto-cuesta-dejar-un-aparato-encendido.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonelpd.github.io/AhorraEnCasa/guias/cuanto-cuesta-dejar-un-aparato-encendido.html"/>
   </url>
   <url>
-    <loc>https://jonelpd.github.io/AhorraenCasa/productos/comparativa-medidores-consumo-electrico.html</loc>
+    <loc>https://jonelpd.github.io/AhorraEnCasa/hi/guides/enchufe-inteligente-merece-la-pena.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jonelpd.github.io/AhorraEnCasa/guias/enchufe-inteligente-merece-la-pena.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jonelpd.github.io/AhorraEnCasa/en/guides/enchufe-inteligente-merece-la-pena.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://jonelpd.github.io/AhorraEnCasa/hi/guides/enchufe-inteligente-merece-la-pena.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://jonelpd.github.io/AhorraEnCasa/zh/guides/enchufe-inteligente-merece-la-pena.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonelpd.github.io/AhorraEnCasa/guias/enchufe-inteligente-merece-la-pena.html"/>
   </url>
   <url>
-    <loc>https://jonelpd.github.io/AhorraenCasa/productos/enchufe-inteligente-o-medidor.html</loc>
+    <loc>https://jonelpd.github.io/AhorraEnCasa/hi/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jonelpd.github.io/AhorraEnCasa/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jonelpd.github.io/AhorraEnCasa/en/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://jonelpd.github.io/AhorraEnCasa/hi/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://jonelpd.github.io/AhorraEnCasa/zh/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonelpd.github.io/AhorraEnCasa/"/>
   </url>
   <url>
-    <loc>https://jonelpd.github.io/AhorraenCasa/productos/enchufes-inteligentes-medidor-consumo.html</loc>
+    <loc>https://jonelpd.github.io/AhorraEnCasa/hi/renovables/calculadora-solar.html</loc>
   </url>
   <url>
-    <loc>https://jonelpd.github.io/AhorraenCasa/productos/</loc>
+    <loc>https://jonelpd.github.io/AhorraEnCasa/hi/renovables/guias/como-saber-si-merece-la-pena-instalar-placas-solares.html</loc>
   </url>
   <url>
-    <loc>https://jonelpd.github.io/AhorraenCasa/renovables/calculadora-solar.html</loc>
+    <loc>https://jonelpd.github.io/AhorraEnCasa/hi/renovables/</loc>
   </url>
   <url>
-    <loc>https://jonelpd.github.io/AhorraenCasa/renovables/guias/como-saber-si-merece-la-pena-instalar-placas-solares.html</loc>
+    <loc>https://jonelpd.github.io/AhorraEnCasa/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jonelpd.github.io/AhorraEnCasa/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jonelpd.github.io/AhorraEnCasa/en/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://jonelpd.github.io/AhorraEnCasa/hi/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://jonelpd.github.io/AhorraEnCasa/zh/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonelpd.github.io/AhorraEnCasa/"/>
   </url>
   <url>
-    <loc>https://jonelpd.github.io/AhorraenCasa/renovables/</loc>
+    <loc>https://jonelpd.github.io/AhorraEnCasa/productos/bombillas-led-comparativa.html</loc>
   </url>
   <url>
-    <loc>https://jonelpd.github.io/AhorraenCasa/sobre-nosotros.html</loc>
+    <loc>https://jonelpd.github.io/AhorraEnCasa/productos/como-elegir-medidor-consumo-electrico.html</loc>
   </url>
   <url>
-    <loc>https://jonelpd.github.io/AhorraenCasa/transparencia.html</loc>
+    <loc>https://jonelpd.github.io/AhorraEnCasa/productos/comparativa-enchufes-inteligentes-medidor.html</loc>
   </url>
   <url>
-    <loc>https://jonelpd.github.io/AhorraenCasa/zh/calculadoras/aire-acondicionado.html</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://jonelpd.github.io/AhorraenCasa/calculadoras/aire-acondicionado.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://jonelpd.github.io/AhorraenCasa/en/calculadoras/aire-acondicionado.html"/>
-    <xhtml:link rel="alternate" hreflang="hi" href="https://jonelpd.github.io/AhorraenCasa/hi/calculadoras/aire-acondicionado.html"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://jonelpd.github.io/AhorraenCasa/zh/calculadoras/aire-acondicionado.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonelpd.github.io/AhorraenCasa/"/>
+    <loc>https://jonelpd.github.io/AhorraEnCasa/productos/comparativa-medidores-consumo-electrico.html</loc>
   </url>
   <url>
-    <loc>https://jonelpd.github.io/AhorraenCasa/zh/calculadoras/calculadora-consumo-electrico.html</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://jonelpd.github.io/AhorraenCasa/calculadoras/calculadora-consumo-electrico.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://jonelpd.github.io/AhorraenCasa/en/calculadoras/calculadora-consumo-electrico.html"/>
-    <xhtml:link rel="alternate" hreflang="hi" href="https://jonelpd.github.io/AhorraenCasa/hi/calculadoras/calculadora-consumo-electrico.html"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://jonelpd.github.io/AhorraenCasa/zh/calculadoras/calculadora-consumo-electrico.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonelpd.github.io/AhorraenCasa/"/>
+    <loc>https://jonelpd.github.io/AhorraEnCasa/productos/enchufe-inteligente-o-medidor.html</loc>
   </url>
   <url>
-    <loc>https://jonelpd.github.io/AhorraenCasa/zh/calculadoras/frigorifico.html</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://jonelpd.github.io/AhorraenCasa/calculadoras/frigorifico.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://jonelpd.github.io/AhorraenCasa/en/calculadoras/frigorifico.html"/>
-    <xhtml:link rel="alternate" hreflang="hi" href="https://jonelpd.github.io/AhorraenCasa/hi/calculadoras/frigorifico.html"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://jonelpd.github.io/AhorraenCasa/zh/calculadoras/frigorifico.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonelpd.github.io/AhorraenCasa/"/>
+    <loc>https://jonelpd.github.io/AhorraEnCasa/productos/enchufes-inteligentes-medidor-consumo.html</loc>
   </url>
   <url>
-    <loc>https://jonelpd.github.io/AhorraenCasa/zh/calculadoras/lavadora.html</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://jonelpd.github.io/AhorraenCasa/calculadoras/lavadora.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://jonelpd.github.io/AhorraenCasa/en/calculadoras/lavadora.html"/>
-    <xhtml:link rel="alternate" hreflang="hi" href="https://jonelpd.github.io/AhorraenCasa/hi/calculadoras/lavadora.html"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://jonelpd.github.io/AhorraenCasa/zh/calculadoras/lavadora.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonelpd.github.io/AhorraenCasa/"/>
+    <loc>https://jonelpd.github.io/AhorraEnCasa/productos/</loc>
   </url>
   <url>
-    <loc>https://jonelpd.github.io/AhorraenCasa/zh/calculadoras/lavavajillas.html</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://jonelpd.github.io/AhorraenCasa/calculadoras/lavavajillas.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://jonelpd.github.io/AhorraenCasa/en/calculadoras/lavavajillas.html"/>
-    <xhtml:link rel="alternate" hreflang="hi" href="https://jonelpd.github.io/AhorraenCasa/hi/calculadoras/lavavajillas.html"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://jonelpd.github.io/AhorraenCasa/zh/calculadoras/lavavajillas.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonelpd.github.io/AhorraenCasa/"/>
+    <loc>https://jonelpd.github.io/AhorraEnCasa/renovables/calculadora-solar.html</loc>
   </url>
   <url>
-    <loc>https://jonelpd.github.io/AhorraenCasa/zh/calculadoras/radiador-electrico.html</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://jonelpd.github.io/AhorraenCasa/calculadoras/radiador-electrico.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://jonelpd.github.io/AhorraenCasa/en/calculadoras/radiador-electrico.html"/>
-    <xhtml:link rel="alternate" hreflang="hi" href="https://jonelpd.github.io/AhorraenCasa/hi/calculadoras/radiador-electrico.html"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://jonelpd.github.io/AhorraenCasa/zh/calculadoras/radiador-electrico.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonelpd.github.io/AhorraenCasa/"/>
+    <loc>https://jonelpd.github.io/AhorraEnCasa/renovables/guias/como-saber-si-merece-la-pena-instalar-placas-solares.html</loc>
   </url>
   <url>
-    <loc>https://jonelpd.github.io/AhorraenCasa/zh/calculadoras/termo-electrico.html</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://jonelpd.github.io/AhorraenCasa/calculadoras/termo-electrico.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://jonelpd.github.io/AhorraenCasa/en/calculadoras/termo-electrico.html"/>
-    <xhtml:link rel="alternate" hreflang="hi" href="https://jonelpd.github.io/AhorraenCasa/hi/calculadoras/termo-electrico.html"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://jonelpd.github.io/AhorraenCasa/zh/calculadoras/termo-electrico.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonelpd.github.io/AhorraenCasa/"/>
+    <loc>https://jonelpd.github.io/AhorraEnCasa/renovables/</loc>
   </url>
   <url>
-    <loc>https://jonelpd.github.io/AhorraenCasa/zh/guides/10-formas-reducir-consumo-electrico.html</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://jonelpd.github.io/AhorraenCasa/guias/10-formas-reducir-consumo-electrico.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://jonelpd.github.io/AhorraenCasa/en/guides/10-formas-reducir-consumo-electrico.html"/>
-    <xhtml:link rel="alternate" hreflang="hi" href="https://jonelpd.github.io/AhorraenCasa/hi/guides/10-formas-reducir-consumo-electrico.html"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://jonelpd.github.io/AhorraenCasa/zh/guides/10-formas-reducir-consumo-electrico.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonelpd.github.io/AhorraenCasa/"/>
+    <loc>https://jonelpd.github.io/AhorraEnCasa/sobre-nosotros.html</loc>
   </url>
   <url>
-    <loc>https://jonelpd.github.io/AhorraenCasa/zh/guides/como-elegir-bombilla-led.html</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://jonelpd.github.io/AhorraenCasa/guias/como-elegir-bombilla-led.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://jonelpd.github.io/AhorraenCasa/en/guides/como-elegir-bombilla-led.html"/>
-    <xhtml:link rel="alternate" hreflang="hi" href="https://jonelpd.github.io/AhorraenCasa/hi/guides/como-elegir-bombilla-led.html"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://jonelpd.github.io/AhorraenCasa/zh/guides/como-elegir-bombilla-led.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonelpd.github.io/AhorraenCasa/"/>
+    <loc>https://jonelpd.github.io/AhorraEnCasa/transparencia.html</loc>
   </url>
   <url>
-    <loc>https://jonelpd.github.io/AhorraenCasa/zh/guides/como-medir-consumo-electrodomestico.html</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://jonelpd.github.io/AhorraenCasa/guias/como-medir-consumo-electrodomestico.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://jonelpd.github.io/AhorraenCasa/en/guides/como-medir-consumo-electrodomestico.html"/>
-    <xhtml:link rel="alternate" hreflang="hi" href="https://jonelpd.github.io/AhorraenCasa/hi/guides/como-medir-consumo-electrodomestico.html"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://jonelpd.github.io/AhorraenCasa/zh/guides/como-medir-consumo-electrodomestico.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonelpd.github.io/AhorraenCasa/"/>
+    <loc>https://jonelpd.github.io/AhorraEnCasa/zh/calculadoras/aire-acondicionado.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jonelpd.github.io/AhorraEnCasa/calculadoras/aire-acondicionado.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jonelpd.github.io/AhorraEnCasa/en/calculadoras/aire-acondicionado.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://jonelpd.github.io/AhorraEnCasa/hi/calculadoras/aire-acondicionado.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://jonelpd.github.io/AhorraEnCasa/zh/calculadoras/aire-acondicionado.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonelpd.github.io/AhorraEnCasa/calculadoras/aire-acondicionado.html"/>
   </url>
   <url>
-    <loc>https://jonelpd.github.io/AhorraenCasa/zh/guides/cuanto-cuesta-dejar-un-aparato-encendido.html</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://jonelpd.github.io/AhorraenCasa/guias/cuanto-cuesta-dejar-un-aparato-encendido.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://jonelpd.github.io/AhorraenCasa/en/guides/cuanto-cuesta-dejar-un-aparato-encendido.html"/>
-    <xhtml:link rel="alternate" hreflang="hi" href="https://jonelpd.github.io/AhorraenCasa/hi/guides/cuanto-cuesta-dejar-un-aparato-encendido.html"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://jonelpd.github.io/AhorraenCasa/zh/guides/cuanto-cuesta-dejar-un-aparato-encendido.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonelpd.github.io/AhorraenCasa/"/>
+    <loc>https://jonelpd.github.io/AhorraEnCasa/zh/calculadoras/calculadora-consumo-electrico.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jonelpd.github.io/AhorraEnCasa/calculadoras/calculadora-consumo-electrico.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jonelpd.github.io/AhorraEnCasa/en/calculadoras/calculadora-consumo-electrico.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://jonelpd.github.io/AhorraEnCasa/hi/calculadoras/calculadora-consumo-electrico.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://jonelpd.github.io/AhorraEnCasa/zh/calculadoras/calculadora-consumo-electrico.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonelpd.github.io/AhorraEnCasa/calculadoras/calculadora-consumo-electrico.html"/>
   </url>
   <url>
-    <loc>https://jonelpd.github.io/AhorraenCasa/zh/guides/enchufe-inteligente-merece-la-pena.html</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://jonelpd.github.io/AhorraenCasa/guias/enchufe-inteligente-merece-la-pena.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://jonelpd.github.io/AhorraenCasa/en/guides/enchufe-inteligente-merece-la-pena.html"/>
-    <xhtml:link rel="alternate" hreflang="hi" href="https://jonelpd.github.io/AhorraenCasa/hi/guides/enchufe-inteligente-merece-la-pena.html"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://jonelpd.github.io/AhorraenCasa/zh/guides/enchufe-inteligente-merece-la-pena.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonelpd.github.io/AhorraenCasa/"/>
+    <loc>https://jonelpd.github.io/AhorraEnCasa/zh/calculadoras/frigorifico.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jonelpd.github.io/AhorraEnCasa/calculadoras/frigorifico.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jonelpd.github.io/AhorraEnCasa/en/calculadoras/frigorifico.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://jonelpd.github.io/AhorraEnCasa/hi/calculadoras/frigorifico.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://jonelpd.github.io/AhorraEnCasa/zh/calculadoras/frigorifico.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonelpd.github.io/AhorraEnCasa/calculadoras/frigorifico.html"/>
   </url>
   <url>
-    <loc>https://jonelpd.github.io/AhorraenCasa/zh/</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://jonelpd.github.io/AhorraenCasa/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://jonelpd.github.io/AhorraenCasa/en/"/>
-    <xhtml:link rel="alternate" hreflang="hi" href="https://jonelpd.github.io/AhorraenCasa/hi/"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://jonelpd.github.io/AhorraenCasa/zh/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonelpd.github.io/AhorraenCasa/"/>
+    <loc>https://jonelpd.github.io/AhorraEnCasa/zh/calculadoras/lavadora.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jonelpd.github.io/AhorraEnCasa/calculadoras/lavadora.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jonelpd.github.io/AhorraEnCasa/en/calculadoras/lavadora.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://jonelpd.github.io/AhorraEnCasa/hi/calculadoras/lavadora.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://jonelpd.github.io/AhorraEnCasa/zh/calculadoras/lavadora.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonelpd.github.io/AhorraEnCasa/calculadoras/lavadora.html"/>
+  </url>
+  <url>
+    <loc>https://jonelpd.github.io/AhorraEnCasa/zh/calculadoras/lavavajillas.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jonelpd.github.io/AhorraEnCasa/calculadoras/lavavajillas.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jonelpd.github.io/AhorraEnCasa/en/calculadoras/lavavajillas.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://jonelpd.github.io/AhorraEnCasa/hi/calculadoras/lavavajillas.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://jonelpd.github.io/AhorraEnCasa/zh/calculadoras/lavavajillas.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonelpd.github.io/AhorraEnCasa/calculadoras/lavavajillas.html"/>
+  </url>
+  <url>
+    <loc>https://jonelpd.github.io/AhorraEnCasa/zh/calculadoras/radiador-electrico.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jonelpd.github.io/AhorraEnCasa/calculadoras/radiador-electrico.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jonelpd.github.io/AhorraEnCasa/en/calculadoras/radiador-electrico.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://jonelpd.github.io/AhorraEnCasa/hi/calculadoras/radiador-electrico.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://jonelpd.github.io/AhorraEnCasa/zh/calculadoras/radiador-electrico.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonelpd.github.io/AhorraEnCasa/calculadoras/radiador-electrico.html"/>
+  </url>
+  <url>
+    <loc>https://jonelpd.github.io/AhorraEnCasa/zh/calculadoras/termo-electrico.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jonelpd.github.io/AhorraEnCasa/calculadoras/termo-electrico.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jonelpd.github.io/AhorraEnCasa/en/calculadoras/termo-electrico.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://jonelpd.github.io/AhorraEnCasa/hi/calculadoras/termo-electrico.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://jonelpd.github.io/AhorraEnCasa/zh/calculadoras/termo-electrico.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonelpd.github.io/AhorraEnCasa/calculadoras/termo-electrico.html"/>
+  </url>
+  <url>
+    <loc>https://jonelpd.github.io/AhorraEnCasa/zh/guides/10-formas-reducir-consumo-electrico.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jonelpd.github.io/AhorraEnCasa/guias/10-formas-reducir-consumo-electrico.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jonelpd.github.io/AhorraEnCasa/en/guides/10-formas-reducir-consumo-electrico.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://jonelpd.github.io/AhorraEnCasa/hi/guides/10-formas-reducir-consumo-electrico.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://jonelpd.github.io/AhorraEnCasa/zh/guides/10-formas-reducir-consumo-electrico.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonelpd.github.io/AhorraEnCasa/guias/10-formas-reducir-consumo-electrico.html"/>
+  </url>
+  <url>
+    <loc>https://jonelpd.github.io/AhorraEnCasa/zh/guides/como-elegir-bombilla-led.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jonelpd.github.io/AhorraEnCasa/guias/como-elegir-bombilla-led.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jonelpd.github.io/AhorraEnCasa/en/guides/como-elegir-bombilla-led.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://jonelpd.github.io/AhorraEnCasa/hi/guides/como-elegir-bombilla-led.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://jonelpd.github.io/AhorraEnCasa/zh/guides/como-elegir-bombilla-led.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonelpd.github.io/AhorraEnCasa/guias/como-elegir-bombilla-led.html"/>
+  </url>
+  <url>
+    <loc>https://jonelpd.github.io/AhorraEnCasa/zh/guides/como-medir-consumo-electrodomestico.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jonelpd.github.io/AhorraEnCasa/guias/como-medir-consumo-electrodomestico.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jonelpd.github.io/AhorraEnCasa/en/guides/como-medir-consumo-electrodomestico.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://jonelpd.github.io/AhorraEnCasa/hi/guides/como-medir-consumo-electrodomestico.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://jonelpd.github.io/AhorraEnCasa/zh/guides/como-medir-consumo-electrodomestico.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonelpd.github.io/AhorraEnCasa/guias/como-medir-consumo-electrodomestico.html"/>
+  </url>
+  <url>
+    <loc>https://jonelpd.github.io/AhorraEnCasa/zh/guides/cuanto-cuesta-dejar-un-aparato-encendido.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jonelpd.github.io/AhorraEnCasa/guias/cuanto-cuesta-dejar-un-aparato-encendido.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jonelpd.github.io/AhorraEnCasa/en/guides/cuanto-cuesta-dejar-un-aparato-encendido.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://jonelpd.github.io/AhorraEnCasa/hi/guides/cuanto-cuesta-dejar-un-aparato-encendido.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://jonelpd.github.io/AhorraEnCasa/zh/guides/cuanto-cuesta-dejar-un-aparato-encendido.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonelpd.github.io/AhorraEnCasa/guias/cuanto-cuesta-dejar-un-aparato-encendido.html"/>
+  </url>
+  <url>
+    <loc>https://jonelpd.github.io/AhorraEnCasa/zh/guides/enchufe-inteligente-merece-la-pena.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jonelpd.github.io/AhorraEnCasa/guias/enchufe-inteligente-merece-la-pena.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jonelpd.github.io/AhorraEnCasa/en/guides/enchufe-inteligente-merece-la-pena.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://jonelpd.github.io/AhorraEnCasa/hi/guides/enchufe-inteligente-merece-la-pena.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://jonelpd.github.io/AhorraEnCasa/zh/guides/enchufe-inteligente-merece-la-pena.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonelpd.github.io/AhorraEnCasa/guias/enchufe-inteligente-merece-la-pena.html"/>
+  </url>
+  <url>
+    <loc>https://jonelpd.github.io/AhorraEnCasa/zh/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jonelpd.github.io/AhorraEnCasa/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jonelpd.github.io/AhorraEnCasa/en/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://jonelpd.github.io/AhorraEnCasa/hi/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://jonelpd.github.io/AhorraEnCasa/zh/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonelpd.github.io/AhorraEnCasa/"/>
+  </url>
+  <url>
+    <loc>https://jonelpd.github.io/AhorraEnCasa/zh/renovables/calculadora-solar.html</loc>
+  </url>
+  <url>
+    <loc>https://jonelpd.github.io/AhorraEnCasa/zh/renovables/guias/como-saber-si-merece-la-pena-instalar-placas-solares.html</loc>
+  </url>
+  <url>
+    <loc>https://jonelpd.github.io/AhorraEnCasa/zh/renovables/</loc>
   </url>
 </urlset>
