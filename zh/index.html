@@ -54,6 +54,7 @@
 .world-clock-city strong{font-size:13px}
 @media(max-width:600px){.world-clock-inner{gap:9px 14px}.world-clock-title{width:100%;text-align:center}}
 </style>
+<link rel="stylesheet" href="../assets/adsense.css">
 </head>
 <body>
 <header><div class="wrap nav"><a class="brand" href="./">Ahorra<b>EnCasa</b> ⚡</a><button class="menu-toggle" id="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav">☰ <span>Menú</span></button><nav id="main-nav">
@@ -65,6 +66,7 @@
 <section class="hero"><div class="wrap heroGrid"><div><span class="eyebrow" data-i18n="eyebrow">实用省电指南</span><h1 data-i18n="heroTitle">找到家里电费高的地方，并学会降低用电量。</h1><p data-i18n="heroText">计算家电使用成本，学习如何测量用电量，并在购买前比较简单实用的解决方案。</p><div class="buttons"><a class="btn primary" href="#calculadora" data-i18n="calcBtn">计算用电成本</a><a class="btn secondary" href="#herramientas" data-i18n="toolsBtn">家电计算器</a><a class="btn secondary" href="#productos" data-i18n="productsBtn">查看产品</a></div></div>
 <div class="calc" id="calculadora"><img class="calc-visual" src="../assets/visual/solar-home.svg" alt="" aria-hidden="true" width="800" height="280" loading="eager" fetchpriority="high"><h2 data-i18n="calcTitle">🧮 快速计算器</h2><p class="muted" data-i18n="calcIntro">估算一台电器每月的使用成本。</p><div class="field"><label data-i18n="power">功率（W）</label><input id="w" type="number" min="1" value="1000"></div><div class="field"><label data-i18n="hours">每天使用小时数</label><input id="h" type="number" min="0" step=".5" value="2"></div><div class="field"><label data-i18n="priceKwh">电价（€/kWh）</label><input id="p" type="number" min="0" step=".01" value=".18"></div><div class="answer"><span data-i18n="monthlyCost">预计每月成本</span><br><strong id="out">10,80 €</strong></div></div></div></section>
 
+<div class="wrap"><div class="ad-slot" data-ad-slot="" aria-label="Espacio publicitario"></div></div>
 <section id="herramientas"><div class="wrap"><div class="heading"><h2 data-i18n="toolsTitle">家电计算器</h2><p class="muted" data-i18n="toolsIntro">打开常见家电的工具，估算它们的使用成本。</p><div class="buttons"><a class="btn primary" href="calculadoras/calculadora-consumo-electrico.html" data-i18n="advancedCalc">打开高级计算器 →</a></div></div><div class="grid3"><article class="card"><div class="icon">🧊</div><h3>冰箱</h3><p class="muted">根据测量的kWh估算每月成本。</p><a href="guides/cuanto-consume-un-frigorifico.html">阅读指南 →</a></article><article class="card"><div class="icon">❄️</div><h3>空调</h3><p class="muted">根据功率、使用时间和电价计算成本。</p><a href="guides/cuanto-gasta-un-aire-acondicionado.html">阅读指南 →</a></article><article class="card"><div class="icon">🚿</div><h3>电热水器</h3><p class="muted">了解它可能占家庭用电的多少。</p><a href="guides/cuanto-consume-un-termo-electrico.html">阅读指南 →</a></article><article class="card"><div class="icon">🧺</div><h3>洗衣机</h3><p class="muted">估算洗衣机每次使用的成本。</p><a href="guides/cuanto-consume-una-lavadora.html">阅读指南 →</a></article><article class="card"><div class="icon">🍽️</div><h3>洗碗机</h3><p class="muted">把每次使用的耗电量换算成月度成本。</p><a href="guides/cuanto-consume-un-lavavajillas.html">阅读指南 →</a></article><article class="card"><div class="icon">🔥</div><h3>电暖器</h3><p class="muted">根据功率和使用时间估算费用。</p><a href="guides/cuanto-gasta-un-radiador-electrico.html">阅读指南 →</a></article></div></div></section><section id="productos"><div class="wrap"><div class="heading"><h2 data-i18n="productsTitle">从这些产品开始测量</h2><p class="muted" data-i18n="productsIntro">与其盲目节电，不如先测量电器的实际用电量，找到真正值得改善的地方。</p></div><div class="buttons" style="margin-top:16px"><a class="btn secondary" href="productos/" data-i18n="allProducts">查看完整产品目录 →</a></div>
 <div class="grid3">
 <article class="card"><div class="icon">🔌</div><span class="pill" data-i18n="measurement">测量</span><h3 data-i18n="prod1Title">数字电量测量插座</h3><p class="muted" data-i18n="prod1Text">测量功率、kWh以及连接电器的大致用电成本。</p><div class="price">在 Amazon 查看</div><a href="https://www.amazon.es/s?k=medidor+consumo+electrico+16A+3680W&tag=jonelpd-21" target="_blank" rel="sponsored noopener" data-i18n="viewProduct">查看产品 →</a><p class="note" data-i18n="priceNote">价格和库存可能变化。该链接可能是 Amazon 联盟链接。</p></article>
@@ -191,4 +193,6 @@ setInterval(updateWorldClock,1000);
   }
 })();
 </script>
+<script src="../assets/adsense-config.js"></script>
+<script src="../assets/adsense.js"></script>
 </body></html>
