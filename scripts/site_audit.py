@@ -1,117 +1,112 @@
 #!/usr/bin/env python3
-import re
-import subprocess
-import sys
+import re, subprocess, sys, json
 from pathlib import Path
 from urllib.parse import urlparse
-
-ROOT=Path(__file__).resolve().parents[1]
-errors=[]
-
+ROOT=Path(__file__).resolve().parents[1]; errors=[]
 html_files=sorted(ROOT.rglob("*.html"))
-all_paths={p.relative_to(ROOT).as_posix() for p in ROOT.rglob("*") if p.is_file()}
-
-def resolve_path(page, href):
-    if href.startswith("/"):
-        return None
-    base=page.parent
-    target=(base / href.split("#",1)[0].split("?",1)[0]).resolve()
-    try:
-        rel=target.relative_to(ROOT.resolve()).as_posix()
-    except ValueError:
-        return None
-    if target.is_dir():
-        rel=(Path(rel)/"index.html").as_posix()
-    return rel
+all_files={p.relative_to(ROOT).as_posix() for p in ROOT.rglob("*") if p.is_file()}
+def rel_of(p): return p.relative_to(ROOT).as_posix()
+def resolve_path(page,href):
+    if href.startswith("/"): return None
+    target=(page.parent/href.split("#",1)[0].split("?",1)[0]).resolve()
+    try: rel=target.relative_to(ROOT.resolve()).as_posix()
+    except ValueError: return None
+    return (Path(rel)/"index.html").as_posix() if target.is_dir() else rel
+def expected_lang(rel):
+    return "en" if rel.startswith("en/") else "hi-IN" if rel.startswith("hi/") else "zh-CN" if rel.startswith("zh/") else "es"
+def logical(rel): return re.sub(r"^guides/","guias/",re.sub(r"^(en|hi|zh)/","",rel))
 
 for page in html_files:
-    text=page.read_text(encoding="utf-8", errors="replace")
-    rel=page.relative_to(ROOT).as_posix()
+    text=page.read_text(encoding="utf-8",errors="replace"); rel=rel_of(page)
+    if text.lower().count("<!doctype html>")!=1: errors.append(f"{rel}: DOCTYPE")
+    if text.lower().count("</html>")!=1: errors.append(f"{rel}: </html>")
+    if text.lower().split("</html>",1)[-1].strip(): errors.append(f"{rel}: content after </html>")
+    if len(re.findall(r"<title>",text,re.I))!=1: errors.append(f"{rel}: title count")
+    if len(re.findall(r"<h1\b",text,re.I))!=1: errors.append(f"{rel}: h1 count")
+    if not re.search(r'<meta[^>]+name=["\']description["\']',text,re.I): errors.append(f"{rel}: meta description")
+    if re.search(r"https?://(?:www\.)?leroymerlin\.es",text,re.I): errors.append(f"{rel}: Leroy Merlin link")
+    if re.search(r'''(?:href|src)\s*=\s*["']/[^/][^"']*''',text,re.I): errors.append(f"{rel}: root-absolute internal URL")
+    markup=re.sub(r"<script[\s\S]*?</script>|<style[\s\S]*?</style>","",text,flags=re.I)
+    if re.search(r'href=["\']#["\']',markup,re.I): errors.append(f"{rel}: empty # link")
+    m=re.search(r'<html[^>]+lang=["\']([^"\']+)',text,re.I)
+    if not m or m.group(1).lower()!=expected_lang(rel).lower(): errors.append(f"{rel}: wrong lang")
+    for m in re.finditer(r'''<a\b[^>]*href=["\']([^"\']+)["\'][^>]*>''',text,re.I):
+        href=m.group(1).strip(); tag=m.group(0)
+        if re.search(r'target=["\']_blank["\']',tag,re.I) and not re.search(r'rel=["\'][^"\']*(?:noopener|noreferrer)',tag,re.I):
+            errors.append(f"{rel}: target blank without noopener -> {href}")
+        if "amazon.es" in href.lower() and not re.search(r'[?&](?:amp;)?tag=jonelpd-21(?:&|$)',href,re.I):
+            errors.append(f"{rel}: Amazon link missing tag -> {href}")
+        if href and not href.startswith(("#","mailto:","tel:","javascript:","data:")):
+            u=urlparse(href)
+            if not u.scheme and not u.netloc:
+                target=resolve_path(page,href)
+                if target and target not in all_files: errors.append(f"{rel}: broken internal -> {href}")
+    for m in re.finditer(r'''<img\b([^>]*)>''',text,re.I):
+        attrs=m.group(1); sm=re.search(r'src=["\']([^"\']+)["\']',attrs,re.I)
+        if not sm: errors.append(f"{rel}: img without src"); continue
+        src=sm.group(1).strip(); am=re.search(r'alt=["\']([^"\']*)["\']',attrs,re.I); hidden=re.search(r'aria-hidden=["\']true["\']',attrs,re.I)
+        if not am and not hidden: errors.append(f"{rel}: image missing alt -> {src}")
+        if am and not am.group(1).strip() and not hidden: errors.append(f"{rel}: empty alt -> {src}")
+        if src.startswith("http://"): errors.append(f"{rel}: insecure image -> {src}")
+        if not urlparse(src).scheme and not src.startswith("data:"):
+            target=resolve_path(page,src)
+            if target and target not in all_files: errors.append(f"{rel}: missing image asset -> {src}")
+    for i,script in enumerate(re.findall(r'<script(?![^>]*type=["\']application/ld\+json["\'])(?:\s[^>]*)?>([\s\S]*?)</script>',text,re.I),1):
+        if not script.strip(): continue
+        tmp=ROOT/".audit-inline.js"; tmp.write_text(script,encoding="utf-8")
+        p=subprocess.run(["node","--check",str(tmp)],capture_output=True,text=True); tmp.unlink(missing_ok=True)
+        if p.returncode: errors.append(f"{rel}: JS syntax #{i}")
+    for j in re.findall(r'<script[^>]+type=["\']application/ld\+json["\'][^>]*>([\s\S]*?)</script>',text,re.I):
+        try: json.loads(j)
+        except Exception as e: errors.append(f"{rel}: invalid JSON-LD {e}")
+    if rel.startswith(("en/","hi/","zh/")):
+        visible=re.sub(r"<script[\s\S]*?</script>|<style[\s\S]*?</style>"," ",text,flags=re.I)
+        visible=re.sub(r"https?://[^\s"'<>]+"," ",visible); visible=re.sub(r"\s+"," ",visible)
+        residue=[r"\bpara empezar\b",r"\bpara resolver\b",r"\bpara comprar\b",r"\bCómo\b",r"\bCalcula(?:r)?\b",r"\bconsumo eléctrico\b",r"\bproductos? para\b",r"\bguías? para\b",r"\bVer guía\b",r"\bLeer guía\b",r"\bVer comparativa\b",r"\bAviso legal\b",r"\bPrivacidad\b",r"\bCookies\b",r"\bInformación reciente\b",r"\bAntes de comprar\b",r"\bAhorra electricidad\b"]
+        for pat in residue:
+            if re.search(pat,visible,re.I): errors.append(f"{rel}: Spanish residue -> {pat}")
 
-    if text.lower().count("<!doctype html>") != 1:
-        errors.append(f"{rel}: expected exactly one DOCTYPE")
-    if text.lower().count("</html>") != 1:
-        errors.append(f"{rel}: expected exactly one </html>")
-    tail=text.lower().split("</html>",1)[-1].strip()
-    if tail:
-        errors.append(f"{rel}: content exists after </html>")
-    if re.search(r"https?://(?:www\.)?leroymerlin\.es", text, re.I):
-        errors.append(f"{rel}: Leroy Merlin link remains")
-    if re.search(r"""(?:href|src)\s*=\s*["']/[^/][^"']*""", text, re.I):
-        errors.append(f"{rel}: root-absolute internal URL may break on GitHub Pages")
-    markup_only=re.sub(r"<script[\s\S]*?</script>", "", text, flags=re.I)
-    if re.search(r'href=["\']#["\']', markup_only, re.I):
-        errors.append(f"{rel}: empty # link remains")
-    if len(re.findall(r"<title>", text, re.I)) != 1:
-        errors.append(f"{rel}: expected exactly one <title>")
-    if len(re.findall(r"<h1\b", text, re.I)) != 1:
-        errors.append(f"{rel}: expected exactly one <h1>")
-    if not re.search(r'<meta[^>]+name=["\']description["\']', text, re.I):
-        errors.append(f"{rel}: missing meta description")
-    for am in re.findall(r'(?:href|src)=["\']([^"\']*amazon\.es[^"\']*)["\']', text, re.I):
-        if not re.search(r'[?&](?:amp;)?tag=jonelpd-21(?:&|$)', am, re.I):
-            errors.append(f"{rel}: Amazon link without tag=jonelpd-21 -> {am}")
-    for m in re.finditer(r"""(?:href|src)\s*=\s*["']([^"']+)["']""", text, re.I):
-        href=m.group(1).strip()
-        if not href or href.startswith(("#","mailto:","tel:","javascript:","data:")):
-            continue
-        parsed=urlparse(href)
-        if parsed.scheme or parsed.netloc:
-            continue
-        target=resolve_path(page, href)
-        if target and target not in all_paths:
-            errors.append(f"{rel}: broken internal link -> {href} (expected {target})")
+for path in ["data/amazon-products-live.json","data/amazon-products.json","data/news.json"]:
+    p=ROOT/path
+    if not p.exists(): errors.append(f"{path}: missing")
+    else:
+        try: json.loads(p.read_text(encoding="utf-8"))
+        except Exception as e: errors.append(f"{path}: invalid JSON {e}")
 
-    scripts=re.findall(r'<script(?![^>]*type=["\']application/ld\+json["\'])(?:\s[^>]*)?>([\s\S]*?)</script>', text, re.I)
-    for i,script in enumerate(scripts,1):
-        if not script.strip():
-            continue
-        tmp=ROOT/".audit-inline.js"
-        tmp.write_text(script,encoding="utf-8")
-        proc=subprocess.run(["node","--check",str(tmp)],capture_output=True,text=True)
-        tmp.unlink(missing_ok=True)
-        if proc.returncode:
-            errors.append(f"{rel}: inline JavaScript #{i} syntax error: {proc.stderr.strip()}")
-
-
-# Validate sitemap coverage and canonical/hreflang targets.
-sitemap_path=ROOT/"sitemap.xml"
-if sitemap_path.exists():
-    sitemap=sitemap_path.read_text(encoding="utf-8", errors="replace")
-    locs=re.findall(r"<loc>([^<]+)</loc>", sitemap)
-    base="https://jonelpd.github.io/AhorraenCasa/"
-    sitemap_paths=set()
+sitemap=ROOT/"sitemap.xml"
+if not sitemap.exists(): errors.append("sitemap.xml: missing")
+else:
+    base="https://jonelpd.github.io/AhorraenCasa/"; locs=re.findall(r"<loc>([^<]+)</loc>",sitemap.read_text(encoding="utf-8",errors="replace")); got=set()
     for loc in locs:
         if loc.startswith(base):
-            rel=loc[len(base):]
-            sitemap_paths.add("index.html" if not rel else ((rel+"index.html") if rel.endswith("/") else rel))
-    expected={p.relative_to(ROOT).as_posix() for p in html_files}
-    for missing in sorted(expected-sitemap_paths):
-        errors.append(f"sitemap.xml: HTML page missing from sitemap -> {missing}")
-    for stale in sorted(sitemap_paths-expected):
-        errors.append(f"sitemap.xml: URL does not map to an HTML file -> {stale}")
-else:
-    errors.append("sitemap.xml: missing")
+            r=loc[len(base):]; got.add("index.html" if not r else (r+"index.html" if r.endswith("/") else r))
+    expected={rel_of(p) for p in html_files}
+    for x in sorted(expected-got): errors.append(f"sitemap missing -> {x}")
+    for x in sorted(got-expected): errors.append(f"sitemap stale -> {x}")
 
-for page in html_files:
-    text=page.read_text(encoding="utf-8", errors="replace")
-    rel=page.relative_to(ROOT).as_posix()
-    for url in re.findall(r'<link[^>]+rel=["\']canonical["\'][^>]+href=["\']([^"\']+)', text, re.I):
-        if url.startswith("https://jonelpd.github.io/AhorraenCasa/"):
-            target=url.split("https://jonelpd.github.io/AhorraenCasa/",1)[1]
-            target="index.html" if not target else ((target+"index.html") if target.endswith("/") else target)
-            if target not in all_paths:
-                errors.append(f"{rel}: canonical target missing -> {url}")
-    for url in re.findall(r'<link[^>]+hreflang=["\'][^"\']+["\'][^>]+href=["\']([^"\']+)', text, re.I):
-        if url.startswith("https://jonelpd.github.io/AhorraenCasa/"):
-            target=url.split("https://jonelpd.github.io/AhorraenCasa/",1)[1]
-            target="index.html" if not target else ((target+"index.html") if target.endswith("/") else target)
-            if target not in all_paths:
-                errors.append(f"{rel}: hreflang target missing -> {url}")
+pages={rel_of(p):p for p in html_files}
+for rel,page in pages.items():
+    text=page.read_text(encoding="utf-8",errors="replace")
+    for u in re.findall(r'<link[^>]+rel=["\']canonical["\'][^>]+href=["\']([^"\']+)',text,re.I):
+        if u.startswith("https://jonelpd.github.io/AhorraenCasa/"):
+            r=u.split("https://jonelpd.github.io/AhorraenCasa/",1)[1]; r="index.html" if not r else (r+"index.html" if r.endswith("/") else r)
+            if r not in pages: errors.append(f"{rel}: canonical target missing")
+    links=re.findall(r'<link[^>]+hreflang=["\']([^"\']+)["\'][^>]+href=["\']([^"\']+)',text,re.I)
+    for lang,u in links:
+        if u.startswith("https://jonelpd.github.io/AhorraenCasa/"):
+            r=u.split("https://jonelpd.github.io/AhorraenCasa/",1)[1]; r="index.html" if not r else (r+"index.html" if r.endswith("/") else r)
+            if r not in pages: errors.append(f"{rel}: hreflang target missing")
+            else:
+                back=re.findall(r'<link[^>]+hreflang=["\']([^"\']+)["\'][^>]+href=["\']([^"\']+)',pages[r].read_text(encoding="utf-8",errors="replace"),re.I)
+                expected_url=("https://jonelpd.github.io/AhorraenCasa/"+rel).rstrip("/")
+                if not any(tu.rstrip("/")==expected_url for _,tu in back): errors.append(f"{rel}: hreflang {lang} not reciprocal")
+
+es_paths={logical(r) for r in pages if not r.startswith(("en/","hi/","zh/"))}
+for lang in ("en","hi","zh"):
+    paths={logical(r) for r in pages if r.startswith(lang+"/")}
+    for x in sorted(es_paths-paths): errors.append(f"parity {lang} missing -> {x}")
+    for x in sorted(paths-es_paths): errors.append(f"parity {lang} extra -> {x}")
 
 if errors:
-    print("\n".join(errors))
-    print(f"\nAUDIT FAILED: {len(errors)} issue(s)")
-    sys.exit(1)
-
-print(f"AUDIT PASSED: {len(html_files)} HTML files checked; internal links, basic HTML structure, Leroy Merlin removal and inline JavaScript syntax are clean.")
+    print("\n".join(errors)); print(f"\nAUDIT FAILED: {len(errors)} issue(s)"); sys.exit(1)
+print(f"AUDIT PASSED: {len(html_files)} HTML files; structure, links, visuals/assets, affiliate markup, JSON, sitemap, language parity and hreflang are clean.")
