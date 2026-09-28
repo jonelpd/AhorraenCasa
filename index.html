@@ -140,19 +140,26 @@ mainNav?.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>{mainNa
     if(!r.ok) throw new Error("news unavailable");
     const data=await r.json();
     if(!Array.isArray(data.articles)||!data.articles.length) throw new Error("empty news");
-    list.innerHTML=data.articles.slice(0,6).map(a=>`
-      <article class="card news-card">
-        <div class="news-meta">${a.source||"Actualidad"} · ${a.date||""}</div>
-        <h3>${a.title}</h3>
-        <p class="muted">${a.description||""}</p>
-        <a class="news-link" href="${a.url}" target="_blank" rel="noopener noreferrer">Leer la noticia →</a>
-      </article>`).join("");
+    list.replaceChildren();
+    data.articles.slice(0,6).forEach(a=>{
+      const article=document.createElement("article"); article.className="card news-card";
+      const meta=document.createElement("div"); meta.className="news-meta"; meta.textContent=(a.source||"Actualidad")+" · "+(a.date||"");
+      const h3=document.createElement("h3"); h3.textContent=a.title||"Novedad";
+      const p=document.createElement("p"); p.className="muted"; p.textContent=a.description||"";
+      const link=document.createElement("a"); link.className="news-link"; link.textContent="Leer la noticia →"; link.target="_blank"; link.rel="noopener noreferrer";
+      try{const u=new URL(a.url,location.href); if(!/^https?:$/.test(u.protocol)) throw new Error("invalid url"); link.href=u.href;}catch(e){link.href="#";link.setAttribute("aria-disabled","true");}
+      article.append(meta,h3,p,link); list.appendChild(article);
+    });
     if(data.updatedAt){
       const d=new Date(data.updatedAt);
-      updated.textContent="Última actualización: "+new Intl.DateTimeFormat("es-ES",{dateStyle:"medium",timeStyle:"short"}).format(d);
+      if(!Number.isNaN(d.getTime())) updated.textContent="Última actualización: "+new Intl.DateTimeFormat("es-ES",{dateStyle:"medium",timeStyle:"short"}).format(d);
     }
   }catch(e){
-    list.innerHTML='<article class="card"><h3>No se pudieron cargar las novedades</h3><p class="muted">Vuelve a intentarlo más tarde.</p></article>';
+    list.replaceChildren();
+    const article=document.createElement("article"); article.className="card";
+    const h3=document.createElement("h3"); h3.textContent="No se pudieron cargar las novedades";
+    const p=document.createElement("p"); p.className="muted"; p.textContent="Vuelve a intentarlo más tarde.";
+    article.append(h3,p); list.appendChild(article);
   }
 })();
 </script>
