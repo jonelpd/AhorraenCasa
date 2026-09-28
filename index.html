@@ -16,6 +16,18 @@
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}.wrap{max-width:1160px;margin:auto;padding:0 22px}header{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:5}.nav{min-height:70px;display:flex;align-items:center;justify-content:space-between;gap:18px}.brand{font-weight:900;font-size:23px;color:var(--ink);text-decoration:none}.brand b{color:var(--g)}nav{display:flex;align-items:center;gap:20px}nav a{color:var(--ink);text-decoration:none;font-weight:700}.languages{display:flex;gap:5px;margin-left:4px}.lang{border:1px solid var(--line);background:#fff;border-radius:8px;padding:6px 8px;cursor:pointer;font-weight:800;font-size:12px}.lang.active{background:var(--g);color:#fff;border-color:var(--g)}.hero{background:linear-gradient(135deg,#eaf8ef,#fff);padding:70px 0}.heroGrid{display:grid;grid-template-columns:1.1fr .9fr;gap:44px;align-items:center}.eyebrow{display:inline-block;background:#d9f1e2;color:var(--g2);font-weight:800;border-radius:999px;padding:6px 12px;font-size:13px}.hero h1{font-size:clamp(40px,6vw,66px);line-height:1.02;margin:17px 0}.hero p{font-size:19px;color:var(--muted);max-width:680px}.buttons{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}.btn{display:inline-block;padding:13px 18px;border-radius:11px;text-decoration:none;font-weight:800}.primary{background:var(--g);color:#fff}.secondary{border:1px solid var(--line);background:#fff;color:var(--ink)}.calc,.card{background:var(--white);border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow)}.calc{padding:25px}.calc h2{margin-top:0}.field{margin:13px 0}.field label{display:block;font-size:13px;font-weight:800;margin-bottom:6px}.field input{width:100%;padding:11px;border:1px solid var(--line);border-radius:9px;font-size:16px}.answer{background:var(--p);border-radius:13px;padding:15px;margin-top:15px}.answer strong{font-size:27px;color:var(--g2)}section{padding:62px 0}.heading{max-width:760px}.heading h2{font-size:34px;margin:0 0 8px}.muted{color:var(--muted)}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:26px}.card{padding:23px}.card h3{margin:8px 0}.icon{font-size:31px}.card a{color:var(--g2);font-weight:800;text-decoration:none}.price{font-size:25px;font-weight:900;margin:10px 0}.pill{font-size:12px;padding:4px 8px;border-radius:99px;background:var(--p);color:var(--g2);font-weight:800}.note{font-size:12px;color:var(--muted)}.dark{background:#14231a;color:#fff}.dark .muted{color:#c9d7ce}.step{display:flex;gap:15px;align-items:flex-start}.num{min-width:34px;height:34px;border-radius:50%;background:var(--p);color:var(--g2);display:grid;place-items:center;font-weight:900}.faq details{background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px;margin:10px 0}.faq summary{font-weight:800;cursor:pointer}footer{background:#14231a;color:#dce9df;padding:35px 0}.footerlinks a{color:#dce9df;margin-right:18px}.copyright{font-size:12px;color:#aebdb3;margin-top:20px}
 @media(max-width:900px){nav a{display:none}.nav{flex-wrap:wrap;padding-top:10px;padding-bottom:10px}.heroGrid,.grid3{grid-template-columns:1fr}.hero{padding:48px 0}}
 .calc-visual{display:block;width:100%;height:auto;max-height:150px;object-fit:contain;margin:-4px 0 14px;border-radius:14px;background:#f3f8f5}.card{transition:transform .18s ease,box-shadow .18s ease}.card:hover{transform:translateY(-3px);box-shadow:0 16px 38px #17351f18}.btn,.renewables-cta{transition:transform .18s ease,box-shadow .18s ease}.btn:hover,.renewables-cta:hover{transform:translateY(-2px)}a:focus-visible,input:focus-visible,summary:focus-visible{outline:3px solid #e0a100;outline-offset:3px}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.card,.btn,.renewables-cta{transition:none}.card:hover,.btn:hover,.renewables-cta:hover{transform:none}}</style>
+
+<style>
+.news-section{background:#f0f7f3}
+.news-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:26px}
+.news-card{display:flex;flex-direction:column;min-height:235px}
+.news-card .news-meta{font-size:12px;color:var(--g2);font-weight:800;margin-bottom:8px}
+.news-card h3{font-size:19px;line-height:1.25;margin:0 0 10px}
+.news-card p{margin:0 0 16px}
+.news-card .news-link{margin-top:auto;color:var(--g2);font-weight:900;text-decoration:none}
+.news-updated{font-size:12px;color:var(--muted);margin-top:14px}
+@media(max-width:900px){.news-grid{grid-template-columns:1fr}}
+</style>
 </head>
 <body>
 <header><div class="wrap nav"><a class="brand" href="./">Ahorra<b>EnCasa</b> ⚡</a><nav>
@@ -50,6 +62,20 @@
 <details><summary data-i18n="faq2Q">¿Comprar un enchufe inteligente siempre reduce el consumo?</summary><p class="muted" data-i18n="faq2A">No necesariamente. El producto puede ayudar a medir, programar o evitar determinados usos, pero el ahorro depende de cómo se utilice.</p></details>
 <details><summary data-i18n="faq3Q">¿AhorraEnCasa recibe comisión por los productos?</summary><p class="muted" data-i18n="faq3A">Sí. Algunos enlaces de productos pueden ser enlaces de afiliado de Amazon y pueden generar una comisión para AhorraEnCasa, sin coste adicional para el usuario.</p></details>
 </div></section>
+<section id="noticias" class="news-section">
+  <div class="wrap">
+    <div class="heading">
+      <span class="eyebrow">📰 Actualidad</span>
+      <h2>Noticias y novedades sobre ahorro energético</h2>
+      <p class="muted">Información reciente de fuentes especializadas para ayudarte a entender cambios, oportunidades y tendencias que pueden afectar al ahorro en el hogar.</p>
+    </div>
+    <div id="news-list" class="news-grid" aria-live="polite">
+      <article class="card news-loading"><strong>Cargando novedades…</strong><p class="muted">Actualizando las últimas noticias.</p></article>
+    </div>
+    <p class="news-updated" id="news-updated"></p>
+  </div>
+</section>
+
 <section id="compras"><div class="wrap"><div class="heading"><h2>Guías para comprar mejor</h2><p class="muted">Antes de comprar un producto para ahorrar electricidad, revisa qué características realmente importan.</p></div><div class="grid3"><article class="card"><div class="icon">🔌</div><h3>Enchufes inteligentes con medidor</h3><p class="muted">Qué mirar en potencia, medición, app y programación.</p><a href="productos/enchufes-inteligentes-medidor-consumo.html">Leer guía →</a><br><a href="productos/comparativa-enchufes-inteligentes-medidor.html">Ver comparativa de modelos →</a></article><article class="card"><div class="icon">📊</div><h3>Cómo elegir un medidor</h3><p class="muted">Las características que conviene revisar antes de comprar.</p><a href="productos/como-elegir-medidor-consumo-electrico.html">Leer guía →</a></article><article class="card"><div class="icon">🔎</div><h3>Comparativa de medidores</h3><p class="muted">Modelos, funciones y precios observados en España.</p><a href="productos/comparativa-medidores-consumo-electrico.html">Ver comparativa →</a></article><article class="card"><div class="icon">💡</div><h3>Comparativa de bombillas LED</h3><p class="muted">Lúmenes, casquillo, temperatura de color y regulación.</p><a href="productos/bombillas-led-comparativa.html">Leer guía →</a></article><article class="card"><div class="icon">⚖️</div><h3>Enchufe inteligente o medidor</h3><p class="muted">Entiende cuándo tiene sentido cada opción.</p><a href="productos/enchufe-inteligente-o-medidor.html">Leer guía →</a></article></div></div></section></main>
 <footer><div class="wrap"><strong>AhorraEnCasa ⚡</strong><p data-i18n="footerText">Información práctica para entender y reducir el consumo eléctrico.</p><div class="footerlinks"><a href="sobre-nosotros.html">Sobre AhorraEnCasa</a><a href="transparencia.html">Transparencia y afiliación</a><a href="productos/">Productos</a><a href="guias/">Guías</a><a href="calculadoras/">Calculadoras</a></div><div class="copyright">© 2026 AhorraEnCasa. <span data-i18n="copyright">Los precios y disponibilidad de terceros pueden cambiar.</span></div></div></footer>
 
@@ -88,4 +114,29 @@ function calc(){
 setLang("es");
 </script>
 <script src="assets/amazon-prices.js" defer></script>
+
+<script>
+(async function loadNews(){
+  const list=document.getElementById("news-list"), updated=document.getElementById("news-updated");
+  try{
+    const r=await fetch("data/news.json",{cache:"no-store"});
+    if(!r.ok) throw new Error("news unavailable");
+    const data=await r.json();
+    if(!Array.isArray(data.articles)||!data.articles.length) throw new Error("empty news");
+    list.innerHTML=data.articles.slice(0,6).map(a=>`
+      <article class="card news-card">
+        <div class="news-meta">${a.source||"Actualidad"} · ${a.date||""}</div>
+        <h3>${a.title}</h3>
+        <p class="muted">${a.description||""}</p>
+        <a class="news-link" href="${a.url}" target="_blank" rel="noopener noreferrer">Leer la noticia →</a>
+      </article>`).join("");
+    if(data.updatedAt){
+      const d=new Date(data.updatedAt);
+      updated.textContent="Última actualización: "+new Intl.DateTimeFormat("es-ES",{dateStyle:"medium",timeStyle:"short"}).format(d);
+    }
+  }catch(e){
+    list.innerHTML='<article class="card"><h3>No se pudieron cargar las novedades</h3><p class="muted">Vuelve a intentarlo más tarde.</p></article>';
+  }
+})();
+</script>
 </body></html>
