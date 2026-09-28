@@ -1,0 +1,47 @@
+{
+  "updatedAt": "2026-09-28T08:00:00Z",
+  "articles": [
+    {
+      "title": "El MITECO lanza las subastas de ahorro de energía",
+      "description": "El Ministerio propone nuevas subastas para impulsar actuaciones de eficiencia energética y movilizar inversión en ahorro.",
+      "source": "MITECO",
+      "date": "2 sep 2026",
+      "url": "https://www.miteco.gob.es/es/prensa/ultimas-noticias/2026/septiembre/el-miteco-lanza-las-subastas-de-ahorro-de-energia-para-complemen.html"
+    },
+    {
+      "title": "Nuevo mercado de capacidad para integrar más renovables",
+      "description": "La nueva regulación contempla generación, almacenamiento y demanda, incluyendo incentivos por disponibilidad o reducción del consumo.",
+      "source": "MITECO",
+      "date": "16 sep 2026",
+      "url": "https://www.miteco.gob.es/es/prensa/ultimas-noticias/2026/septiembre/el-miteco-incentiva-la-firmeza-y-la-flexibilidad-del-sistema-ele.html"
+    },
+    {
+      "title": "La planificación eléctrica a 2030 supera los 17.000 millones de euros",
+      "description": "La propuesta revisada aumenta la inversión prevista para redes eléctricas y contempla más capacidad para nuevas demandas.",
+      "source": "MITECO",
+      "date": "16 sep 2026",
+      "url": "https://www.miteco.gob.es/es/prensa/ultimas-noticias/2026/septiembre/sara-aagesen-anuncia-una-inversion-superior-a-17-000-millones-en.html"
+    },
+    {
+      "title": "El MITECO avanza en nuevas opciones para gestionar la demanda eléctrica",
+      "description": "Se plantean reglas para el agregador independiente y para facilitar la contratación simultánea con más de un comercializador.",
+      "source": "MITECO",
+      "date": "13 ago 2026",
+      "url": "https://www.miteco.gob.es/es/prensa/ultimas-noticias/2026/agosto/el-miteco-avanza-en-la-implantacion-del-agregador-independiente-.html"
+    },
+    {
+      "title": "La CNMC actualiza datos del mercado energético",
+      "description": "El portal de datos de la CNMC mantiene actualizaciones sobre precios, energía y estadísticas del panel de hogares.",
+      "source": "CNMC",
+      "date": "23-25 sep 2026",
+      "url": "https://data.cnmc.es/"
+    },
+    {
+      "title": "Cambios previstos para mejorar la información de las facturas eléctricas",
+      "description": "El MITECO planteó incorporar información adicional para facilitar la comprensión de las facturas y el seguimiento del consumo.",
+      "source": "MITECO",
+      "date": "22 jun 2026",
+      "url": "https://www.miteco.gob.es/es/prensa/ultimas-noticias/2026/junio/el-miteco-plantea-actualizar-y-mejorar-las-facturas-de-electrici.html"
+    }
+  ]
+}
