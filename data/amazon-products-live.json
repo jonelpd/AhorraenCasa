@@ -1,0 +1,134 @@
+{
+  "updatedAt": null,
+  "marketplace": "www.amazon.es",
+  "products": {
+    "tapo-p110": {
+      "asin": "B0B82ZQZS8",
+      "title": "TP-Link Tapo P110",
+      "price": null,
+      "availability": null,
+      "url": "https://www.amazon.es/s?k=TP-Link+Tapo+P110"
+    },
+    "meross-mss315": {
+      "asin": "B0F4WHXKRP",
+      "title": "Meross MSS315",
+      "price": null,
+      "availability": null,
+      "url": "https://www.amazon.es/s?k=Meross+MSS315"
+    },
+    "energeeks-16a": {
+      "title": "ENERGEEKS WiFi 16A medidor consumo",
+      "price": null,
+      "availability": null,
+      "url": "https://www.amazon.es/s?k=ENERGEEKS+WiFi+16A+medidor+consumo"
+    },
+    "lexman-enki-16a": {
+      "title": "LEXMAN ENKI 16A medidor consumo",
+      "price": null,
+      "availability": null,
+      "url": "https://www.amazon.es/s?k=LEXMAN+ENKI+16A+medidor+consumo"
+    },
+    "shelly-plug-s-mtr-gen3": {
+      "title": "Shelly Plug S MTR Gen3",
+      "price": null,
+      "availability": null,
+      "url": "https://www.amazon.es/s?k=Shelly+Plug+S+MTR+Gen3"
+    },
+    "sonoff-s60": {
+      "title": "SONOFF S60 medidor consumo",
+      "price": null,
+      "availability": null,
+      "url": "https://www.amazon.es/s?k=SONOFF+S60+medidor+consumo"
+    },
+    "lexman-medidor-consumo": {
+      "title": "LEXMAN medidor consumo electrico enchufe",
+      "price": null,
+      "availability": null,
+      "url": "https://www.amazon.es/s?k=LEXMAN+medidor+consumo+electrico+enchufe"
+    },
+    "perel-e305em5-g": {
+      "title": "Perel E305EM5-G",
+      "price": null,
+      "availability": null,
+      "url": "https://www.amazon.es/s?k=Perel+E305EM5-G"
+    },
+    "medidor-16a-3680w": {
+      "title": "Medidor consumo electrico 16A 3680W",
+      "price": null,
+      "availability": null,
+      "url": "https://www.amazon.es/s?k=medidor+consumo+electrico+16A+3680W"
+    },
+    "philips-led-e27-470": {
+      "title": "Philips LED E27 470 lm",
+      "price": null,
+      "availability": null,
+      "url": "https://www.amazon.es/s?k=Philips+LED+E27+470+lm"
+    },
+    "philips-led-e27-806": {
+      "title": "Philips LED E27 806 lm",
+      "price": null,
+      "availability": null,
+      "url": "https://www.amazon.es/s?k=Philips+LED+E27+806+lm"
+    },
+    "philips-led-e14-470": {
+      "title": "Philips LED E14 470 lm",
+      "price": null,
+      "availability": null,
+      "url": "https://www.amazon.es/s?k=Philips+LED+E14+470+lm"
+    },
+    "philips-led-gu10-345": {
+      "title": "Philips LED GU10 345 lm",
+      "price": null,
+      "availability": null,
+      "url": "https://www.amazon.es/s?k=Philips+LED+GU10+345+lm"
+    },
+    "philips-led-e27-1521": {
+      "title": "Philips LED E27 1521 lm",
+      "price": null,
+      "availability": null,
+      "url": "https://www.amazon.es/s?k=Philips+LED+E27+1521+lm"
+    },
+    "smart-led-e27-1055": {
+      "title": "Bombilla LED E27 1055 lm inteligente Matter",
+      "price": null,
+      "availability": null,
+      "url": "https://www.amazon.es/s?k=bombilla+LED+E27+1055+lm+Matter"
+    },
+    "kit-solar-plug-play": {
+      "title": "Kit solar plug and play 800W",
+      "price": null,
+      "availability": null,
+      "url": "https://www.amazon.es/s?k=kit+solar+plug+and+play+autoconsumo+800W+Espa%C3%B1a"
+    },
+    "panel-solar-portatil": {
+      "title": "Panel solar portátil 200W",
+      "price": null,
+      "availability": null,
+      "url": "https://www.amazon.es/s?k=panel+solar+portatil+200W"
+    },
+    "bateria-portatil-estacion-energia": {
+      "title": "Estación de energía portátil 1000Wh",
+      "price": null,
+      "availability": null,
+      "url": "https://www.amazon.es/s?k=estacion+de+energia+portatil+1000Wh"
+    },
+    "cargador-solar-usb": {
+      "title": "Cargador solar USB portátil",
+      "price": null,
+      "availability": null,
+      "url": "https://www.amazon.es/s?k=cargador+solar+USB+portatil"
+    },
+    "luces-solares-exterior": {
+      "title": "Luces solares exterior LED",
+      "price": null,
+      "availability": null,
+      "url": "https://www.amazon.es/s?k=luces+solares+exterior+LED"
+    },
+    "monitor-energia-solar": {
+      "title": "Monitor de energía para el hogar",
+      "price": null,
+      "availability": null,
+      "url": "https://www.amazon.es/s?k=monitor+energia+electricidad+hogar"
+    }
+  }
+}
