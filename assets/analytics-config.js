@@ -1,0 +1,1 @@
+window.AHORRA_ANALYTICS_ID = window.AHORRA_ANALYTICS_ID || "";
