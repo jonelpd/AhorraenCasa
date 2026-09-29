@@ -1,0 +1,20 @@
+{
+  "updated_at": null,
+  "period": "Últimos 28 días",
+  "summary": {
+    "active_users": 0,
+    "total_users": 0,
+    "sessions": 0,
+    "page_views": 0,
+    "events": 0,
+    "avg_session_seconds": 0,
+    "affiliate_clicks": 0,
+    "content_reads": 0
+  },
+  "top_pages": [],
+  "countries": [],
+  "devices": [],
+  "languages": [],
+  "realtime": [],
+  "events": []
+}
