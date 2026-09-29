@@ -17,7 +17,9 @@ def expected_lang(rel):
     if rel.startswith("hi/"): return ("hi","hi-IN")
     if rel.startswith("zh/"): return ("zh","zh-CN","zh-Hans")
     return ("es",)
-def logical(rel): return re.sub(r"^guides/","guias/",re.sub(r"^(en|hi|zh)/","",rel))
+def logical(rel):
+    rel=re.sub(r"^(en|hi|zh)/","",rel)
+    return re.sub(r"^guides/","guias/",rel)
 
 for page in html_files:
     text=page.read_text(encoding="utf-8",errors="replace"); rel=rel_of(page)
@@ -33,6 +35,13 @@ for page in html_files:
     if re.search(r'href=["\']#["\']',markup,re.I): errors.append(f"{rel}: empty # link")
     m=re.search(r'<html[^>]+lang=["\']([^"\']+)',text,re.I)
     if not m or m.group(1).lower() not in {x.lower() for x in expected_lang(rel)}: errors.append(f"{rel}: wrong lang")
+    for j in re.findall(r'<script[^>]+type=["\\']application/ld\\+json["\\'][^>]*>([\\s\\S]*?)</script>',text,re.I):
+        try:
+            jd=json.loads(j)
+            if isinstance(jd,dict) and "inLanguage" in jd and str(jd["inLanguage"]).lower() not in {x.lower() for x in expected_lang(rel)}:
+                errors.append(f"{rel}: JSON-LD wrong inLanguage -> {jd["inLanguage"]}")
+        except Exception:
+            pass
     for m in re.finditer(r'''<a\b[^>]*href=["\']([^"\']+)["\'][^>]*>''',text,re.I):
         href=m.group(1).strip(); tag=m.group(0)
         if re.search(r'target=["\']_blank["\']',tag,re.I) and not re.search(r'rel=["\'][^"\']*(?:noopener|noreferrer)',tag,re.I):
