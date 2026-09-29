@@ -2,26 +2,32 @@
 <html lang="hi-IN">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>वार्षिक बिजली बचत कैलकुलेटर | वर्तमान वार्षिक लागत: horraEnCasaYa</title>
+<title>वार्षिक बिजली बचत कैलकुलेटर | AhorraEnCasaYa</title>
 <meta name="description" content="उपकरण की वार्षिक बिजली लागत की गणना करें और दैनिक उपयोग कम करने पर संभावित बचत का अनुमान लगाएँ।">
 <link rel="icon" type="image/svg+xml" href="../../assets/logo-mark-ahorraencasaya.svg">
-<link rel="canonical" href="https://jonelpd.github.io/वर्तमान वार्षिक लागत: horraenCasa/hi/calculadoras/ahorro-anual.html">
-<link rel="alternate" hreflang="es" href="https://jonelpd.github.io/वर्तमान वार्षिक लागत: horraenCasa/calculadoras/ahorro-anual.html">
-<link rel="alternate" hreflang="en" href="https://jonelpd.github.io/वर्तमान वार्षिक लागत: horraenCasa/en/calculadoras/ahorro-anual.html">
-<link rel="alternate" hreflang="zh-Hans" href="https://jonelpd.github.io/वर्तमान वार्षिक लागत: horraenCasa/zh/calculadoras/ahorro-anual.html">
-<link rel="alternate" hreflang="hi" href="https://jonelpd.github.io/वर्तमान वार्षिक लागत: horraenCasa/hi/calculadoras/ahorro-anual.html">
+<link rel="canonical" href="https://jonelpd.github.io/AhorraenCasa/hi/calculadoras/ahorro-anual.html">
+<link rel="alternate" hreflang="es" href="https://jonelpd.github.io/AhorraenCasa/calculadoras/ahorro-anual.html">
+<link rel="alternate" hreflang="en" href="https://jonelpd.github.io/AhorraenCasa/en/calculadoras/ahorro-anual.html">
+<link rel="alternate" hreflang="zh-Hans" href="https://jonelpd.github.io/AhorraenCasa/zh/calculadoras/ahorro-anual.html">
+<link rel="alternate" hreflang="hi" href="https://jonelpd.github.io/AhorraenCasa/hi/calculadoras/ahorro-anual.html">
 <style>
 body{margin:0;background:#f7faf8;color:#17221b;font:16px/1.55 system-ui,sans-serif}.wrap{max-width:900px;margin:auto;padding:30px 20px}.card{background:#fff;border:1px solid #dce7df;border-radius:20px;padding:26px;box-shadow:0 12px 35px #17351f12}.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}.field label{display:block;font-weight:800;font-size:13px;margin-bottom:6px}.field input{width:100%;box-sizing:border-box;padding:12px;border:1px solid #dce7df;border-radius:10px;font-size:16px}.result{margin-top:20px;padding:18px;border-radius:14px;background:#e9f7ef}.result strong{font-size:28px;color:#0f5132}.back{display:inline-block;margin-bottom:18px;color:#0f5132;font-weight:800;text-decoration:none}@media(max-width:650px){.grid{grid-template-columns:1fr}}
 </style>
-</head><body><main class="wrap"><a class="back" href="../">← ../TEXT</a><div class="card"><p>⚡ मुफ़्त टूल</p><h1>वार्षिक बिजली बचत कैलकुलेटर</h1><p>वर्तमान वार्षिक लागत की तुलना कम दैनिक उपयोग वाले अनुमान से करें।</p><div class="grid">
-<div class="field"><label>उपकरण की शक्ति (W)</label><input id="w" type="number" min="1" value="1000"></div>
-<div class="field"><label>वर्तमान घंटे प्रति दिन</label><input id="h1" type="number" min="0" step=".1" value="4"></div>
-<div class="field"><label>लक्ष्य घंटे प्रति दिन</label><input id="h2" type="number" min="0" step=".1" value="3"></div>
-<div class="field"><label>बिजली की कीमत (€/kWh)</label><input id="p" type="number" min="0" step=".01" value=".18"></div></div>
-<div class="result">वर्तमान वार्षिक लागत: : <strong id="a">0 €</strong><br>लक्ष्य वार्षिक लागत: : <strong id="b">0 €</strong><br>अनुमानित बचत: : <strong id="s">0 €</strong></div><p><small>अनुमान: शक्ति × घंटे × 365 × कीमत। वास्तविक बिल में अन्य शुल्क शामिल हो सकते हैं।</small></p></div></main>
+</head><body><main class="wrap"><a class="back" href="../">← बचत केंद्र पर वापस जाएँ</a>
+<div class="card"><p>⚡ निःशुल्क टूल</p><h1>वार्षिक बिजली बचत कैलकुलेटर</h1>
+<p>वर्तमान वार्षिक लागत की तुलना कम दैनिक उपयोग वाले अनुमान से करें।</p>
+<div class="grid">
+<div class="field"><label for="w">उपकरण की शक्ति (W)</label><input id="w" type="number" min="1" value="1000"></div>
+<div class="field"><label for="h1">वर्तमान घंटे प्रति दिन</label><input id="h1" type="number" min="0" step=".1" value="4"></div>
+<div class="field"><label for="h2">लक्ष्य घंटे प्रति दिन</label><input id="h2" type="number" min="0" step=".1" value="3"></div>
+<div class="field"><label for="p">बिजली की कीमत (€/kWh)</label><input id="p" type="number" min="0" step=".01" value=".18"></div>
+</div>
+<div class="result">वर्तमान वार्षिक लागत: <strong id="a">€0.00</strong><br>लक्ष्य वार्षिक लागत: <strong id="b">€0.00</strong><br>अनुमानित बचत: <strong id="s">€0.00</strong></div>
+<p><small>अनुमान: शक्ति × घंटे × 365 × कीमत। वास्तविक बिल में अन्य शुल्क शामिल हो सकते हैं।</small></p>
+</div></main>
 <script>
-const ids=["w","h1","h2","p"];ids.forEach(id=>document.getElementलक्ष्य वार्षिक लागत: yId(id).addEventListener("input",calc));
-function euro(n){return new Intl.NumberFormat("LOCवर्तमान वार्षिक लागत: LE",{style:"currency",currency:"EUR"}).format(n)}
-function calc(){const w=+document.getElementलक्ष्य वार्षिक लागत: yId("w").value||0,h1=+document.getElementलक्ष्य वार्षिक लागत: yId("h1").value||0,h2=+document.getElementलक्ष्य वार्षिक लागत: yId("h2").value||0,p=+document.getElementलक्ष्य वार्षिक लागत: yId("p").value||0;const a=w/1000*h1*365*p,b=w/1000*h2*365*p;document.getElementलक्ष्य वार्षिक लागत: yId("a").textContent=euro(a);document.getElementलक्ष्य वार्षिक लागत: yId("b").textContent=euro(b);document.getElementलक्ष्य वार्षिक लागत: yId("s").textContent=euro(Math.max(0,a-b))}
+const ids=["w","h1","h2","p"];ids.forEach(id=>document.getElementById(id).addEventListener("input",calc));
+function euro(n){return new Intl.NumberFormat("hi-IN",{style:"currency",currency:"EUR"}).format(n)}
+function calc(){const w=+document.getElementById("w").value||0,h1=+document.getElementById("h1").value||0,h2=+document.getElementById("h2").value||0,p=+document.getElementById("p").value||0;const a=w/1000*h1*365*p,b=w/1000*h2*365*p;document.getElementById("a").textContent=euro(a);document.getElementById("b").textContent=euro(b);document.getElementById("s").textContent=euro(Math.max(0,a-b))}
 calc();
 </script></body></html>
