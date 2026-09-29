@@ -9,7 +9,13 @@
   }
   const source = document.currentScript && document.currentScript.src;
   if (!source) return;
-  const analytics = document.createElement("script");
-  analytics.src = new URL("analytics.js", source).href;
-  document.head.appendChild(analytics);
+
+  const config = document.createElement("script");
+  config.src = new URL("analytics-config.js", source).href;
+  config.onload = function(){
+    const analytics = document.createElement("script");
+    analytics.src = new URL("analytics.js", source).href;
+    document.head.appendChild(analytics);
+  };
+  document.head.appendChild(config);
 })();
