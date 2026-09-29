@@ -35,7 +35,7 @@ for page in html_files:
     if re.search(r'href=["\']#["\']',markup,re.I): errors.append(f"{rel}: empty # link")
     m=re.search(r'<html[^>]+lang=["\']([^"\']+)',text,re.I)
     if not m or m.group(1).lower() not in {x.lower() for x in expected_lang(rel)}: errors.append(f"{rel}: wrong lang")
-    for j in re.findall(r'<script[^>]+type=["\\']application/ld\\+json["\\'][^>]*>([\\s\\S]*?)</script>',text,re.I):
+    for j in re.findall(r"<script[^>]+type=[\"']application/ld\\+json[\"'][^>]*>([\\s\\S]*?)</script>",text,re.I):
         try:
             jd=json.loads(j)
             if isinstance(jd,dict) and "inLanguage" in jd and str(jd["inLanguage"]).lower() not in {x.lower() for x in expected_lang(rel)}:
