@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>年度省电计算器 | 当前年度成本：horraEnCasaYa</title>
+<meta name="description" content="计算家电年度用电成本，并估算减少每天使用时间后的潜在节省。">
+<link rel="icon" type="image/svg+xml" href="../../assets/logo-mark-ahorraencasaya.svg">
+<link rel="canonical" href="https://jonelpd.github.io/当前年度成本：horraenCasa/zh/calculadoras/ahorro-anual.html">
+<link rel="alternate" hreflang="es" href="https://jonelpd.github.io/当前年度成本：horraenCasa/calculadoras/ahorro-anual.html">
+<link rel="alternate" hreflang="en" href="https://jonelpd.github.io/当前年度成本：horraenCasa/en/calculadoras/ahorro-anual.html">
+<link rel="alternate" hreflang="zh-Hans" href="https://jonelpd.github.io/当前年度成本：horraenCasa/zh/calculadoras/ahorro-anual.html">
+<link rel="alternate" hreflang="hi" href="https://jonelpd.github.io/当前年度成本：horraenCasa/hi/calculadoras/ahorro-anual.html">
+<style>
+body{margin:0;background:#f7faf8;color:#17221b;font:16px/1.55 system-ui,sans-serif}.wrap{max-width:900px;margin:auto;padding:30px 20px}.card{background:#fff;border:1px solid #dce7df;border-radius:20px;padding:26px;box-shadow:0 12px 35px #17351f12}.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}.field label{display:block;font-weight:800;font-size:13px;margin-bottom:6px}.field input{width:100%;box-sizing:border-box;padding:12px;border:1px solid #dce7df;border-radius:10px;font-size:16px}.result{margin-top:20px;padding:18px;border-radius:14px;background:#e9f7ef}.result strong{font-size:28px;color:#0f5132}.back{display:inline-block;margin-bottom:18px;color:#0f5132;font-weight:800;text-decoration:none}@media(max-width:650px){.grid{grid-template-columns:1fr}}
+</style>
+</head><body><main class="wrap"><a class="back" href="../">← ../TEXT</a><div class="card"><p>⚡ 免费工具</p><h1>年度省电计算器</h1><p>比较当前年度成本与减少每天使用时间后的估算成本。</p><div class="grid">
+<div class="field"><label>设备功率（W）</label><input id="w" type="number" min="1" value="1000"></div>
+<div class="field"><label>当前每天使用小时数</label><input id="h1" type="number" min="0" step=".1" value="4"></div>
+<div class="field"><label>目标每天使用小时数</label><input id="h2" type="number" min="0" step=".1" value="3"></div>
+<div class="field"><label>电价（€/kWh）</label><input id="p" type="number" min="0" step=".01" value=".18"></div></div>
+<div class="result">当前年度成本：: <strong id="a">0 €</strong><br>目标年度成本：: <strong id="b">0 €</strong><br>预计节省：: <strong id="s">0 €</strong></div><p><small>估算公式：功率 × 小时 × 365 × 电价。实际电费还可能包含其他费用。</small></p></div></main>
+<script>
+const ids=["w","h1","h2","p"];ids.forEach(id=>document.getElement目标年度成本：yId(id).addEventListener("input",calc));
+function euro(n){return new Intl.NumberFormat("LOC当前年度成本：LE",{style:"currency",currency:"EUR"}).format(n)}
+function calc(){const w=+document.getElement目标年度成本：yId("w").value||0,h1=+document.getElement目标年度成本：yId("h1").value||0,h2=+document.getElement目标年度成本：yId("h2").value||0,p=+document.getElement目标年度成本：yId("p").value||0;const a=w/1000*h1*365*p,b=w/1000*h2*365*p;document.getElement目标年度成本：yId("a").textContent=euro(a);document.getElement目标年度成本：yId("b").textContent=euro(b);document.getElement目标年度成本：yId("s").textContent=euro(Math.max(0,a-b))}
+calc();
+</script></body></html>
