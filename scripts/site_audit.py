@@ -39,7 +39,7 @@ for page in html_files:
         try:
             jd=json.loads(j)
             if isinstance(jd,dict) and "inLanguage" in jd and str(jd["inLanguage"]).lower() not in {x.lower() for x in expected_lang(rel)}:
-                errors.append(f"{rel}: JSON-LD wrong inLanguage -> {jd["inLanguage"]}")
+                errors.append(f"{rel}: JSON-LD wrong inLanguage -> {jd['inLanguage']}")
         except Exception:
             pass
     for m in re.finditer(r'''<a\b[^>]*href=["\']([^"\']+)["\'][^>]*>''',text,re.I):
