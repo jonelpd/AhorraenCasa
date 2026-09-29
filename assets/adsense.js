@@ -9,9 +9,6 @@
   }
   const source = document.currentScript && document.currentScript.src;
   if (!source) return;
-  const config = document.createElement("script");
-  config.src = new URL("analytics-config.js", source).href;
-  document.head.appendChild(config);
   const analytics = document.createElement("script");
   analytics.src = new URL("analytics.js", source).href;
   document.head.appendChild(analytics);
