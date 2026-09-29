@@ -2,26 +2,34 @@
 <html lang="en">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Current annual cost: nnual electricity saving calculator | Current annual cost: horraEnCasaYa</title>
+<title>Annual electricity savings calculator | AhorraEnCasaYa</title>
 <meta name="description" content="Calculate annual appliance cost and estimate savings from reducing daily usage.">
 <link rel="icon" type="image/svg+xml" href="../../assets/logo-mark-ahorraencasaya.svg">
-<link rel="canonical" href="https://jonelpd.github.io/Current annual cost: horraenCasa/en/calculadoras/ahorro-anual.html">
-<link rel="alternate" hreflang="es" href="https://jonelpd.github.io/Current annual cost: horraenCasa/calculadoras/ahorro-anual.html">
-<link rel="alternate" hreflang="en" href="https://jonelpd.github.io/Current annual cost: horraenCasa/en/calculadoras/ahorro-anual.html">
-<link rel="alternate" hreflang="zh-Hans" href="https://jonelpd.github.io/Current annual cost: horraenCasa/zh/calculadoras/ahorro-anual.html">
-<link rel="alternate" hreflang="hi" href="https://jonelpd.github.io/Current annual cost: horraenCasa/hi/calculadoras/ahorro-anual.html">
+<link rel="canonical" href="https://jonelpd.github.io/AhorraenCasa/en/calculadoras/ahorro-anual.html">
+<link rel="alternate" hreflang="es" href="https://jonelpd.github.io/AhorraenCasa/calculadoras/ahorro-anual.html">
+<link rel="alternate" hreflang="en" href="https://jonelpd.github.io/AhorraenCasa/en/calculadoras/ahorro-anual.html">
+<link rel="alternate" hreflang="zh-Hans" href="https://jonelpd.github.io/AhorraenCasa/zh/calculadoras/ahorro-anual.html">
+<link rel="alternate" hreflang="hi" href="https://jonelpd.github.io/AhorraenCasa/hi/calculadoras/ahorro-anual.html">
 <style>
 body{margin:0;background:#f7faf8;color:#17221b;font:16px/1.55 system-ui,sans-serif}.wrap{max-width:900px;margin:auto;padding:30px 20px}.card{background:#fff;border:1px solid #dce7df;border-radius:20px;padding:26px;box-shadow:0 12px 35px #17351f12}.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}.field label{display:block;font-weight:800;font-size:13px;margin-bottom:6px}.field input{width:100%;box-sizing:border-box;padding:12px;border:1px solid #dce7df;border-radius:10px;font-size:16px}.result{margin-top:20px;padding:18px;border-radius:14px;background:#e9f7ef}.result strong{font-size:28px;color:#0f5132}.back{display:inline-block;margin-bottom:18px;color:#0f5132;font-weight:800;text-decoration:none}@media(max-width:650px){.grid{grid-template-columns:1fr}}
 </style>
-</head><body><main class="wrap"><a class="back" href="../">← ../TEXT</a><div class="card"><p>⚡ Free tool</p><h1>Current annual cost: nnual electricity saving calculator</h1><p>Compare current annual cost with a scenario where you reduce daily usage.</p><div class="grid">
-<div class="field"><label>Current annual cost: ppliance power (W)</label><input id="w" type="number" min="1" value="1000"></div>
-<div class="field"><label>Current hours per day</label><input id="h1" type="number" min="0" step=".1" value="4"></div>
-<div class="field"><label>Target hours per day</label><input id="h2" type="number" min="0" step=".1" value="3"></div>
-<div class="field"><label>Electricity price (€/kWh)</label><input id="p" type="number" min="0" step=".01" value=".18"></div></div>
-<div class="result">Current annual cost: : <strong id="a">0 €</strong><br>Target annual cost: : <strong id="b">0 €</strong><br>Estimated saving: : <strong id="s">0 €</strong></div><p><small>Estimate: power × hours × 365 × price. A real electricity bill may include other charges.</small></p></div></main>
+</head>
+<body><main class="wrap">
+<a class="back" href="../">← Back to Savings Center</a>
+<div class="card"><p>⚡ Free tool</p><h1>Annual electricity savings calculator</h1>
+<p>Compare an appliance's current annual cost with a scenario where you reduce its daily usage.</p>
+<div class="grid">
+<div class="field"><label for="w">Appliance power (W)</label><input id="w" type="number" min="1" value="1000"></div>
+<div class="field"><label for="h1">Current hours per day</label><input id="h1" type="number" min="0" step=".1" value="4"></div>
+<div class="field"><label for="h2">Target hours per day</label><input id="h2" type="number" min="0" step=".1" value="3"></div>
+<div class="field"><label for="p">Electricity price (€/kWh)</label><input id="p" type="number" min="0" step=".01" value=".18"></div>
+</div>
+<div class="result">Current annual cost: <strong id="a">€0.00</strong><br>Target annual cost: <strong id="b">€0.00</strong><br>Estimated saving: <strong id="s">€0.00</strong></div>
+<p><small>Estimate: power × hours × 365 × price. Real electricity bills may include other charges.</small></p>
+</div></main>
 <script>
-const ids=["w","h1","h2","p"];ids.forEach(id=>document.getElementTarget annual cost: yId(id).addEventListener("input",calc));
-function euro(n){return new Intl.NumberFormat("LOCCurrent annual cost: LE",{style:"currency",currency:"EUR"}).format(n)}
-function calc(){const w=+document.getElementTarget annual cost: yId("w").value||0,h1=+document.getElementTarget annual cost: yId("h1").value||0,h2=+document.getElementTarget annual cost: yId("h2").value||0,p=+document.getElementTarget annual cost: yId("p").value||0;const a=w/1000*h1*365*p,b=w/1000*h2*365*p;document.getElementTarget annual cost: yId("a").textContent=euro(a);document.getElementTarget annual cost: yId("b").textContent=euro(b);document.getElementTarget annual cost: yId("s").textContent=euro(Math.max(0,a-b))}
+const ids=["w","h1","h2","p"];ids.forEach(id=>document.getElementById(id).addEventListener("input",calc));
+function euro(n){return new Intl.NumberFormat("en-GB",{style:"currency",currency:"EUR"}).format(n)}
+function calc(){const w=+document.getElementById("w").value||0,h1=+document.getElementById("h1").value||0,h2=+document.getElementById("h2").value||0,p=+document.getElementById("p").value||0;const a=w/1000*h1*365*p,b=w/1000*h2*365*p;document.getElementById("a").textContent=euro(a);document.getElementById("b").textContent=euro(b);document.getElementById("s").textContent=euro(Math.max(0,a-b))}
 calc();
 </script></body></html>
