@@ -1,2 +1,2 @@
-// Pega aquí el ID de medición de Google Analytics 4, por ejemplo: G-XXXXXXXXXX
-window.AHORRA_ANALYTICS_ID = "";
+// ID de medición de Google Analytics 4
+window.AHORRA_ANALYTICS_ID = "G-22D1BGCVSE";
