@@ -1,0 +1,14 @@
+{
+  "name":"AhorraEnCasaYa",
+  "short_name":"AhorraEnCasaYa",
+  "description":"Calculadoras, guías y herramientas para reducir el consumo eléctrico del hogar.",
+  "lang":"es",
+  "start_url":"./",
+  "scope":"./",
+  "display":"standalone",
+  "background_color":"#f7faf8",
+  "theme_color":"#157347",
+  "icons":[
+    {"src":"assets/logo-mark-ahorraencasaya.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}
+  ]
+}
