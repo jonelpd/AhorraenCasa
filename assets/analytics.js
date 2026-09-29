@@ -18,7 +18,7 @@
   document.addEventListener("click",function(e){
     var a=e.target.closest&&e.target.closest("a");if(!a)return;
     var href=a.href||"";
-    if(/amazon\./i.test(href)) send("affiliate_click",{affiliate:"amazon",destination:href.slice(0,300),link_text:(a.textContent||"").trim().slice(0,120),page_path:location.pathname});
+    if(/amazon\\./i.test(href)) send("affiliate_click",{affiliate:"amazon",destination:href.slice(0,300),link_text:(a.textContent||"").trim().slice(0,120),page_path:location.pathname});
     var lang=a.getAttribute("hreflang")||a.dataset.lang;
     if(lang) send("language_select",{language:lang});
   },true);
