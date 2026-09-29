@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 390" role="img" aria-labelledby="title desc">
+  <title id="title">AhorraEnCasaYa</title>
+  <desc id="desc">Logotipo de AhorraEnCasaYa: hogar sostenible con panel solar, sol, hoja y enchufe.</desc>
+  <defs>
+    <linearGradient id="green" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#42a82d"/><stop offset="1" stop-color="#087443"/>
+    </linearGradient>
+    <linearGradient id="blue" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#19a4e0"/><stop offset="1" stop-color="#1178b7"/>
+    </linearGradient>
+  </defs>
+  <g transform="translate(450 15)">
+    <circle cx="105" cy="55" r="34" fill="#ffbf16"/>
+    <g stroke="#ffbf16" stroke-width="8" stroke-linecap="round">
+      <path d="M105 5v-18"/><path d="M150 20l13-13"/><path d="M165 63h18"/>
+      <path d="M60 20L47 7"/><path d="M45 63H27"/>
+    </g>
+    <path d="M-250 120L-80 5 35 105 210 105 115 210-40 210z" fill="url(#green)"/>
+    <path d="M-225 120L-92 30-5 103-112 155z" fill="url(#blue)" stroke="#fff" stroke-width="6"/>
+    <g stroke="#fff" stroke-width="5">
+      <path d="M-182 86l88-49"/><path d="M-210 110l86-48"/><path d="M-135 135l100-55"/><path d="M-160 155l92-51"/>
+    </g>
+    <path d="M-75 100h75v110h-75z" fill="#fff"/>
+    <g fill="#0d6d47"><rect x="-50" y="120" width="20" height="20" rx="4"/><rect x="-20" y="120" width="20" height="20" rx="4"/><rect x="-50" y="150" width="20" height="20" rx="4"/><rect x="-20" y="150" width="20" height="20" rx="4"/></g>
+    <path d="M-285 135C-240 170-165 185-110 220 10 298 150 245 205 185" fill="none" stroke="url(#green)" stroke-width="34" stroke-linecap="round"/>
+    <path d="M-280 135C-230 160-185 188-150 220  -190 205-235 190-280 150z" fill="#42a82d"/>
+    <g transform="translate(205 185) rotate(-40)">
+      <rect x="-18" y="-23" width="54" height="45" rx="20" fill="#159447"/>
+      <rect x="25" y="-35" width="15" height="22" rx="5" fill="#159447"/>
+      <rect x="25" y="13" width="15" height="22" rx="5" fill="#159447"/>
+    </g>
+  </g>
+  <text x="450" y="300" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="62" font-weight="800" fill="#0d5140">AhorraEnCasa<tspan fill="#5bbd18">Ya</tspan></text>
+  <text x="450" y="350" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="25" font-weight="500" fill="#0d5140">Más ahorro. Un futuro sostenible.</text>
+</svg>
