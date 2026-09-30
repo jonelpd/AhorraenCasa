@@ -217,7 +217,7 @@ grant select, insert, delete on table public.calculator_results to authenticated
 grant usage, select on sequence public.calculator_results_id_seq to authenticated;
 
 drop policy if exists "Users can view own calculator results" on public.calculator_results;
-create policy "Users can view own calculator results" on public.calculator_results for select to authenticated using ((select auth.uid()));
+create policy "Users can view own calculator results" on public.calculator_results for select to authenticated using ((select auth.uid()) = user_id);
 
 drop policy if exists "Users can insert own calculator results" on public.calculator_results;
 create policy "Users can insert own calculator results" on public.calculator_results for insert to authenticated with check ((select auth.uid()) = user_id);
