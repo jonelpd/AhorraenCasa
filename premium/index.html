@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Premium | AhorraEnCasaYa</title>
+<link rel="icon" href="../assets/logo-mark-ahorraencasaya.svg">
+<link rel="stylesheet" href="../assets/premium-ui.css">
+<style>
+body{margin:0;background:#f7faf8;color:#17221b;font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Arial}
+.wrap{max-width:1000px;margin:auto;padding:0 20px}
+.top{padding:22px 0;display:flex;justify-content:space-between;align-items:center;gap:15px}
+.brand{display:flex;gap:10px;align-items:center;text-decoration:none;color:#17221b;font-weight:900;font-size:22px}.brand img{width:40px}.brand span span{color:#157347}
+.hero{padding:54px 0 30px}.eyebrow{display:inline-block;background:#d9f1e2;color:#0f5132;border-radius:999px;padding:6px 12px;font-weight:900;font-size:13px}
+h1{font-size:clamp(38px,6vw,62px);line-height:1.03;letter-spacing:-.045em;margin:16px 0 12px}.lead{font-size:19px;color:#647168;max-width:700px}
+.card{background:#fff;border:1px solid #dce7df;border-radius:20px;padding:24px;margin:18px 0;box-shadow:0 12px 35px #17351f12}
+.status{padding:13px 15px;border-radius:12px;background:#f1f7f3}.error{background:#fff0f0;color:#8a1f1f}
+.content{white-space:pre-line}.meta{font-size:13px;color:#66736b}
+.btn{display:inline-block;padding:12px 17px;border-radius:10px;text-decoration:none;font-weight:900;background:#157347;color:#fff}
+</style>
+</head>
+<body>
+<header><div class="wrap top"><a class="brand" href="../"><img src="../assets/logo-mark-ahorraencasaya.svg" alt=""><span><span>Ahorra</span>EnCasaYa</span></a><a href="../cuenta/">Mi cuenta →</a></div></header>
+<main class="wrap">
+<section class="hero">
+<span class="eyebrow">CONTENIDO PREMIUM</span>
+<h1>Herramientas para ahorrar con un plan.</h1>
+<p class="lead">Contenido exclusivo para cuentas Premium. El acceso se comprueba en Supabase y el contenido se entrega desde la base de datos protegida.</p>
+</section>
+<div id="status" class="status">Comprobando tu acceso…</div>
+<section id="content" hidden></section>
+<p><a class="btn" href="../cuenta/">Volver a Mi cuenta</a></p>
+</main>
+<script src="../assets/supabase-config.js"></script><script src="../assets/auth.js"></script>
+<script>
+const status=document.getElementById("status"),content=document.getElementById("content");
+function esc(v){return String(v??"").replace(/[&<>"]/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"}[m]))}
+(async()=>{
+ try{
+  const session=await AhorraAuth.requireSession("../cuenta/login.html?next="+encodeURIComponent(location.href));if(!session)return;
+  const profile=await AhorraAuth.getProfile(session);
+  if(!profile||!["premium","admin"].includes(profile.role)){
+    status.className="status error";status.textContent="Tu cuenta todavía no tiene acceso Premium. Puedes continuar usando todas las funciones gratuitas.";
+    return;
+  }
+  const c=await AhorraAuth.getClient();
+  const {data,error}=await c.from("premium_content").select("slug,title,excerpt,body,updated_at").order("created_at",{ascending:false});
+  if(error)throw error;
+  if(!data?.length){status.textContent="Tu acceso Premium está activo. Estamos preparando el primer contenido exclusivo.";return}
+  status.textContent="Acceso Premium activo.";
+  content.hidden=false;
+  content.innerHTML=data.map(item=>'<article class="card"><p class="eyebrow">EXCLUSIVO</p><h2>'+esc(item.title)+'</h2><p class="lead">'+esc(item.excerpt)+'</p><div class="content">'+esc(item.body)+'</div><p class="meta">Actualizado: '+new Date(item.updated_at).toLocaleDateString("es-ES")+'</p></article>').join("");
+ }catch(e){status.className="status error";status.textContent=e.message||"No se pudo comprobar el acceso Premium."}
+})();
+</script>
+</body>
+</html>
