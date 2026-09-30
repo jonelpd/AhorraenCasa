@@ -5,28 +5,43 @@ create table if not exists public.profiles (
   role text not null default 'user' check (role in ('user','premium','admin')),
   created_at timestamptz not null default now()
 );
+
 alter table public.profiles enable row level security;
+
+-- El cliente público no debe poder leer perfiles ajenos ni modificar su propio rol.
 revoke all on public.profiles from anon;
-grant select, insert, update on public.profiles to authenticated;
-create policy "Users can view own profile" on public.profiles for select to authenticated using (auth.uid() = id);
-create policy "Users can insert own profile" on public.profiles for insert to authenticated with check (auth.uid() = id);
-create policy "Users can update own profile" on public.profiles for update to authenticated using (auth.uid() = id) with check (auth.uid() = id);
+revoke insert, update, delete on public.profiles from authenticated;
+grant select on public.profiles to authenticated;
+
+drop policy if exists "Users can view own profile" on public.profiles;
+create policy "Users can view own profile"
+on public.profiles
+for select
+to authenticated
+using (auth.uid() = id);
+
+-- El perfil se crea automáticamente al registrarse.
 create or replace function public.handle_new_user()
 returns trigger
 language plpgsql
-security definer set search_path = public
-as $
+security definer
+set search_path = public
+as $$
 begin
   insert into public.profiles (id, full_name)
-  values (new.id, coalesce(new.raw_user_meta_data->>'full_name',''));
+  values (new.id, coalesce(new.raw_user_meta_data->>'full_name', ''));
   return new;
 end;
-$;
+$$;
 
 drop trigger if exists on_auth_user_created on auth.users;
 create trigger on_auth_user_created
   after insert on auth.users
   for each row execute procedure public.handle_new_user();
 
--- El rol admin debe asignarse desde el SQL Editor de Supabase, no desde el navegador.
--- Ejemplo: update public.profiles set role='admin' where id='UUID_DEL_ADMIN';
+-- El rol admin se asigna exclusivamente desde el SQL Editor de Supabase.
+-- Ejemplo:
+-- update public.profiles
+-- set role = 'admin'
+-- where id = (select id from auth.users where email = 'TU_EMAIL');
+
