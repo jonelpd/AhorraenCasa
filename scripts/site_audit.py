@@ -3,7 +3,7 @@ import re, subprocess, sys, json
 from pathlib import Path
 from urllib.parse import urlparse
 ROOT=Path(__file__).resolve().parents[1]; errors=[]
-html_files=sorted(ROOT.rglob("*.html"))
+html_files=sorted(p for p in ROOT.rglob("*.html") if "admin" not in p.relative_to(ROOT).parts)
 all_files={p.relative_to(ROOT).as_posix() for p in ROOT.rglob("*") if p.is_file()}
 def rel_of(p): return p.relative_to(ROOT).as_posix()
 def resolve_path(page,href):
@@ -88,7 +88,7 @@ for path in ["data/amazon-products-live.json","data/amazon-products.json","data/
 sitemap=ROOT/"sitemap.xml"
 if not sitemap.exists(): errors.append("sitemap.xml: missing")
 else:
-    base="https://jonelpd.github.io/AhorraenCasa/"; locs=re.findall(r"<loc>([^<]+)</loc>",sitemap.read_text(encoding="utf-8",errors="replace")); got=set()
+    base="https://ahorraencasaya.es/"; locs=re.findall(r"<loc>([^<]+)</loc>",sitemap.read_text(encoding="utf-8",errors="replace")); got=set()
     for loc in locs:
         if loc.startswith(base):
             r=loc[len(base):]; got.add("index.html" if not r else (r+"index.html" if r.endswith("/") else r))
@@ -103,7 +103,7 @@ for rel,page in pages.items():
     if rel.startswith(("en/","hi/","zh/")) and "es" not in {x[0].lower() for x in links}:
         errors.append(f"{rel}: missing hreflang es")
     for lang,u in links:
-        if u.startswith("https://jonelpd.github.io/AhorraenCasa/"):
+        if u.startswith("https://ahorraencasaya.es/"):
             r=u.split("https://jonelpd.github.io/AhorraenCasa/",1)[1]
             r="index.html" if not r else (r+"index.html" if r.endswith("/") else r)
             if r not in pages: errors.append(f"{rel}: hreflang target missing -> {u}")
