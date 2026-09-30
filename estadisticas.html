@@ -57,7 +57,60 @@ footer{padding:35px 0 55px;color:var(--muted);font-size:12px}
 </main>
 <footer><div class="wrap">Panel privado de AhorraEnCasaYa · Los indicadores se mostrarán únicamente cuando exista una fuente de datos conectada. No se utilizan cifras simuladas como si fueran estadísticas reales.</div></footer>
 <script>
-document.querySelectorAll(".period").forEach(b=>b.addEventListener("click",()=>{document.querySelectorAll(".period").forEach(x=>x.classList.remove("active"));b.classList.add("active");}));
+let stats=null;
+let period=7;
+const fmt=n=>new Intl.NumberFormat("es-ES").format(Math.round(n||0));
+const pct=n=>((n||0)*100).toFixed(1)+"%";
+const empty=(id,msg)=>{const el=document.getElementById(id);if(el)el.innerHTML='<div class="placeholder" style="min-height:120px;border:0;background:transparent"><div><strong>'+msg+'</strong></div></div>'};
+function inPeriod(rows,days){const cutoff=new Date();cutoff.setDate(cutoff.getDate()-days);return rows.filter(r=>!r.date||new Date(r.date)>=cutoff)}
+function sum(rows,key){return rows.reduce((a,r)=>a+(Number(r[key])||0),0)}
+function render(){
+ if(!stats){return}
+ const gd=inPeriod((stats.ga4&&stats.ga4.daily)||[],period);
+ const sd=inPeriod((stats.searchConsole&&stats.searchConsole.daily)||[],period);
+ document.querySelector('[data-kpi="users"]').textContent=fmt(sum(gd,"users"));
+ document.querySelector('[data-kpi="views"]').textContent=fmt(sum(gd,"views"));
+ document.querySelector('[data-kpi="clicks"]').textContent=fmt(sum(sd,"clicks"));
+ document.querySelector('[data-kpi="impressions"]').textContent=fmt(sum(sd,"impressions"));
+ const chart=document.getElementById("traffic-chart");
+ if(gd.length){
+   const max=Math.max(...gd.map(x=>Number(x.users)||0),1);
+   const sample=gd.slice(-Math.min(gd.length,31));
+   chart.className="chart";
+   chart.innerHTML=sample.map(x=>'<div class="bar-wrap"><span class="bar-value">'+fmt(x.users)+'</span><div class="bar" style="--h:'+Math.max(4,(Number(x.users)||0)/max*190)+'px" title="'+x.date+': '+fmt(x.users)+' usuarios"></div><span class="bar-label">'+x.date.slice(5)+'</span></div>').join("");
+ }else{
+   chart.className="placeholder";
+   chart.innerHTML="<div><strong>Sin datos todavía</strong><p>El flujo automático está preparado. En cuanto GA4 publique datos, aparecerán aquí.</p></div>";
+ }
+ const q=(stats.searchConsole&&stats.searchConsole.queries)||[];
+ const qt=document.getElementById("queries");
+ qt.innerHTML=q.length?q.slice(0,12).map(x=>'<tr><td><strong>'+escapeHtml(x.query)+'</strong></td><td>'+fmt(x.clicks)+'</td><td>'+fmt(x.impressions)+'</td><td>'+pct(x.ctr)+'</td><td>'+Number(x.position||0).toFixed(1)+'</td></tr>').join(""):'<tr><td colspan="5">Sin datos de Search Console.</td></tr>';
+ const countries=(stats.searchConsole&&stats.searchConsole.countries)||[];
+ const ce=document.getElementById("countries");
+ ce.innerHTML=countries.length?countries.slice(0,8).map(x=>'<div class="source"><span>'+escapeHtml(x.country)+'</span><b>'+fmt(x.clicks)+'</b></div>').join(""):'<div class="source"><span>Sin datos conectados</span><b>—</b></div>';
+ const pages=(stats.ga4&&stats.ga4.pages)||[];
+ const pe=document.getElementById("pages");
+ pe.innerHTML=pages.length?pages.slice(0,15).map(x=>'<tr><td><strong>'+escapeHtml(x.page)+'</strong></td><td>'+fmt(x.views)+'</td><td>'+fmt(x.users)+'</td><td><span class="tag">GA4</span></td></tr>').join(""):'<tr><td colspan="4">Sin datos de GA4.</td></tr>';
+ const sources=(stats.ga4&&stats.ga4.sources)||[];
+ const se=document.getElementById("sources");
+ se.innerHTML=sources.length?sources.slice(0,10).map(x=>'<div class="source"><span>'+escapeHtml(x.source)+'</span><b>'+fmt(x.users)+'</b></div>').join(""):'<div class="source"><span>Sin datos conectados</span><b>—</b></div>';
+ const status=document.getElementById("connection");
+ status.textContent=stats.generatedAt?"Datos actualizados: "+stats.generatedAt:"Preparado para conectar datos reales";
+ document.querySelector(".dot").style.background=stats.generatedAt?"#157347":"#d6a400";
+}
+function escapeHtml(v){return String(v??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m]))}
+async function loadStats(){
+ try{
+   const r=await fetch("data/stats.json?"+Date.now(),{cache:"no-store"});
+   if(!r.ok)throw new Error("HTTP "+r.status);
+   stats=await r.json();
+   render();
+ }catch(e){
+   document.getElementById("connection").textContent="Datos no conectados todavía";
+ }
+}
+document.querySelectorAll(".period").forEach(b=>b.addEventListener("click",()=>{document.querySelectorAll(".period").forEach(x=>x.classList.remove("active"));b.classList.add("active");period=Number(b.dataset.period);render();}));
+loadStats();
 </script>
 </body>
 </html>
