@@ -8,12 +8,16 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: content-updates
+  cancel-in-progress: false
+
 jobs:
   update-news:
     runs-on: ubuntu-latest
     steps:
       - name: Descargar repositorio
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Actualizar feed
         shell: python
@@ -32,10 +36,7 @@ jobs:
           articles = []
           for source_label, q in queries:
               url = "https://news.google.com/rss/search?" + urllib.parse.urlencode({
-                  "q": q,
-                  "hl": "es",
-                  "gl": "ES",
-                  "ceid": "ES:es"
+                  "q": q, "hl": "es", "gl": "ES", "ceid": "ES:es"
               })
               try:
                   req = urllib.request.Request(url, headers={"User-Agent": "AhorraEnCasa-NewsBot/1.0"})
@@ -53,7 +54,6 @@ jobs:
                       except Exception:
                           date, sort_key = "", ""
                       if title and link:
-                          # Google News sometimes points to a wrapper; keep it as the source link.
                           articles.append({
                               "title": title,
                               "description": re.sub(r"<[^>]+>", " ", desc).replace("&nbsp;", " ").strip()[:260],
