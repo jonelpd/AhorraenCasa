@@ -25,7 +25,7 @@ body{margin:0;background:#f7faf8;color:#17221b;font:16px/1.55 system-ui,sans-ser
 <div class="field"><label>Precio electricidad (€/kWh)</label><input id="p" type="number" min="0" step=".01" value=".18"></div>
 </div>
 <div class="result">Coste actual anual: <strong id="a">0 €</strong><br>Coste objetivo anual: <strong id="b">0 €</strong><br>Ahorro estimado: <strong id="s">0 €</strong></div>
-<p><small>Estimación: potencia × horas × 365 × precio. No incluye potencia contratada, impuestos u otros conceptos de una factura real.</small></p>
+<p><small>Estimación: potencia × horas × 365 × precio. No incluye potencia contratada, impuestos u otros conceptos de una factura real.</small></p><div class="card" style="margin-top:18px;border-color:#b9ddc7;background:#f0fbf4"><button id="saveCalculator" type="button" style="padding:12px 16px;border:0;border-radius:10px;background:#157347;color:#fff;font-weight:800;cursor:pointer">💾 Guardar ahorro en Mi cuenta</button><p id="saveMessage" style="font-size:13px;color:#526057;margin-bottom:0"></p></div>
 <div class="card recommendation" style="margin-top:22px;border-color:#b9ddc7;background:linear-gradient(135deg,#f0fbf4,#fff)">
 <h2>Convierte el ahorro calculado en una acción</h2>
 <p>Si ya has identificado cuánto podrías ahorrar, el siguiente paso es medir el consumo real y buscar la solución adecuada para ese aparato.</p>
@@ -42,4 +42,9 @@ const ids=["w","h1","h2","p"];ids.forEach(id=>document.getElementById(id).addEve
 function euro(n){return new Intl.NumberFormat("es-ES",{style:"currency",currency:"EUR"}).format(n)}
 function calc(){const w=+document.getElementById("w").value||0,h1=+document.getElementById("h1").value||0,h2=+document.getElementById("h2").value||0,p=+document.getElementById("p").value||0;const a=w/1000*h1*365*p,b=w/1000*h2*365*p;document.getElementById("a").textContent=euro(a);document.getElementById("b").textContent=euro(b);document.getElementById("s").textContent=euro(Math.max(0,a-b))}
 calc();
+</script><script src="../assets/supabase-config.js"></script><script src="../assets/auth.js"></script><script src="../assets/calculator-save.js"></script>
+<script>
+const saveBtn=document.getElementById("saveCalculator");
+function currentSavings(){const w=+document.getElementById("w").value||0,h1=+document.getElementById("h1").value||0,h2=+document.getElementById("h2").value||0,p=+document.getElementById("p").value||0;const annual=Math.max(0,w/1000*(h1-h2)*365*p);return {annual,monthly:annual/12};}
+saveBtn.addEventListener("click",()=>{const v=currentSavings();AhorraCalculator.saveResult({button:saveBtn,message:"#saveMessage",calculatorKey:"ahorro-anual",calculatorName:"Ahorro eléctrico anual",monthlySaving:v.monthly,annualSaving:v.annual,details:{power:+document.getElementById("w").value||0,currentHours:+document.getElementById("h1").value||0,targetHours:+document.getElementById("h2").value||0,price:+document.getElementById("p").value||0}})});
 </script></body></html>
