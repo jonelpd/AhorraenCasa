@@ -4,68 +4,24 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
-<title>Estadísticas — AhorraEnCasaYa</title>
+<title>Panel privado | AhorraEnCasaYa</title>
+<meta name="description" content="Panel interno de estadísticas de AhorraEnCasaYa.">
 <style>
-:root{font-family:system-ui,-apple-system,Segoe UI,sans-serif;color:#17221b;background:#f4f8f5}
-*{box-sizing:border-box}body{margin:0}.wrap{max-width:1180px;margin:auto;padding:24px 16px 48px}
-header{display:flex;justify-content:space-between;gap:16px;align-items:center;margin-bottom:20px}
-h1{margin:0;font-size:clamp(25px,5vw,38px)}h2{font-size:19px;margin:0 0 14px}
-.muted{color:#66736b}.updated{font-size:13px}.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
-.card{background:#fff;border:1px solid #dce7df;border-radius:18px;padding:18px;box-shadow:0 7px 24px #17351f0d;margin-bottom:16px}
-.metric{font-size:30px;font-weight:850;margin:6px 0}.label{font-size:13px;color:#66736b}
-.two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-table{width:100%;border-collapse:collapse;font-size:14px}td,th{text-align:left;padding:9px 5px;border-bottom:1px solid #e7eee9}th{color:#66736b;font-size:12px}
-.badge{display:inline-block;padding:5px 9px;border-radius:999px;background:#e9f7ef;color:#176b43;font-size:12px;font-weight:800}
-.warn{background:#fff8e8;border-color:#f0dfb1}.bar{height:8px;background:#e7eee9;border-radius:99px;overflow:hidden}.fill{height:100%;background:#157347}
-a{color:#157347;font-weight:800}
-@media(max-width:850px){.grid{grid-template-columns:repeat(2,1fr)}.two{grid-template-columns:1fr}}
-@media(max-width:520px){.grid{grid-template-columns:1fr 1fr}.card{padding:14px}}
+:root{font-family:system-ui,-apple-system,"Segoe UI",sans-serif;color:#17221b;background:#f4f8f5}
+*{box-sizing:border-box}body{margin:0;min-height:100vh;display:grid;place-items:center}
+.card{width:min(680px,calc(100% - 32px));background:#fff;border:1px solid #dce7df;border-radius:24px;padding:32px;box-shadow:0 18px 50px #17351f12}
+h1{margin:0 0 10px;font-size:clamp(28px,6vw,42px);letter-spacing:-.04em}
+p{line-height:1.65;color:#647168}.badge{display:inline-block;padding:6px 10px;border-radius:999px;background:#e9f7ef;color:#176b43;font-size:12px;font-weight:800}
+a{display:inline-block;margin-top:12px;color:#157347;font-weight:800;text-decoration:none}
 </style>
 </head>
 <body>
-<main class="wrap">
-<header><div><h1>Panel de estadísticas</h1><div class="muted">AhorraEnCasaYa · últimos 28 días</div></div><span class="badge" id="status">Cargando…</span></header>
-<section class="grid" id="summary"></section>
-<section class="card"><h2>Usuarios en tiempo real</h2><div id="realtime" class="muted">Cargando…</div></section>
-<section class="two">
-<div class="card"><h2>Páginas más visitadas</h2><div id="pages"></div></div>
-<div class="card"><h2>Clics de afiliación</h2><div id="affiliate"></div><p class="muted">Evento registrado: <code>affiliate_click</code>.</p></div>
-</section>
-<section class="two">
-<div class="card"><h2>Países</h2><div id="countries"></div></div>
-<div class="card"><h2>Dispositivos</h2><div id="devices"></div></div>
-</section>
-<section class="card warn">
-<h2>Acceso privado</h2>
-<p>Los datos se generan automáticamente mediante Google Analytics 4 y GitHub Actions. Esta página de GitHub Pages todavía no tiene autenticación real: <strong>no compartas esta dirección como si fuera una zona segura</strong>. La protección definitiva la añadiremos mediante una capa de autenticación cuando el dominio propio esté operativo.</p>
-</section>
-<p><a href="../">← Volver a AhorraEnCasaYa</a></p>
+<main class="card">
+<span class="badge">ÁREA INTERNA</span>
+<h1>Panel de estadísticas</h1>
+<p>El panel de métricas está pendiente de una capa de autenticación real. Los datos de Google Analytics no se publican en este sitio mientras esa protección no esté implementada.</p>
+<p>Esta página no contiene métricas privadas ni carga un archivo público con datos de Analytics.</p>
+<a href="../">← Volver a AhorraEnCasaYa</a>
 </main>
-<script>
-const nf=new Intl.NumberFormat("es-ES");
-function n(v){return nf.format(Math.round(Number(v)||0))}
-function table(rows,headers,limit=8){
- if(!rows||!rows.length)return '<p class="muted">Sin datos todavía.</p>';
- return '<table><thead><tr>'+headers.map(h=>'<th>'+h+'</th>').join('')+'</tr></thead><tbody>'+
- rows.slice(0,limit).map(r=>'<tr>'+r.map(x=>'<td>'+String(x).replace(/</g,'&lt;')+'</td>').join('')+'</tr>').join('')+'</tbody></table>';
-}
-function list(rows){
- if(!rows||!rows.length)return '<p class="muted">Sin datos todavía.</p>';
- const max=Math.max(...rows.map(r=>Number(r.metrics[0])||0),1);
- return rows.slice(0,8).map(r=>'<div style="margin:9px 0"><div style="display:flex;justify-content:space-between;gap:8px"><span>'+String(r.dimensions[0]).replace(/</g,'&lt;')+'</span><strong>'+n(r.metrics[0])+'</strong></div><div class="bar"><div class="fill" style="width:'+Math.min(100,(Number(r.metrics[0])||0)/max*100)+'%"></div></div></div>').join('');
-}
-fetch('../data/analytics-dashboard.json?'+Date.now()).then(r=>r.json()).then(d=>{
- const s=d.summary||{};
- const cards=[['Usuarios activos','active_users'],['Usuarios totales','total_users'],['Sesiones','sessions'],['Páginas vistas','page_views'],['Eventos','events'],['Lecturas','content_reads'],['Clics Amazon','affiliate_clicks'],['Duración media',null]];
- document.getElementById('summary').innerHTML=cards.map(([label,key])=>'<div class="card"><div class="label">'+label+'</div><div class="metric">'+(key?n(s[key]):(s.avg_session_seconds?Math.round(s.avg_session_seconds)+' s':'—'))+'</div></div>').join('');
- document.getElementById('pages').innerHTML=table((d.top_pages||[]).map(r=>[r.dimensions[0],n(r.metrics[0])]),['Página','Vistas']);
- document.getElementById('affiliate').innerHTML='<div class="metric">'+n(s.affiliate_clicks)+'</div><div class="label">clics registrados en los últimos 28 días</div>';
- document.getElementById('countries').innerHTML=list(d.countries);
- document.getElementById('devices').innerHTML=list(d.devices);
- const rt=d.realtime||[]; const total=rt.reduce((a,r)=>a+(Number(r.metrics[0])||0),0);
- document.getElementById('realtime').innerHTML=total?'<div class="metric">'+n(total)+'</div><div class="label">usuarios activos en el informe de tiempo real</div>':'<p>Ahora mismo no hay usuarios en la muestra recibida.</p>';
- document.getElementById('status').textContent=d.updated_at?'Actualizado '+new Date(d.updated_at).toLocaleString('es-ES'):'Esperando primera actualización';
-}).catch(()=>{document.getElementById('status').textContent='Sin datos';});
-</script>
 </body>
 </html>
