@@ -84,6 +84,7 @@ footer{background:#14231a;color:#dce9df;padding:30px 0}.small{font-size:12px;col
 <div class="actions">
 <a class="btn primary" id="recommendationPrimary" href="https://www.amazon.es/s?k=medidor+consumo+electrico+enchufe&tag=jonelpd-21" target="_blank" rel="sponsored noopener">🔌 Ver medidores de consumo →</a>
 <a class="btn" id="recommendationSecondary" href="https://www.amazon.es/s?k=enchufe+inteligente+medidor+consumo&tag=jonelpd-21" target="_blank" rel="sponsored noopener">📱 Ver enchufes inteligentes →</a>
+<a class="btn" id="recommendationGuide" href="../guias/como-medir-consumo-electrodomestico.html">📖 Guía relacionada →</a>
 <a class="btn" href="../productos/">Comparar productos →</a>
 </div>
 <p class="note" style="margin-bottom:0">En calidad de Afiliado de Amazon, AhorraEnCasaYa obtiene ingresos por las compras adscritas que cumplen los requisitos aplicables.</p>
@@ -116,22 +117,23 @@ radiator:{name:"Radiador eléctrico",power:1500,hours:4,days:30,price:.18,standb
 };
 const $=id=>document.getElementById(id);
 const recommendations={
-fridge:{title:"Optimiza el consumo del frigorífico",text:"Mide el consumo real varios días antes de decidir si necesitas cambiarlo o simplemente ajustar su uso.",primary:["🔌 Medir consumo","https://www.amazon.es/s?k=medidor+consumo+electrico+enchufe&tag=jonelpd-21"],secondary:["⚡ Ver soluciones de ahorro","https://www.amazon.es/s?k=enchufe+inteligente+medidor+consumo&tag=jonelpd-21"]},
-ac:{title:"Controla el consumo del aire acondicionado",text:"La climatización puede concentrar una parte importante del consumo. Medirla y revisar horarios y temperatura ayuda a detectar oportunidades de ahorro.",primary:["❄️ Medir consumo","https://www.amazon.es/s?k=medidor+consumo+aire+acondicionado&tag=jonelpd-21"],secondary:["📱 Controlar por horario","https://www.amazon.es/s?k=enchufe+inteligente+temporizador&tag=jonelpd-21"]},
-water:{title:"Reduce el coste del termo eléctrico",text:"Mide el consumo real y, cuando sea posible, programa sus horas de funcionamiento para evitar usos innecesarios.",primary:["🚿 Medir consumo","https://www.amazon.es/s?k=medidor+consumo+electrico+enchufe&tag=jonelpd-21"],secondary:["⏱️ Controlar horarios","https://www.amazon.es/s?k=enchufe+inteligente+temporizador&tag=jonelpd-21"]},
-washer:{title:"Haz más eficiente la lavadora",text:"Compara programas y temperaturas con mediciones reales para identificar qué ajustes reducen el consumo.",primary:["🧺 Medir consumo por ciclo","https://www.amazon.es/s?k=medidor+consumo+electrico+enchufe&tag=jonelpd-21"],secondary:["📱 Ver medición inteligente","https://www.amazon.es/s?k=enchufe+inteligente+medidor+consumo&tag=jonelpd-21"]},
-dishwasher:{title:"Controla el consumo del lavavajillas",text:"Compara programas y temperaturas con mediciones reales antes de cambiar hábitos o equipo.",primary:["🍽️ Medir consumo por ciclo","https://www.amazon.es/s?k=medidor+consumo+electrico+enchufe&tag=jonelpd-21"],secondary:["📱 Controlar funcionamiento","https://www.amazon.es/s?k=enchufe+inteligente+medidor+consumo&tag=jonelpd-21"]},
+fridge:{title:"Optimiza el consumo del frigorífico",text:"Mide el consumo real varios días antes de decidir si necesitas cambiarlo o simplemente ajustar su uso.",primary:["🔌 Medir consumo","https://www.amazon.es/s?k=medidor+consumo+electrico+enchufe&tag=jonelpd-21"],secondary:["⚡ Ver soluciones de ahorro","https://www.amazon.es/s?k=enchufe+inteligente+medidor+consumo&tag=jonelpd-21"],guide:"../guias/cuanto-consume-un-frigorifico.html"},
+ac:{title:"Controla el consumo del aire acondicionado",text:"La climatización puede concentrar una parte importante del consumo. Medirla y revisar horarios y temperatura ayuda a detectar oportunidades de ahorro.",primary:["❄️ Medir consumo","https://www.amazon.es/s?k=medidor+consumo+aire+acondicionado&tag=jonelpd-21"],secondary:["📱 Controlar por horario","https://www.amazon.es/s?k=enchufe+inteligente+temporizador&tag=jonelpd-21"],guide:"../guias/cuanto-gasta-un-aire-acondicionado.html"},
+water:{title:"Reduce el coste del termo eléctrico",text:"Mide el consumo real y, cuando sea posible, programa sus horas de funcionamiento para evitar usos innecesarios.",primary:["🚿 Medir consumo","https://www.amazon.es/s?k=medidor+consumo+electrico+enchufe&tag=jonelpd-21"],secondary:["⏱️ Controlar horarios","https://www.amazon.es/s?k=enchufe+inteligente+temporizador&tag=jonelpd-21"],guide:"../guias/cuanto-gasta-un-radiador-electrico.html",guide:"../guias/cuanto-consume-un-termo-electrico.html"},
+washer:{title:"Haz más eficiente la lavadora",text:"Compara programas y temperaturas con mediciones reales para identificar qué ajustes reducen el consumo.",primary:["🧺 Medir consumo por ciclo","https://www.amazon.es/s?k=medidor+consumo+electrico+enchufe&tag=jonelpd-21"],secondary:["📱 Ver medición inteligente","https://www.amazon.es/s?k=enchufe+inteligente+medidor+consumo&tag=jonelpd-21"],guide:"../guias/cuanto-consume-una-lavadora.html"},
+dishwasher:{title:"Controla el consumo del lavavajillas",text:"Compara programas y temperaturas con mediciones reales antes de cambiar hábitos o equipo.",primary:["🍽️ Medir consumo por ciclo","https://www.amazon.es/s?k=medidor+consumo+electrico+enchufe&tag=jonelpd-21"],secondary:["📱 Controlar funcionamiento","https://www.amazon.es/s?k=enchufe+inteligente+medidor+consumo&tag=jonelpd-21"],guide:"../guias/cuanto-consume-un-lavavajillas.html"},
 radiator:{title:"Vigila el consumo del radiador",text:"Si funciona muchas horas, medir su consumo ayuda a decidir si conviene ajustar horarios o buscar una alternativa.",primary:["🔥 Medir consumo","https://www.amazon.es/s?k=medidor+consumo+electrico+enchufe&tag=jonelpd-21"],secondary:["⏱️ Controlar horarios","https://www.amazon.es/s?k=enchufe+inteligente+temporizador&tag=jonelpd-21"]}
 };
 let activePreset="custom";
 function updateRecommendations(){
-const r=recommendations[activePreset]||{title:"¿Quieres reducir ese coste?",text:"Primero mide el consumo real y después elige una solución adecuada para este aparato.",primary:["🔌 Ver medidores de consumo","https://www.amazon.es/s?k=medidor+consumo+electrico+enchufe&tag=jonelpd-21"],secondary:["📱 Ver enchufes inteligentes","https://www.amazon.es/s?k=enchufe+inteligente+medidor+consumo&tag=jonelpd-21"]};
+const r=recommendations[activePreset]||{title:"¿Quieres reducir ese coste?",text:"Primero mide el consumo real y después elige una solución adecuada para este aparato.",primary:["🔌 Ver medidores de consumo","https://www.amazon.es/s?k=medidor+consumo+electrico+enchufe&tag=jonelpd-21"],secondary:["📱 Ver enchufes inteligentes","https://www.amazon.es/s?k=enchufe+inteligente+medidor+consumo&tag=jonelpd-21"],guide:"../guias/como-medir-consumo-electrodomestico.html"};
 $("recommendationTitle").textContent=r.title;
 $("recommendationText").textContent=r.text;
 $("recommendationPrimary").textContent=r.primary[0]+" →";
 $("recommendationPrimary").href=r.primary[1];
 $("recommendationSecondary").textContent=r.secondary[0]+" →";
 $("recommendationSecondary").href=r.secondary[1];
+$("recommendationGuide").href=r.guide||"../guias/como-medir-consumo-electrodomestico.html";
 }
 const fields=["power","hours","days","price","standby","standbyHours","name"];
 function money(v){return v.toLocaleString("es-ES",{style:"currency",currency:"EUR",minimumFractionDigits:2})}
