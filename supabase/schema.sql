@@ -109,6 +109,12 @@ begin
     raise exception 'Rol no válido';
   end if;
 
+  if target_user_id = auth.uid()
+     and new_role <> 'admin'
+     and (select count(*) from public.profiles where role = 'admin') <= 1 then
+    raise exception 'No puedes retirar el último administrador del proyecto';
+  end if;
+
   update public.profiles
   set role = new_role
   where id = target_user_id;
@@ -225,8 +231,19 @@ create policy "Users can insert own calculator results" on public.calculator_res
 drop policy if exists "Users can delete own calculator results" on public.calculator_results;
 create policy "Users can delete own calculator results" on public.calculator_results for delete to authenticated using ((select auth.uid()) = user_id);
 
+create index if not exists idx_savings_records_user_month on public.savings_records(user_id, month desc);
+
 create index if not exists idx_calculator_results_user_created on public.calculator_results(user_id, created_at desc);
 create index if not exists idx_calculator_results_user_calculator on public.calculator_results(user_id, calculator_key);
+
+-- ============================================================
+-- Endurecimiento para futuras funciones/tablas del esquema público.
+-- Las nuevas funciones no quedan ejecutables por defecto desde el Data API.
+-- Las nuevas tablas tampoco reciben permisos de cliente por defecto.
+-- ============================================================
+alter default privileges in schema public revoke execute on functions from public;
+alter default privileges in schema public revoke all on tables from anon, authenticated;
+alter default privileges in schema public revoke all on sequences from anon, authenticated;
 
 -- ============================================================
 -- FIN DEL ESQUEMA
