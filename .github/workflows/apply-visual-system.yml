@@ -1,0 +1,53 @@
+name: Apply shared visual system
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "assets/premium-ui.css"
+      - "**.html"
+      - ".github/workflows/apply-visual-system.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Add shared visual stylesheet
+        shell: python
+        run: |
+          from pathlib import Path
+          css = "assets/premium-ui.css"
+          changed = []
+          for p in Path(".").rglob("*.html"):
+              if ".git" in p.parts or p.name == "404.html" or p.as_posix().startswith("admin/"):
+                  continue
+              text = p.read_text(encoding="utf-8")
+              if css in text or "</head>" not in text.lower():
+                  continue
+              prefix = "../" * len(p.parent.parts)
+              tag = f'\n<link rel="stylesheet" href="{prefix}{css}">\n'
+              text = text.replace("</head>", tag + "</head>", 1)
+              p.write_text(text, encoding="utf-8")
+              changed.append(p.as_posix())
+          print(f"Updated {len(changed)} HTML files")
+          for name in changed:
+              print(name)
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add .
+          if git diff --cached --quiet; then
+            echo "No changes required."
+            exit 0
+          fi
+          git commit -m "Apply shared premium visual system"
+          git push
