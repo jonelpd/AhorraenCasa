@@ -1,0 +1,84 @@
+/* AhorraEnCasaYa — premium visual layer
+   Shared visual polish. Keeps existing layout and content intact.
+*/
+:root{
+  --ae-radius-sm:10px;
+  --ae-radius-md:16px;
+  --ae-radius-lg:24px;
+  --ae-shadow-sm:0 6px 20px rgba(20,35,26,.07);
+  --ae-shadow-md:0 14px 38px rgba(20,35,26,.10);
+  --ae-green:#157347;
+  --ae-green-dark:#0f5132;
+}
+::selection{background:#bfe8cf;color:#0f5132}
+body{letter-spacing:-.01em}
+.wrap{max-width:1180px}
+header{backdrop-filter:saturate(140%) blur(12px);background:rgba(255,255,255,.94)}
+.brand{letter-spacing:-.025em}
+nav a{transition:color .18s ease,background .18s ease}
+nav a:hover{color:var(--ae-green)}
+.languages{padding:3px;border-radius:11px;background:#f4f8f5}
+.lang{border-color:transparent;min-width:34px}
+.lang:hover{background:#e9f7ef}
+.hero{position:relative;overflow:hidden;background:
+  radial-gradient(circle at 85% 20%,rgba(121,211,154,.20),transparent 30%),
+  linear-gradient(135deg,#e9f8ef 0%,#fff 65%)}
+.hero:after{content:"";position:absolute;inset:auto -8% -90px auto;width:360px;height:220px;border-radius:50%;background:rgba(21,115,71,.06);filter:blur(8px);pointer-events:none}
+.heroGrid{position:relative;z-index:1}
+.hero h1{max-width:760px;letter-spacing:-.045em}
+.hero p{line-height:1.65}
+.eyebrow{box-shadow:0 2px 8px rgba(21,115,71,.08)}
+.buttons .btn{box-shadow:0 4px 12px rgba(20,35,26,.06)}
+.buttons .primary{box-shadow:0 8px 18px rgba(21,115,71,.20)}
+.buttons .primary:hover{box-shadow:0 11px 24px rgba(21,115,71,.26)}
+.btn{min-height:46px;display:inline-flex;align-items:center;justify-content:center}
+.calc{border-color:#cfe1d5;box-shadow:0 18px 50px rgba(21,115,71,.12);position:relative}
+.calc:before{content:"";position:absolute;top:0;left:0;right:0;height:4px;border-radius:20px 20px 0 0;background:linear-gradient(90deg,#157347,#55b77a)}
+.calc h2{letter-spacing:-.025em}
+.field input{background:#fbfdfb;transition:border-color .18s,box-shadow .18s,background .18s}
+.field input:focus{border-color:#69ae87;box-shadow:0 0 0 4px rgba(21,115,71,.10);background:#fff;outline:none}
+.answer{border:1px solid #cde4d5;box-shadow:inset 0 1px 0 rgba(255,255,255,.7)}
+section{scroll-margin-top:88px}
+.heading h2{letter-spacing:-.035em}
+.card{border-color:#d7e5dc;box-shadow:var(--ae-shadow-sm);transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease}
+.card:hover{transform:translateY(-4px);box-shadow:var(--ae-shadow-md);border-color:#bfd7c7}
+.card h3{letter-spacing:-.02em;line-height:1.25}
+.card a,.news-link{transition:color .18s ease}
+.card a:hover,.news-link:hover{color:#0b4027}
+.icon{width:46px;height:46px;display:grid;place-items:center;border-radius:13px;background:#edf8f1}
+.pill{border:1px solid #cde5d6}
+.price{letter-spacing:-.025em}
+.renewables-box{border-color:#b9ddc8;box-shadow:0 16px 42px rgba(21,115,71,.10);position:relative;overflow:hidden}
+.renewables-box:after{content:"";position:absolute;right:-70px;top:-80px;width:220px;height:220px;border-radius:50%;background:rgba(255,193,7,.08);pointer-events:none}
+.renewables-intro,.renewables-actions,.renewables-cta{position:relative;z-index:1}
+.renewables-card{box-shadow:0 4px 14px rgba(20,35,26,.05)}
+.renewables-card:hover{border-color:#9fcab0;box-shadow:0 12px 26px rgba(21,115,71,.12)}
+.news-section{background:linear-gradient(180deg,#f0f7f3,#f7faf8)}
+.news-card{min-height:250px}
+.news-card h3{letter-spacing:-.025em}
+.dark{background:linear-gradient(135deg,#14231a,#193b29)}
+.faq details{transition:border-color .18s,box-shadow .18s}
+.faq details:hover{border-color:#bfd7c7;box-shadow:var(--ae-shadow-sm)}
+footer{background:linear-gradient(135deg,#14231a,#102a1d)}
+.ad-slot{min-height:90px;margin:12px 0;display:flex;align-items:center;justify-content:center}
+.ad-slot:empty:before{content:"Publicidad";font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:#a5b2aa}
+@media(max-width:900px){
+  .hero h1{font-size:clamp(36px,10vw,54px)}
+  .heroGrid{gap:28px}
+  section{padding:50px 0}
+}
+@media(max-width:600px){
+  .wrap{padding-left:16px;padding-right:16px}
+  .hero{padding:38px 0}
+  .hero p{font-size:17px}
+  .buttons{gap:9px}
+  .buttons .btn{width:100%}
+  .calc{padding:20px}
+  .card{padding:20px}
+  .renewables-box{padding:20px}
+  .renewables-cta{display:flex;min-height:46px;align-items:center;justify-content:center}
+  .world-clock{font-size:11px}
+}
+@media(prefers-reduced-motion:reduce){
+  nav a,.field input,.card,.card a,.news-link{transition:none}
+}
