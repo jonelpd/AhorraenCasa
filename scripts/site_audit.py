@@ -108,7 +108,7 @@ for rel,page in pages.items():
             r="index.html" if not r else (r+"index.html" if r.endswith("/") else r)
             if r not in pages: errors.append(f"{rel}: hreflang target missing -> {u}")
 
-es_paths={logical(r) for r in pages if not r.startswith(("en/","hi/","zh/"))}
+es_paths={logical(r) for r in pages if not r.startswith(("en/","hi/","zh/")) and r != "404.html"}
 for lang in ("en","hi","zh"):
     paths={logical(r) for r in pages if r.startswith(lang+"/")}
     for x in sorted(es_paths-paths): errors.append(f"parity {lang} missing -> {x}")
