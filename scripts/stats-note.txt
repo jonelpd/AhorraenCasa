@@ -1,0 +1,1 @@
+Statistics connector will be added after Google credentials are configured.
