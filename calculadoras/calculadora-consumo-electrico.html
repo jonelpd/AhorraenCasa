@@ -87,7 +87,7 @@ footer{background:#14231a;color:#dce9df;padding:30px 0}.small{font-size:12px;col
 <a class="btn" id="recommendationGuide" href="../guias/como-medir-consumo-electrodomestico.html">📖 Guía relacionada →</a>
 <a class="btn" href="../productos/">Comparar productos →</a>
 </div>
-<p class="note" style="margin-bottom:0">En calidad de Afiliado de Amazon, AhorraEnCasaYa obtiene ingresos por las compras adscritas que cumplen los requisitos aplicables.</p>
+<p class="note" style="margin-bottom:0">En calidad de Afiliado de Amazon, AhorraEnCasaYa obtiene ingresos por las compras adscritas que cumplen los requisitos aplicables.</p><div style="margin-top:16px;padding-top:14px;border-top:1px solid var(--line)"><button class="btn primary" id="saveCalculator" type="button">💾 Guardar este cálculo en Mi cuenta</button><p class="note" id="saveMessage" style="margin-bottom:0"></p></div>
 </div>
 </div>
 </div>
@@ -164,5 +164,8 @@ $("reset").addEventListener("click",()=>{Object.assign(presets.reset||{},{});$("
 const params=new URLSearchParams(location.search);const preset=params.get("preset");if(preset&&presets[preset]){activePreset=preset;const p=presets[preset];fields.forEach(id=>{if(p[id]!==undefined)$(id).value=p[id]});}
 calc();
 </script>
-</body>
+<script src="../assets/supabase-config.js"></script><script src="../assets/auth.js"></script><script src="../assets/calculator-save.js"></script>
+<script>
+document.getElementById("saveCalculator").addEventListener("click",()=>{const power=num("power"),hours=num("hours"),days=Math.min(31,num("days")),price=num("price"),standby=num("standby"),standbyHours=Math.min(24,num("standbyHours"));const activeMonth=power/1000*hours*days;const activeYear=power/1000*hours*365;const stMonth=standby/1000*standbyHours*days;const stYear=standby/1000*standbyHours*365;const monthlyCost=(activeMonth+stMonth)*price;const annualCost=(activeYear+stYear)*price;AhorraCalculator.saveResult({button:document.getElementById("saveCalculator"),message:"#saveMessage",calculatorKey:activePreset==="custom"?"consumo-electrico":"consumo-"+activePreset,calculatorName:document.getElementById("name").value.trim()||"Calculadora de consumo eléctrico",monthlyCost,annualCost,details:{power,hours,days,price,standby,standbyHours,preset:activePreset}})});
+</script></body>
 </html>
