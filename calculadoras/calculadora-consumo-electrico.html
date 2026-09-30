@@ -78,15 +78,15 @@ footer{background:#14231a;color:#dce9df;padding:30px 0}.small{font-size:12px;col
 <div class="highlight"><span>Coste total estimado, incluyendo espera</span><strong id="totalYear">0 € / año</strong></div>
 </div>
 <p class="note" id="summary">Introduce tus datos para ver el cálculo.</p>
-<div class="card" style="margin-top:18px;border-color:#b9ddc7;background:linear-gradient(135deg,#f0fbf4,#fff)">
-<h2 style="font-size:22px;margin-bottom:6px">¿Quieres reducir ese coste?</h2>
-<p class="note" style="font-size:14px;margin-top:0">Primero mide el consumo real y después elige una solución. Estas opciones pueden ayudarte a detectar consumos innecesarios y controlar mejor tus aparatos.</p>
+<div class="card recommendation" id="recommendation" style="margin-top:18px;border-color:#b9ddc7;background:linear-gradient(135deg,#f0fbf4,#fff)">
+<h2 id="recommendationTitle" style="font-size:22px;margin-bottom:6px">¿Quieres reducir ese coste?</h2>
+<p class="note" id="recommendationText" style="font-size:14px;margin-top:0">Primero mide el consumo real y después elige una solución adecuada para este aparato.</p>
 <div class="actions">
-<a class="btn primary" href="https://www.amazon.es/s?k=medidor+consumo+electrico+enchufe&tag=jonelpd-21" target="_blank" rel="sponsored noopener">🔌 Ver medidores en Amazon →</a>
-<a class="btn" href="https://www.amazon.es/s?k=enchufe+inteligente+medidor+consumo&tag=jonelpd-21" target="_blank" rel="sponsored noopener">📱 Ver enchufes inteligentes →</a>
+<a class="btn primary" id="recommendationPrimary" href="https://www.amazon.es/s?k=medidor+consumo+electrico+enchufe&tag=jonelpd-21" target="_blank" rel="sponsored noopener">🔌 Ver medidores de consumo →</a>
+<a class="btn" id="recommendationSecondary" href="https://www.amazon.es/s?k=enchufe+inteligente+medidor+consumo&tag=jonelpd-21" target="_blank" rel="sponsored noopener">📱 Ver enchufes inteligentes →</a>
 <a class="btn" href="../productos/">Comparar productos →</a>
 </div>
-<p class="note" style="margin-bottom:0">Algunos enlaces son de afiliado. AhorraEnCasaYa puede recibir una comisión por compras elegibles, sin coste adicional para ti.</p>
+<p class="note" style="margin-bottom:0">En calidad de Afiliado de Amazon, AhorraEnCasaYa obtiene ingresos por las compras adscritas que cumplen los requisitos aplicables.</p>
 </div>
 </div>
 </div>
@@ -115,10 +115,29 @@ dishwasher:{name:"Lavavajillas",power:1800,hours:1.5,days:20,price:.18,standby:1
 radiator:{name:"Radiador eléctrico",power:1500,hours:4,days:30,price:.18,standby:0,standbyHours:0}
 };
 const $=id=>document.getElementById(id);
+const recommendations={
+fridge:{title:"Optimiza el consumo del frigorífico",text:"Mide el consumo real varios días antes de decidir si necesitas cambiarlo o simplemente ajustar su uso.",primary:["🔌 Medir consumo","https://www.amazon.es/s?k=medidor+consumo+electrico+enchufe&tag=jonelpd-21"],secondary:["⚡ Ver soluciones de ahorro","https://www.amazon.es/s?k=enchufe+inteligente+medidor+consumo&tag=jonelpd-21"]},
+ac:{title:"Controla el consumo del aire acondicionado",text:"La climatización puede concentrar una parte importante del consumo. Medirla y revisar horarios y temperatura ayuda a detectar oportunidades de ahorro.",primary:["❄️ Medir consumo","https://www.amazon.es/s?k=medidor+consumo+aire+acondicionado&tag=jonelpd-21"],secondary:["📱 Controlar por horario","https://www.amazon.es/s?k=enchufe+inteligente+temporizador&tag=jonelpd-21"]},
+water:{title:"Reduce el coste del termo eléctrico",text:"Mide el consumo real y, cuando sea posible, programa sus horas de funcionamiento para evitar usos innecesarios.",primary:["🚿 Medir consumo","https://www.amazon.es/s?k=medidor+consumo+electrico+enchufe&tag=jonelpd-21"],secondary:["⏱️ Controlar horarios","https://www.amazon.es/s?k=enchufe+inteligente+temporizador&tag=jonelpd-21"]},
+washer:{title:"Haz más eficiente la lavadora",text:"Compara programas y temperaturas con mediciones reales para identificar qué ajustes reducen el consumo.",primary:["🧺 Medir consumo por ciclo","https://www.amazon.es/s?k=medidor+consumo+electrico+enchufe&tag=jonelpd-21"],secondary:["📱 Ver medición inteligente","https://www.amazon.es/s?k=enchufe+inteligente+medidor+consumo&tag=jonelpd-21"]},
+dishwasher:{title:"Controla el consumo del lavavajillas",text:"Compara programas y temperaturas con mediciones reales antes de cambiar hábitos o equipo.",primary:["🍽️ Medir consumo por ciclo","https://www.amazon.es/s?k=medidor+consumo+electrico+enchufe&tag=jonelpd-21"],secondary:["📱 Controlar funcionamiento","https://www.amazon.es/s?k=enchufe+inteligente+medidor+consumo&tag=jonelpd-21"]},
+radiator:{title:"Vigila el consumo del radiador",text:"Si funciona muchas horas, medir su consumo ayuda a decidir si conviene ajustar horarios o buscar una alternativa.",primary:["🔥 Medir consumo","https://www.amazon.es/s?k=medidor+consumo+electrico+enchufe&tag=jonelpd-21"],secondary:["⏱️ Controlar horarios","https://www.amazon.es/s?k=enchufe+inteligente+temporizador&tag=jonelpd-21"]}
+};
+let activePreset="custom";
+function updateRecommendations(){
+const r=recommendations[activePreset]||{title:"¿Quieres reducir ese coste?",text:"Primero mide el consumo real y después elige una solución adecuada para este aparato.",primary:["🔌 Ver medidores de consumo","https://www.amazon.es/s?k=medidor+consumo+electrico+enchufe&tag=jonelpd-21"],secondary:["📱 Ver enchufes inteligentes","https://www.amazon.es/s?k=enchufe+inteligente+medidor+consumo&tag=jonelpd-21"]};
+$("recommendationTitle").textContent=r.title;
+$("recommendationText").textContent=r.text;
+$("recommendationPrimary").textContent=r.primary[0]+" →";
+$("recommendationPrimary").href=r.primary[1];
+$("recommendationSecondary").textContent=r.secondary[0]+" →";
+$("recommendationSecondary").href=r.secondary[1];
+}
 const fields=["power","hours","days","price","standby","standbyHours","name"];
 function money(v){return v.toLocaleString("es-ES",{style:"currency",currency:"EUR",minimumFractionDigits:2})}
 function num(id){return Math.max(0,Number($(id).value)||0)}
 function calc(){
+updateRecommendations();
 const power=num("power"),hours=num("hours"),days=Math.min(31,num("days")),price=num("price"),standby=num("standby"),standbyHours=Math.min(24,num("standbyHours"));
 const activeDay=power/1000*hours, activeMonth=activeDay*days, activeYear=activeDay*365;
 const stDay=standby/1000*standbyHours, stMonth=stDay*days, stYear=stDay*365;
@@ -137,10 +156,10 @@ $("summary").textContent=label+" representa aproximadamente "+money(totalMonthCo
 }
 fields.forEach(id=>$(id).addEventListener("input",calc));
 document.querySelectorAll("[data-preset]").forEach(btn=>btn.addEventListener("click",()=>{
-const p=presets[btn.dataset.preset];fields.forEach(id=>{if(p[id]!==undefined)$(id).value=p[id]});calc();
+const p=presets[btn.dataset.preset];activePreset=btn.dataset.preset;fields.forEach(id=>{if(p[id]!==undefined)$(id).value=p[id]});calc();
 }));
-$("reset").addEventListener("click",()=>{Object.assign(presets.reset||{},{});$("power").value=1000;$("hours").value=2;$("days").value=30;$("price").value=.18;$("standby").value=0;$("standbyHours").value=0;$("name").value="";calc()});
-const params=new URLSearchParams(location.search);const preset=params.get("preset");if(preset&&presets[preset]){const p=presets[preset];fields.forEach(id=>{if(p[id]!==undefined)$(id).value=p[id]});}
+$("reset").addEventListener("click",()=>{Object.assign(presets.reset||{},{});$("power").value=1000;$("hours").value=2;$("days").value=30;$("price").value=.18;$("standby").value=0;$("standbyHours").value=0;$("name").value="";activePreset="custom";calc()});
+const params=new URLSearchParams(location.search);const preset=params.get("preset");if(preset&&presets[preset]){activePreset=preset;const p=presets[preset];fields.forEach(id=>{if(p[id]!==undefined)$(id).value=p[id]});}
 calc();
 </script>
 </body>
