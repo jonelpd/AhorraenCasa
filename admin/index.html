@@ -1,3 +1,128 @@
-<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>Administración | AhorraEnCasaYa</title><link rel="icon" href="../assets/logo-mark-ahorraencasaya.svg"><style>body{margin:0;background:#f7faf8;color:#17221b;font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Arial}.wrap{max-width:1100px;margin:auto;padding:0 20px}.top{padding:22px 0;display:flex;justify-content:space-between;align-items:center}.brand{font-weight:900;font-size:22px;color:#17221b;text-decoration:none}.brand b{color:#157347}.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}.card{background:#fff;border:1px solid #dce7df;border-radius:16px;padding:20px}.num{font-size:30px;font-weight:900;color:#157347}.panel{margin-top:20px;background:#fff;border:1px solid #dce7df;border-radius:18px;padding:22px}a{color:#0f5132;font-weight:800}@media(max-width:800px){.cards{grid-template-columns:1fr 1fr}}@media(max-width:500px){.cards{grid-template-columns:1fr}}</style></head><body><header><div class="wrap top"><a class="brand" href="../"><b>Ahorra</b>EnCasaYa · Administración</a><a href="../cuenta/">Mi cuenta</a></div></header><main class="wrap"><h1>Panel de administración</h1><p>Área privada. El acceso se valida mediante Supabase.</p><section class="cards"><article class="card"><div>Usuarios</div><div class="num" id="users">—</div></article><article class="card"><div>Visitas</div><div class="num" id="views">—</div></article><article class="card"><div>Clics Amazon</div><div class="num" id="amazon">—</div></article><article class="card"><div>Estado</div><div class="num" id="status">—</div></article></section><section class="panel"><h2>Estadísticas actuales</h2><p id="info">Cargando…</p><p><a href="../estadisticas.html">Abrir panel estadístico existente →</a></p><p><small>En una siguiente fase moveremos las métricas privadas a una fuente protegida, en lugar de depender de un JSON público.</small></p></section></main><script src="../assets/supabase-config.js"></script><script src="../assets/auth.js"></script><script>
-(async()=>{try{const s=await AhorraAuth.requireSession("../cuenta/login.html");if(!s)return;const p=await AhorraAuth.getProfile(s);if(p?.role!=="admin"){document.querySelector("main").innerHTML="<div class='panel'><h1>Acceso restringido</h1><p>Esta área solo está disponible para administradores.</p><a href='../cuenta/'>Volver a mi cuenta →</a></div>";return;}document.getElementById("status").textContent="OK";const r=await fetch("../data/stats.json",{cache:"no-store"});if(r.ok){const d=await r.json();document.getElementById("info").textContent=d.status==="pending-connection"?"La conexión con estadísticas todavía está pendiente.":"Datos disponibles.";}}catch(e){document.getElementById("info").textContent=e.message||"Error de configuración."}})();
-</script></body></html>
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Administración | AhorraEnCasaYa</title>
+<link rel="icon" href="../assets/logo-mark-ahorraencasaya.svg">
+<style>
+body{margin:0;background:#f7faf8;color:#17221b;font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Arial}
+.wrap{max-width:1100px;margin:auto;padding:0 20px}
+.top{padding:22px 0;display:flex;justify-content:space-between;align-items:center;gap:15px}
+.brand{font-weight:900;font-size:22px;color:#17221b;text-decoration:none}.brand b{color:#157347}
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}
+.card,.panel{background:#fff;border:1px solid #dce7df;border-radius:16px;padding:20px}
+.num{font-size:30px;font-weight:900;color:#157347}
+.panel{margin-top:20px}
+.table-wrap{overflow:auto}
+table{width:100%;border-collapse:collapse;min-width:650px}
+th,td{text-align:left;padding:12px 10px;border-bottom:1px solid #e8eee9}
+th{font-size:13px;text-transform:uppercase;letter-spacing:.04em;color:#526158}
+select,button{border:1px solid #cfdcd3;background:#fff;border-radius:9px;padding:8px 10px;font:inherit}
+button{cursor:pointer;font-weight:800}.primary{background:#157347;color:#fff;border-color:#157347}
+.notice{padding:12px 14px;border-radius:10px;background:#f1f7f3;margin:12px 0}
+.error{color:#a33;background:#fff1f1;border:1px solid #f1cccc}
+small{color:#66736b}
+a{color:#0f5132;font-weight:800}
+@media(max-width:800px){.cards{grid-template-columns:1fr 1fr}}
+@media(max-width:500px){.cards{grid-template-columns:1fr}.top{align-items:flex-start}.top a{font-size:14px}}
+</style>
+</head>
+<body>
+<header><div class="wrap top">
+<a class="brand" href="../"><b>Ahorra</b>EnCasaYa · Administración</a>
+<a href="../cuenta/">Mi cuenta →</a>
+</div></header>
+
+<main class="wrap">
+<h1>Panel de administración</h1>
+<p>Gestión privada de AhorraEnCasaYa.</p>
+
+<div id="error" class="notice error" hidden></div>
+
+<section class="cards">
+<article class="card"><div>Usuarios</div><div class="num" id="users">—</div></article>
+<article class="card"><div>Administradores</div><div class="num" id="admins">—</div></article>
+<article class="card"><div>Premium</div><div class="num" id="premium">—</div></article>
+<article class="card"><div>Estado</div><div class="num" id="status">—</div></article>
+</section>
+
+<section class="panel">
+<div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
+<div><h2 style="margin:0">Usuarios registrados</h2><small>Los cambios de rol se validan en Supabase.</small></div>
+<button class="primary" id="refresh">Actualizar</button>
+</div>
+<div id="notice" class="notice" hidden></div>
+<div class="table-wrap">
+<table>
+<thead><tr><th>Nombre</th><th>Rol</th><th>Registro</th><th>Acción</th></tr></thead>
+<tbody id="userRows"><tr><td colspan="4">Cargando…</td></tr></tbody>
+</table>
+</div>
+</section>
+
+<section class="panel">
+<h2>Estadísticas</h2>
+<p>El panel de usuarios ya está conectado a la capa protegida. Las métricas de GA4, Search Console, Amazon y AdSense se integrarán después mediante una fuente privada.</p>
+<p><a href="../estadisticas.html">Abrir panel estadístico existente →</a></p>
+</section>
+</main>
+
+<script src="../assets/supabase-config.js"></script>
+<script src="../assets/auth.js"></script>
+<script>
+const $=id=>document.getElementById(id);
+function showError(msg){$("error").hidden=false;$("error").textContent=msg}
+function notice(msg){$("notice").hidden=false;$("notice").textContent=msg;setTimeout(()=>$("notice").hidden=true,3500)}
+function esc(v){return String(v??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]))}
+function roleLabel(r){return r==="admin"?"Administrador":r==="premium"?"Premium":"Usuario"}
+async function loadUsers(){
+  $("userRows").innerHTML="<tr><td colspan='4'>Cargando…</td></tr>";
+  const c=await AhorraAuth.getClient();
+  const {data,error}=await c.rpc("admin_list_profiles");
+  if(error) throw error;
+  const rows=data||[];
+  $("users").textContent=rows.length;
+  $("admins").textContent=rows.filter(x=>x.role==="admin").length;
+  $("premium").textContent=rows.filter(x=>x.role==="premium").length;
+  $("status").textContent="OK";
+  if(!rows.length){$("userRows").innerHTML="<tr><td colspan='4'>Todavía no hay usuarios.</td></tr>";return}
+  $("userRows").innerHTML=rows.map(u=>{
+    const date=u.created_at?new Date(u.created_at).toLocaleDateString("es-ES"):"—";
+    return "<tr>"+
+      "<td><strong>"+esc(u.full_name||"Sin nombre")+"</strong><br><small>"+esc(u.id)+"</small></td>"+
+      "<td>"+roleLabel(u.role)+"</td>"+
+      "<td>"+date+"</td>"+
+      "<td><select data-user='"+esc(u.id)+"'>"+
+      ["user","premium","admin"].map(r=>"<option value='"+r+"' "+(u.role===r?"selected":"")+">"+roleLabel(r)+"</option>").join("")+
+      "</select> <button data-save='"+esc(u.id)+"'>Guardar</button></td></tr>";
+  }).join("");
+  document.querySelectorAll("[data-save]").forEach(btn=>btn.onclick=async()=>{
+    const id=btn.dataset.save;
+    const select=document.querySelector("select[data-user='"+CSS.escape(id)+"']");
+    btn.disabled=true;
+    try{
+      const {error}=await c.rpc("admin_set_role",{target_user_id:id,new_role:select.value});
+      if(error) throw error;
+      notice("Rol actualizado correctamente.");
+      await loadUsers();
+    }catch(e){showError(e.message||"No se pudo actualizar el rol.")}finally{btn.disabled=false}
+  });
+}
+(async()=>{
+  try{
+    const s=await AhorraAuth.requireSession("../cuenta/login.html");
+    if(!s)return;
+    const p=await AhorraAuth.getProfile(s);
+    if(p?.role!=="admin"){
+      document.querySelector("main").innerHTML="<section class='panel'><h1>Acceso restringido</h1><p>Esta área solo está disponible para administradores.</p><a href='../cuenta/'>Volver a mi cuenta →</a></section>";
+      return;
+    }
+    await loadUsers();
+  }catch(e){showError(e.message||"Error de configuración.")}
+})();
+$("refresh").onclick=()=>loadUsers().catch(e=>showError(e.message||"No se pudo actualizar."));
+</script>
+</body>
+</html>
