@@ -13,7 +13,7 @@ body{margin:0;background:#f7faf8;color:#17221b;font:16px/1.5 system-ui,-apple-sy
 <script>
 const $=id=>document.getElementById(id),msg=$("message");
 function show(t,e=false){msg.hidden=false;msg.className="notice"+(e?" error":"");msg.textContent=t}
-function money(n){return Number(n||0).toLocaleString("es-ES",{style:"currency",currency:"EUR"})}
+function money(n){return Number(n||0).toLocaleString("es-ES",{style:"currency",currency:"EUR"})}\nfunction esc(v){return String(v??"").replace(/[&<>"]/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",\"":"&quot;"}[m]))}
 function monthLabel(v){return new Date(v+"T12:00:00").toLocaleDateString("es-ES",{month:"long",year:"numeric"})}
 (async()=>{
  try{
@@ -24,13 +24,13 @@ function monthLabel(v){return new Date(v+"T12:00:00").toLocaleDateString("es-ES"
    const {data,error}=await c.from("calculator_results").select("id,calculator_name,month,monthly_saving,annual_saving,monthly_cost,annual_cost,created_at").eq("user_id",uid).order("created_at",{ascending:false}).limit(100);
    if(error)throw error;
    const rows=data||[];
-   $("calculatorRows").innerHTML=rows.length?rows.map(r=>"<tr><td><strong>"+(r.calculator_name||"Calculadora")+"</strong></td><td>"+monthLabel(r.month.slice(0,7))+"</td><td>"+money(r.monthly_saving)+"</td><td>"+money(r.annual_saving)+"</td></tr>").join(""):"<tr><td colspan=\"4\">Todavía no has guardado resultados de calculadoras.</td></tr>";
+   $("calculatorRows").innerHTML=rows.length?rows.map(r=>"<tr><td><strong>"+esc(r.calculator_name||"Calculadora")+"</strong></td><td>"+monthLabel(r.month.slice(0,7))+"</td><td>"+money(r.monthly_saving)+"</td><td>"+money(r.annual_saving)+"</td></tr>").join(""):"<tr><td colspan=\"4\">Todavía no has guardado resultados de calculadoras.</td></tr>";
   }
   async function load(){
    const {data,error}=await c.from("savings_records").select("id,month,amount,note").eq("user_id",uid).order("month",{ascending:false});
    if(error)throw error; const rows=data||[];
    $("total").textContent=money(rows.reduce((a,r)=>a+Number(r.amount||0),0));
-   $("rows").innerHTML=rows.length?rows.map(r=>"<tr><td>"+monthLabel(r.month.slice(0,7))+"</td><td>"+money(r.amount)+"</td><td>"+(r.note||"—")+"</td><td class='right'><button class='delete' data-id='"+r.id+"'>Eliminar</button></td></tr>").join(""):"<tr><td colspan='4'>Todavía no has registrado ahorro.</td></tr>";
+   $("rows").innerHTML=rows.length?rows.map(r=>"<tr><td>"+monthLabel(r.month.slice(0,7))+"</td><td>"+money(r.amount)+"</td><td>"+esc(r.note||"—")+"</td><td class='right'><button class='delete' data-id='"+r.id+"'>Eliminar</button></td></tr>").join(""):"<tr><td colspan='4'>Todavía no has registrado ahorro.</td></tr>";
    document.querySelectorAll("[data-id]").forEach(b=>b.onclick=async()=>{if(!confirm("¿Eliminar este registro?"))return;const {error}=await c.from("savings_records").delete().eq("id",b.dataset.id).eq("user_id",uid);if(error)show(error.message,true);else load()});
   }
   $("save").onclick=async()=>{
