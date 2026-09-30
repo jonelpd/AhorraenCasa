@@ -3,11 +3,11 @@
 > Portal independiente de herramientas, guías y recursos prácticos para entender y reducir el consumo eléctrico del hogar.
 
 ## Secciones
-- Calculadoras: https://jonelpd.github.io/AhorraenCasa/calculadoras/
-- Productos: https://jonelpd.github.io/AhorraenCasa/productos/
-- Renovables: https://jonelpd.github.io/AhorraenCasa/renovables/
-- Guías: https://jonelpd.github.io/AhorraenCasa/guias/
-- Noticias: https://jonelpd.github.io/AhorraenCasa/#noticias
+- Calculadoras: https://ahorraencasaya.es/calculadoras/
+- Productos: https://ahorraencasaya.es/productos/
+- Renovables: https://ahorraencasaya.es/renovables/
+- Guías: https://ahorraencasaya.es/guias/
+- Noticias: https://ahorraencasaya.es/#noticias
 
 ## Enfoque
 Priorizar medición, cálculos transparentes y fuentes públicas antes de recomendar compras. Los enlaces comerciales se identifican cuando corresponda.
