@@ -82,3 +82,30 @@ footer{background:linear-gradient(135deg,#14231a,#102a1d)}
 @media(prefers-reduced-motion:reduce){
   nav a,.field input,.card,.card a,.news-link{transition:none}
 }
+
+
+/* Portada — jerarquía y navegación refinadas */
+.renewables-highlight{padding:34px 0 10px}
+.renewables-box{padding:26px 28px}
+.renewables-intro h2{font-size:clamp(26px,3vw,34px);letter-spacing:-.035em;line-height:1.12}
+.renewables-intro p{max-width:760px}
+.renewables-link{color:var(--ae-green-dark)!important}
+.hero{padding:64px 0 70px}
+.heroGrid{gap:52px}
+.brand-hero-logo{margin-bottom:8px}
+.hero h1{max-width:680px;margin-top:12px}
+.hero p{max-width:650px}
+.calc{max-width:480px;justify-self:end;width:100%}
+.world-clock{opacity:.94}
+@media(max-width:900px){
+  .hero{padding:46px 0 54px}
+  .heroGrid{gap:30px}
+  .calc{max-width:none;justify-self:stretch}
+  .renewables-highlight{padding-top:24px}
+}
+@media(max-width:600px){
+  .hero{padding:34px 0 42px}
+  .renewables-highlight{padding:22px 0 6px}
+  .renewables-box{padding:18px}
+  .renewables-intro h2{font-size:25px}
+}
