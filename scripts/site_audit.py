@@ -104,7 +104,7 @@ for rel,page in pages.items():
         errors.append(f"{rel}: missing hreflang es")
     for lang,u in links:
         if u.startswith("https://ahorraencasaya.es/"):
-            r=u.split("https://jonelpd.github.io/AhorraenCasa/",1)[1]
+            r=u.split("https://ahorraencasaya.es/",1)[1]
             r="index.html" if not r else (r+"index.html" if r.endswith("/") else r)
             if r not in pages: errors.append(f"{rel}: hreflang target missing -> {u}")
 
