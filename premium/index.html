@@ -39,16 +39,16 @@ h1{font-size:clamp(38px,6vw,62px);line-height:1.03;letter-spacing:-.045em;margin
 
 <section id="dashboard" hidden>
 <div class="grid">
-<div class="metric"><small>Ahorro real acumulado</small><strong id="total">0,00 €</strong><span class="meta">Registrado por ti</span></div>
-<div class="metric"><small>Media mensual</small><strong id="average">0,00 €</strong><span class="meta">Según tus registros</span></div>
-<div class="metric"><small>Proyección anual</small><strong id="annual">0,00 €</strong><span class="meta">Media × 12</span></div>
+<div class="metric"><small>Ahorro registrado acumulado</small><strong id="total">0,00 €</strong><span class="meta">Introducido en tu seguimiento</span></div>
+<div class="metric"><small>Media mensual registrada</small><strong id="average">0,00 €</strong><span class="meta">Según tus registros</span></div>
+<div class="metric"><small>Proyección anual simple</small><strong id="annual">0,00 €</strong><span class="meta">Media × 12</span></div>
 <div class="metric"><small>Registros</small><strong id="records">0</strong><span class="meta">Meses registrados</span></div>
 </div>
 
 <div class="two">
 <section class="card">
 <h2>🎯 Mi objetivo de ahorro</h2>
-<p>Define una cantidad y una fecha. Premium calculará automáticamente tu progreso usando el ahorro real que hayas registrado.</p>
+<p>Define una cantidad y una fecha. Premium calculará automáticamente tu progreso usando las cantidades que hayas registrado.</p>
 <form id="goalForm" class="form">
 <div class="field"><label for="goalTitle">Objetivo</label><input id="goalTitle" maxlength="120" placeholder="Ej. Fondo para mejorar la eficiencia"></div>
 <div class="field"><label for="goalAmount">Meta (€)</label><input id="goalAmount" type="number" min="0" max="10000000" step="0.01" placeholder="3000"></div>
@@ -122,7 +122,7 @@ function showError(message){status.className="status error";status.textContent=m
    const last=savings[savings.length-1], best=savings.reduce((a,b)=>Number(b.amount||0)>Number(a.amount||0)?b:a,savings[0]);
    $("review").textContent="Último registro: "+money(last.amount)+" en "+dateLabel(last.month.slice(0,10))+". Tu mejor mes registrado es "+money(best.amount)+" ("+dateLabel(best.month.slice(0,10))+").";
   }else{
-   $("review").textContent="Todavía no tienes ahorro real registrado. Empieza desde “Registrar ahorro” para que Premium pueda medir tu evolución.";
+   $("review").textContent="Todavía no tienes ahorro registrado. Empieza desde “Registrar ahorro” para que Premium pueda medir tu evolución.";
   }
   if(goal){
    $("goalTitle").value=goal.title||"";$("goalAmount").value=goal.target_amount||"";$("goalDate").value=goal.target_date||"";
