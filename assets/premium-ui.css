@@ -20,6 +20,7 @@ nav a:hover{color:var(--ae-green)}
 .languages{padding:3px;border-radius:11px;background:#f4f8f5}
 .lang{border-color:transparent;min-width:34px}
 .lang:hover{background:#e9f7ef}
+.menu-toggle{box-shadow:0 3px 10px rgba(20,35,26,.05)}
 .hero{position:relative;overflow:hidden;background:
   radial-gradient(circle at 85% 20%,rgba(121,211,154,.20),transparent 30%),
   linear-gradient(135deg,#e9f8ef 0%,#fff 65%)}
@@ -62,27 +63,6 @@ section{scroll-margin-top:88px}
 footer{background:linear-gradient(135deg,#14231a,#102a1d)}
 .ad-slot{min-height:90px;margin:12px 0;display:flex;align-items:center;justify-content:center}
 .ad-slot:empty:before{content:"Publicidad";font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:#a5b2aa}
-@media(max-width:900px){
-  .hero h1{font-size:clamp(36px,10vw,54px)}
-  .heroGrid{gap:28px}
-  section{padding:50px 0}
-}
-@media(max-width:600px){
-  .wrap{padding-left:16px;padding-right:16px}
-  .hero{padding:38px 0}
-  .hero p{font-size:17px}
-  .buttons{gap:9px}
-  .buttons .btn{width:100%}
-  .calc{padding:20px}
-  .card{padding:20px}
-  .renewables-box{padding:20px}
-  .renewables-cta{display:flex;min-height:46px;align-items:center;justify-content:center}
-  .world-clock{font-size:11px}
-}
-@media(prefers-reduced-motion:reduce){
-  nav a,.field input,.card,.card a,.news-link{transition:none}
-}
-
 
 /* Portada — jerarquía y navegación refinadas */
 .renewables-highlight{padding:34px 0 10px}
@@ -109,7 +89,6 @@ footer{background:linear-gradient(135deg,#14231a,#102a1d)}
   .renewables-box{padding:18px}
   .renewables-intro h2{font-size:25px}
 }
-
 
 /* Visual refinement v2 — portada y responsive */
 header{border-bottom-color:#e4ece7;box-shadow:0 4px 18px rgba(20,35,26,.07)}
@@ -144,22 +123,49 @@ section{padding-top:68px;padding-bottom:68px}
 .icon{margin-bottom:3px}
 .news-card{min-height:270px}
 footer{margin-top:8px}
+
+/* Visual refinement v3 — conversion, hierarchy and mobile polish */
+.nav{gap:22px}
+nav{flex-wrap:nowrap;white-space:nowrap}
+nav a{font-size:14px}
+nav .renewables-link{font-weight:900;background:#edf8f1;border:1px solid #cfe5d6}
+nav .renewables-link:hover{background:#dff2e7}
+nav .account-link{padding-left:10px;padding-right:10px;background:#fff}
+.languages{flex-shrink:0}
+.hero .eyebrow{font-size:12px;letter-spacing:.035em;text-transform:uppercase}
+.hero .buttons .primary{padding-left:21px;padding-right:21px}
+.calc .calc-visual{border:1px solid #e0ebe4}
+.calc h2{margin-bottom:6px}
+.calc .muted{margin-top:0}
+.answer{background:linear-gradient(135deg,#e9f7ef,#f7fcf9)}
+.renewables-highlight + .wrap .ad-slot{margin-top:18px}
+.grid3{align-items:stretch}
+.card{display:flex;flex-direction:column}
+.card>a{margin-top:auto}
+.products-card,.guide-card{height:100%}
+.news-section .heading{display:flex;align-items:end;justify-content:space-between;gap:20px}
+.news-card .news-meta{letter-spacing:.02em}
+.news-card p{line-height:1.55}
+.news-card .news-link{display:inline-flex;align-items:center;gap:4px}
+.faq details[open]{border-color:#9fcab0;box-shadow:0 8px 24px rgba(21,115,71,.08)}
+footer .wrap{position:relative}
+footer .footerlinks{display:flex;flex-wrap:wrap;gap:8px 18px}
+footer .footerlinks a{margin-right:0}
 @media(max-width:1050px){
-  nav{gap:8px}
-  nav a{font-size:14px;padding:7px 5px}
+  .nav{gap:12px}
+  nav{gap:5px}
+  nav a{font-size:13px;padding:7px 5px}
+  nav .account-link{padding-left:8px;padding-right:8px}
   .heroGrid{grid-template-columns:1fr .82fr;gap:34px}
 }
 @media(max-width:900px){
-  .nav{min-height:68px}
-  .hero{padding-top:48px;padding-bottom:56px}
-  .heroGrid{grid-template-columns:1fr;gap:28px}
-  .hero h1{max-width:720px}
-  .calc{max-width:620px;justify-self:start}
-  section{padding-top:54px;padding-bottom:54px}
-  .heading h2{font-size:32px}
+  nav{white-space:normal}
+  nav .renewables-link{border:0}
+  .news-section .heading{display:block}
+  .news-section .heading .muted{max-width:700px}
 }
 @media(max-width:600px){
-  .nav{min-height:62px}
+  .nav{gap:8px}
   .brand{font-size:19px}
   .brand img{width:34px;height:34px}
   .hero h1{font-size:clamp(36px,11vw,50px)}
@@ -170,4 +176,8 @@ footer{margin-top:8px}
   section{padding-top:44px;padding-bottom:44px}
   .renewables-card{min-height:112px}
   .news-card{min-height:0}
+  .footerlinks{flex-direction:column;gap:10px!important}
+}
+@media(prefers-reduced-motion:reduce){
+  nav a,.field input,.card,.card a,.news-link{transition:none}
 }
