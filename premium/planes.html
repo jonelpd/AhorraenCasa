@@ -7,27 +7,30 @@
 <link rel="icon" href="../assets/logo-mark-ahorraencasaya.svg">
 <link rel="stylesheet" href="../assets/premium-ui.css">
 <style>
-body{margin:0;background:#f7faf8;color:#17221b;font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Arial}
-.wrap{max-width:1050px;margin:auto;padding:0 20px}.top{padding:22px 0;display:flex;justify-content:space-between;align-items:center;gap:15px}
-.brand{display:flex;gap:10px;align-items:center;text-decoration:none;color:#17221b;font-weight:900;font-size:22px}.brand img{width:40px}.brand span span{color:#157347}
-.hero{text-align:center;padding:55px 0 30px}.eyebrow{display:inline-block;background:#d9f1e2;color:#0f5132;border-radius:999px;padding:6px 12px;font-weight:900;font-size:13px}
-h1{font-size:clamp(38px,6vw,60px);line-height:1.05;letter-spacing:-.04em;margin:16px 0}.lead{font-size:19px;color:#647168;max-width:700px;margin:auto}
+body{margin:0;background:#f7faf8;color:#17221b;font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Arial}.wrap{max-width:1050px;margin:auto;padding:0 20px}
+.top{padding:22px 0;display:flex;justify-content:space-between;align-items:center;gap:15px}.brand{display:flex;gap:10px;align-items:center;text-decoration:none;color:#17221b;font-weight:900;font-size:22px}.brand img{width:40px}.brand span span{color:#157347}
+.hero{text-align:center;padding:52px 0 30px}.eyebrow{display:inline-block;background:#d9f1e2;color:#0f5132;border-radius:999px;padding:6px 12px;font-weight:900;font-size:12px}h1{font-size:clamp(38px,6vw,60px);line-height:1.05;letter-spacing:-.04em;margin:16px 0}.lead{font-size:19px;color:#647168;max-width:760px;margin:auto}
 .plans{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin:25px 0}.plan{background:#fff;border:1px solid #dce7df;border-radius:22px;padding:28px;box-shadow:0 12px 35px #17351f12}.plan.featured{border:2px solid #157347}
-.price{font-size:42px;font-weight:900;color:#157347;margin:15px 0 5px}.price small{font-size:16px;color:#66736b;font-weight:600}
-ul{padding-left:20px}.btn{display:block;text-align:center;padding:13px 17px;border-radius:11px;text-decoration:none;font-weight:900;background:#157347;color:#fff;margin-top:22px}.secondary{background:#eef5f0;color:#0f5132}
-.note{background:#fff;border:1px solid #dce7df;border-radius:16px;padding:18px;margin:20px 0;color:#58665e}
-@media(max-width:700px){.plans{grid-template-columns:1fr}}
+.price{font-size:42px;font-weight:900;color:#157347;margin:15px 0 5px}.price small{font-size:16px;color:#66736b;font-weight:600}ul{padding-left:20px}li{margin:9px 0}
+.btn{display:block;text-align:center;padding:13px 17px;border-radius:11px;text-decoration:none;font-weight:900;background:#157347;color:#fff;margin-top:22px}.secondary{background:#eef5f0;color:#0f5132}
+.note,.features{background:#fff;border:1px solid #dce7df;border-radius:16px;padding:20px;margin:20px 0}.features{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.features article{padding:8px}.features h3{margin-bottom:5px}
+@media(max-width:700px){.plans,.features{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
 <header><div class="wrap top"><a class="brand" href="../"><img src="../assets/logo-mark-ahorraencasaya.svg" alt=""><span><span>Ahorra</span>EnCasaYa</span></a><a href="../cuenta/">Mi cuenta →</a></div></header>
 <main class="wrap">
-<section class="hero"><span class="eyebrow">AHORRAENCASAYA PREMIUM</span><h1>Más herramientas para ahorrar.</h1><p class="lead">Accede a planes, contenidos y recursos exclusivos diseñados para ayudarte a medir y reducir tus gastos energéticos.</p></section>
-<section class="plans">
-<article class="plan"><h2>Premium mensual</h2><div class="price">Próximamente <small>/ mes</small></div><ul><li>Contenido Premium exclusivo</li><li>Planes prácticos de ahorro</li><li>Recursos y herramientas adicionales</li><li>Acceso mientras la suscripción esté activa</li></ul><a class="btn secondary" href="../cuenta/login.html?next=../premium/planes.html">Crear cuenta / acceder</a></article>
-<article class="plan featured"><h2>Premium anual</h2><div class="price">Próximamente <small>/ año</small></div><ul><li>Todo lo incluido en Premium mensual</li><li>Recursos exclusivos durante todo el año</li><li>Acceso prioritario a nuevas herramientas</li><li>Gestión de la suscripción desde tu cuenta</li></ul><a class="btn" href="../cuenta/login.html?next=../premium/planes.html">Crear cuenta / acceder</a></article>
+<section class="hero"><span class="eyebrow">AHORRAENCASAYA PREMIUM</span><h1>Convierte el ahorro en un sistema.</h1><p class="lead">Premium combina tus datos de ahorro, objetivos personales, resultados de calculadoras y una biblioteca de guías prácticas en un único espacio privado.</p></section>
+<section class="features">
+<article><h3>🎯 Objetivos</h3><p>Define una meta y una fecha. Tu progreso se calcula con el ahorro real registrado.</p></article>
+<article><h3>📊 Seguimiento</h3><p>Consulta acumulado, media mensual, proyección anual y evolución.</p></article>
+<article><h3>📚 Biblioteca</h3><p>Guías exclusivas sobre factura, electrodomésticos, hábitos y energía solar.</p></article>
 </section>
-<div class="note"><strong>Estamos preparando el pago seguro.</strong><br>Los precios y botones de contratación se activarán cuando terminemos la integración de Stripe. No se realizará ningún cobro desde esta página mientras esa integración no esté activa.</div>
+<section class="plans">
+<article class="plan"><h2>Premium mensual</h2><div class="price">Próximamente <small>/ mes</small></div><ul><li>Centro privado de ahorro</li><li>Objetivo personal y seguimiento</li><li>Biblioteca Premium exclusiva</li><li>Nuevas herramientas a medida que crezca el proyecto</li></ul><a class="btn secondary" href="../cuenta/login.html?next=../premium/planes.html">Crear cuenta / acceder</a></article>
+<article class="plan featured"><h2>Premium anual</h2><div class="price">Próximamente <small>/ año</small></div><ul><li>Todo lo incluido en Premium mensual</li><li>Acceso durante todo el año</li><li>Nuevos contenidos y herramientas</li><li>Gestión de suscripción desde tu cuenta</li></ul><a class="btn" href="../cuenta/login.html?next=../premium/planes.html">Crear cuenta / acceder</a></article>
+</section>
+<div class="note"><strong>Pago seguro en preparación.</strong><br>Los precios y botones de contratación se activarán después de completar Stripe. No se realiza ningún cobro desde esta página actualmente.</div>
 <p style="text-align:center"><a href="../premium/">Ya soy Premium →</a></p>
 </main>
 </body></html>
