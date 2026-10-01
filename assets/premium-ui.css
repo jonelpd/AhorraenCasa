@@ -181,3 +181,48 @@ footer .footerlinks a{margin-right:0}
 @media(prefers-reduced-motion:reduce){
   nav a,.field input,.card,.card a,.news-link{transition:none}
 }
+
+/* Visual refinement v4 — sistema común para páginas internas */
+main{min-height:60vh}
+body>main{overflow:hidden}
+.breadcrumbs,.crumb{max-width:1180px;margin:0 auto;padding:16px 22px 0;font-size:13px;color:var(--muted,#647168)}
+.breadcrumbs a,.crumb a{color:var(--ae-green-dark);font-weight:800;text-decoration:none}
+.breadcrumbs a:hover,.crumb a:hover{text-decoration:underline}
+.hero .wrap{position:relative;z-index:1}
+.hero .lead,.lead{max-width:800px;line-height:1.65}
+.hero .btn{margin-top:8px}
+main>.wrap>section:first-child:not(.hero){margin-top:8px}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin-top:28px}
+.grid .card{height:100%}
+.grid .card h2{line-height:1.2;letter-spacing:-.025em}
+.card p{line-height:1.62}
+.tag{letter-spacing:.025em}
+.cta{box-shadow:0 16px 38px rgba(20,35,26,.12);position:relative;overflow:hidden}
+.cta:after{content:"";position:absolute;right:-90px;bottom:-110px;width:250px;height:250px;border-radius:50%;background:rgba(121,211,154,.10);pointer-events:none}
+.affiliate{box-shadow:0 8px 24px rgba(20,35,26,.06)}
+.product-visual,.visual-banner,.visual-media-grid figure,.visual-media-grid>div,.media-photo,.media-video,.video-feature{box-shadow:0 10px 28px rgba(20,35,26,.07)!important}
+.visual-banner,.video-feature{border-color:#d7e5dc!important}
+.visual-banner h2,.video-feature h2{letter-spacing:-.025em;line-height:1.2}
+.visual-banner p,.video-feature p{max-width:680px}
+footer{margin-top:0!important}
+footer .wrap{max-width:1180px}
+footer a:hover{opacity:.9}
+@media(max-width:900px){
+  .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .breadcrumbs,.crumb{padding-left:18px;padding-right:18px}
+}
+@media(max-width:620px){
+  .grid{grid-template-columns:1fr;gap:16px}
+  .breadcrumbs,.crumb{padding:14px 16px 0;font-size:12px}
+  .hero .lead,.lead{font-size:17px}
+  .visual-banner,.video-feature{margin-left:16px;margin-right:16px}
+  .product-visual{margin-left:0;margin-right:0}
+}
+
+/* Account surfaces */
+.box{animation:ae-box-in .35s ease both}
+.tabs{border-bottom:1px solid #e4ece7;padding-bottom:10px}
+.tab{transition:background .18s,color .18s,border-color .18s,transform .18s}
+.tab:hover{transform:translateY(-1px)}
+@keyframes ae-box-in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){.box{animation:none}.tab{transition:none}}
