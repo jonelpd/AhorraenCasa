@@ -160,4 +160,136 @@ function showError(message){status.className="status error";status.textContent=m
 })();
 </script>
 </body>
+</html<a class="tool" href="simulador-solar.html">☀️ <strong>Simulador solar</strong><span>Producción, autoconsumo, excedentes y retorno estimado.</span></a><a href="../cuenta/">Mi cuenta →</a></div></header>
+<main class="wrap">
+<section class="hero">
+<span class="eyebrow">AHORRAENCASAYA PREMIUM</span>
+<h1>Tu centro privado de ahorro.</h1>
+<p class="lead">Aquí no solo encontrarás artículos. Premium reúne tus datos, objetivos, seguimiento y contenidos prácticos para convertir las estimaciones de las calculadoras en un plan de ahorro medible.</p>
+<div id="status" class="status">Comprobando tu acceso…</div>
+</section>
+
+<section id="dashboard" hidden>
+<div class="grid">
+<div class="metric"><small>Ahorro registrado acumulado</small><strong id="total">0,00 €</strong><span class="meta">Introducido en tu seguimiento</span></div>
+<div class="metric"><small>Media mensual registrada</small><strong id="average">0,00 €</strong><span class="meta">Según tus registros</span></div>
+<div class="metric"><small>Proyección anual simple</small><strong id="annual">0,00 €</strong><span class="meta">Media × 12</span></div>
+<div class="metric"><small>Registros</small><strong id="records">0</strong><span class="meta">Meses registrados</span></div>
+</div>
+
+<div class="two">
+<section class="card">
+<h2>🎯 Mi objetivo de ahorro</h2>
+<p>Define una cantidad y una fecha. Premium calculará automáticamente tu progreso usando las cantidades que hayas registrado.</p>
+<form id="goalForm" class="form">
+<div class="field"><label for="goalTitle">Objetivo</label><input id="goalTitle" maxlength="120" placeholder="Ej. Fondo para mejorar la eficiencia"></div>
+<div class="field"><label for="goalAmount">Meta (€)</label><input id="goalAmount" type="number" min="0" max="10000000" step="0.01" placeholder="3000"></div>
+<div class="field"><label for="goalDate">Fecha objetivo</label><input id="goalDate" type="date"></div>
+<button class="btn" id="saveGoal">Guardar</button>
+</form>
+<div id="goalBox" class="notice" hidden></div>
+</section>
+
+<section class="card">
+<h2>📊 Tu revisión Premium</h2>
+<p id="review">Cargando tu evolución…</p>
+<div class="progress"><i id="goalProgress"></i></div>
+<div class="links">
+<a href="../cuenta/ahorro.html">Registrar ahorro</a>
+<a href="../calculadoras/ahorro-anual.html">Calculadora anual</a>
+<a href="../calculadoras/calculadora-consumo-electrico.html">Consumo eléctrico</a><a href="auditor-factura.html">Auditar factura</a><a href="optimizador-potencia.html">Optimizar potencia</a><a href="economia-electrodomesticos.html">Economía de electrodomésticos</a>
+</div>
+</section>
+</div>
+
+<section class="card">
+<h2>🧭 Tu plan de trabajo</h2>
+<div class="two">
+<div><h3>1. Medir</h3><p>Registra el ahorro real y guarda los resultados de las calculadoras como referencia.</p></div>
+<div><h3>2. Priorizar</h3><p>Ataca primero los consumos que combinan potencia, muchas horas de uso y un coste razonable de mejora.</p></div>
+<div><h3>3. Experimentar</h3><p>Aplica pocos cambios a la vez para poder atribuir el resultado a cada medida.</p></div>
+<div><h3>4. Revisar</h3><p>Cada 30 días compara estimación, ahorro real y objetivo. Mantén lo que funciona.</p></div>
+</div>
+</section>
+
+<section class="card">
+<div class="library-head"><div><h2>📚 Biblioteca Premium</h2><p>Contenido profundo para tomar decisiones con datos. Cada módulo incluye método, cálculos, criterios de decisión y errores que conviene evitar.</p></div><strong id="contentCount"></strong></div>
+<div class="value-strip"><div><strong>Diagnóstico</strong><span>Detecta dónde está el coste.</span></div><div><strong>Decisión</strong><span>Calcula si una medida compensa.</span></div><div><strong>Seguimiento</strong><span>Mide si realmente funcionó.</span></div></div>
+<div class="filters" id="filters"><button class="filter active" data-filter="all">Todo</button><button class="filter" data-filter="diagnostico">Diagnóstico</button><button class="filter" data-filter="factura">Factura y tarifa</button><button class="filter" data-filter="consumo">Consumo</button><button class="filter" data-filter="inversion">Inversiones</button><button class="filter" data-filter="plan">Planes</button></div>
+<div id="content" class="library-grid"></div>
+</section>
+</section>
+
+<p><a class="btn secondary" href="../cuenta/">← Volver a Mi cuenta</a></p>
+</main>
+
+<script src="../assets/supabase-config.js"></script>
+<script src="../assets/auth.js"></script>
+<script>
+const $=id=>document.getElementById(id),status=$("status"),dashboard=$("dashboard"),content=$("content");
+function esc(v){return String(v??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]))}
+function money(v){return Number(v||0).toLocaleString("es-ES",{style:"currency",currency:"EUR"})}
+function dateLabel(v){if(!v)return "sin fecha";return new Date(v+"T12:00:00").toLocaleDateString("es-ES",{day:"numeric",month:"long",year:"numeric"})}
+function showError(message){status.className="status error";status.textContent=message}
+(async()=>{
+ try{
+  const session=await AhorraAuth.requireSession("../cuenta/login.html?next="+encodeURIComponent(location.href));if(!session)return;
+  const profile=await AhorraAuth.getProfile(session);
+  if(!profile||![ "premium","admin" ].includes(profile.role)){
+   showError("Tu cuenta todavía no tiene acceso Premium. Puedes continuar usando las funciones gratuitas.");
+   return;
+  }
+  const c=await AhorraAuth.getClient(),uid=session.user.id;
+  const [goalRes,savingsRes,calcRes,contentRes]=await Promise.all([
+   c.from("premium_goals").select("id,title,target_amount,target_date").eq("user_id",uid).maybeSingle(),
+   c.from("savings_records").select("month,amount").eq("user_id",uid).order("month",{ascending:true}).limit(120),
+   c.from("calculator_results").select("calculator_name,monthly_saving,annual_saving,created_at").eq("user_id",uid).order("created_at",{ascending:false}).limit(100),
+   c.from("premium_content").select("slug,title,excerpt,body,updated_at").order("created_at",{ascending:false})
+  ]);
+  if(goalRes.error)throw goalRes.error;if(savingsRes.error)throw savingsRes.error;if(calcRes.error)throw calcRes.error;if(contentRes.error)throw contentRes.error;
+  const savings=savingsRes.data||[], goal=goalRes.data||null, calcs=calcRes.data||[];
+  const total=savings.reduce((a,r)=>a+Number(r.amount||0),0), avg=savings.length?total/savings.length:0;
+  $("total").textContent=money(total);$("average").textContent=money(avg);$("annual").textContent=money(avg*12);$("records").textContent=savings.length;
+  if(savings.length){
+   const last=savings[savings.length-1], best=savings.reduce((a,b)=>Number(b.amount||0)>Number(a.amount||0)?b:a,savings[0]);
+   $("review").textContent="Último registro: "+money(last.amount)+" en "+dateLabel(last.month.slice(0,10))+". Tu mejor mes registrado es "+money(best.amount)+" ("+dateLabel(best.month.slice(0,10))+").";
+  }else{
+   $("review").textContent="Todavía no tienes ahorro registrado. Empieza desde “Registrar ahorro” para que Premium pueda medir tu evolución.";
+  }
+  if(goal){
+   $("goalTitle").value=goal.title||"";$("goalAmount").value=goal.target_amount||"";$("goalDate").value=goal.target_date||"";
+   const pct=Number(goal.target_amount)>0?Math.min(100,total/Number(goal.target_amount)*100):0;
+   $("goalProgress").style.width=pct.toFixed(1)+"%";
+   $("goalBox").hidden=false;$("goalBox").innerHTML="<strong>"+esc(goal.title)+"</strong><br>"+money(total)+" de "+money(goal.target_amount)+" ("+pct.toFixed(0)+"%)."+(goal.target_date?" Fecha objetivo: "+esc(dateLabel(goal.target_date))+".":"");
+  }
+  $("goalForm").onsubmit=async e=>{
+   e.preventDefault();const btn=$("saveGoal");btn.disabled=true;
+   try{
+    const title=$("goalTitle").value.trim()||"Mi objetivo de ahorro",target=Number($("goalAmount").value),date=$("goalDate").value||null;
+    if(!Number.isFinite(target)||target<=0)throw new Error("Introduce una meta de ahorro superior a 0 €.");
+    if(date&&date<new Date().toISOString().slice(0,10))throw new Error("La fecha objetivo debe ser hoy o posterior.");
+    const {error}=await c.from("premium_goals").upsert({user_id:uid,title,target_amount:target,target_date:date,updated_at:new Date().toISOString()},{onConflict:"user_id"});
+    if(error)throw error;location.reload();
+   }catch(e){$("goalBox").hidden=false;$("goalBox").className="notice";$("goalBox").textContent=e.message||"No se pudo guardar el objetivo.";btn.disabled=false}
+  };
+  if(contentRes.data?.length){
+   const category=item=>{const slug=item.slug||"";if(slug.includes("factura")||slug.includes("tarifa")||slug.includes("potencia"))return "factura";if(slug.includes("electrodomesticos")||slug.includes("climatizacion"))return "consumo";if(slug.includes("solar")||slug.includes("economia")||slug.includes("kit"))return "inversion";if(slug.includes("reto")||slug.includes("plan"))return "plan";return "diagnostico"};
+   const label={diagnostico:"Diagnóstico",factura:"Factura y tarifa",consumo:"Consumo",inversion:"Inversiones",plan:"Plan"};
+   const render=items=>items.map(item=>'<article class="content-card" data-category="'+category(item)+'"><span class="tag">'+label[category(item)]+'</span><h3>'+esc(item.title)+'</h3><p class="excerpt">'+esc(item.excerpt)+'</p><details><summary>Ver módulo completo</summary><div class="content">'+esc(item.body)+'</div></details><p class="meta">Actualizado: '+new Date(item.updated_at).toLocaleDateString("es-ES")+'</p></article>').join("");
+   content.innerHTML=render(contentRes.data);$("contentCount").textContent=contentRes.data.length+" módulos";
+   document.querySelectorAll(".filter").forEach(btn=>btn.addEventListener("click",()=>{document.querySelectorAll(".filter").forEach(x=>x.classList.remove("active"));btn.classList.add("active");const f=btn.dataset.filter;document.querySelectorAll(".content-card").forEach(card=>card.style.display=(f==="all"||card.dataset.category===f)?"block":"none")}));
+  }else content.innerHTML='<p class="empty">Estamos preparando nuevos contenidos Premium.</p>';
+  if(calcs.length){
+   const latest=calcs[0];
+   const projected=Number(latest.annual_saving||0);
+   const note=document.createElement("div");note.className="notice";
+   note.innerHTML="<strong>Última estimación guardada:</strong> "+esc(latest.calculator_name)+" · "+money(projected)+" de ahorro anual estimado.";
+   content.before(note);
+  }
+  status.textContent="✓ Acceso Premium activo. Tus datos están cargados de forma privada.";
+  dashboard.hidden=false;
+ }catch(e){showError(e.message||"No se pudo cargar tu área Premium.")}
+})();
+</script>
+</body>
 </html>
