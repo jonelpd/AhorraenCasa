@@ -107,8 +107,10 @@ function showError(message){status.className="status error";status.textContent=m
  try{
   const session=await AhorraAuth.requireSession("../cuenta/login.html?next="+encodeURIComponent(location.href));if(!session)return;
   const profile=await AhorraAuth.getProfile(session);
-  if(!profile||![ "premium","admin" ].includes(profile.role)){
-   showError("Tu cuenta todavía no tiene acceso Premium. Puedes continuar usando las funciones gratuitas.");
+  const premiumAccess=await AhorraAuth.hasPremiumAccess(session);
+  const subscription=await AhorraAuth.getSubscription(session);
+  if(!premiumAccess){
+   showError("Tu cuenta no tiene una suscripción Premium activa. Puedes consultar los planes disponibles.");
    return;
   }
   const c=await AhorraAuth.getClient(),uid=session.user.id;
@@ -158,7 +160,7 @@ function showError(message){status.className="status error";status.textContent=m
    note.innerHTML="<strong>Última estimación guardada:</strong> "+esc(latest.calculator_name)+" · "+money(projected)+" de ahorro anual estimado.";
    content.before(note);
   }
-  status.textContent="✓ Acceso Premium activo. Tus datos están cargados de forma privada.";
+  status.textContent=subscription?.status==="trialing"?"✓ Periodo de prueba Premium activo. Tus datos están cargados de forma privada.":"✓ Suscripción Premium activa. Tus datos están cargados de forma privada.";
   dashboard.hidden=false;
  }catch(e){showError(e.message||"No se pudo cargar tu área Premium.")}
 })();
