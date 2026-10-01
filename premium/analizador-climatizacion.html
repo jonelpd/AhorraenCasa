@@ -39,9 +39,95 @@
 </div></div>
 <script src="../assets/supabase-config.js"></script><script src="../assets/auth.js"></script>
 <script>
-(async()=>{const $=id=>document.getElementById(id),money=v=>Number(v||0).toLocaleString("es-ES",{style:"currency",currency:"EUR"}),esc=v=>String(v??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]));let c,uid,last;
-try{const s=await AhorraAuth.requireSession("../cuenta/login.html?next="+encodeURIComponent(location.href));c=await AhorraAuth.getClient();uid=s.user.id;const{data:p,error}=await AhorraAuth.getProfile(s);if(error)throw error;if(!p||!["premium","admin"].includes(p.role))throw new Error("Esta herramienta está disponible para usuarios Premium.");$("app").hidden=false;
-const calc=()=>{const season=$("season").value,type=$("type").value,area=Math.max(0,+$("area").value||0),setpoint=+$("setpoint").value||0,outdoor=+$("outdoor").value||0,hours=Math.max(0,+$("hours").value||0),days=Math.min(366,Math.max(1,+$("days").value||1)),power=Math.max(0,+$("power").value||0),price=Math.max(0,+$("price").value||0),oh=Math.max(0,+$("optHours").value||0),op=Math.max(0,+$("optPower").value||0),eff=Math.min(2,Math.max(.5,+$("eff").value||1)),maintenance=Math.max(0,+$("maintenance").value||0),improvement=Math.max(0,+$("improvement").value||0);const currentKwh=power*hours*days*eff,optimizedKwh=op*oh*days*eff,currentCost=currentKwh*price,optimizedCost=optimizedKwh*price+maintenance,saving=Math.max(0,currentCost-optimizedCost),reduction=currentCost>0?Math.max(0,(currentCost-optimizedCost)/currentCost*100):0,payback=saving>0&&improvement>0?improvement/saving:null;last={season,type,area,setpoint,outdoor,hours,days,power,price,baselineHours:hours,baselinePower:power,baselineCost:currentCost,optimizedCost,annualSaving:saving,eff,maintenance,improvement,payback};$("current").textContent=money(currentCost)+"/año";$("optimized").textContent=money(optimizedCost)+"/año";$("saving").textContent=money(saving)+"/año";$("reduction").textContent=reduction.toFixed(1)+" %";$("payback").textContent=payback?payback.toFixed(1)+" años":"—";$("kwh").textContent=Math.round(currentKwh).toLocaleString("es-ES")+" kWh/año";$("finding").innerHTML=saving<=0?"Con estos supuestos no aparece ahorro económico anual. Revisa si el escenario optimizado mantiene el confort y si el coste de mantenimiento está justificado.":payback&&payback>10?"El retorno supera 10 años. Antes de invertir, compara mantenimiento, vida útil, confort y otras medidas de bajo coste.":payback?("Ahorro estimado de "+money(saving)+" al año, con un retorno simple de "+payback.toFixed(1)+" años. Conviene validar el consumo real antes de invertir."):("Ahorro estimado de "+money(saving)+" al año. Puedes usar este resultado como referencia para comparar hábitos o equipos.");$("save").disabled=false;};$("calculate").onclick=calc;
-$("save").onclick=async()=>{if(!last)return;$("save").disabled=true;try{const{error}=await c.from("climate_analyses").insert({user_id:uid,season:last.season,system_type:last.type,room_area_m2:last.area,setpoint_c:last.setpoint,outdoor_c:last.outdoor,hours_day:last.hours,days_year:last.days,input_power_kw:last.power,electricity_price:last.price,baseline_hours_day:last.baselineHours,baseline_power_kw:last.baselinePower,baseline_cost:last.baselineCost,optimized_cost:last.optimizedCost,annual_saving:last.annualSaving,efficiency_factor:last.eff,maintenance_cost:last.maintenance,improvement_cost:last.improvement,payback_years:last.payback,recommendation:$("finding").textContent});if(error)throw error;$("status").textContent="✓ Análisis guardado en tu cuenta.";await load()}catch(e){$("status").textContent=e.message||"No se pudo guardar."}finally{$("save").disabled=false}};
-async function load(){const{data,error}=await c.from("climate_analyses").select("season,system_type,baseline_cost,optimized_cost,annual_saving,payback_years,created_at").order("created_at",{ascending:false}).limit(12);if(error)throw error;$("history").innerHTML=data?.length?'<table class="table"><thead><tr><th>Temporada</th><th>Actual</th><th>Optimizado</th><th>Ahorro</th><th>Retorno</th></tr></thead><tbody>'+data.map(x=>'<tr><td>'+esc(x.season)+'</td><td>'+money(x.baseline_cost)+'</td><td>'+money(x.optimized_cost)+'</td><td>'+money(x.annual_saving)+'</td><td>'+esc(x.payback_years?Number(x.payback_years).toFixed(1)+" años":"—")+'</td></tr>').join("")+"</tbody></table>":"Aún no tienes análisis guardados."}catch(e){$("error").hidden=false;$("error").textContent=e.message||"No se pudo cargar la herramienta."}})();
+(async()=>{
+const $=id=>document.getElementById(id);
+const money=v=>Number(v||0).toLocaleString("es-ES",{style:"currency",currency:"EUR"});
+const esc=v=>String(v??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]));
+let c,uid,last=null;
+
+async function load(){
+  const {data,error}=await c.from("climate_analyses")
+    .select("season,system_type,baseline_cost,optimized_cost,annual_saving,payback_years,created_at")
+    .order("created_at",{ascending:false}).limit(12);
+  if(error) throw error;
+  $("history").innerHTML=data?.length
+    ? '<table class="table"><thead><tr><th>Temporada</th><th>Actual</th><th>Optimizado</th><th>Ahorro</th><th>Retorno</th></tr></thead><tbody>'+
+      data.map(x=>'<tr><td>'+esc(x.season)+'</td><td>'+money(x.baseline_cost)+'</td><td>'+money(x.optimized_cost)+'</td><td>'+money(x.annual_saving)+'</td><td>'+esc(x.payback_years?Number(x.payback_years).toFixed(1)+" años":"—")+'</td></tr>').join("")+
+      "</tbody></table>"
+    : "Aún no tienes análisis guardados.";
+}
+
+try{
+  const s=await AhorraAuth.requireSession("../cuenta/login.html?next="+encodeURIComponent(location.href));
+  c=await AhorraAuth.getClient();
+  uid=s.user.id;
+  const {data:p,error}=await AhorraAuth.getProfile(s);
+  if(error) throw error;
+  if(!p||!["premium","admin"].includes(p.role)) throw new Error("Esta herramienta está disponible para usuarios Premium.");
+  $("app").hidden=false;
+
+  const calc=()=>{
+    const season=$("season").value,type=$("type").value;
+    const area=Math.max(0,+$("area").value||0),setpoint=+$("setpoint").value||0,outdoor=+$("outdoor").value||0;
+    const hours=Math.max(0,+$("hours").value||0),days=Math.min(366,Math.max(1,+$("days").value||1));
+    const power=Math.max(0,+$("power").value||0),price=Math.max(0,+$("price").value||0);
+    const oh=Math.max(0,+$("optHours").value||0),op=Math.max(0,+$("optPower").value||0);
+    const eff=Math.min(2,Math.max(.5,+$("eff").value||1));
+    const maintenance=Math.max(0,+$("maintenance").value||0),improvement=Math.max(0,+$("improvement").value||0);
+    const currentKwh=power*hours*days*eff;
+    const optimizedKwh=op*oh*days*eff;
+    const currentCost=currentKwh*price;
+    const optimizedCost=optimizedKwh*price+maintenance;
+    const saving=Math.max(0,currentCost-optimizedCost);
+    const reduction=currentCost>0?Math.max(0,(currentCost-optimizedCost)/currentCost*100):0;
+    const payback=saving>0&&improvement>0?improvement/saving:null;
+    last={season,type,area,setpoint,outdoor,hours,days,power,price,baselineHours:hours,baselinePower:power,baselineCost:currentCost,optimizedCost,annualSaving:saving,eff,maintenance,improvement,payback};
+    $("current").textContent=money(currentCost)+"/año";
+    $("optimized").textContent=money(optimizedCost)+"/año";
+    $("saving").textContent=money(saving)+"/año";
+    $("reduction").textContent=reduction.toFixed(1)+" %";
+    $("payback").textContent=payback?payback.toFixed(1)+" años":"—";
+    $("kwh").textContent=Math.round(currentKwh).toLocaleString("es-ES")+" kWh/año";
+    $("finding").textContent=saving<=0
+      ?"Con estos supuestos no aparece ahorro económico anual. Revisa si el escenario optimizado mantiene el confort y si el coste de mantenimiento está justificado."
+      :payback&&payback>10
+      ?"El retorno supera 10 años. Antes de invertir, compara mantenimiento, vida útil, confort y otras medidas de bajo coste."
+      :payback
+      ?"Ahorro estimado de "+money(saving)+" al año, con un retorno simple de "+payback.toFixed(1)+" años. Conviene validar el consumo real antes de invertir."
+      :"Ahorro estimado de "+money(saving)+" al año. Puedes usar este resultado como referencia para comparar hábitos o equipos.";
+    $("save").disabled=false;
+  };
+
+  $("calculate").onclick=calc;
+
+  $("save").onclick=async()=>{
+    if(!last)return;
+    $("save").disabled=true;
+    try{
+      const {error}=await c.from("climate_analyses").insert({
+        user_id:uid,season:last.season,system_type:last.type,room_area_m2:last.area,
+        setpoint_c:last.setpoint,outdoor_c:last.outdoor,hours_day:last.hours,days_year:last.days,
+        input_power_kw:last.power,electricity_price:last.price,baseline_hours_day:last.baselineHours,
+        baseline_power_kw:last.baselinePower,baseline_cost:last.baselineCost,
+        optimized_cost:last.optimizedCost,annual_saving:last.annualSaving,
+        efficiency_factor:last.eff,maintenance_cost:last.maintenance,
+        improvement_cost:last.improvement,payback_years:last.payback,
+        recommendation:$("finding").textContent
+      });
+      if(error)throw error;
+      $("status").textContent="✓ Análisis guardado en tu cuenta.";
+      await load();
+    }catch(e){
+      $("status").textContent=e.message||"No se pudo guardar.";
+    }finally{
+      $("save").disabled=false;
+    }
+  };
+
+  await load();
+}catch(e){
+  $("error").hidden=false;
+  $("error").textContent=e.message||"No se pudo cargar la herramienta.";
+}
+})();
 </script></body></html>
