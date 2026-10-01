@@ -1,6 +1,13 @@
 {
-  "updatedAt": "2026-09-30T12:40:12.217501+00:00",
+  "updatedAt": "2026-10-01T13:23:29.311511+00:00",
   "articles": [
+    {
+      "title": "Novedades - CNMC",
+      "description": "Novedades    CNMC",
+      "source": "Electricidad y hogares España",
+      "date": "01 Oct 2026",
+      "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTFBwaFF6aU1mSkoxU1pOSFFyUzJ0Q3U4NmZzMFN0Q3I4VHRUR3hkbm5nZkdUVnVvUmxNOW94SlVCZkgxbWQzSXRBNlc3eFcxX05BR05mYkwzZUxwNHVfd05QZHhxblVPZw?oc=5"
+    },
     {
       "title": "Las conexiones a internet por satélite en España se han multiplicado por diez en tres años y se sitúan cerca de las 100.000 - CNMC",
       "description": "Las conexiones a internet por satélite en España se han multiplicado por diez en tres años y se sitúan cerca de las 100.000    CNMC",
@@ -9,25 +16,18 @@
       "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTFBTX0tuaUZiSG1sNUlUYmw0WkZZUE81b2FlTkNDbVlpV1BwRWFlZXJpQmFjTjFqa3FLOHVEOUQ2LUJIZUhLeERUeW9Ddi0xRHlmcmx0WGVQLTJRMm1vejY2WjZ6eTBkZkJ0N1NXcDlnTDRzb0E?oc=5"
     },
     {
+      "title": "¿Internet desde el espacio? Así está cambiando la conectividad por satélite en España - CNMC Blog",
+      "description": "¿Internet desde el espacio? Así está cambiando la conectividad por satélite en España    CNMC Blog",
+      "source": "Electricidad y hogares España",
+      "date": "30 Sep 2026",
+      "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxPUFBqUWs4OFlLclZLSDdtaHlfb3c2VDRqU3VUQmFwX0Y0d1lzalh4eDlYbFpJUFhROVZQcnoxSDVLSkZ6ZWlZOTZTRlMyU0ZuWlhvZG1uMnlwNnd0XzlBT1hWdk94N0ZqWmxLSnVnNzFEUWhKWmN2Mng0Zm5ZMWd4dmZNQXg2YlE4UnJzOHBPM3A4Uk1VcjdFMFR3TVJILUxsZjBhMXBBNThuMUtKSVp2THFrOEJPZ28?oc=5"
+    },
+    {
       "title": "Informes anteriores de energía - CNMC",
       "description": "Informes anteriores de energía    CNMC",
       "source": "Electricidad y hogares España",
       "date": "27 Sep 2026",
       "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE5VdTAtRXdkS1k1NGFCTk1hOFU5UVBJWDQ5OEJOMnBidC1RZG9xcE80ckUtcDdMbXMtT0tuSXNyZUNNRDVSMExEODFyU1h6aFFQMWF0NThfU29DeVB6ZS1ZeUphUUU2MU15enc?oc=5"
-    },
-    {
-      "title": "Novedades - CNMC",
-      "description": "Novedades    CNMC",
-      "source": "Electricidad y hogares España",
-      "date": "25 Sep 2026",
-      "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxPUTFwYTB4Yjg4T19MaVVvMHRkZzdGWDNha1lfNTVsUERqRnREdHY1ZUktX3BsOU1XdHdXd3RXaDh2dEVhNWY1YTBOUDZLM1A0eXg3SEdNbDB1OFlmNy1td2tFTnFzT2hEQ2RXZFM3NVBYSml2MmdxUVprRkRVdm5MVVV3?oc=5"
-    },
-    {
-      "title": "Consulta pública previa a la elaboración de la Orden por la que se regula el procedimiento y se establecen los requisitos para la concesión de la capacidad de acceso de evacuación disponible en 15 nudos de transición justa - miteco.gob.es",
-      "description": "Consulta pública previa a la elaboración de la Orden por la que se regula el procedimiento y se establecen los requisitos para la concesión de la capacidad de acceso de evacuación disponible en 15 nudos de transición justa    miteco.gob.es",
-      "source": "Ahorro y eficiencia energética España",
-      "date": "24 Sep 2026",
-      "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxQay02aVpvanQwTThPSnB2UHhNZlVKVkRRRk9TaVY2SzR1MXc4UjFINjRfYzU0MGtMb1B2cEk3dWRNMU1BOWRpSDVwYmhDQjk5WmFfWmhVbFFPdU9SZWR1NDV4VVhXd045eThJUmJwVEktUXlsVi1nQVBBLWg4aHQ4STRHWm5jZzktbFBsYnhuZ1A1QUE5aHlrR1dUSlY?oc=5"
     },
     {
       "title": "Registro Administrativo Centralizado de Técnicos Competentes - miteco.gob.es",
@@ -44,11 +44,18 @@
       "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxPVUVSd3JaM3hybmtFRXVHYjVkYmh1MEwwN1NrU1RKNGlROGhwa0JHeVMyd1MtVVpOR3AwRHM3Ni1WRU1jT0FEM201S0ZRaXRBQUdQWVdQc3hkbnBSWXhKdTFrTGh0Q3NhQjIxcFJqTVFJSDUtbE0yRlI4VGZqelFHUFlsclFGb012UkRDMkZxdW1TY3B0dFN4MWoxV3M1SExZbkNjSFA3SnAzdmVZM291dVhjSWMyTjZyVmZN?oc=5"
     },
     {
-      "title": "Panel de hogares CNMC: ¿Conocemos la diferencia entre mercado libre y regulado? ¿Y el bono social eléctrico? - CNMC Blog",
-      "description": "Panel de hogares CNMC: ¿Conocemos la diferencia entre mercado libre y regulado? ¿Y el bono social eléctrico?    CNMC Blog",
+      "title": "Estudio de consumos energéticos del sector servicios con fines estadísticos - Idae",
+      "description": "Estudio de consumos energéticos del sector servicios con fines estadísticos    Idae",
+      "source": "Autoconsumo y energía solar España",
+      "date": "09 Mar 2026",
+      "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxQT3FtRGNkc090eTQ4TXZCVFJ4QmpqUUVZUHo4WXlWZHdBVlVBVl9SVko4STMzSXBkRkgwUHVtTHBVOHFoTzNiMXBra21Kcl83YS1TZkhyeFJBNUtPVTVHVjZNaU5XQ3dreWtEd1FzMlBMRWdoclNZV3JPR0tvNDJNdUdqa3k0MXR0SnA1RG1VenYxYXpWN01DeWlBVlIyVlM3MmNCSEtLVQ?oc=5"
+    },
+    {
+      "title": "Consumidores de gas. Guía informativa - CNMC",
+      "description": "Consumidores de gas. Guía informativa    CNMC",
       "source": "Electricidad y hogares España",
-      "date": "05 Dec 2025",
-      "url": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxPM3Y0bnowRzkzMmxBYkxabGYtWDhLYm9yVVZJWVlySWFkbUwybkc1NmVsZVp3bVEwS0lCZ1BBb1ZwUzNDNkVvRVhNNGIxVWdydVRkRUlubTVRWUN3dVdaaGpBbktBYzUzVlQ3WVVNZW9DTWdENkFuOHd2NXZKcW5oMWtGNm01Y0oydkZ6ekowYTl5MG1qbWtvUXBRUEEySDRGX0Nxa1BFbDVCSXV3MGQyUlh0MVY1NzhYUnduYkJlQVZ0Q3lKUjVGQy1pTHFKMk9hY2c?oc=5"
+      "date": "05 Nov 2024",
+      "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxQM0w1WEFxVlh4eUpDS0FCWlNuR3lGY3FndzJJWDZOSmR1ZEJrRHdIb2ptNkp5RHN5X3NVRUNzN1BfUzZhYS1kT1FmSExkWG9QZTd6NVFKNDBsY0NfOENsVmQxU0pXMUdlY3VDS0ZMdmZ5eFg5cDVrUmgtbUZkaWllQlBxUFlSM3BjYXhEX09B?oc=5"
     },
     {
       "title": "Procedimientos para la certificación de edificios - miteco.gob.es",
@@ -58,6 +65,13 @@
       "url": "https://news.google.com/rss/articles/CBMi4wFBVV95cUxNS3dCMG80T0xfSWZ6UTkzR1ZZcmxrU21zcnIwSFE2Zk1hQWJKSlk1SUpWbEVObll5aE1UU256a0V2a2pNYVhDaGZmV0NxeGZ4VFhPVndtTEtnTkxfT0k2dFlIREoybDFHU0h3OXRpbGRxdnpoUkdoZG8ya3FsVlFPN2xDa2p3WmdLMjA3Z0NpOWVaX01HbUQ4b3R6MFJ5eFBTNWhyODMyVEZVUVBfa1RfRzBjWUtkYkpMZTFzWnFiYVBjRXhYRFhPdy1CSGpteDVOUXV5S1p6NXVzbDZRWkt6TGhGbw?oc=5"
     },
     {
+      "title": "Procedimientos y formularios - miteco.gob.es",
+      "description": "Procedimientos y formularios    miteco.gob.es",
+      "source": "Ahorro y eficiencia energética España",
+      "date": "12 Dec 2023",
+      "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxPN0dfMlZXemMzWHVwclNEenQ0SjRIYUFvVzc1UkxXZk9xaXdjU0I2RTNtbEJZRjBnc29ORWVZSENxZER2WldGajg3YWRCVW5MQmhVSUs5X0FLQTZRNkJNUHI5eEtjQUxrclJrOXhCWmEzZ1V5R1FBRW1mLVZCWTdqX1M3MlpzUkNNS0gw?oc=5"
+    },
+    {
       "title": "Documentos reconocidos - miteco.gob.es",
       "description": "Documentos reconocidos    miteco.gob.es",
       "source": "Ahorro y eficiencia energética España",
@@ -65,25 +79,11 @@
       "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxPOGRqRUhBam1tRUFxeGxiMEhQSlhUNlU0UHJvY1N1ajJzNzduazJRWlEya2EyNkxSd3pWMVlUU1A0cEZrWWxpTWhpQTVuRE9fakhET0ZxTFVmejNwTjRCWWVnWEtjaDdleXNoblZTTUk0YVcyamlPNDF6WEtDdUNydndrNkdUOHpyMm4xbF9KY2pSV0xUb2tVMXpxZERiQTJXbFE?oc=5"
     },
     {
-      "title": "Certificación de eficiencia energética de los edificios - miteco.gob.es",
-      "description": "Certificación de eficiencia energética de los edificios    miteco.gob.es",
+      "title": "RITE - Reglamento de instalaciones térmicas en los edificios - miteco.gob.es",
+      "description": "RITE - Reglamento de instalaciones térmicas en los edificios    miteco.gob.es",
       "source": "Ahorro y eficiencia energética España",
       "date": "12 Dec 2023",
-      "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxPeGMtZ2t5Sml3U1NSamswVTlQSUpGRXUxbXludlNidDBVMjk5Qnoxa09WbF9EM0RvRGpMR1ZHZG9XRjlRY3k2TThoZkhjN1dhSUd5dGkzUGpDMjQ3Z3dYRXN5VXFoTWpBUm0xXzg2YWU2VGRKMEFZamlXdnNXbDFyZlNkaw?oc=5"
-    },
-    {
-      "title": "Casi la mitad de los hogares españoles conoce las diferencias entre el mercado eléctrico libre y el regulado (PVPC) - CNMC",
-      "description": "Casi la mitad de los hogares españoles conoce las diferencias entre el mercado eléctrico libre y el regulado (PVPC)    CNMC",
-      "source": "Electricidad y hogares España",
-      "date": "01 Dec 2023",
-      "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxNZ2hTejN3T2JjR2piSEtjTk15UnpoQjZ1eTRQYkQ2UzF6a0labGlHb3lsR2lxNG5HcFpwY0VvOG55QmtoV1RRQllyb0laNmYwSy1WdkdBV3MtclVSeUhGZWoteVNaa2J5VDZITVhPdXdZRFlTa1ptUXlSVEZEa1dIU3NB?oc=5"
-    },
-    {
-      "title": "Ministerio para la Transición Ecológica y el Reto Demográfico - miteco.gob.es",
-      "description": "Ministerio para la Transición Ecológica y el Reto Demográfico    miteco.gob.es",
-      "source": "Ahorro y eficiencia energética España",
-      "date": "27 Jul 2023",
-      "url": "https://news.google.com/rss/articles/CBMiSEFVX3lxTFB1Zmx2SHg1U0JmSzR6YW0xM2Z4akkzYmw4d2ZKSklTZEhiWHEtMWdIVTZXRUdYeFZ1RzRmVC1VN3dheXF0dkZ4VQ?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE5HTkVpbE9qM1ZfOWlSLWZQdHRmSE1DWGJFRTNtQjBxN2hKbjZucFFGa1JBZHV1Tzd2Q1RnR0lBSFVkRHM4X2RFbUtLdGNSbHNLS0dxSXBLeHItUTdZTzA2TkJNaTZ0WDJO?oc=5"
     }
   ]
 }
