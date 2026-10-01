@@ -43,6 +43,3 @@ on public.premium_goals(user_id);
 
 alter table public.premium_goals
   add constraint premium_goals_title_length check (char_length(title) between 1 and 120);
-
-alter table public.premium_goals
-  add constraint premium_goals_date_reasonable check (target_date is null or target_date >= current_date);
