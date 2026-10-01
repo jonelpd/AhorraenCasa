@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Auditor de factura | AhorraEnCasaYa Premium</title>
+<link rel="icon" href="../assets/logo-mark-ahorraencasaya.svg"><link rel="stylesheet" href="../assets/premium-ui.css">
+<style>
+:root{--green:#157347;--dark:#17221b;--muted:#66736b;--line:#dce7df;--soft:#eef7f1}
+body{margin:0;background:#f7faf8;color:var(--dark);font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Arial}.wrap{max-width:1050px;margin:auto;padding:0 20px}
+.top{padding:22px 0;display:flex;justify-content:space-between;align-items:center}.brand{display:flex;gap:10px;align-items:center;text-decoration:none;color:var(--dark);font-weight:900;font-size:22px}.brand img{width:40px}.brand span span{color:var(--green)}
+.hero{padding:35px 0 15px}.eyebrow{display:inline-block;background:#d9f1e2;color:#0f5132;border-radius:999px;padding:6px 12px;font-weight:900;font-size:12px}h1{font-size:clamp(35px,6vw,58px);line-height:1.05;letter-spacing:-.04em;margin:14px 0 10px}.lead{color:var(--muted);max-width:760px;font-size:18px}
+.card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:22px;margin:18px 0;box-shadow:0 12px 35px #17351f10}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.field label{display:block;font-weight:800;margin:0 0 5px}.field input{width:100%;box-sizing:border-box;padding:11px;border:1px solid #ccd9d0;border-radius:10px;font:inherit}.field small{display:block;color:var(--muted);margin-top:3px}.formgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.section-title{margin-top:0}.btn{border:0;padding:12px 17px;border-radius:10px;background:var(--green);color:#fff;font-weight:900;cursor:pointer;font:inherit}.btn:disabled{opacity:.6;cursor:wait}.status{padding:12px;border-radius:11px;background:var(--soft);margin:12px 0}.error{background:#fff0f0;color:#8a1f1f}
+.results{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.metric{background:#f7faf8;border:1px solid var(--line);border-radius:15px;padding:16px}.metric small{color:var(--muted)}.metric strong{display:block;font-size:23px;color:var(--green);margin-top:4px}.finding{padding:14px;border-left:4px solid var(--green);background:#f3f8f4;border-radius:8px;margin:10px 0}.finding.warn{border-left-color:#a86d00;background:#fff9eb}.history{width:100%;border-collapse:collapse}.history th,.history td{padding:9px;border-bottom:1px solid var(--line);text-align:left}.muted{color:var(--muted)}
+@media(max-width:800px){.formgrid,.grid{grid-template-columns:1fr 1fr}.results{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.formgrid,.grid,.results{grid-template-columns:1fr}.top{gap:8px;flex-wrap:wrap}}
+</style>
+</head>
+<body>
+<header><div class="wrap top"><a class="brand" href="../premium/"><img src="../assets/logo-mark-ahorraencasaya.svg" alt=""><span><span>Ahorra</span>EnCasaYa</span></a><a href="../premium/">Premium →</a></div></header>
+<main class="wrap">
+<section class="hero"><span class="eyebrow">HERRAMIENTA PREMIUM</span><h1>Auditor de factura eléctrica.</h1><p class="lead">Normaliza tu factura para separar consumo, precio y costes fijos. Después compárala con el periodo anterior y guarda el análisis en tu cuenta.</p><div id="status" class="status">Comprobando tu acceso…</div></section>
+<section id="app" hidden>
+<form id="auditForm">
+<section class="card"><h2 class="section-title">1. Factura actual</h2><div class="formgrid">
+<div class="field"><label>Días facturados</label><input id="days" type="number" min="1" max="366" value="30" required></div>
+<div class="field"><label>Consumo (kWh)</label><input id="kwh" type="number" min="0" step="0.001" placeholder="250" required></div>
+<div class="field"><label>Total factura (€)</label><input id="bill" type="number" min="0" step="0.01" placeholder="65" required></div>
+<div class="field"><label>Potencia contratada (kW)</label><input id="power" type="number" min="0" step="0.001" placeholder="4.6"></div>
+<div class="field"><label>Precio energía (€/kWh)</label><input id="energy" type="number" min="0" step="0.000001" placeholder="0.15"></div>
+<div class="field"><label>Coste potencia (€)</label><input id="powerCost" type="number" min="0" step="0.01" placeholder="15"></div>
+<div class="field"><label>Servicios fijos (€)</label><input id="services" type="number" min="0" step="0.01" value="0"></div>
+<div class="field"><label>Descuentos (€)</label><input id="discounts" type="number" min="0" step="0.01" value="0"></div>
+</div><p class="muted">Los campos de energía, potencia y servicios son opcionales. Si no aparecen desglosados, deja 0 y el auditor trabajará con el total.</p></section>
+<section class="card"><h2 class="section-title">2. Periodo anterior <span class="muted">(opcional)</span></h2><div class="formgrid">
+<div class="field"><label>Días anteriores</label><input id="prevDays" type="number" min="1" max="366" placeholder="30"></div>
+<div class="field"><label>Consumo anterior (kWh)</label><input id="prevKwh" type="number" min="0" step="0.001" placeholder="230"></div>
+<div class="field"><label>Factura anterior (€)</label><input id="prevBill" type="number" min="0" step="0.01" placeholder="58"></div>
+</div></section>
+<section class="card"><button class="btn" id="auditBtn">Analizar factura</button></section>
+</form>
+<section id="resultsCard" class="card" hidden><h2>3. Resultado del análisis</h2><div id="results" class="results"></div><div id="findings"></div><div id="saveStatus"></div><button class="btn" id="saveBtn">Guardar auditoría</button></section>
+<section class="card"><h2>Historial de auditorías</h2><div id="history" class="muted">Cargando…</div></section>
+</section>
+<p><a href="../premium/">← Volver a Premium</a></p>
+</main>
+<script src="../assets/supabase-config.js"></script><script src="../assets/auth.js"></script>
+<script>
+const $=id=>document.getElementById(id),status=$("status");let session=null,client=null,lastAudit=null;
+function esc(v){return String(v??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]))}
+function num(id){return Math.max(0,Number($(id).value)||0)} function eur(v){return Number(v||0).toLocaleString("es-ES",{style:"currency",currency:"EUR"})}
+function pct(v){return (v>=0?"+":"")+v.toFixed(1)+"%"}
+function showError(m){status.className="status error";status.textContent=m}
+function calculate(){
+ const days=num("days"),kwh=num("kwh"),bill=num("bill"),prevDays=num("prevDays"),prevKwh=num("prevKwh"),prevBill=num("prevBill");
+ if(days<1||kwh<0||bill<0)throw new Error("Revisa los datos de la factura.");
+ const perKwh=kwh>0?bill/kwh:0,annual=days>0?bill*365/days:0,dayKwh=kwh/days;
+ const prevPerKwh=prevKwh>0?prevBill/prevKwh:0;
+ const consumptionChange=prevKwh>0?(kwh/prevKwh-1)*100:null, billChange=prevBill>0?(bill/prevBill-1)*100:null, priceChange=prevPerKwh>0?(perKwh/prevPerKwh-1)*100:null;
+ return {days,kwh,bill,perKwh,annual,dayKwh,prevDays,prevKwh,prevBill,prevPerKwh,consumptionChange,billChange,priceChange,power:num("power"),energy:num("energy"),powerCost:num("powerCost"),services:num("services"),discounts:num("discounts")};
+}
+function render(a){
+ $("results").innerHTML=[
+  ["Coste efectivo","<strong>"+eur(a.perKwh)+"</strong><small>por kWh de factura total</small>"],
+  ["Coste anualizado","<strong>"+eur(a.annual)+"</strong><small>si el ritmo actual se mantiene</small>"],
+  ["Consumo diario","<strong>"+a.dayKwh.toFixed(2)+" kWh</strong><small>media del periodo</small>"],
+  ["Factura","<strong>"+eur(a.bill)+"</strong><small>"+a.days+" días</small>"]
+ ].map(x=>'<div class="metric"><small>'+x[0]+'</small>'+x[1]+'</div>').join("");
+ let f=[];
+ if(a.prevKwh>0&&a.prevBill>0){
+  f.push('<div class="finding"><strong>Consumo:</strong> '+pct(a.consumptionChange)+' frente al periodo anterior.</div>');
+  f.push('<div class="finding"><strong>Factura:</strong> '+pct(a.billChange)+' frente al periodo anterior.</div>');
+  f.push('<div class="finding"><strong>Coste efectivo por kWh:</strong> '+pct(a.priceChange)+' frente al periodo anterior.</div>');
+  if(Math.abs(a.consumptionChange)>5&&Math.abs(a.priceChange)<=5)f.push('<div class="finding warn">La variación observada parece estar dominada por el consumo, mientras que el coste efectivo por kWh cambia poco. Conviene revisar hábitos, climatización y electrodomésticos antes de atribuir el cambio a la tarifa.</div>');
+  if(Math.abs(a.priceChange)>5&&Math.abs(a.consumptionChange)<=5)f.push('<div class="finding warn">El consumo cambia poco pero el coste efectivo por kWh varía de forma relevante. Revisa precio de energía, potencia, servicios, descuentos y condiciones contractuales.</div>');
+ }
+ if(a.power>0)f.push('<div class="finding"><strong>Potencia contratada:</strong> '+a.power.toFixed(2)+' kW. Para decidir si está sobredimensionada no basta este dato: hacen falta picos de demanda o histórico de potencia.</div>');
+ if(a.energy>0&&a.kwh>0){
+  const estimated=a.energy*a.kwh; const residual=a.bill-estimated-a.powerCost-a.services+a.discounts;
+  f.push('<div class="finding"><strong>Desglose:</strong> el componente energético indicado sería aproximadamente '+eur(estimated)+'. Diferencia restante frente al total declarado: '+eur(residual)+'.</div>');
+ }
+ $("findings").innerHTML=f.join("")||'<div class="finding">Añade un periodo anterior o datos desglosados para obtener más hallazgos.</div>';
+ $("resultsCard").hidden=false;lastAudit=a;$("saveStatus").textContent="";
+}
+async function loadHistory(){
+ const r=await client.from("premium_audits").select("id,billing_days,kwh,total_bill,created_at").order("created_at",{ascending:false}).limit(12);
+ if(r.error)throw r.error;if(!r.data?.length){$("history").textContent="Todavía no has guardado auditorías.";return}
+ $("history").innerHTML='<table class="history"><thead><tr><th>Fecha</th><th>kWh</th><th>Factura</th><th>€/kWh</th></tr></thead><tbody>'+r.data.map(x=>'<tr><td>'+new Date(x.created_at).toLocaleDateString("es-ES")+'</td><td>'+Number(x.kwh).toFixed(1)+'</td><td>'+eur(x.total_bill)+'</td><td>'+eur(Number(x.kwh)>0?Number(x.total_bill)/Number(x.kwh):0)+'</td></tr>').join("")+'</tbody></table>';
+}
+(async()=>{
+ try{
+  session=await AhorraAuth.requireSession("../cuenta/login.html?next="+encodeURIComponent(location.href));if(!session)return;
+  client=await AhorraAuth.getClient();const p=await AhorraAuth.getProfile(session);
+  if(!p||![ "premium","admin" ].includes(p.role)){showError("Esta herramienta pertenece al área Premium.");return}
+  status.textContent="✓ Acceso Premium activo.";$("app").hidden=false;await loadHistory();
+ }catch(e){showError(e.message||"No se pudo cargar el auditor.")}
+})();
+$("auditForm").onsubmit=e=>{e.preventDefault();try{render(calculate())}catch(err){$("saveStatus").textContent=err.message}};
+$("saveBtn").onclick=async()=>{
+ if(!lastAudit)return;const b=$("saveBtn");b.disabled=true;
+ try{
+  const {error}=await client.from("premium_audits").insert({user_id:session.user.id,billing_days:lastAudit.days,kwh:lastAudit.kwh,total_bill:lastAudit.bill,contracted_power:lastAudit.power,energy_price:lastAudit.energy,power_cost:lastAudit.powerCost,fixed_services:lastAudit.services,discounts:lastAudit.discounts,previous_days:lastAudit.prevDays||null,previous_kwh:lastAudit.prevKwh||null,previous_bill:lastAudit.prevBill||null});
+  if(error)throw error;$("saveStatus").className="status";$("saveStatus").textContent="✓ Auditoría guardada en tu cuenta.";await loadHistory();
+ }catch(e){$("saveStatus").className="status error";$("saveStatus").textContent=e.message||"No se pudo guardar."}finally{b.disabled=false}
+};
+</script>
+</body></html>
