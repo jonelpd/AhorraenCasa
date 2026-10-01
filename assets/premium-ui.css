@@ -808,3 +808,77 @@ header .brand:focus-visible{
     box-sizing:border-box;
   }
 }
+
+
+/* Mobile navigation v11 — mismo concepto de tres menús desplegables */
+@media (max-width:900px){
+  header nav.open{
+    padding:12px 0 8px;
+    gap:9px;
+  }
+  header nav.open > .nav-dropdown{
+    width:100%;
+    margin:0;
+  }
+  header nav.open > .nav-dropdown > summary{
+    min-height:46px;
+    padding:10px 14px;
+    border:1px solid #d6e4db;
+    border-radius:12px;
+    background:#fff;
+    box-shadow:0 3px 10px rgba(20,35,26,.04);
+    font-size:14px;
+    font-weight:850;
+  }
+  header nav.open > .nav-dropdown:first-child > summary{
+    background:#eef8f2;
+    border-color:#c8e4d2;
+    color:#0f5132;
+  }
+  header nav.open > .nav-dropdown > summary::after{
+    content:"⌄";
+    font-size:15px;
+    transition:transform .18s ease;
+  }
+  header nav.open > .nav-dropdown[open] > summary::after{
+    transform:rotate(180deg);
+  }
+  header nav.open .nav-dropdown-panel{
+    margin-top:6px;
+    padding:6px;
+    border:1px solid #d6e4db;
+    border-radius:12px;
+    background:#f8fbf9;
+    box-shadow:0 7px 18px rgba(20,35,26,.06);
+  }
+  header nav.open .nav-dropdown-panel a{
+    min-height:40px;
+    padding:9px 11px;
+    border-radius:9px;
+    font-size:13.5px;
+    font-weight:700;
+  }
+  header nav.open .nav-dropdown-panel a + a{
+    margin-top:2px;
+  }
+  header nav.open .nav-dropdown-panel a:active{
+    background:#e9f7ef;
+  }
+  header nav.open .language-dropdown .nav-dropdown-panel a.active-language{
+    background:#157347;
+    color:#fff;
+  }
+}
+@media (max-width:600px){
+  header nav.open{
+    gap:8px;
+  }
+  header nav.open > .nav-dropdown > summary{
+    min-height:44px;
+  }
+}
+@media (prefers-reduced-motion:reduce){
+  header nav.open > .nav-dropdown > summary::after{
+    transition:none;
+  }
+}
