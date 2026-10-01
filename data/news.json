@@ -1,89 +1,47 @@
 {
-  "updatedAt": "2026-10-01T13:23:29.311511+00:00",
+  "updatedAt": "2026-10-01T21:17:51.351Z",
   "articles": [
     {
-      "title": "Novedades - CNMC",
-      "description": "Novedades    CNMC",
-      "source": "Electricidad y hogares España",
-      "date": "01 Oct 2026",
-      "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTFBwaFF6aU1mSkoxU1pOSFFyUzJ0Q3U4NmZzMFN0Q3I4VHRUR3hkbm5nZkdUVnVvUmxNOW94SlVCZkgxbWQzSXRBNlc3eFcxX05BR05mYkwzZUxwNHVfd05QZHhxblVPZw?oc=5"
+      "title": "Joan Groizard destaca el gran potencial de Canarias para el desarrollo de energía renovable",
+      "description": "El IDAE informa sobre un proyecto de geotermia profunda en Canarias y su potencial energético.",
+      "source": "IDAE",
+      "date": "16 Sep 2026",
+      "url": "https://idae.es/noticias/joan-groizard-destaca-el-gran-potencial-de-canarias-para-el-desarrollo-de-energia"
     },
     {
-      "title": "Las conexiones a internet por satélite en España se han multiplicado por diez en tres años y se sitúan cerca de las 100.000 - CNMC",
-      "description": "Las conexiones a internet por satélite en España se han multiplicado por diez en tres años y se sitúan cerca de las 100.000    CNMC",
-      "source": "Electricidad y hogares España",
-      "date": "30 Sep 2026",
-      "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTFBTX0tuaUZiSG1sNUlUYmw0WkZZUE81b2FlTkNDbVlpV1BwRWFlZXJpQmFjTjFqa3FLOHVEOUQ2LUJIZUhLeERUeW9Ddi0xRHlmcmx0WGVQLTJRMm1vejY2WjZ6eTBkZkJ0N1NXcDlnTDRzb0E?oc=5"
+      "title": "El Gobierno presenta el Marco de Acción Nacional para consolidar una red integral de recarga eléctrica",
+      "description": "El marco plantea el despliegue de infraestructura de recarga y alternativas para el transporte.",
+      "source": "IDAE · MITECO",
+      "date": "14 Sep 2026",
+      "url": "https://www.idae.es/noticias/el-gobierno-presenta-el-marco-de-accion-nacional-para-consolidar-una-red-integral-de"
     },
     {
-      "title": "¿Internet desde el espacio? Así está cambiando la conectividad por satélite en España - CNMC Blog",
-      "description": "¿Internet desde el espacio? Así está cambiando la conectividad por satélite en España    CNMC Blog",
-      "source": "Electricidad y hogares España",
-      "date": "30 Sep 2026",
-      "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxPUFBqUWs4OFlLclZLSDdtaHlfb3c2VDRqU3VUQmFwX0Y0d1lzalh4eDlYbFpJUFhROVZQcnoxSDVLSkZ6ZWlZOTZTRlMyU0ZuWlhvZG1uMnlwNnd0XzlBT1hWdk94N0ZqWmxLSnVnNzFEUWhKWmN2Mng0Zm5ZMWd4dmZNQXg2YlE4UnJzOHBPM3A4Uk1VcjdFMFR3TVJILUxsZjBhMXBBNThuMUtKSVp2THFrOEJPZ28?oc=5"
+      "title": "Nuevo programa de ayudas a la recarga eléctrica en carreteras por 150 millones",
+      "description": "El MITECO abrió la consulta pública previa de un nuevo programa de ayudas financiado con fondos FEDER.",
+      "source": "IDAE · MITECO",
+      "date": "9 Sep 2026",
+      "url": "https://www.idae.es/noticias/el-miteco-abre-la-consulta-publica-previa-de-un-nuevo-programa-de-ayudas-la-recarga"
     },
     {
-      "title": "Informes anteriores de energía - CNMC",
-      "description": "Informes anteriores de energía    CNMC",
-      "source": "Electricidad y hogares España",
-      "date": "27 Sep 2026",
-      "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE5VdTAtRXdkS1k1NGFCTk1hOFU5UVBJWDQ5OEJOMnBidC1RZG9xcE80ckUtcDdMbXMtT0tuSXNyZUNNRDVSMExEODFyU1h6aFFQMWF0NThfU29DeVB6ZS1ZeUphUUU2MU15enc?oc=5"
+      "title": "Nuevo programa de ayudas para la cadena de valor de tecnologías renovables",
+      "description": "La iniciativa contempla baterías, redes eléctricas, eólica, hidrógeno, solar fotovoltaica y bombas de calor.",
+      "source": "IDAE · MITECO",
+      "date": "7 Sep 2026",
+      "url": "https://idae.es/noticias/el-idae-redoblara-su-apuesta-por-la-cadena-de-valor-industrial-espanola-de-tecnologias"
     },
     {
-      "title": "Registro Administrativo Centralizado de Técnicos Competentes - miteco.gob.es",
-      "description": "Registro Administrativo Centralizado de Técnicos Competentes    miteco.gob.es",
-      "source": "Ahorro y eficiencia energética España",
-      "date": "15 Jul 2026",
-      "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxPZFVfbThLTXE3VVMxS1NhaFhxbXVlcnBiWWpKNFVtelNfMFFITTlHSlpKbWNPRzRFZDVlMERXYkFUZlJ0V1QyMW9mU3BrVlVzcng3d1RBRy1tUXVHdHZVUTlpNEF2Q2c5SW1WMTBHMUk3OGxCU2lNMU54RF9GS25vY0tjT25ldjRhQS1lbkhoaGdxOGlvQUxtRm8wcXQ?oc=5"
+      "title": "El IDAE acelera la modernización del parque renovable con 612 millones en ayudas",
+      "description": "REPOTEN 2 apoya 173 proyectos de repotenciación eólica e hidroeléctrica e incorpora almacenamiento hibridado.",
+      "source": "IDAE",
+      "date": "31 Jul 2026",
+      "url": "https://idae.es/noticias/el-idae-acelera-la-modernizacion-del-parque-renovable-con-612-millones-en-ayudas-173"
     },
     {
-      "title": "El IDAE vuelve a difundir la campaña ‘Personas con energía propia’, centrada en las facilidades para acceder al autoconsumo | Idae - Idae",
-      "description": "El IDAE vuelve a difundir la campaña ‘Personas con energía propia’, centrada en las facilidades para acceder al autoconsumo | Idae    Idae",
-      "source": "Autoconsumo y energía solar España",
-      "date": "18 May 2026",
-      "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxPVUVSd3JaM3hybmtFRXVHYjVkYmh1MEwwN1NrU1RKNGlROGhwa0JHeVMyd1MtVVpOR3AwRHM3Ni1WRU1jT0FEM201S0ZRaXRBQUdQWVdQc3hkbnBSWXhKdTFrTGh0Q3NhQjIxcFJqTVFJSDUtbE0yRlI4VGZqelFHUFlsclFGb012UkRDMkZxdW1TY3B0dFN4MWoxV3M1SExZbkNjSFA3SnAzdmVZM291dVhjSWMyTjZyVmZN?oc=5"
-    },
-    {
-      "title": "Estudio de consumos energéticos del sector servicios con fines estadísticos - Idae",
-      "description": "Estudio de consumos energéticos del sector servicios con fines estadísticos    Idae",
-      "source": "Autoconsumo y energía solar España",
-      "date": "09 Mar 2026",
-      "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxQT3FtRGNkc090eTQ4TXZCVFJ4QmpqUUVZUHo4WXlWZHdBVlVBVl9SVko4STMzSXBkRkgwUHVtTHBVOHFoTzNiMXBra21Kcl83YS1TZkhyeFJBNUtPVTVHVjZNaU5XQ3dreWtEd1FzMlBMRWdoclNZV3JPR0tvNDJNdUdqa3k0MXR0SnA1RG1VenYxYXpWN01DeWlBVlIyVlM3MmNCSEtLVQ?oc=5"
-    },
-    {
-      "title": "Consumidores de gas. Guía informativa - CNMC",
-      "description": "Consumidores de gas. Guía informativa    CNMC",
-      "source": "Electricidad y hogares España",
-      "date": "05 Nov 2024",
-      "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxQM0w1WEFxVlh4eUpDS0FCWlNuR3lGY3FndzJJWDZOSmR1ZEJrRHdIb2ptNkp5RHN5X3NVRUNzN1BfUzZhYS1kT1FmSExkWG9QZTd6NVFKNDBsY0NfOENsVmQxU0pXMUdlY3VDS0ZMdmZ5eFg5cDVrUmgtbUZkaWllQlBxUFlSM3BjYXhEX09B?oc=5"
-    },
-    {
-      "title": "Procedimientos para la certificación de edificios - miteco.gob.es",
-      "description": "Procedimientos para la certificación de edificios    miteco.gob.es",
-      "source": "Ahorro y eficiencia energética España",
-      "date": "12 Dec 2023",
-      "url": "https://news.google.com/rss/articles/CBMi4wFBVV95cUxNS3dCMG80T0xfSWZ6UTkzR1ZZcmxrU21zcnIwSFE2Zk1hQWJKSlk1SUpWbEVObll5aE1UU256a0V2a2pNYVhDaGZmV0NxeGZ4VFhPVndtTEtnTkxfT0k2dFlIREoybDFHU0h3OXRpbGRxdnpoUkdoZG8ya3FsVlFPN2xDa2p3WmdLMjA3Z0NpOWVaX01HbUQ4b3R6MFJ5eFBTNWhyODMyVEZVUVBfa1RfRzBjWUtkYkpMZTFzWnFiYVBjRXhYRFhPdy1CSGpteDVOUXV5S1p6NXVzbDZRWkt6TGhGbw?oc=5"
-    },
-    {
-      "title": "Procedimientos y formularios - miteco.gob.es",
-      "description": "Procedimientos y formularios    miteco.gob.es",
-      "source": "Ahorro y eficiencia energética España",
-      "date": "12 Dec 2023",
-      "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxPN0dfMlZXemMzWHVwclNEenQ0SjRIYUFvVzc1UkxXZk9xaXdjU0I2RTNtbEJZRjBnc29ORWVZSENxZER2WldGajg3YWRCVW5MQmhVSUs5X0FLQTZRNkJNUHI5eEtjQUxrclJrOXhCWmEzZ1V5R1FBRW1mLVZCWTdqX1M3MlpzUkNNS0gw?oc=5"
-    },
-    {
-      "title": "Documentos reconocidos - miteco.gob.es",
-      "description": "Documentos reconocidos    miteco.gob.es",
-      "source": "Ahorro y eficiencia energética España",
-      "date": "12 Dec 2023",
-      "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxPOGRqRUhBam1tRUFxeGxiMEhQSlhUNlU0UHJvY1N1ajJzNzduazJRWlEya2EyNkxSd3pWMVlUU1A0cEZrWWxpTWhpQTVuRE9fakhET0ZxTFVmejNwTjRCWWVnWEtjaDdleXNoblZTTUk0YVcyamlPNDF6WEtDdUNydndrNkdUOHpyMm4xbF9KY2pSV0xUb2tVMXpxZERiQTJXbFE?oc=5"
-    },
-    {
-      "title": "RITE - Reglamento de instalaciones térmicas en los edificios - miteco.gob.es",
-      "description": "RITE - Reglamento de instalaciones térmicas en los edificios    miteco.gob.es",
-      "source": "Ahorro y eficiencia energética España",
-      "date": "12 Dec 2023",
-      "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE5HTkVpbE9qM1ZfOWlSLWZQdHRmSE1DWGJFRTNtQjBxN2hKbjZucFFGa1JBZHV1Tzd2Q1RnR0lBSFVkRHM4X2RFbUtLdGNSbHNLS0dxSXBLeHItUTdZTzA2TkJNaTZ0WDJO?oc=5"
+      "title": "El MITECO lanza las subastas de ahorro de energía para reforzar la eficiencia energética",
+      "description": "El nuevo mecanismo busca canalizar inversión hacia actuaciones de ahorro y eficiencia energética.",
+      "source": "MITECO",
+      "date": "2 Sep 2026",
+      "url": "https://www.miteco.gob.es/es/prensa/ultimas-noticias/2026/septiembre/el-miteco-lanza-las-subastas-de-ahorro-de-energia-para-complemen.html"
     }
   ]
 }
