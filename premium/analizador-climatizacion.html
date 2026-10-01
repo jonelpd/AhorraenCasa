@@ -49,7 +49,6 @@ async function load(){
   const {data,error}=await c.from("climate_analyses")
     .select("season,system_type,baseline_cost,optimized_cost,annual_saving,payback_years,created_at")
     .order("created_at",{ascending:false}).limit(12);
-  if(error) throw error;
   $("history").innerHTML=data?.length
     ? '<table class="table"><thead><tr><th>Temporada</th><th>Actual</th><th>Optimizado</th><th>Ahorro</th><th>Retorno</th></tr></thead><tbody>'+
       data.map(x=>'<tr><td>'+esc(x.season)+'</td><td>'+money(x.baseline_cost)+'</td><td>'+money(x.optimized_cost)+'</td><td>'+money(x.annual_saving)+'</td><td>'+esc(x.payback_years?Number(x.payback_years).toFixed(1)+" años":"—")+'</td></tr>').join("")+
@@ -61,7 +60,7 @@ try{
   const s=await AhorraAuth.requireSession("../cuenta/login.html?next="+encodeURIComponent(location.href));
   c=await AhorraAuth.getClient();
   uid=s.user.id;
-  const {data:p,error}=await AhorraAuth.getProfile(s);
+  const p=await AhorraAuth.getProfile(s);
   if(error) throw error;
   if(!p||!["premium","admin"].includes(p.role)) throw new Error("Esta herramienta está disponible para usuarios Premium.");
   $("app").hidden=false;
