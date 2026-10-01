@@ -109,3 +109,65 @@ footer{background:linear-gradient(135deg,#14231a,#102a1d)}
   .renewables-box{padding:18px}
   .renewables-intro h2{font-size:25px}
 }
+
+
+/* Visual refinement v2 — portada y responsive */
+header{border-bottom-color:#e4ece7;box-shadow:0 4px 18px rgba(20,35,26,.07)}
+.nav{min-height:74px}
+.brand{gap:9px}
+.brand img{box-shadow:0 3px 10px rgba(21,115,71,.10)}
+nav{gap:14px}
+nav a{padding:8px 7px;border-radius:9px}
+nav a:hover{background:#edf8f1}
+.account-link{border:1px solid #d7e5dc}
+.languages{margin-left:2px}
+.hero{padding-top:72px;padding-bottom:76px}
+.heroGrid{grid-template-columns:minmax(0,1.05fr) minmax(380px,.75fr);align-items:center}
+.hero h1{font-size:clamp(42px,5.4vw,64px);line-height:1.01}
+.hero p{font-size:20px}
+.buttons{margin-top:28px}
+.buttons .secondary{background:rgba(255,255,255,.78)}
+.calc{padding:28px}
+.calc-visual{max-height:128px;margin-bottom:18px}
+.calc h2{font-size:25px}
+.calc .field{margin:14px 0}
+.answer{padding:17px}
+.answer strong{font-size:30px}
+.renewables-highlight{padding-top:38px}
+.renewables-actions{gap:14px}
+.renewables-card{min-height:126px;justify-content:center}
+.renewables-card span{font-size:28px}
+section{padding-top:68px;padding-bottom:68px}
+.heading h2{font-size:36px}
+.grid3{gap:20px}
+.card{padding:24px;min-height:100%}
+.icon{margin-bottom:3px}
+.news-card{min-height:270px}
+footer{margin-top:8px}
+@media(max-width:1050px){
+  nav{gap:8px}
+  nav a{font-size:14px;padding:7px 5px}
+  .heroGrid{grid-template-columns:1fr .82fr;gap:34px}
+}
+@media(max-width:900px){
+  .nav{min-height:68px}
+  .hero{padding-top:48px;padding-bottom:56px}
+  .heroGrid{grid-template-columns:1fr;gap:28px}
+  .hero h1{max-width:720px}
+  .calc{max-width:620px;justify-self:start}
+  section{padding-top:54px;padding-bottom:54px}
+  .heading h2{font-size:32px}
+}
+@media(max-width:600px){
+  .nav{min-height:62px}
+  .brand{font-size:19px}
+  .brand img{width:34px;height:34px}
+  .hero h1{font-size:clamp(36px,11vw,50px)}
+  .hero p{font-size:17px}
+  .calc{padding:19px}
+  .calc-visual{max-height:105px}
+  .heading h2{font-size:28px}
+  section{padding-top:44px;padding-bottom:44px}
+  .renewables-card{min-height:112px}
+  .news-card{min-height:0}
+}
