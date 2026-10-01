@@ -793,3 +793,18 @@ header .brand:focus-visible{
     transition:none;
   }
 }
+
+
+/* Desktop dropdowns v10 — apertura vertical */
+@media (min-width:901px){
+  header .nav-dropdown-panel{
+    display:flex;
+    flex-direction:column;
+    align-items:stretch;
+    gap:3px;
+  }
+  header .nav-dropdown-panel a{
+    width:100%;
+    box-sizing:border-box;
+  }
+}
