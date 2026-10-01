@@ -22,22 +22,52 @@ drop policy if exists "Users can insert own premium goal" on public.premium_goal
 drop policy if exists "Users can update own premium goal" on public.premium_goals;
 drop policy if exists "Users can delete own premium goal" on public.premium_goals;
 
-create policy "Users can read own premium goal"
+create policy "Premium users can read own premium goal"
 on public.premium_goals for select to authenticated
-using (user_id = auth.uid());
+using (
+  user_id = auth.uid()
+  and exists (
+    select 1 from public.profiles p
+    where p.id = auth.uid() and p.role in ('premium','admin')
+  )
+);
 
-create policy "Users can insert own premium goal"
+create policy "Premium users can insert own premium goal"
 on public.premium_goals for insert to authenticated
-with check (user_id = auth.uid());
+with check (
+  user_id = auth.uid()
+  and exists (
+    select 1 from public.profiles p
+    where p.id = auth.uid() and p.role in ('premium','admin')
+  )
+);
 
-create policy "Users can update own premium goal"
+create policy "Premium users can update own premium goal"
 on public.premium_goals for update to authenticated
-using (user_id = auth.uid())
-with check (user_id = auth.uid());
+using (
+  user_id = auth.uid()
+  and exists (
+    select 1 from public.profiles p
+    where p.id = auth.uid() and p.role in ('premium','admin')
+  )
+)
+with check (
+  user_id = auth.uid()
+  and exists (
+    select 1 from public.profiles p
+    where p.id = auth.uid() and p.role in ('premium','admin')
+  )
+);
 
-create policy "Users can delete own premium goal"
+create policy "Premium users can delete own premium goal"
 on public.premium_goals for delete to authenticated
-using (user_id = auth.uid());
+using (
+  user_id = auth.uid()
+  and exists (
+    select 1 from public.profiles p
+    where p.id = auth.uid() and p.role in ('premium','admin')
+  )
+);
 
 create index if not exists idx_premium_goals_user_id
 on public.premium_goals(user_id);
