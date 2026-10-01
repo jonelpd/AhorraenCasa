@@ -106,12 +106,12 @@
 <section id="noticias" class="news-section">
   <div class="wrap">
     <div class="heading">
-      <span class="eyebrow">📰 Actualidad</span>
-      <h2>समाचार y novedades sobre ahorro energético</h2>
+      <span class="eyebrow">📰 समाचार और अपडेट</span>
+      <h2>ऊर्जा बचत की समाचार और नवीनतम जानकारी</h2>
       <p class="muted">घरेलू ऊर्जा बचत से जुड़े बदलावों और रुझानों को समझने के लिए विशेषज्ञ स्रोतों से हाल की जानकारी।</p>
     </div>
     <div id="news-list" class="news-grid" aria-live="polite">
-      <article class="card news-loading"><strong>Cargando novedades…</strong><p class="muted">Actualizando las últimas noticias.</p></article>
+      <article class="card news-loading"><strong>नवीनतम जानकारी लोड हो रही है…</strong><p class="muted">नवीनतम समाचार अपडेट हो रहे हैं।</p></article>
     </div>
     <p class="news-updated" id="news-updated"></p>
   </div>
@@ -186,7 +186,7 @@ setInterval(updateWorldClock,1000);
     data.articles.slice(0,6).forEach(a=>{
       const article=document.createElement("article"); article.className="card news-card";
       const meta=document.createElement("div"); meta.className="news-meta"; meta.textContent=(a.source||"समाचार")+" · "+(a.date||"");
-      const h3=document.createElement("h3"); h3.textContent=a.title||"Novedad";
+      const h3=document.createElement("h3"); h3.textContent=a.title||"नई जानकारी";
       const p=document.createElement("p"); p.className="muted"; p.textContent=a.description||"";
       const link=document.createElement("a"); link.className="news-link"; link.textContent="समाचार पढ़ें →"; link.target="_blank"; link.rel="noopener noreferrer";
       try{const u=new URL(a.url,location.href); if(!/^https?:$/.test(u.protocol)) throw new Error("invalid url"); link.href=u.href;}catch(e){link.href="#";link.setAttribute("aria-disabled","true");}
