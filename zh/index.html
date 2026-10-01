@@ -106,12 +106,12 @@
 <section id="noticias" class="news-section">
   <div class="wrap">
     <div class="heading">
-      <span class="eyebrow">📰 Actualidad</span>
-      <h2>新闻 y novedades sobre ahorro energético</h2>
+      <span class="eyebrow">📰 新闻动态</span>
+      <h2>节能新闻与动态</h2>
       <p class="muted">来自专业来源的最新信息，帮助你了解可能影响家庭节能的变化、机会和趋势。</p>
     </div>
     <div id="news-list" class="news-grid" aria-live="polite">
-      <article class="card news-loading"><strong>Cargando novedades…</strong><p class="muted">Actualizando las últimas noticias.</p></article>
+      <article class="card news-loading"><strong>正在加载最新动态…</strong><p class="muted">正在更新最新新闻。</p></article>
     </div>
     <p class="news-updated" id="news-updated"></p>
   </div>
@@ -186,7 +186,7 @@ setInterval(updateWorldClock,1000);
     data.articles.slice(0,6).forEach(a=>{
       const article=document.createElement("article"); article.className="card news-card";
       const meta=document.createElement("div"); meta.className="news-meta"; meta.textContent=(a.source||"新闻")+" · "+(a.date||"");
-      const h3=document.createElement("h3"); h3.textContent=a.title||"Novedad";
+      const h3=document.createElement("h3"); h3.textContent=a.title||"最新动态";
       const p=document.createElement("p"); p.className="muted"; p.textContent=a.description||"";
       const link=document.createElement("a"); link.className="news-link"; link.textContent="阅读新闻 →"; link.target="_blank"; link.rel="noopener noreferrer";
       try{const u=new URL(a.url,location.href); if(!/^https?:$/.test(u.protocol)) throw new Error("invalid url"); link.href=u.href;}catch(e){link.href="#";link.setAttribute("aria-disabled","true");}
