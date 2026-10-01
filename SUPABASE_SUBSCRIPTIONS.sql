@@ -1,0 +1,1 @@
+-- Placeholder: moved to supabase/subscriptions.sql when repository tree write is available.
