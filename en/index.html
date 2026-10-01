@@ -180,7 +180,7 @@ setInterval(updateWorldClock,1000);
     list.replaceChildren();
     data.articles.slice(0,6).forEach(a=>{
       const article=document.createElement("article"); article.className="card news-card";
-      const meta=document.createElement("div"); meta.className="news-meta"; meta.textContent=(a.source||"Actualidad")+" · "+(a.date||"");
+      const meta=document.createElement("div"); meta.className="news-meta"; meta.textContent=(a.source||"News")+" · "+(a.date||"");
       const h3=document.createElement("h3"); h3.textContent=a.title||"Novedad";
       const p=document.createElement("p"); p.className="muted"; p.textContent=a.description||"";
       const link=document.createElement("a"); link.className="news-link"; link.textContent="Read article →"; link.target="_blank"; link.rel="noopener noreferrer";
@@ -189,7 +189,7 @@ setInterval(updateWorldClock,1000);
     });
     if(data.updatedAt){
       const d=new Date(data.updatedAt);
-      if(!Number.isNaN(d.getTime())) updated.textContent="Last updated: "+new Intl.DateTimeFormat("es-ES",{dateStyle:"medium",timeStyle:"short"}).format(d);
+      if(!Number.isNaN(d.getTime())) updated.textContent="Last updated: "+new Intl.DateTimeFormat("en-GB",{dateStyle:"medium",timeStyle:"short"}).format(d);
     }
   }catch(e){
     list.replaceChildren();
