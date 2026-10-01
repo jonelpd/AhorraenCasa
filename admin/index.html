@@ -146,6 +146,7 @@ async function loadUsers(){
       return;
     }
     await loadUsers();
+    await loadSubscriptions();
   }catch(e){showError(e.message||"Error de configuración.")}
 })();
 $("refresh").onclick=()=>Promise.all([loadUsers(),loadSubscriptions()]).catch(e=>showError(e.message||"No se pudo actualizar."));
