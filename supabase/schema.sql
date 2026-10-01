@@ -283,7 +283,7 @@ create policy "Users can view own subscriptions"
 on public.subscriptions for select to authenticated
 using (auth.uid() = user_id);
 
-create or replace function public.has_active_premium(target_user_id uuid default auth.uid())
+create or replace function public.has_active_premium()
 returns boolean
 language sql
 stable
@@ -292,17 +292,17 @@ set search_path = ''
 as $$
   select exists (
     select 1 from public.subscriptions s
-    where s.user_id = target_user_id
+    where s.user_id = auth.uid()
       and s.status in ('active','trialing')
       and (s.current_period_end is null or s.current_period_end > now())
   ) or exists (
     select 1 from public.profiles p
-    where p.id = target_user_id and p.role in ('premium','admin')
+    where p.id = auth.uid() and p.role in ('premium','admin')
   );
-$$;
+$$
 
-revoke execute on function public.has_active_premium(uuid) from public, anon;
-grant execute on function public.has_active_premium(uuid) to authenticated;
+revoke execute on function public.has_active_premium() from public, anon;
+grant execute on function public.has_active_premium() to authenticated;
 
 create or replace function public.touch_subscription_updated_at()
 returns trigger
