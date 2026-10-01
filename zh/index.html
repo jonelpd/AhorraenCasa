@@ -61,9 +61,13 @@
 <link rel="stylesheet" href="../assets/premium-ui.css">
 </head>
 <body>
-<header><div class="wrap nav"><a class="brand" href="./" aria-label="AhorraEnCasaYa, home"><img src="../assets/logo-mark-ahorraencasaya.svg" alt="" aria-hidden="true"><span><span style="color:var(--g)">Ahorra</span>EnCasa<span style="color:var(--g)">Ya</span></span></a><button class="menu-toggle" id="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav">☰ <span>菜单</span></button><nav id="main-nav">
-<a href="productos/" data-i18n="navProducts">产品</a><a href="productos/comparativas.html">比较</a><a class="renewables-link" href="renovables/" data-i18n="navRenewables">可再生能源</a><a href="guides/" data-i18n="navGuides">指南</a><a href="calculadoras/" data-i18n="navCalc">计算器</a><a href="#noticias">新闻</a><a href="#como" data-i18n="navHow">如何节省</a><a href="#faq">常见问题</a><a class="account-link" href="../cuenta/login.html">👤 我的账户</a>
-<div class="languages" aria-label="Language selector"><a class="lang" data-lang="es" title="Español" aria-label="Español" href="../">🇪🇸</a><a class="lang" data-lang="en" title="English" aria-label="English" href="../en/">🇬🇧</a><a class="lang active" data-lang="zh" title="中文" aria-label="中文" href="./">🇨🇳</a><a class="lang" data-lang="hi" title="हिन्दी" aria-label="हिन्दी" href="../hi/">🇮🇳</a></div>
+<header><div class="wrap nav">
+<a class="brand" href="../" aria-label="AhorraEnCasaYa, 首页"><img src="../assets/logo-mark-ahorraencasaya.svg" alt="" aria-hidden="true"><span><span style="color:var(--g)">Ahorra</span>EnCasaYa</span></a>
+<button class="menu-toggle" id="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav">☰ <span>菜单</span></button>
+<nav id="main-nav" aria-label="探索">
+<details class="nav-dropdown"><summary>☰ 探索</summary><div class="nav-dropdown-panel"><a href="productos/">产品</a><a href="productos/comparativas.html">比较</a><a href="renovables/">☀️ 可再生能源</a><a href="guides/">指南</a><a href="calculadoras/">计算器</a><a href="#noticias">新闻</a><a href="#como">如何节省</a><a href="#faq">常见问题</a></div></details>
+<details class="nav-dropdown"><summary>👤 账户</summary><div class="nav-dropdown-panel"><a href="../cuenta/login.html">👤 我的账户</a></div></details>
+<details class="nav-dropdown language-dropdown"><summary>🌐 语言</summary><div class="nav-dropdown-panel"><a class="" data-lang="es" title="Español" href="../">🇪🇸<span>Español</span></a><a class="" data-lang="en" title="English" href="../en/">🇬🇧<span>English</span></a><a class="active-language" data-lang="zh" title="中文" href="./">🇨🇳<span>中文</span></a><a class="" data-lang="hi" title="हिन्दी" href="../hi/">🇮🇳<span>हिन्दी</span></a></div></details>
 </nav></div></header>
 <div class="world-clock" aria-label="世界时间"><div class="wrap world-clock-inner"><span class="world-clock-title" data-i18n="worldTime">🌍 世界时间</span><span class="world-clock-city">🇪🇸 马德里 <strong id="clock-madrid">--:--</strong></span><span class="world-clock-city">🇺🇸 纽约 <strong id="clock-newyork">--:--</strong></span><span class="world-clock-city">🇯🇵 东京 <strong id="clock-tokyo">--:--</strong></span></div></div>
 <main>
