@@ -15,6 +15,7 @@ alter table public.premium_goals enable row level security;
 revoke all on table public.premium_goals from anon;
 revoke all on table public.premium_goals from authenticated;
 grant select, insert, update, delete on table public.premium_goals to authenticated;
+grant usage, select on sequence public.premium_goals_id_seq to authenticated;
 
 drop policy if exists "Users can read own premium goal" on public.premium_goals;
 drop policy if exists "Users can insert own premium goal" on public.premium_goals;
