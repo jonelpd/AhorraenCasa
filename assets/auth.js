@@ -17,7 +17,7 @@
     const s=session||await getSession();
     if(!s)return false;
     const c=await getClient();
-    const r=await c.rpc("has_active_premium",{target_user_id:s.user.id});
+    const r=await c.rpc("has_active_premium");
     if(r.error)throw r.error;
     return r.data===true;
   }
