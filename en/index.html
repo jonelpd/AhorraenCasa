@@ -105,12 +105,12 @@
 <section id="noticias" class="news-section">
   <div class="wrap">
     <div class="heading">
-      <span class="eyebrow">📰 Actualidad</span>
+      <span class="eyebrow">📰 News</span>
       <h2>News and energy-saving updates</h2>
       <p class="muted">Recent information from specialist sources to help you understand changes, opportunities and trends that may affect household energy savings.</p>
     </div>
     <div id="news-list" class="news-grid" aria-live="polite">
-      <article class="card news-loading"><strong>Cargando novedades…</strong><p class="muted">Actualizando las últimas noticias.</p></article>
+      <article class="card news-loading"><strong>Loading updates…</strong><p class="muted">Updating the latest news.</p></article>
     </div>
     <p class="news-updated" id="news-updated"></p>
   </div>
@@ -185,7 +185,7 @@ setInterval(updateWorldClock,1000);
     data.articles.slice(0,6).forEach(a=>{
       const article=document.createElement("article"); article.className="card news-card";
       const meta=document.createElement("div"); meta.className="news-meta"; meta.textContent=(a.source||"News")+" · "+(a.date||"");
-      const h3=document.createElement("h3"); h3.textContent=a.title||"Novedad";
+      const h3=document.createElement("h3"); h3.textContent=a.title||"Update";
       const p=document.createElement("p"); p.className="muted"; p.textContent=a.description||"";
       const link=document.createElement("a"); link.className="news-link"; link.textContent="Read article →"; link.target="_blank"; link.rel="noopener noreferrer";
       try{const u=new URL(a.url,location.href); if(!/^https?:$/.test(u.protocol)) throw new Error("invalid url"); link.href=u.href;}catch(e){link.href="#";link.setAttribute("aria-disabled","true");}
