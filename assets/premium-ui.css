@@ -400,3 +400,48 @@ footer a:hover{opacity:.9}
     transition:none!important;
   }
 }
+
+
+/* Desktop navigation v6 — agrupación profesional */
+@media (min-width:901px){
+  header .nav{min-height:78px}
+  header nav{gap:3px}
+  header nav > a{
+    font-size:13.5px;
+    padding:8px 9px;
+  }
+  header nav > a:nth-child(2){
+    margin-right:7px;
+  }
+  header nav > a:nth-child(3){
+    background:#eef8f2;
+    color:#0f5132;
+  }
+  header nav > a:nth-child(3):hover{
+    background:#dff2e7;
+  }
+  header nav > a:nth-child(6),
+  header nav > a:nth-child(7),
+  header nav > a:nth-child(8){
+    color:#526057;
+  }
+  header nav > a:nth-child(8){
+    margin-right:4px;
+  }
+  header .account-link{
+    font-size:13px;
+    padding:8px 11px!important;
+  }
+}
+
+/* Menú móvil: separación clara entre navegación e idioma */
+@media (max-width:900px){
+  header nav.open{
+    padding-top:14px;
+  }
+  header nav.open .languages{
+    margin-top:7px;
+    padding-top:9px;
+    border-top:1px solid #dce7df;
+  }
+}
