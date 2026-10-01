@@ -882,3 +882,51 @@ header .brand:focus-visible{
     transition:none;
   }
 }
+
+
+/* Conversion funnel v12 — siguiente paso claro sin saturar la interfaz */
+.decision-path{
+  margin:30px 0 0;
+  padding:22px;
+  border:1px solid #cfe1d5;
+  border-radius:18px;
+  background:linear-gradient(135deg,#f5fbf7,#fff);
+}
+.decision-path h2{margin:0 0 6px;font-size:22px}
+.decision-path p{margin:0 0 16px;color:#647168}
+.decision-path-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:10px;
+}
+.decision-step{
+  display:flex;
+  flex-direction:column;
+  gap:4px;
+  min-height:88px;
+  padding:13px;
+  border:1px solid #dce7df;
+  border-radius:12px;
+  background:#fff;
+  color:#17221b!important;
+  text-decoration:none;
+}
+.decision-step strong{font-size:14px;color:#0f5132}
+.decision-step small{font-size:12px;color:#66756c;line-height:1.4}
+.decision-step:hover{
+  transform:translateY(-2px);
+  border-color:#b9ddc8;
+  box-shadow:0 7px 18px #17351f12;
+}
+@media(max-width:900px){
+  .decision-path-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:560px){
+  .decision-path{padding:17px}
+  .decision-path-grid{grid-template-columns:1fr}
+  .decision-step{min-height:0}
+}
+@media(prefers-reduced-motion:reduce){
+  .decision-step{transition:none}
+  .decision-step:hover{transform:none}
+}
