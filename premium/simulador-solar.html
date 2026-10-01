@@ -78,7 +78,7 @@
    const self=Math.min(100,Math.max(0,num($("self").value))),price=Math.max(0,num($("price").value)),surpPrice=Math.max(0,num($("surplus").value));
    const production=kwp*yieldK;
    const directDemand=c*d/100;
-   const selfKwh=Math.min(production,directDemand*100/self||0);
+   const selfKwh=Math.min(production*self/100,directDemand);
    const surplusKwh=Math.max(0,production-selfKwh);
    const annual=selfKwh*price+surplusKwh*surpPrice;
    const payback=annual>0?cost/annual:null;
