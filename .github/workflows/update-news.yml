@@ -27,13 +27,29 @@ jobs:
           from email.utils import parsedate_to_datetime
           from pathlib import Path
 
+          # Fuentes y temas deliberadamente centrados en energía doméstica.
           queries = [
-              ("Ahorro y eficiencia energética España", "site:miteco.gob.es ahorro energia"),
-              ("Electricidad y hogares España", "site:cnmc.es electricidad hogares"),
-              ("Autoconsumo y energía solar España", "site:idae.es autoconsumo solar")
+              ("IDAE · Energía y ahorro", "site:idae.es (ahorro energético OR eficiencia energética OR autoconsumo OR energía solar OR bomba de calor OR almacenamiento OR rehabilitación energética)"),
+              ("MITECO · Energía y consumidores", "site:miteco.gob.es (factura eléctrica OR ahorro energético OR eficiencia energética OR autoconsumo OR energías renovables OR consumidores energía)"),
+              ("CNMC · Electricidad y consumidores", "site:cnmc.es (electricidad consumidores OR autoconsumo OR renovables OR mercado eléctrico OR factura eléctrica)")
           ]
 
+          # Términos que suelen indicar resultados ajenos al propósito de la sección.
+          excluded_terms = (
+              "satélite", "satélites", "internet", "telecomunic", "fútbol",
+              "elecciones", "política exterior", "conflicto", "cine", "televisión",
+              "deporte", "videojuego", "criptomoneda"
+          )
+          relevant_terms = (
+              "energía", "energético", "electricidad", "eléctr", "autoconsumo",
+              "solar", "fotovolta", "renovable", "eficiencia", "ahorro",
+              "consumo", "factura", "bomba de calor", "aerotermia", "aislamiento",
+              "almacenamiento", "batería", "calefacción", "refrigeración",
+              "electrodomést", "edificio", "vivienda"
+          )
+
           articles = []
+          now = datetime.now(timezone.utc)
           for source_label, q in queries:
               url = "https://news.google.com/rss/search?" + urllib.parse.urlencode({
                   "q": q, "hl": "es", "gl": "ES", "ceid": "ES:es"
@@ -42,37 +58,49 @@ jobs:
                   req = urllib.request.Request(url, headers={"User-Agent": "AhorraEnCasa-NewsBot/1.0"})
                   raw = urllib.request.urlopen(req, timeout=20).read()
                   root = ET.fromstring(raw)
-                  for item in root.findall(".//item")[:6]:
-                      title = (item.findtext("title") or "").strip()
+                  for item in root.findall(".//item")[:10]:
+                      title = re.sub(r"\\s+", " ", (item.findtext("title") or "")).strip()
                       link = (item.findtext("link") or "").strip()
-                      desc = (item.findtext("description") or "").strip()
+                      desc = re.sub(r"\\s+", " ", re.sub(r"<[^>]+>", " ", item.findtext("description") or "").replace("&nbsp;", " ")).strip()
                       pub = (item.findtext("pubDate") or "").strip()
                       try:
                           dt = parsedate_to_datetime(pub).astimezone(timezone.utc)
+                          age_days = (now - dt).total_seconds() / 86400
                           date = dt.strftime("%d %b %Y")
                           sort_key = dt.isoformat()
                       except Exception:
-                          date, sort_key = "", ""
+                          continue
+
+                      text_blob = f"{title} {desc}".lower()
+                      if age_days > 45:
+                          continue
+                      if any(term in text_blob for term in excluded_terms):
+                          continue
+
+                      score = sum(2 if term in title.lower() else 1 for term in relevant_terms)
+                      if score < 3:
+                          continue
+
                       if title and link:
                           articles.append({
                               "title": title,
-                              "description": re.sub(r"<[^>]+>", " ", desc).replace("&nbsp;", " ").strip()[:260],
+                              "description": desc[:260],
                               "source": source_label,
                               "date": date,
                               "url": link,
-                              "_sort": sort_key
+                              "_sort": sort_key,
+                              "_score": score
                           })
-              except Exception:
-                  pass
 
           seen = set()
           clean = []
-          for a in sorted(articles, key=lambda x: x.get("_sort",""), reverse=True):
-              key = a["title"].lower()
+          for a in sorted(articles, key=lambda x: (x.get("_score", 0), x.get("_sort","")), reverse=True):
+              key = re.sub(r"[^a-z0-9áéíóúüñ]+", " ", a["title"].lower()).strip()
               if key in seen:
                   continue
               seen.add(key)
               a.pop("_sort", None)
+              a.pop("_score", None)
               clean.append(a)
               if len(clean) >= 12:
                   break
