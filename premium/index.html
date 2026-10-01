@@ -7,50 +7,150 @@
 <link rel="icon" href="../assets/logo-mark-ahorraencasaya.svg">
 <link rel="stylesheet" href="../assets/premium-ui.css">
 <style>
-body{margin:0;background:#f7faf8;color:#17221b;font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Arial}
-.wrap{max-width:1000px;margin:auto;padding:0 20px}
-.top{padding:22px 0;display:flex;justify-content:space-between;align-items:center;gap:15px}
-.brand{display:flex;gap:10px;align-items:center;text-decoration:none;color:#17221b;font-weight:900;font-size:22px}.brand img{width:40px}.brand span span{color:#157347}
-.hero{padding:54px 0 30px}.eyebrow{display:inline-block;background:#d9f1e2;color:#0f5132;border-radius:999px;padding:6px 12px;font-weight:900;font-size:13px}
-h1{font-size:clamp(38px,6vw,62px);line-height:1.03;letter-spacing:-.045em;margin:16px 0 12px}.lead{font-size:19px;color:#647168;max-width:700px}
-.card{background:#fff;border:1px solid #dce7df;border-radius:20px;padding:24px;margin:18px 0;box-shadow:0 12px 35px #17351f12}
-.status{padding:13px 15px;border-radius:12px;background:#f1f7f3}.error{background:#fff0f0;color:#8a1f1f}
-.content{white-space:pre-line}.meta{font-size:13px;color:#66736b}
-.btn{display:inline-block;padding:12px 17px;border-radius:10px;text-decoration:none;font-weight:900;background:#157347;color:#fff}
+:root{--green:#157347;--dark:#17221b;--muted:#66736b;--line:#dce7df;--soft:#eef7f1}
+body{margin:0;background:#f7faf8;color:var(--dark);font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Arial}
+.wrap{max-width:1100px;margin:auto;padding:0 20px}.top{padding:22px 0;display:flex;justify-content:space-between;align-items:center;gap:15px}
+.brand{display:flex;gap:10px;align-items:center;text-decoration:none;color:var(--dark);font-weight:900;font-size:22px}.brand img{width:40px}.brand span span{color:var(--green)}
+.hero{padding:42px 0 22px}.eyebrow{display:inline-block;background:#d9f1e2;color:#0f5132;border-radius:999px;padding:6px 12px;font-weight:900;font-size:12px;letter-spacing:.03em}
+h1{font-size:clamp(38px,6vw,62px);line-height:1.03;letter-spacing:-.045em;margin:15px 0 10px}.lead{font-size:18px;color:var(--muted);max-width:760px}
+.status{padding:13px 15px;border-radius:12px;background:#f1f7f3;margin:15px 0}.error{background:#fff0f0;color:#8a1f1f}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:20px 0}.metric,.card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:20px;box-shadow:0 12px 35px #17351f10}.metric strong{display:block;font-size:28px;color:var(--green);margin:4px 0}.metric small,.meta{color:var(--muted)}
+.card{margin:18px 0}.card h2{margin-top:0}.two{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.form{display:grid;grid-template-columns:1.3fr 1fr 1fr auto;gap:10px;align-items:end}.field label{display:block;font-weight:800;margin-bottom:5px}.field input{width:100%;box-sizing:border-box;padding:11px;border:1px solid #ccd9d0;border-radius:10px;font:inherit}
+.btn{display:inline-block;border:0;padding:12px 16px;border-radius:10px;text-decoration:none;font-weight:900;background:var(--green);color:#fff;cursor:pointer;font:inherit}.btn.secondary{background:#eef5f0;color:#0f5132}.btn:disabled{opacity:.6;cursor:wait}
+.progress{height:13px;background:#e5eee8;border-radius:999px;overflow:hidden;margin:12px 0}.progress i{display:block;height:100%;background:var(--green);width:0;border-radius:inherit}
+.content{white-space:pre-line}.content-card h3{margin-bottom:7px}.content-card .excerpt{color:#58665e}.meta{font-size:13px}
+.links{display:flex;flex-wrap:wrap;gap:9px}.links a{padding:9px 12px;background:#eef5f0;border-radius:10px;text-decoration:none;color:#0f5132;font-weight:800}
+.notice{padding:13px;border-radius:12px;background:var(--soft);margin-top:12px}.empty{color:var(--muted)}
+@media(max-width:850px){.grid{grid-template-columns:repeat(2,1fr)}.two{grid-template-columns:1fr}.form{grid-template-columns:1fr 1fr}.form .btn{grid-column:1/-1}}
+@media(max-width:560px){.grid{grid-template-columns:1fr}.form{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
 <header><div class="wrap top"><a class="brand" href="../"><img src="../assets/logo-mark-ahorraencasaya.svg" alt=""><span><span>Ahorra</span>EnCasaYa</span></a><a href="../cuenta/">Mi cuenta →</a></div></header>
 <main class="wrap">
 <section class="hero">
-<span class="eyebrow">CONTENIDO PREMIUM</span>
-<h1>Herramientas para ahorrar con un plan.</h1>
-<p class="lead">Contenido exclusivo para cuentas Premium. El acceso se comprueba en Supabase y el contenido se entrega desde la base de datos protegida.</p>
-</section>
+<span class="eyebrow">AHORRAENCASAYA PREMIUM</span>
+<h1>Tu centro privado de ahorro.</h1>
+<p class="lead">Aquí no solo encontrarás artículos. Premium reúne tus datos, objetivos, seguimiento y contenidos prácticos para convertir las estimaciones de las calculadoras en un plan de ahorro medible.</p>
 <div id="status" class="status">Comprobando tu acceso…</div>
-<section id="content" hidden></section>
-<p><a class="btn" href="../cuenta/">Volver a Mi cuenta</a></p>
+</section>
+
+<section id="dashboard" hidden>
+<div class="grid">
+<div class="metric"><small>Ahorro real acumulado</small><strong id="total">0,00 €</strong><span class="meta">Registrado por ti</span></div>
+<div class="metric"><small>Media mensual</small><strong id="average">0,00 €</strong><span class="meta">Según tus registros</span></div>
+<div class="metric"><small>Proyección anual</small><strong id="annual">0,00 €</strong><span class="meta">Media × 12</span></div>
+<div class="metric"><small>Registros</small><strong id="records">0</strong><span class="meta">Meses registrados</span></div>
+</div>
+
+<div class="two">
+<section class="card">
+<h2>🎯 Mi objetivo de ahorro</h2>
+<p>Define una cantidad y una fecha. Premium calculará automáticamente tu progreso usando el ahorro real que hayas registrado.</p>
+<form id="goalForm" class="form">
+<div class="field"><label for="goalTitle">Objetivo</label><input id="goalTitle" maxlength="120" placeholder="Ej. Fondo para mejorar la eficiencia"></div>
+<div class="field"><label for="goalAmount">Meta (€)</label><input id="goalAmount" type="number" min="0" max="10000000" step="0.01" placeholder="3000"></div>
+<div class="field"><label for="goalDate">Fecha objetivo</label><input id="goalDate" type="date"></div>
+<button class="btn" id="saveGoal">Guardar</button>
+</form>
+<div id="goalBox" class="notice" hidden></div>
+</section>
+
+<section class="card">
+<h2>📊 Tu revisión Premium</h2>
+<p id="review">Cargando tu evolución…</p>
+<div class="progress"><i id="goalProgress"></i></div>
+<div class="links">
+<a href="../cuenta/ahorro.html">Registrar ahorro</a>
+<a href="../calculadoras/ahorro-anual.html">Calculadora anual</a>
+<a href="../calculadoras/calculadora-consumo-electrico.html">Consumo eléctrico</a>
+</div>
+</section>
+</div>
+
+<section class="card">
+<h2>🧭 Tu plan de trabajo</h2>
+<div class="two">
+<div><h3>1. Medir</h3><p>Registra el ahorro real y guarda los resultados de las calculadoras como referencia.</p></div>
+<div><h3>2. Priorizar</h3><p>Ataca primero los consumos que combinan potencia, muchas horas de uso y un coste razonable de mejora.</p></div>
+<div><h3>3. Experimentar</h3><p>Aplica pocos cambios a la vez para poder atribuir el resultado a cada medida.</p></div>
+<div><h3>4. Revisar</h3><p>Cada 30 días compara estimación, ahorro real y objetivo. Mantén lo que funciona.</p></div>
+</div>
+</section>
+
+<section class="card">
+<h2>📚 Biblioteca Premium</h2>
+<p>Guías exclusivas para tomar decisiones con datos, no solo con estimaciones.</p>
+<div id="content"></div>
+</section>
+</section>
+
+<p><a class="btn secondary" href="../cuenta/">← Volver a Mi cuenta</a></p>
 </main>
-<script src="../assets/supabase-config.js"></script><script src="../assets/auth.js"></script>
+
+<script src="../assets/supabase-config.js"></script>
+<script src="../assets/auth.js"></script>
 <script>
-const status=document.getElementById("status"),content=document.getElementById("content");
-function esc(v){return String(v??"").replace(/[&<>"]/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"}[m]))}
+const $=id=>document.getElementById(id),status=$("status"),dashboard=$("dashboard"),content=$("content");
+function esc(v){return String(v??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]))}
+function money(v){return Number(v||0).toLocaleString("es-ES",{style:"currency",currency:"EUR"})}
+function dateLabel(v){if(!v)return "sin fecha";return new Date(v+"T12:00:00").toLocaleDateString("es-ES",{day:"numeric",month:"long",year:"numeric"})}
+function showError(message){status.className="status error";status.textContent=message}
 (async()=>{
  try{
   const session=await AhorraAuth.requireSession("../cuenta/login.html?next="+encodeURIComponent(location.href));if(!session)return;
   const profile=await AhorraAuth.getProfile(session);
-  if(!profile||!["premium","admin"].includes(profile.role)){
-    status.className="status error";status.textContent="Tu cuenta todavía no tiene acceso Premium. Puedes continuar usando todas las funciones gratuitas.";
-    return;
+  if(!profile||![ "premium","admin" ].includes(profile.role)){
+   showError("Tu cuenta todavía no tiene acceso Premium. Puedes continuar usando las funciones gratuitas.");
+   return;
   }
-  const c=await AhorraAuth.getClient();
-  const {data,error}=await c.from("premium_content").select("slug,title,excerpt,body,updated_at").order("created_at",{ascending:false});
-  if(error)throw error;
-  if(!data?.length){status.textContent="Tu acceso Premium está activo. Estamos preparando el primer contenido exclusivo.";return}
-  status.textContent="Acceso Premium activo.";
-  content.hidden=false;
-  content.innerHTML=data.map(item=>'<article class="card"><p class="eyebrow">EXCLUSIVO</p><h2>'+esc(item.title)+'</h2><p class="lead">'+esc(item.excerpt)+'</p><div class="content">'+esc(item.body)+'</div><p class="meta">Actualizado: '+new Date(item.updated_at).toLocaleDateString("es-ES")+'</p></article>').join("");
- }catch(e){status.className="status error";status.textContent=e.message||"No se pudo comprobar el acceso Premium."}
+  const c=await AhorraAuth.getClient(),uid=session.user.id;
+  const [goalRes,savingsRes,calcRes,contentRes]=await Promise.all([
+   c.from("premium_goals").select("id,title,target_amount,target_date").eq("user_id",uid).maybeSingle(),
+   c.from("savings_records").select("month,amount").eq("user_id",uid).order("month",{ascending:true}).limit(120),
+   c.from("calculator_results").select("calculator_name,monthly_saving,annual_saving,created_at").eq("user_id",uid).order("created_at",{ascending:false}).limit(100),
+   c.from("premium_content").select("slug,title,excerpt,body,updated_at").order("created_at",{ascending:false})
+  ]);
+  if(goalRes.error)throw goalRes.error;if(savingsRes.error)throw savingsRes.error;if(calcRes.error)throw calcRes.error;if(contentRes.error)throw contentRes.error;
+  const savings=savingsRes.data||[], goal=goalRes.data||null, calcs=calcRes.data||[];
+  const total=savings.reduce((a,r)=>a+Number(r.amount||0),0), avg=savings.length?total/savings.length:0;
+  $("total").textContent=money(total);$("average").textContent=money(avg);$("annual").textContent=money(avg*12);$("records").textContent=savings.length;
+  if(savings.length){
+   const last=savings[savings.length-1], best=savings.reduce((a,b)=>Number(b.amount||0)>Number(a.amount||0)?b:a,savings[0]);
+   $("review").textContent="Último registro: "+money(last.amount)+" en "+dateLabel(last.month.slice(0,10))+". Tu mejor mes registrado es "+money(best.amount)+" ("+dateLabel(best.month.slice(0,10))+").";
+  }else{
+   $("review").textContent="Todavía no tienes ahorro real registrado. Empieza desde “Registrar ahorro” para que Premium pueda medir tu evolución.";
+  }
+  if(goal){
+   $("goalTitle").value=goal.title||"";$("goalAmount").value=goal.target_amount||"";$("goalDate").value=goal.target_date||"";
+   const pct=Number(goal.target_amount)>0?Math.min(100,total/Number(goal.target_amount)*100):0;
+   $("goalProgress").style.width=pct.toFixed(1)+"%";
+   $("goalBox").hidden=false;$("goalBox").innerHTML="<strong>"+esc(goal.title)+"</strong><br>"+money(total)+" de "+money(goal.target_amount)+" ("+pct.toFixed(0)+"%)."+(goal.target_date?" Fecha objetivo: "+esc(dateLabel(goal.target_date))+".":"");
+  }
+  $("goalForm").onsubmit=async e=>{
+   e.preventDefault();const btn=$("saveGoal");btn.disabled=true;
+   try{
+    const title=$("goalTitle").value.trim()||"Mi objetivo de ahorro",target=Number($("goalAmount").value),date=$("goalDate").value||null;
+    if(!Number.isFinite(target)||target<=0)throw new Error("Introduce una meta de ahorro superior a 0 €.");
+    if(date&&date<new Date().toISOString().slice(0,10))throw new Error("La fecha objetivo debe ser hoy o posterior.");
+    const {error}=await c.from("premium_goals").upsert({user_id:uid,title,target_amount:target,target_date:date,updated_at:new Date().toISOString()},{onConflict:"user_id"});
+    if(error)throw error;location.reload();
+   }catch(e){$("goalBox").hidden=false;$("goalBox").className="notice";$("goalBox").textContent=e.message||"No se pudo guardar el objetivo.";btn.disabled=false}
+  };
+  if(contentRes.data?.length){
+   content.innerHTML=contentRes.data.map(item=>'<article class="content-card"><h3>'+esc(item.title)+'</h3><p class="excerpt">'+esc(item.excerpt)+'</p><div class="content">'+esc(item.body)+'</div><p class="meta">Actualizado: '+new Date(item.updated_at).toLocaleDateString("es-ES")+'</p></article>').join("");
+  }else content.innerHTML='<p class="empty">Estamos preparando nuevos contenidos Premium.</p>';
+  if(calcs.length){
+   const latest=calcs[0];
+   const projected=Number(latest.annual_saving||0);
+   const note=document.createElement("div");note.className="notice";
+   note.innerHTML="<strong>Última estimación guardada:</strong> "+esc(latest.calculator_name)+" · "+money(projected)+" de ahorro anual estimado.";
+   content.before(note);
+  }
+  status.textContent="✓ Acceso Premium activo. Tus datos están cargados de forma privada.";
+  dashboard.hidden=false;
+ }catch(e){showError(e.message||"No se pudo cargar tu área Premium.")}
 })();
 </script>
 </body>
