@@ -480,3 +480,125 @@ footer a:hover{opacity:.9}
   .hero-proof{display:grid;grid-template-columns:1fr;gap:7px;margin-top:16px}
   .renewables-highlight{padding-top:24px}
 }
+
+
+/* Visual audit v8 — acabado final, accesibilidad y estabilidad responsive */
+html{overflow-x:hidden}
+body{overflow-x:hidden}
+a,button,input,summary{ -webkit-tap-highlight-color:transparent }
+a:focus-visible,button:focus-visible,input:focus-visible,summary:focus-visible{
+  outline:3px solid #e0a100;
+  outline-offset:3px;
+}
+header .brand:focus-visible{
+  border-radius:10px;
+}
+.menu-toggle{
+  min-height:42px;
+}
+.hero-proof{
+  line-height:1.35;
+}
+.world-clock-inner{
+  min-height:38px;
+}
+.news-grid{
+  align-items:stretch;
+}
+.news-card h3{
+  overflow-wrap:anywhere;
+}
+@media (hover:hover) and (pointer:fine){
+  .card:hover{
+    transform:translateY(-4px);
+  }
+}
+@media (max-width:900px){
+  header .nav{
+    align-items:center;
+  }
+  header nav.open{
+    width:100%;
+  }
+  header nav.open > a{
+    width:100%;
+    min-height:40px;
+    display:flex;
+    align-items:center;
+  }
+  header nav.open .account-link{
+    justify-content:flex-start;
+    margin-top:2px;
+  }
+  header .languages{
+    width:auto;
+    align-self:stretch;
+    flex-wrap:wrap;
+  }
+  header .languages .lang{
+    min-width:40px;
+    min-height:36px;
+  }
+  .hero-proof{
+    width:100%;
+  }
+}
+@media (max-width:600px){
+  .wrap{
+    padding-left:16px;
+    padding-right:16px;
+  }
+  .world-clock-inner{
+    padding-left:12px;
+    padding-right:12px;
+  }
+  .hero .buttons{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:9px;
+  }
+  .hero .buttons .btn{
+    width:100%;
+  }
+  .hero-proof span{
+    min-height:24px;
+  }
+  .renewables-box{
+    border-radius:16px;
+  }
+  .renewables-actions{
+    margin-top:16px;
+  }
+  .renewables-card{
+    min-height:104px;
+  }
+  .news-card{
+    min-height:0;
+  }
+}
+@media (min-width:901px) and (max-width:1020px){
+  header .brand{
+    font-size:20px;
+  }
+  header .brand img{
+    width:38px;
+    height:38px;
+  }
+  header nav > a{
+    padding-left:5px;
+    padding-right:5px;
+    font-size:12.5px;
+  }
+  header .account-link{
+    padding-left:7px!important;
+    padding-right:7px!important;
+  }
+  header .languages{
+    margin-left:2px;
+  }
+}
+@media (prefers-reduced-motion:reduce){
+  *{
+    scroll-behavior:auto!important;
+  }
+}
