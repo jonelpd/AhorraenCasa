@@ -59,9 +59,9 @@ jobs:
                   raw = urllib.request.urlopen(req, timeout=20).read()
                   root = ET.fromstring(raw)
                   for item in root.findall(".//item")[:10]:
-                      title = re.sub(r"\\s+", " ", (item.findtext("title") or "")).strip()
+                      title = re.sub(r"\s+", " ", (item.findtext("title") or "")).strip()
                       link = (item.findtext("link") or "").strip()
-                      desc = re.sub(r"\\s+", " ", re.sub(r"<[^>]+>", " ", item.findtext("description") or "").replace("&nbsp;", " ")).strip()
+                      desc = re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", item.findtext("description") or "").replace("&nbsp;", " ")).strip()
                       pub = (item.findtext("pubDate") or "").strip()
                       try:
                           dt = parsedate_to_datetime(pub).astimezone(timezone.utc)
