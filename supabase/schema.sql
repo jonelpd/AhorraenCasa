@@ -297,7 +297,7 @@ as $$
       and (s.current_period_end is null or s.current_period_end > now())
   ) or exists (
     select 1 from public.profiles p
-    where p.id = target_user_id and p.role = 'admin'
+    where p.id = target_user_id and p.role in ('premium','admin')
   );
 $$;
 
