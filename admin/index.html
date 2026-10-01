@@ -63,6 +63,20 @@ a{color:#0f5132;font-weight:800}
 </section>
 
 <section class="panel">
+<h2>Suscripciones Premium</h2>
+<p><small>Vista de solo lectura. El estado de pago será actualizado por Stripe mediante el backend seguro.</small></p>
+<div class="cards" style="margin-top:15px">
+<article class="card"><div>Activas</div><div class="num" id="subActive">—</div></article>
+<article class="card"><div>En prueba</div><div class="num" id="subTrial">—</div></article>
+<article class="card"><div>Canceladas</div><div class="num" id="subCanceled">—</div></article>
+<article class="card"><div>Otras</div><div class="num" id="subOther">—</div></article>
+</div>
+<div class="table-wrap" style="margin-top:18px">
+<table><thead><tr><th>Usuario</th><th>Estado</th><th>Fin del periodo</th><th>Cancelación</th></tr></thead><tbody id="subRows"><tr><td colspan="4">Cargando…</td></tr></tbody></table>
+</div>
+</section>
+
+<section class="panel">
 <h2>Estadísticas</h2>
 <p>El panel de usuarios ya está conectado a la capa protegida. Las métricas de GA4, Search Console, Amazon y AdSense se integrarán después mediante una fuente privada.</p>
 <p><a href="../estadisticas.html">Abrir panel estadístico existente →</a></p>
@@ -77,6 +91,17 @@ function showError(msg){$("error").hidden=false;$("error").textContent=msg}
 function notice(msg){$("notice").hidden=false;$("notice").textContent=msg;setTimeout(()=>$("notice").hidden=true,3500)}
 function esc(v){return String(v??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]))}
 function roleLabel(r){return r==="admin"?"Administrador":r==="premium"?"Premium":"Usuario"}
+async function loadSubscriptions(){
+  const c=await AhorraAuth.getClient();
+  const {data,error}=await c.from("subscriptions").select("user_id,status,current_period_end,cancel_at_period_end,created_at").order("created_at",{ascending:false}).limit(200);
+  if(error)throw error;
+  const rows=data||[];
+  $("subActive").textContent=rows.filter(x=>x.status==="active").length;
+  $("subTrial").textContent=rows.filter(x=>x.status==="trialing").length;
+  $("subCanceled").textContent=rows.filter(x=>x.status==="canceled").length;
+  $("subOther").textContent=rows.filter(x=>!["active","trialing","canceled"].includes(x.status)).length;
+  $("subRows").innerHTML=rows.length?rows.map(x=>"<tr><td><small>"+esc(x.user_id)+"</small></td><td>"+esc(x.status)+"</td><td>"+(x.current_period_end?new Date(x.current_period_end).toLocaleDateString("es-ES"):"—")+"</td><td>"+(x.cancel_at_period_end?"Sí":"No")+"</td></tr>").join(""):"<tr><td colspan='4'>Todavía no hay suscripciones.</td></tr>";
+}
 async function loadUsers(){
   $("userRows").innerHTML="<tr><td colspan='4'>Cargando…</td></tr>";
   const c=await AhorraAuth.getClient();
@@ -107,6 +132,7 @@ async function loadUsers(){
       if(error) throw error;
       notice("Rol actualizado correctamente.");
       await loadUsers();
+    await loadSubscriptions();
     }catch(e){showError(e.message||"No se pudo actualizar el rol.")}finally{btn.disabled=false}
   });
 }
@@ -122,7 +148,7 @@ async function loadUsers(){
     await loadUsers();
   }catch(e){showError(e.message||"Error de configuración.")}
 })();
-$("refresh").onclick=()=>loadUsers().catch(e=>showError(e.message||"No se pudo actualizar."));
+$("refresh").onclick=()=>Promise.all([loadUsers(),loadSubscriptions()]).catch(e=>showError(e.message||"No se pudo actualizar."));
 </script>
 </body>
 </html>
