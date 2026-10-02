@@ -14,7 +14,7 @@ body{margin:0;background:#f7faf8;color:#17221b;font:16px/1.5 system-ui,-apple-sy
 const $=id=>document.getElementById(id),msg=$("message");
 function show(t,e=false){msg.hidden=false;msg.className="notice"+(e?" error":"");msg.textContent=t}
 function money(n){return Number(n||0).toLocaleString("es-ES",{style:"currency",currency:"EUR"})}
-function esc(v){return String(v??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]))}[m]))}
+function esc(v){return String(v??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]))}
 function monthLabel(v){return new Date(v+"T12:00:00").toLocaleDateString("es-ES",{month:"long",year:"numeric"})}
 (async()=>{
  try{
