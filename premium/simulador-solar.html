@@ -101,7 +101,7 @@
  try{
   const session=await AhorraAuth.requireSession("../cuenta/login.html?next="+encodeURIComponent(location.href));
   client=await AhorraAuth.getClient();uid=session.user.id;
-  const {data:profile,error}=await AhorraAuth.getProfile(session);if(error)throw error;
+  const profile=await AhorraAuth.getProfile(session);
   if(!profile||!["premium","admin"].includes(profile.role))throw new Error("Esta herramienta está disponible para usuarios Premium.");
   $("app").hidden=false;
   const calculate=()=>{
