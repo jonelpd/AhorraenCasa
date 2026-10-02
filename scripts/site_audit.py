@@ -79,7 +79,7 @@ for page in html_files:
         if not script.strip(): continue
         tmp=ROOT/".audit-inline.js"; tmp.write_text(script,encoding="utf-8")
         p=subprocess.run(["node","--check",str(tmp)],capture_output=True,text=True); tmp.unlink(missing_ok=True)
-        if p.returncode: errors.append(f"{rel}: JS syntax #{i}")
+        if p.returncode: errors.append(f"{rel}: JS syntax #{i}: {p.stderr.strip()}")
     for j in re.findall(r'<script[^>]+type=["\']application/ld\+json["\'][^>]*>([\s\S]*?)</script>',text,re.I):
         try: json.loads(j)
         except Exception as e: errors.append(f"{rel}: invalid JSON-LD {e}")
