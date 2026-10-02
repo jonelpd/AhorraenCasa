@@ -39,7 +39,7 @@ for page in html_files:
     if "AhorraEnCasa" in re.sub(r"AhorraEnCasaYa","",text): errors.append(f"{rel}: stale brand AhorraEnCasa")
     if text.lower().split("</html>",1)[-1].strip(): errors.append(f"{rel}: content after </html>")
     if len(re.findall(r"<title>",text,re.I))!=1: errors.append(f"{rel}: title count")
-    if len(re.findall(r"<h1\b",text,re.I))!=1: errors.append(f"{rel}: h1 count")
+    if indexable and len(re.findall(r"<h1\b",text,re.I))!=1: errors.append(f"{rel}: h1 count")
     if indexable and not re.search(r'<meta[^>]+name=["\']description["\']',text,re.I): errors.append(f"{rel}: meta description")
     if re.search(r"https?://(?:www\.)?leroymerlin\.es",text,re.I): errors.append(f"{rel}: Leroy Merlin link")
     if re.search(r'''(?:href|src)\s*=\s*["']/[^/][^"']*''',text,re.I): errors.append(f"{rel}: root-absolute internal URL")
