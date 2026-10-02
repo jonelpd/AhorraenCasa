@@ -99,6 +99,7 @@ else:
     for loc in locs:
         if loc.startswith(base):
             r=loc[len(base):]; got.add("index.html" if not r else (r+"index.html" if r.endswith("/") else r))
+    if len(locs)!=len(set(locs)): errors.append("sitemap: duplicate loc")
     expected={rel_of(p) for p in html_files if rel_of(p) not in {"404.html", "admin/estadisticas.html"}}
     for x in sorted(expected-got): errors.append(f"sitemap missing -> {x}")
     for x in sorted(got-expected): errors.append(f"sitemap stale -> {x}")
