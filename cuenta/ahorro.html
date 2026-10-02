@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow">
-<title>Mi ahorro | AhorraEnCasaYaYa</title><link rel="icon" href="../assets/logo-mark-ahorraencasaya.svg">
+<title>Mi ahorro | AhorraEnCasaYa</title><link rel="icon" href="../assets/logo-mark-ahorraencasaya.svg">
 <style>
 body{margin:0;background:#f7faf8;color:#17221b;font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Arial}.wrap{max-width:900px;margin:auto;padding:0 20px}.top{padding:22px 0;display:flex;justify-content:space-between;align-items:center;gap:15px}.brand{display:flex;gap:10px;align-items:center;text-decoration:none;color:#17221b;font-weight:900;font-size:22px}.brand img{width:40px}.brand span span{color:#157347}.card{background:#fff;border:1px solid #dce7df;border-radius:18px;padding:22px;margin:18px 0;box-shadow:0 10px 28px #17351f0d}.metric{font-size:34px;font-weight:900;color:#157347}.form{display:grid;grid-template-columns:1fr 1fr auto;gap:12px;align-items:end}label{font-weight:800;display:block;margin-bottom:6px}input{box-sizing:border-box;width:100%;padding:11px;border:1px solid #ccd9d0;border-radius:10px;font:inherit}button{padding:11px 16px;border:0;border-radius:10px;background:#157347;color:white;font:inherit;font-weight:800;cursor:pointer}table{width:100%;border-collapse:collapse}th,td{text-align:left;padding:11px 8px;border-bottom:1px solid #e5ece7}.right{text-align:right}.delete{background:#fff;color:#9b2727;border:1px solid #e4caca;padding:6px 9px}small{color:#66736b}.notice{padding:12px;border-radius:10px;background:#f1f7f3;margin:12px 0}.error{background:#fff1f1;color:#9b2727}@media(max-width:650px){.form{grid-template-columns:1fr}.right{text-align:left}table{font-size:14px}}
 </style></head>
@@ -13,7 +13,8 @@ body{margin:0;background:#f7faf8;color:#17221b;font:16px/1.5 system-ui,-apple-sy
 <script>
 const $=id=>document.getElementById(id),msg=$("message");
 function show(t,e=false){msg.hidden=false;msg.className="notice"+(e?" error":"");msg.textContent=t}
-function money(n){return Number(n||0).toLocaleString("es-ES",{style:"currency",currency:"EUR"})}\nfunction esc(v){return String(v??"").replace(/[&<>"]/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",\"":"&quot;"}[m]))}
+function money(n){return Number(n||0).toLocaleString("es-ES",{style:"currency",currency:"EUR"})}
+function esc(v){return String(v??"").replace(/[&<>"]/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",\"":"&quot;"}[m]))}
 function monthLabel(v){return new Date(v+"T12:00:00").toLocaleDateString("es-ES",{month:"long",year:"numeric"})}
 (async()=>{
  try{
