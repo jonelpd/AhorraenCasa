@@ -21,21 +21,26 @@ def logical(rel):
     rel=re.sub(r"^(en|hi|zh)/","",rel)
     return re.sub(r"^guides/","guias/",rel)
 
+indexable_pages=[]
 for page in html_files:
     text=page.read_text(encoding="utf-8",errors="replace"); rel=rel_of(page)
+    robots_match=re.search(r"<meta[^>]+name=[\"']robots[\"'][^>]+content=[\"']([^\"']+)",text,re.I)
+    indexable="noindex" not in (robots_match.group(1).lower() if robots_match else "") and rel!="404.html"
+    if indexable: indexable_pages.append(page)
     if text.lower().count("<!doctype html>")!=1: errors.append(f"{rel}: DOCTYPE")
     if text.lower().count("</html>")!=1: errors.append(f"{rel}: </html>")
     if not re.search(r"<meta[^>]+name=[\"']viewport[\"']",text,re.I): errors.append(f"{rel}: viewport")
     canon_links=re.findall(r"<link[^>]+rel=[\"']canonical[\"'][^>]+href=[\"']([^\"']+)[\"']",text,re.I)
-    if len(canon_links)!=1: errors.append(f"{rel}: canonical count")
-    elif not canon_links[0].startswith("https://ahorraencasaya.es/"): errors.append(f"{rel}: canonical not on custom domain -> {canon_links[0]}")
-    og_url=re.findall(r"<meta[^>]+property=[\"']og:url[\"'][^>]+content=[\"']([^\"']+)[\"']",text,re.I)
-    if og_url and canon_links and og_url[0]!=canon_links[0]: errors.append(f"{rel}: og:url differs from canonical")
+    if indexable:
+        if len(canon_links)!=1: errors.append(f"{rel}: canonical count")
+        elif not canon_links[0].startswith("https://ahorraencasaya.es/"): errors.append(f"{rel}: canonical not on custom domain -> {canon_links[0]}")
+        og_url=re.findall(r"<meta[^>]+property=[\"']og:url[\"'][^>]+content=[\"']([^\"']+)[\"']",text,re.I)
+        if og_url and canon_links and og_url[0]!=canon_links[0]: errors.append(f"{rel}: og:url differs from canonical")
     if "AhorraEnCasa" in re.sub(r"AhorraEnCasaYa","",text): errors.append(f"{rel}: stale brand AhorraEnCasa")
     if text.lower().split("</html>",1)[-1].strip(): errors.append(f"{rel}: content after </html>")
     if len(re.findall(r"<title>",text,re.I))!=1: errors.append(f"{rel}: title count")
     if len(re.findall(r"<h1\b",text,re.I))!=1: errors.append(f"{rel}: h1 count")
-    if not re.search(r'<meta[^>]+name=["\']description["\']',text,re.I): errors.append(f"{rel}: meta description")
+    if indexable and not re.search(r'<meta[^>]+name=["\']description["\']',text,re.I): errors.append(f"{rel}: meta description")
     if re.search(r"https?://(?:www\.)?leroymerlin\.es",text,re.I): errors.append(f"{rel}: Leroy Merlin link")
     if re.search(r'''(?:href|src)\s*=\s*["']/[^/][^"']*''',text,re.I): errors.append(f"{rel}: root-absolute internal URL")
     markup=re.sub(r"<script[\s\S]*?</script>|<style[\s\S]*?</style>","",text,flags=re.I)
@@ -100,11 +105,11 @@ else:
         if loc.startswith(base):
             r=loc[len(base):]; got.add("index.html" if not r else (r+"index.html" if r.endswith("/") else r))
     if len(locs)!=len(set(locs)): errors.append("sitemap: duplicate loc")
-    expected={rel_of(p) for p in html_files if rel_of(p) not in {"404.html", "admin/estadisticas.html"}}
+    expected={rel_of(p) for p in indexable_pages}
     for x in sorted(expected-got): errors.append(f"sitemap missing -> {x}")
     for x in sorted(got-expected): errors.append(f"sitemap stale -> {x}")
 
-pages={rel_of(p):p for p in html_files}
+pages={rel_of(p):p for p in indexable_pages}
 for rel,page in pages.items():
     text=page.read_text(encoding="utf-8",errors="replace")
     links=re.findall(r"<link[^>]+hreflang=['\"]([^'\"]+)['\"][^>]+href=['\"]([^'\"]+)",text,re.I)
