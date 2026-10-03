@@ -159,6 +159,25 @@ menuToggle?.addEventListener("click",()=>{
   menuToggle.setAttribute("aria-expanded",String(open));
 });
 mainNav?.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>{mainNav.classList.remove("open");menuToggle?.setAttribute("aria-expanded","false")}));
+mainNav?.querySelectorAll(".nav-dropdown").forEach(dropdown=>{
+  dropdown.addEventListener("toggle",()=>{
+    if(!dropdown.open) return;
+    mainNav.querySelectorAll(".nav-dropdown[open]").forEach(other=>{
+      if(other!==dropdown) other.removeAttribute("open");
+    });
+  });
+});
+document.addEventListener("click",event=>{
+  if(!event.target.closest("#main-nav")) {
+    mainNav?.querySelectorAll(".nav-dropdown[open]").forEach(dropdown=>dropdown.removeAttribute("open"));
+  }
+});
+document.addEventListener("keydown",event=>{
+  if(event.key==="Escape") {
+    mainNav?.querySelectorAll(".nav-dropdown[open]").forEach(dropdown=>dropdown.removeAttribute("open"));
+  }
+});
+
 </script>
 <script src="../assets/amazon-prices.js" defer></script>
 
