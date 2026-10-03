@@ -92,7 +92,7 @@ h1{font-size:clamp(38px,6vw,62px);line-height:1.03;letter-spacing:-.045em;margin
 </section>
 </section>
 
-<p><a class="btn secondary" href="../cuenta/">← Volver a Mi cuenta</a></p>
+<p style="display:flex;gap:10px;flex-wrap:wrap"><a class="btn secondary" href="../cuenta/">← Volver a Mi cuenta</a><button class="btn secondary" id="manageSubscription" type="button">Gestionar suscripción</button></p><p id="portalStatus" class="meta" hidden></p>
 </main>
 
 <script src="../assets/supabase-config.js"></script>
@@ -164,6 +164,20 @@ function showError(message){status.className="status error";status.textContent=m
   dashboard.hidden=false;
  }catch(e){showError(e.message||"No se pudo cargar tu área Premium.")}
 })();
+</script>
+<script>
+document.getElementById("manageSubscription")?.addEventListener("click", async function(){
+  const btn=this, out=document.getElementById("portalStatus");
+  btn.disabled=true; out.hidden=false; out.textContent="Abriendo gestión segura de Stripe…";
+  try{
+    const session=await AhorraAuth.getSession();
+    if(!session) throw new Error("Tu sesión ha caducado. Vuelve a iniciar sesión.");
+    const r=await fetch(window.AHORRA_SUPABASE_URL+"/functions/v1/stripe-portal",{method:"POST",headers:{"Authorization":"Bearer "+session.access_token,"Content-Type":"application/json"}});
+    const data=await r.json().catch(()=>({}));
+    if(!r.ok||!data.url) throw new Error(data.error||"No se pudo abrir la gestión de suscripción.");
+    location.href=data.url;
+  }catch(e){out.textContent=e.message||"No se pudo abrir la gestión de suscripción.";btn.disabled=false;}
+});
 </script>
 </body>
 </html>
