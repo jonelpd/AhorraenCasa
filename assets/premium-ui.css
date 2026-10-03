@@ -76,7 +76,7 @@ footer{background:linear-gradient(135deg,#14231a,#102a1d)}
 .hero h1{max-width:680px;margin-top:12px}
 .hero p{max-width:650px}
 .calc{max-width:480px;justify-self:end;width:100%}
-.world-clock{opacity:.94}
+
 @media(max-width:900px){
   .hero{padding:46px 0 54px}
   .heroGrid{gap:30px}
@@ -463,10 +463,7 @@ footer a:hover{opacity:.9}
   gap:5px;
 }
 .hero-proof span::first-letter{color:#157347}
-.world-clock{
-  margin-top:0;
-  border-top:1px solid rgba(255,255,255,.06);
-}
+
 .renewables-highlight{
   padding-top:34px;
   padding-bottom:10px;
@@ -474,7 +471,7 @@ footer a:hover{opacity:.9}
 @media (min-width:901px){
   .hero-proof{gap:10px 22px}
   .hero-proof span{font-size:13.5px}
-  .world-clock{box-shadow:inset 0 1px 0 rgba(255,255,255,.05)}
+  
 }
 @media (max-width:600px){
   .hero-proof{display:grid;grid-template-columns:1fr;gap:7px;margin-top:16px}
@@ -499,9 +496,7 @@ header .brand:focus-visible{
 .hero-proof{
   line-height:1.35;
 }
-.world-clock-inner{
-  min-height:38px;
-}
+
 .news-grid{
   align-items:stretch;
 }
@@ -548,10 +543,7 @@ header .brand:focus-visible{
     padding-left:16px;
     padding-right:16px;
   }
-  .world-clock-inner{
-    padding-left:12px;
-    padding-right:12px;
-  }
+  
   .hero .buttons{
     display:grid;
     grid-template-columns:1fr;
