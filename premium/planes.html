@@ -27,10 +27,52 @@ body{margin:0;background:#f7faf8;color:#17221b;font:16px/1.6 system-ui,-apple-sy
 <article><h3>📚 Biblioteca</h3><p>Guías exclusivas sobre factura, electrodomésticos, hábitos y energía solar.</p></article>
 </section>
 <section class="plans">
-<article class="plan"><h2>Premium mensual</h2><div class="price">2,99 € <small>/ mes</small></div><ul><li>Centro privado de ahorro</li><li>Objetivo personal y seguimiento</li><li>Biblioteca Premium de diagnóstico, factura, consumo, inversiones y planes</li><li>Herramientas de decisión y seguimiento que se irán incorporando al área privada</li></ul><a class="btn secondary" href="../cuenta/login.html?next=../premium/planes.html">Crear cuenta / acceder</a></article>
-<article class="plan featured"><h2>Premium anual</h2><div class="price">35,88 € <small>/ año</small></div><ul><li>Todo lo incluido en Premium mensual</li><li>Acceso durante todo el año</li><li>Nuevos módulos de análisis, herramientas y retos de ahorro</li><li>Gestión de suscripción desde tu cuenta</li><li>Facturación anual equivalente a 12 meses del plan mensual</li></ul><a class="btn" href="../cuenta/login.html?next=../premium/planes.html">Crear cuenta / acceder</a></article>
+<article class="plan"><h2>Premium mensual</h2><div class="price">2,99 € <small>/ mes</small></div><ul><li>Centro privado de ahorro</li><li>Objetivo personal y seguimiento</li><li>Biblioteca Premium de diagnóstico, factura, consumo, inversiones y planes</li><li>Herramientas de decisión y seguimiento que se irán incorporando al área privada</li></ul><button class="btn secondary premium-checkout" data-plan="monthly" type="button">Continuar con Premium mensual</button></article>
+<article class="plan featured"><h2>Premium anual</h2><div class="price">35,88 € <small>/ año</small></div><ul><li>Todo lo incluido en Premium mensual</li><li>Acceso durante todo el año</li><li>Nuevos módulos de análisis, herramientas y retos de ahorro</li><li>Gestión de suscripción desde tu cuenta</li><li>Facturación anual equivalente a 12 meses del plan mensual</li></ul><button class="btn premium-checkout" data-plan="annual" type="button">Continuar con Premium anual</button></article>
 </section>
-<div class="note"><strong>Precios definidos: 2,99 €/mes o 35,88 €/año.</strong><br>El cobro recurrente se activará cuando terminemos la integración de Stripe. Esta página todavía no realiza ningún cobro ni solicita datos bancarios.</div>
+<div class="note"><strong>Precios: 2,99 €/mes o 35,88 €/año.</strong><br>El pago se realizará mediante Stripe Checkout. AhorraEnCasaYa no almacena los datos completos de tu tarjeta. Si todavía no ves el proceso de pago, la configuración de Stripe puede estar pendiente.</div><div id="checkoutStatus" class="note" hidden></div>
 <p style="text-align:center"><a href="../premium/">Ya soy Premium →</a></p>
 </main>
+<script src="../assets/supabase-config.js"></script>
+<script src="../assets/auth.js"></script>
+<script>
+(function(){
+  const endpoint = window.AHORRA_SUPABASE_URL + "/functions/v1/stripe-checkout";
+  const status = document.getElementById("checkoutStatus");
+  document.querySelectorAll(".premium-checkout").forEach(btn => btn.addEventListener("click", async () => {
+    btn.disabled = true;
+    status.hidden = false;
+    status.textContent = "Preparando el pago seguro…";
+    try {
+      const session = await AhorraAuth.getSession();
+      if (!session) {
+        location.href = "../cuenta/login.html?next=" + encodeURIComponent(location.href);
+        return;
+      }
+      const response = await fetch(endpoint, {
+        method: "POST",
+        headers: {
+          "Authorization": "Bearer " + session.access_token,
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({plan: btn.dataset.plan})
+      });
+      const data = await response.json().catch(() => ({}));
+      if (!response.ok || !data.url) throw new Error(data.error || "No se pudo iniciar el pago.");
+      location.href = data.url;
+    } catch (error) {
+      status.textContent = error.message || "No se pudo iniciar el pago.";
+      btn.disabled = false;
+    }
+  }));
+  const params = new URLSearchParams(location.search);
+  if (params.get("checkout") === "success") {
+    status.hidden = false;
+    status.textContent = "Pago recibido. Estamos sincronizando tu acceso Premium. En unos segundos podrás entrar en tu área privada.";
+  } else if (params.get("checkout") === "cancel") {
+    status.hidden = false;
+    status.textContent = "El pago se canceló. No se ha creado una suscripción.";
+  }
+})();
+</script>
 </body></html>
