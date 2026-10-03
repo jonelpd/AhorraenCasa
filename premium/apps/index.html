@@ -42,6 +42,6 @@ body{margin:0;background:#f7faf8;color:var(--ink);font:16px/1.6 system-ui,-apple
 </main>
 <script src="../../assets/supabase-config.js"></script><script src="../../assets/auth.js"></script>
 <script>
-(async()=>{const status=document.getElementById("status");try{const s=await AhorraAuth.requireSession("../../cuenta/login.html?next="+encodeURIComponent(location.href));if(!s)return;const p=await AhorraAuth.getProfile(s);if(!p||!["premium","admin"].includes(p.role)){status.className="status error";status.textContent="Esta biblioteca está disponible para cuentas Premium.";return}status.textContent="✓ Acceso Premium activo.";document.getElementById("appArea").hidden=false}catch(e){status.className="status error";status.textContent=e.message||"No se pudo comprobar el acceso."}})();
+(async()=>{const status=document.getElementById("status");try{const s=await AhorraAuth.requireSession("../../cuenta/login.html?next="+encodeURIComponent(location.href));if(!s)return;const premium=await AhorraAuth.hasPremiumAccess(s);if(!premium){status.className="status error";status.textContent="Esta biblioteca está disponible para cuentas Premium.";return}status.textContent="✓ Acceso Premium activo.";document.getElementById("appArea").hidden=false}catch(e){status.className="status error";status.textContent=e.message||"No se pudo comprobar el acceso."}})();
 </script>
 </body></html>
