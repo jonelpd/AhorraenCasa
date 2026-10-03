@@ -58,6 +58,14 @@ Deno.serve(async (req) => {
       Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!
     );
 
+    const { error: eventInsertError } = await admin
+      .from("stripe_events")
+      .insert({ event_id: event.id, event_type: event.type });
+    if (eventInsertError) {
+      if (eventInsertError.code === "23505") return new Response(JSON.stringify({ received: true, duplicate: true }), { status: 200, headers: { "Content-Type": "application/json" } });
+      throw eventInsertError;
+    }
+
     if (event.type === "checkout.session.completed") {
       const session = event.data.object;
       if (session.mode === "subscription" && session.subscription && session.customer) {
