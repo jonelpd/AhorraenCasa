@@ -227,9 +227,6 @@ mainNav?.querySelectorAll(".nav-dropdown").forEach(dropdown=>{
       if(other!==dropdown) other.removeAttribute("open");
     });
   });
-  dropdown.querySelector("summary")?.addEventListener("click",event=>{
-    if(window.matchMedia("(min-width:901px)").matches) event.preventDefault();
-  });
 });
 document.addEventListener("click",event=>{
   if(!event.target.closest("#main-nav")) {
