@@ -646,6 +646,26 @@ header .brand:focus-visible{
 }
 
 
+
+/* Header global — identidad verde oscuro */
+header{
+  background:var(--ae-primary-dark,#0f5132)!important;
+  border-bottom-color:rgba(255,255,255,.14)!important;
+  box-shadow:0 4px 18px rgba(15,81,50,.22)!important;
+}
+header .brand,header .brand a,header nav a,header nav>.nav-dropdown>summary{color:#fff}
+header nav>.nav-dropdown>summary{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.18)}
+header nav>.nav-dropdown>summary:hover,header nav>.nav-dropdown[open]>summary{background:rgba(255,255,255,.16);border-color:rgba(255,255,255,.28);color:#fff}
+header nav>.nav-dropdown>summary:after{color:rgba(255,255,255,.78)}
+header .account-link{background:rgba(255,255,255,.08)!important;border-color:rgba(255,255,255,.22)!important;color:#fff!important}
+header .languages{background:rgba(255,255,255,.08)!important;border-color:rgba(255,255,255,.18)!important}
+header .languages .lang.active{background:rgba(255,255,255,.16);color:#fff}
+header .languages .lang:hover,header .languages .lang:focus-visible{background:rgba(255,255,255,.18)}
+@media(max-width:900px){
+  header nav>.nav-dropdown>summary{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.18);color:#fff}
+  header nav>.nav-dropdown[open]>summary{background:rgba(255,255,255,.16);border-color:rgba(255,255,255,.28);color:#fff}
+  header .languages .lang.active{background:#fff;color:var(--ae-primary-dark)}
+}
 /* Design system v13 — consolidated visual foundation */
 :root{
   --ae-primary:#157347;
