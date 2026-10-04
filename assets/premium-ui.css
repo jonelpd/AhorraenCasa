@@ -753,3 +753,10 @@ input,select,textarea{border-radius:var(--ae-radius-md)}
   header nav>.nav-dropdown>summary,
   header nav>.nav-dropdown>summary:after{transition:none}
 }
+
+
+/* Contraste de marca — Ahorra en el encabezado verde */
+header .brand > span > span,
+header .brand b{
+  color:#7ee2a8!important;
+}
