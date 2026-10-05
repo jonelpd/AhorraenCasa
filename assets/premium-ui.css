@@ -760,3 +760,21 @@ header .brand > span > span,
 header .brand b{
   color:#7ee2a8!important;
 }
+
+
+/* Identidad de marca definitiva — AhorraEnCasaYa
+   Igual en portada, páginas internas, Cuenta y Premium. */
+header .brand,
+header .brand a{
+  color:#fff!important;
+}
+header .brand > span,
+header .brand > span > span{
+  color:#fff!important;
+}
+header .brand > span > span:first-child{
+  color:#7ee2a8!important;
+}
+header .brand b{
+  color:#7ee2a8!important;
+}
