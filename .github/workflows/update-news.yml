@@ -91,6 +91,9 @@ jobs:
                               "_sort": sort_key,
                               "_score": score
                           })
+              except Exception as exc:
+                  print(f"Fuente no disponible: {source_label}: {exc}")
+                  continue
 
           seen = set()
           clean = []
