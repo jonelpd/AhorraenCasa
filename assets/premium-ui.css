@@ -778,3 +778,66 @@ header .brand > span > span:first-child{
 header .brand b{
   color:#7ee2a8!important;
 }
+
+
+/* Encabezado unificado global — referencia visual de la portada */
+header,
+header.site-header{
+  background:#105536!important;
+  color:#fff!important;
+  border-bottom:1px solid rgba(255,255,255,.12)!important;
+  box-shadow:0 4px 18px rgba(10,55,34,.18)!important;
+  backdrop-filter:none!important;
+}
+header .brand,
+header a.brand,
+header .brand a{
+  display:flex;
+  align-items:center;
+  color:#fff!important;
+  text-decoration:none;
+  font-weight:900;
+  letter-spacing:-.035em;
+}
+header .brand{
+  gap:10px;
+  font-size:28px;
+  white-space:nowrap;
+}
+header .brand img{
+  width:54px;
+  height:54px;
+  object-fit:contain;
+  border-radius:12px;
+  box-shadow:none;
+}
+header .brand > span,
+header .brand > span > span{
+  color:#fff!important;
+}
+header .brand > span > span:first-child,
+header .brand b{
+  color:#7ee2a8!important;
+}
+header nav a,
+header .nav a,
+header nav>.nav-dropdown>summary,
+header .account-link{
+  color:#fff!important;
+}
+header nav>.nav-dropdown>summary,
+header .account-link,
+header .languages{
+  background:rgba(255,255,255,.08)!important;
+  border-color:rgba(255,255,255,.2)!important;
+}
+header nav>.nav-dropdown>summary:after{color:#d9f5e4!important}
+header nav>.nav-dropdown:hover>summary,
+header nav>.nav-dropdown[open]>summary{
+  background:rgba(255,255,255,.17)!important;
+  color:#fff!important;
+}
+@media(max-width:900px){
+  header .brand{font-size:22px;gap:8px}
+  header .brand img{width:42px;height:42px}
+}
