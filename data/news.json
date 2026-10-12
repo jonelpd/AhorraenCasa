@@ -1,13 +1,6 @@
 {
-  "updatedAt": "2026-10-11T12:56:13.886986+00:00",
+  "updatedAt": "2026-10-12T15:33:50.534389+00:00",
   "articles": [
-    {
-      "title": "Historial de versiones de CE³X - miteco.gob.es",
-      "description": "Historial de versiones de CE³X miteco.gob.es",
-      "source": "MITECO · Energía y consumidores",
-      "date": "08 Oct 2026",
-      "url": "https://news.google.com/rss/articles/CBMingJBVV95cUxQUUI2ZVhsaTM4c1JNNk5TYWlSZjkzRzVOVk9Xd0gwaG1neVdKSlhTZnd2ODZoQ0ptQkpXZ1dlUWI4WDdySEVLNEM0WWJMR0VQNERhZ1YyRHo4NVh6ZUx5TlZxZHZMWmJGcmZxU0h4N1VfeHlfY2pCd0RVaXR5X2Nuc25GLXRCSGZNdGRhenNjdkFBVzRfQm1lamZzT0VVV1FERVYzcUZrRGllZmZxODc1bUdlVEJXT2RnZkNVSXU0M1hhU3g2WDBMZGFfcG9HNzI1OWdiamdUQ2ZqOGNlV1JHNlBLMS13bkE1bFdfeG8tcjR5RVVDbVdJNTAxbFJXWlNYaUFJb0VGS0stSGhCVTE5OWlXRGNZTDZobGt2cWVB?oc=5"
-    },
     {
       "title": "Novedades - CNMC",
       "description": "Novedades CNMC",
@@ -16,25 +9,18 @@
       "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE9LbHFmQXVpaWlvbGFpNHFkTkdSZEwtaDBkLWNhQ3NiM1VJUTFvXzJib292eHR1TE53ZUswdF9oZHFEc1hUWFlkWmJ1N01JUEVJbWhIYmhsT1NKYndjcnZB?oc=5"
     },
     {
+      "title": "Actuaciones - CNMC",
+      "description": "Actuaciones CNMC",
+      "source": "CNMC · Electricidad y consumidores",
+      "date": "06 Oct 2026",
+      "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE11RDVKTVR2Z2staXJ0SlBwV3lXaUZyX3F6R0ZrYlhKNndIUU1OZV80SWgtdFF0TnJyTm4waHlmM0dFVFRrelpteG1kakVhODZLOXUzOUc0UHJVbGE3eG1NVnE0WFlGdU1xZ18wX0QzaUc0MENsN1NKUW5IeWQ?oc=5"
+    },
+    {
       "title": "Nobedadeak - CNMC",
       "description": "Nobedadeak CNMC",
       "source": "CNMC · Electricidad y consumidores",
       "date": "06 Oct 2026",
       "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE41bWNwMWtRZ25hV2I1d014VjRhMmRwTVJBTnRac1JUZ3c3eXdneHBaaTBCZmJYYXZBSmNKUVlXTnlMeEowck5fN1ZsQmpkVThUQTZ5ZVRyVUoyRFdnSFNLbEZ2RWQ?oc=5"
-    },
-    {
-      "title": "Actuaciones - CNMC",
-      "description": "Actuaciones CNMC",
-      "source": "CNMC · Electricidad y consumidores",
-      "date": "05 Oct 2026",
-      "url": "https://news.google.com/rss/articles/CBMihgJBVV95cUxNb29xTHZzR2tpSG5hb2lGOV9vNE1NOU9ydUlvcUtXR2EzSFlydXBVcmlDWHJqeGhtSnhoT2stMk9UWHVzSlRQdlhBeW1NaERhc2JHdk5aQWt5NUluRUJNWE1QVjk5OG9vdGNjSm9LdFozY0F0UVZ0NjJwMVJUdWdkUDBXc2NSbFBwYm15empRSDJBcG9fcGxtazVzMzRESC1INC1BLTEzOUpxVUhteExpSFdLOFBSbmMxQThnUGh2M1dGRnY2em9sWDlna2NUUlg3c015Y0xZTTZkYXo3dUhWZVZ6eHRFUUJlMHAxalZ1VXl6VTZqazNUQk45MGJRbU43dkdkZDV3?oc=5"
-    },
-    {
-      "title": "Plantilla RESOLUCIONES CNMC 2021_def - CNMC",
-      "description": "Plantilla RESOLUCIONES CNMC 2021_def CNMC",
-      "source": "CNMC · Electricidad y consumidores",
-      "date": "07 Sep 2026",
-      "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE1GZEItZlF2LVgzVTU5RFJiczk4RFVfcVNwdC1oZ0gzZVFtM3RVaGtxSWo0VkJZd2NTWU11a3ljQi1XTlVmVkNpQkIxdEdXaE1iS2w1Umh6Qy1FWnM?oc=5"
     }
   ]
 }
