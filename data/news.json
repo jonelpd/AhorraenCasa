@@ -1,26 +1,12 @@
 {
-  "updatedAt": "2026-10-12T15:33:50.534389+00:00",
+  "updatedAt": "2026-10-13T14:16:59.922823+00:00",
   "articles": [
-    {
-      "title": "Novedades - CNMC",
-      "description": "Novedades CNMC",
-      "source": "CNMC · Electricidad y consumidores",
-      "date": "08 Oct 2026",
-      "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE9LbHFmQXVpaWlvbGFpNHFkTkdSZEwtaDBkLWNhQ3NiM1VJUTFvXzJib292eHR1TE53ZUswdF9oZHFEc1hUWFlkWmJ1N01JUEVJbWhIYmhsT1NKYndjcnZB?oc=5"
-    },
     {
       "title": "Actuaciones - CNMC",
       "description": "Actuaciones CNMC",
       "source": "CNMC · Electricidad y consumidores",
       "date": "06 Oct 2026",
       "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE11RDVKTVR2Z2staXJ0SlBwV3lXaUZyX3F6R0ZrYlhKNndIUU1OZV80SWgtdFF0TnJyTm4waHlmM0dFVFRrelpteG1kakVhODZLOXUzOUc0UHJVbGE3eG1NVnE0WFlGdU1xZ18wX0QzaUc0MENsN1NKUW5IeWQ?oc=5"
-    },
-    {
-      "title": "Nobedadeak - CNMC",
-      "description": "Nobedadeak CNMC",
-      "source": "CNMC · Electricidad y consumidores",
-      "date": "06 Oct 2026",
-      "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE41bWNwMWtRZ25hV2I1d014VjRhMmRwTVJBTnRac1JUZ3c3eXdneHBaaTBCZmJYYXZBSmNKUVlXTnlMeEowck5fN1ZsQmpkVThUQTZ5ZVRyVUoyRFdnSFNLbEZ2RWQ?oc=5"
     }
   ]
 }
